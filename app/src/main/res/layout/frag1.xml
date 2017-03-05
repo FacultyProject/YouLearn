@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:id="@+id/frag1"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        android:orientation="horizontal">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="#FFF"
+        android:orientation="vertical">
+        <ImageView
+            android:layout_width="match_parent"
+        android:layout_height="200dp"
+            android:background="@drawable/circle"
+        android:id="@+id/arabic_letters_img"
+        android:src="@drawable/ic_launcher"
+        />
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="10dp"
+            android:background="@color/colorPrimaryDark"/>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:background="@drawable/circle"
+            android:padding="5dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_vertical"
+                android:id="@+id/play"
+                android:src="@drawable/play"/>
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_vertical"
+                android:id="@+id/stop"
+                android:layout_marginLeft="5dp"
+                android:src="@drawable/stop"/>
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_marginRight="4dp"
+                android:layout_gravity="center_vertical|right"
+                android:textSize="25sp"
+                android:textColor="#000"
+                android:id="@+id/text"
+                android:layout_height="wrap_content"
+                android:text="تشغيل النشيد كامل"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+
+
+</LinearLayout>
