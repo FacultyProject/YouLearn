@@ -1,10 +1,12 @@
 
-package com.ourproject.learningapp;
+package com.ourproject.learningapp.activities;
 
-import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.ourproject.learningapp.fragments.MainFragment;
+import com.ourproject.learningapp.R;
 
 public class MainActivity extends AppCompatActivity {
     public static Typeface font;
@@ -17,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.fmain, new  MainFragment())
+                    .add(R.id.fmain, new MainFragment())
                     .commit();
         }
         boolean tabletSize =getResources().getBoolean(R.bool.isTablet);

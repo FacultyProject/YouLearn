@@ -1,4 +1,4 @@
-package com.ourproject.learningapp;
+package com.ourproject.learningapp.services;
 
 import android.app.Service;
 import android.content.Intent;

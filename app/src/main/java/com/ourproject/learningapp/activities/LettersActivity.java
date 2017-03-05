@@ -1,15 +1,13 @@
-package com.ourproject.learningapp;
+package com.ourproject.learningapp.activities;
 
-import android.app.ActionBar;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
-import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
-import android.view.LayoutInflater;
-import android.view.View;
+
+import com.ourproject.learningapp.fragments.FragmentList;
+import com.ourproject.learningapp.R;
 
 public class LettersActivity extends AppCompatActivity {
 

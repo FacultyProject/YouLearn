@@ -1,4 +1,4 @@
-package com.ourproject.learningapp;
+package com.ourproject.learningapp.adapters;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
@@ -9,6 +9,11 @@ import android.support.v4.content.ContextCompat;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.ImageSpan;
+
+import com.ourproject.learningapp.R;
+import com.ourproject.learningapp.tabs_fragments.Fragment1;
+import com.ourproject.learningapp.tabs_fragments.Fragment2;
+import com.ourproject.learningapp.tabs_fragments.Fragment3;
 
 /**
  * Created by Moetaz on 2/24/2017.

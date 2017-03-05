@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    tools:context="com.ourproject.learningapp.MainActivity">
+    tools:context="com.ourproject.learningapp.activities.MainActivity">
 
     <FrameLayout
         android:id="@+id/fmain"

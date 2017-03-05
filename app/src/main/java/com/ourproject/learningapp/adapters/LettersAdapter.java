@@ -1,4 +1,4 @@
-package com.ourproject.learningapp;
+package com.ourproject.learningapp.adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -7,6 +7,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.ourproject.learningapp.R;
+import com.ourproject.learningapp.services.ServiceClass;
+import com.ourproject.learningapp.activities.MainActivity;
 
 import java.util.ArrayList;
 import java.util.List;
