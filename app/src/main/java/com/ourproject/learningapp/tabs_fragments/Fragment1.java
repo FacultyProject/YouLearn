@@ -24,16 +24,22 @@ public class Fragment1 extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
         View view = inflater.inflate(R.layout.frag1, container, false);
+
         ImageView imageView = (ImageView) view.findViewById(R.id.arabic_letters_img);
         TextView textView = (TextView) view.findViewById(R.id.text);
+
+
         textView.setTypeface(MainActivity.font);
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 getActivity().stopService(new Intent(getActivity(), ServiceClass.class));
+
                 Intent intent = new Intent(getActivity(), LettersActivity.class);
                 getActivity().startActivity(intent);
+
                 Intent serviceIntent = new Intent(getActivity(), ServiceClass.class);
                 serviceIntent.putExtra("id", R.raw.mini_nasheed);
                 getActivity().startService(serviceIntent);

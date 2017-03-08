@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.ourproject.learningapp.R;
+import com.ourproject.learningapp.activities.LetterInfo;
+import com.ourproject.learningapp.activities.LettersActivity;
 import com.ourproject.learningapp.services.ServiceClass;
 import com.ourproject.learningapp.activities.MainActivity;
 
@@ -20,8 +22,8 @@ import java.util.List;
  * Created by Mohamed Ali on 3/2/2017.
  */
 public class LettersAdapter extends RecyclerView.Adapter<LettersAdapter.MyViewHolder> {
-    List<String> lettters;
-    Context context;
+    private List<String> lettters;
+    private Context context;
     public LettersAdapter( List<String> lettters, Context context) {
         this.lettters = new ArrayList<>();
         this.lettters = lettters;
@@ -41,7 +43,11 @@ public class LettersAdapter extends RecyclerView.Adapter<LettersAdapter.MyViewHo
         holder.textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 context.stopService(new Intent(context,ServiceClass.class));
+
+                Intent intent= new Intent(context,LetterInfo.class);
+                context.startActivity(intent);
 
             }
         });

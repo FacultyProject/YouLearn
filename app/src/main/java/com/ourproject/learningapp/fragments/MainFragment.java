@@ -12,7 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.ourproject.learningapp.adapters.CustomAdapter;
+import com.ourproject.learningapp.adapters.CustomPagerAdapter;
 import com.ourproject.learningapp.R;
 
 
@@ -32,7 +32,7 @@ public class MainFragment extends Fragment {
         View view=inflater.inflate(R.layout.fragment_main, container, false);
 
         viewPager= (ViewPager) view.findViewById(R.id.viewpager);
-        viewPager.setAdapter(new CustomAdapter(((AppCompatActivity)getActivity()).getSupportFragmentManager(),getContext()));
+        viewPager.setAdapter(new CustomPagerAdapter(((AppCompatActivity)getActivity()).getSupportFragmentManager(),getContext()));
 
         tabLayout= (TabLayout) view.findViewById(R.id.tabLayout);
         tabLayout.setupWithViewPager(viewPager);

@@ -19,14 +19,14 @@ import com.ourproject.learningapp.tabs_fragments.Fragment3;
  * Created by Moetaz on 2/24/2017.
  */
 
-public class CustomAdapter extends FragmentPagerAdapter {
+public class CustomPagerAdapter extends FragmentPagerAdapter {
 
-    Context context;
+    private Context context;
 
-    int [] icons ={R.drawable.book,R.drawable.a,R.drawable.a};
+    private int [] icons ={R.drawable.book,R.drawable.a,R.drawable.a};
     private String [] fragments={"fragment 1","fragment 2","fragment 3"};
 
-    public CustomAdapter(FragmentManager fm, Context ApplicationContext) {
+    public CustomPagerAdapter(FragmentManager fm, Context ApplicationContext) {
         super(fm);
         this.context=ApplicationContext;
     }
