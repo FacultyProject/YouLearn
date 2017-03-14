@@ -22,19 +22,10 @@
             android:enabled="true"
             android:exported="true" />
 
-        <activity android:name=".activities.LettersActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <activity android:name=".activities.LettersActivity"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".activities.LetterInfo">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
-        </activity>
+        <activity android:name=".activities.LetterInfo"/>
+
     </application>
 
 </manifest>

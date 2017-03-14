@@ -10,9 +10,9 @@ import android.widget.TextView;
 
 import com.ourproject.learningapp.R;
 import com.ourproject.learningapp.activities.LetterInfo;
-import com.ourproject.learningapp.activities.LettersActivity;
-import com.ourproject.learningapp.services.ServiceClass;
 import com.ourproject.learningapp.activities.MainActivity;
+import com.ourproject.learningapp.models.LettersModel;
+import com.ourproject.learningapp.services.ServiceClass;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,11 +22,11 @@ import java.util.List;
  * Created by Mohamed Ali on 3/2/2017.
  */
 public class LettersAdapter extends RecyclerView.Adapter<LettersAdapter.MyViewHolder> {
-    private List<String> lettters;
+    private List<LettersModel> letttersInfo;
     private Context context;
-    public LettersAdapter( List<String> lettters, Context context) {
-        this.lettters = new ArrayList<>();
-        this.lettters = lettters;
+    public LettersAdapter(List<LettersModel> letttersInfo, Context context) {
+        this.letttersInfo = new ArrayList<>();
+        this.letttersInfo = letttersInfo;
         this.context = context;
     }
 
@@ -38,15 +38,15 @@ public class LettersAdapter extends RecyclerView.Adapter<LettersAdapter.MyViewHo
 
     @Override
     public void onBindViewHolder(final MyViewHolder holder, final int position) {
-        holder.textView.setText(lettters.get(position));
+        holder.textView.setText(letttersInfo.get(position).getLetter());
         holder.textView.setTypeface(MainActivity.font);
         holder.textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 context.stopService(new Intent(context,ServiceClass.class));
-
                 Intent intent= new Intent(context,LetterInfo.class);
+                intent.putExtra("wordslist",letttersInfo.get(position));
                 context.startActivity(intent);
 
             }
@@ -55,7 +55,7 @@ public class LettersAdapter extends RecyclerView.Adapter<LettersAdapter.MyViewHo
 
     @Override
     public int getItemCount() {
-        return lettters.size();
+        return letttersInfo.size();
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder {

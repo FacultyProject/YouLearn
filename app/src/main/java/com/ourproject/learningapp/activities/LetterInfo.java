@@ -1,13 +1,14 @@
 package com.ourproject.learningapp.activities;
 
 
-import android.support.v7.app.AppCompatActivity;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 import com.ourproject.learningapp.R;
-import com.ourproject.learningapp.fragments.FragmentList;
 import com.ourproject.learningapp.fragments.LetterFragment;
-import com.ourproject.learningapp.fragments.MainFragment;
 
 public class LetterInfo extends AppCompatActivity {
 
@@ -15,11 +16,15 @@ public class LetterInfo extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_letter_info);
+        Intent intent = this.getIntent();
 
-        if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.fLetter, new LetterFragment())
-                    .commit();
-        }
+        LetterFragment letterFragment=new LetterFragment();
+        FragmentManager fragmentManager=getFragmentManager();
+        Bundle bundle=new Bundle();
+        bundle.putSerializable("wordslist",  intent.getSerializableExtra("wordslist"));
+              letterFragment.setArguments(bundle);
+        FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.fmain2,letterFragment);
+        fragmentTransaction.commit();
     }
 }
