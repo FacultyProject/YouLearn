@@ -13,15 +13,49 @@ public class LettersModel implements Serializable {
     private String word2;
     private String word3;
 
-  //  private int pic1;
-    //private int pic2;
-   // private int pic3;
+    public String getPic1() {
+        return pic1;
+    }
+
+    public void setPic1(String pic1) {
+        this.pic1 = pic1;
+    }
+
+    private String pic1;
+
+    public String getPic2() {
+        return pic2;
+    }
+
+    public void setPic2(String pic2) {
+        this.pic2 = pic2;
+    }
+
+    private String pic2;
+
+    public String getPic3() {
+        return pic3;
+    }
+
+    public void setPic3(String pic3) {
+        this.pic3 = pic3;
+    }
+
+    private String pic3;
 
    // private int sound1;
    // private int sound2;
    // private int sound3;
 
-//    private int letterSound;
+    public String getLetterSound() {
+        return letterSound;
+    }
+
+    public void setLetterSound(String letterSound) {
+        this.letterSound = letterSound;
+    }
+
+    private String letterSound;
 
     public String getLetter() {
         return letter;
@@ -39,33 +73,6 @@ public class LettersModel implements Serializable {
         return word3;
     }
 
-  /*  public int getPic1() {
-        return pic1;
-    }
-
-    public int getPic2() {
-        return pic2;
-    }
-
-    public int getPic3() {
-        return pic3;
-    }
-
-    public int getSound1() {
-        return sound1;
-    }
-
-    public int getSound2() {
-        return sound2;
-    }
-
-    public int getSound3() {
-        return sound3;
-    }
-
-    public int getLetterSound() {
-        return letterSound;
-    }*/
 
     public void setLetter(String letter) {
         this.letter = letter;
@@ -83,31 +90,4 @@ public class LettersModel implements Serializable {
         this.word3 = word3;
     }
 
-  /*  public void setPic1(int pic1) {
-        this.pic1 = pic1;
-    }
-
-    public void setPic2(int pic2) {
-        this.pic2 = pic2;
-    }
-
-    public void setPic3(int pic3) {
-        this.pic3 = pic3;
-    }
-
-    public void setSound1(int sound1) {
-        this.sound1 = sound1;
-    }
-
-    public void setSound2(int sound2) {
-        this.sound2 = sound2;
-    }
-
-    public void setSound3(int sound3) {
-        this.sound3 = sound3;
-    }
-
-    public void setLetterSound(int letterSound) {
-        this.letterSound = letterSound;
-    }*/
-}
+   }

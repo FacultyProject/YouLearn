@@ -11,6 +11,7 @@
         android:layout_marginBottom="20dp"
         android:layout_marginTop="30dp"
         android:layout_weight="3"
+        android:clickable="true"
         android:layout_gravity="center_horizontal"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
@@ -29,18 +30,21 @@
                 android:layout_weight="1"
                 android:src="@drawable/tablets"
                 android:layout_width="0dp"
+                android:id="@+id/word_image3"
                 android:layout_height="wrap_content" />
 
             <ImageView
                 android:layout_weight="1"
                 android:src="@drawable/mouse"
                 android:layout_width="0dp"
+                android:id="@+id/word_image2"
                 android:layout_height="wrap_content" />
 
             <ImageView
                 android:layout_weight="1"
                 android:src="@drawable/rabbit"
                 android:layout_width="0dp"
+                android:id="@+id/word_image1"
                 android:layout_height="wrap_content" />
         </LinearLayout>
 

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.ourproject.learningapp">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -22,10 +23,13 @@
             android:enabled="true"
             android:exported="true" />
 
-        <activity android:name=".activities.LettersActivity"/>
+        <activity android:name=".activities.LettersActivity" />
+        <activity android:name=".activities.LetterInfo" />
 
-        <activity android:name=".activities.LetterInfo"/>
-
+        <service
+            android:name=".services.OnlineServiceClass"
+            android:enabled="true"
+            android:exported="true"></service>
     </application>
 
 </manifest>
