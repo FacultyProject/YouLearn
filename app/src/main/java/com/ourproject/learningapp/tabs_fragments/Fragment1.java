@@ -19,7 +19,7 @@ import com.ourproject.learningapp.services.ServiceClass;
  * Created by Moetaz on 2/24/2017.
  */
 public class Fragment1 extends Fragment {
-    ImageView buPlay, buStop;
+    //ImageView buPlay, buStop;
 
     @Nullable
     @Override
@@ -28,10 +28,10 @@ public class Fragment1 extends Fragment {
         View view = inflater.inflate(R.layout.frag1, container, false);
 
         ImageView imageView = (ImageView) view.findViewById(R.id.arabic_letters_img);
-        TextView textView = (TextView) view.findViewById(R.id.text);
+        //TextView textView = (TextView) view.findViewById(R.id.text);
 
 
-        textView.setTypeface(MainActivity.font);
+        //textView.setTypeface(MainActivity.font);
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -46,7 +46,7 @@ public class Fragment1 extends Fragment {
             }
         });
 
-        buPlay = (ImageView) view.findViewById(R.id.play);
+        /**buPlay = (ImageView) view.findViewById(R.id.play);
         buPlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -63,7 +63,7 @@ public class Fragment1 extends Fragment {
             public void onClick(View view) {
                 getActivity().stopService(new Intent(getActivity(), ServiceClass.class));
             }
-        });
+        });**/
         return view;
     }
 }
