@@ -2,9 +2,13 @@ package com.ourproject.learningapp.fragments;
 
 import android.app.Fragment;
 import android.content.Intent;
+import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +23,7 @@ import com.ourproject.learningapp.services.ServiceClass;
 import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * Created by Mohamed Ali on 3/14/2017.
@@ -49,26 +54,32 @@ public class LetterFragment extends Fragment {
         word2Img= (ImageView) view.findViewById(R.id.word_image2);
         word3Img= (ImageView) view.findViewById(R.id.word_image3);
         letter.setText(lettersModel.getLetter());
-        letter.setTypeface(MainActivity.font);
-        wordTxt1.setText(lettersModel.getWord1());
-        wordTxt1.setTypeface(MainActivity.font);
-        wordTxt2.setText(lettersModel.getWord2());
-        wordTxt2.setTypeface(MainActivity.font);
-        wordTxt3.setText(lettersModel.getWord3());
-        wordTxt3.setTypeface(MainActivity.font);
-     letter.setOnClickListener(new View.OnClickListener() {
+        colorChar(wordTxt1,lettersModel.getLetter(),lettersModel.getWord1());
+        colorChar(wordTxt2,lettersModel.getLetter(),lettersModel.getWord2());
+        colorChar(wordTxt3,lettersModel.getLetter(),lettersModel.getWord3());
+
+        letter.setOnClickListener(new View.OnClickListener() {
          @Override
          public void onClick(View view) {
-             getActivity().stopService(new Intent(getActivity(), OnlineServiceClass.class));
-             Intent serviceIntent = new Intent(getActivity(), OnlineServiceClass.class);
-             serviceIntent.putExtra("url",lettersModel.getLetterSound());
-             getActivity().startService(serviceIntent);
+             playSound(lettersModel.getLetterSound());
          }
      });
         word1Img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                playSound(lettersModel.getPicSounds1());
+            }
+        });
+        word2Img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                playSound(lettersModel.getPicSounds2());
+            }
+        });
+        word3Img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                playSound(lettersModel.getPicSounds3());
             }
         });
         Picasso.with(getActivity()).load(lettersModel.getPic1())
@@ -79,5 +90,32 @@ public class LetterFragment extends Fragment {
                 .into(word3Img);
 
         return view;
+    }
+    private void colorChar(TextView textView,String ch,String word){
+        if (ch.contains("ه"))
+            ch="ه";
+        else if (ch.contains("أ")&&word.contains("ء"))
+            ch="ء";
+        String ayeTemp = word;
+
+        ArrayList<Integer> positionInt = new ArrayList<>();
+        for (int i = 0; i < ayeTemp.length(); i++) {
+            if (ayeTemp.contains(ch)) {
+                if (positionInt.size() == 0) {
+                    positionInt.add(ayeTemp.indexOf(ch));
+            }
+        }}
+        Spannable wordtoSpan = new SpannableString(word);
+        for (int i = 0; i < positionInt.size(); i++) {
+            wordtoSpan.setSpan(new ForegroundColorSpan(Color.RED), positionInt.get(i), positionInt.get(i) + 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        }
+        textView.setText(wordtoSpan);
+        textView.setTypeface(MainActivity.font);
+    }
+    private void playSound(String string){
+        getActivity().stopService(new Intent(getActivity(), OnlineServiceClass.class));
+        Intent serviceIntent = new Intent(getActivity(), OnlineServiceClass.class);
+        serviceIntent.putExtra("url",string);
+        getActivity().startService(serviceIntent);
     }
 }

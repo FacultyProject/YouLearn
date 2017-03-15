@@ -28,7 +28,8 @@ public class OnlineServiceClass extends Service {
             mediaPlayer.prepare();
         } catch (IOException e) {
             e.printStackTrace();
-        }        sound=new Thread(){
+        }
+        sound=new Thread(){
             public void run(){
                 mediaPlayer.start();
             }

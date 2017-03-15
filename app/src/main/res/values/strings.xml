@@ -60,7 +60,7 @@
         <item>ليمونة</item>
         <item>موز</item>
         <item>نملة</item>
-        <item>هر</item>
+        <item>هـر</item>
         <item>وردة</item>
         <item>يمامة</item>
     </string-array>
@@ -168,7 +168,7 @@
         <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/images%2Fg2%2F9.png?alt=media&amp;token=083595f3-3c6e-4d28-98ef-20515ede8a26</item>
         <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/images%2Fg2%2F10.png?alt=media&amp;token=32868df3-0e8e-4540-b671-4fa681e36b89</item>
         <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/images%2Fg2%2F11.png?alt=media&amp;token=0067610f-1573-4198-97c6-4636d7890ad5</item>
-        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/images%2Fg2%2F12.png?alt=media&amp;token=2ab62e78-7ee9-4f5a-9b14-8a0110f6ef6a</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/images%2Fg2%2F12.png?alt=media&amp;token=4e6fbe9b-ed67-4b5e-b12e-1ac358868411</item>
         <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/images%2Fg2%2F13.png?alt=media&amp;token=e6638340-b3a3-48e6-b7b7-c8ac346ad2c8</item>
         <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/images%2Fg2%2F14.png?alt=media&amp;token=4b3a2045-f40e-4af1-9aeb-e61d5496a3a2</item>
         <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/images%2Fg2%2F15.png?alt=media&amp;token=051b8e14-2d80-4ad1-ad31-324ead4b23f2</item>
@@ -201,7 +201,7 @@
         <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/images%2Fg3%2F12.png?alt=media&amp;token=9b57b46f-8e45-437e-90d4-3bc284585257</item>
         <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/images%2Fg3%2F13.png?alt=media&amp;token=974be564-1349-44ca-947a-05b0de1052b8</item>
         <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/images%2Fg3%2F14.png?alt=media&amp;token=633efd7b-2d7f-491f-aa94-437b43e90b3c</item>
-        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/images%2Fg3%2F15.png?alt=media&amp;token=3dfa7457-2d96-4d7e-afd1-de8579273199</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/images%2Fg3%2F15.png?alt=media&amp;token=4933a6c7-8a08-4d43-9238-ebb964ed5d52</item>
         <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/images%2Fg3%2F16.png?alt=media&amp;token=205c6255-a8ec-4772-8c5e-b8e7394efa60</item>
         <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/images%2Fg3%2F17.png?alt=media&amp;token=a9fce0fe-6864-4e6e-9a34-30af22c9903e</item>
         <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/images%2Fg3%2F18.PNG?alt=media&amp;token=69cda606-158b-4a4a-853c-6336094edb4f</item>
@@ -245,5 +245,95 @@
         <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Flettersounds%2F26.mp3?alt=media&amp;token=508ff32e-e516-4a5c-8d20-b2f4b16acb7e</item>
         <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Flettersounds%2F27.mp3?alt=media&amp;token=8ff64a52-875c-4498-928a-230ca00cb4bb</item>
         <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Flettersounds%2F28.mp3?alt=media&amp;token=68d65012-59e4-4a61-8442-1c55c9a4b518</item>
+    </string-array>
+    <string-array name="PicSounds1">
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg1%2F0Arneb.mp3?alt=media&amp;token=16deab12-eb82-476d-9c2c-e13db59c387e</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg1%2F1Baid.mp3?alt=media&amp;token=c38e1de3-9d03-4c36-972c-7fd47b26c333</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg1%2F2Temsah.mp3?alt=media&amp;token=b4c85734-8270-4bee-aabc-d024fc006c22</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg1%2F3Tho3ban.mp3?alt=media&amp;token=be0f0d62-c7b8-4d59-97eb-4eeb280193b6</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg1%2F4Gamal.mp3?alt=media&amp;token=51ad299a-608b-4e5a-b96e-6459e30c5a72</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg1%2F5Hamama.mp3?alt=media&amp;token=b4e8aa37-db79-47aa-bcb9-18e0660a2f67</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg1%2F6Kharof.mp3?alt=media&amp;token=c69c20a1-c789-4f84-9647-a66a458184c6</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg1%2F7Dagaga.mp3?alt=media&amp;token=4eaa6cb7-6ac0-478a-9f82-db38f0f17360</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg1%2F8Zobaba.mp3?alt=media&amp;token=9791a6df-4eb7-4c9d-b519-1e9b3038b8df</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg1%2F9Romana.mp3?alt=media&amp;token=801dbc05-1e59-4d64-9848-dffc2b3cc4d9</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg1%2F10Zarafa.mp3?alt=media&amp;token=6cc7cc96-6c8e-49a3-9f4f-18b2644593a6</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg1%2F11Sengab.mp3?alt=media&amp;token=601ae679-613c-4959-8396-088b3906dd9d</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg1%2F12Shagara.mp3?alt=media&amp;token=d92c3c14-b565-4b8c-80bc-3645658a5993</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg1%2F13Sager.mp3?alt=media&amp;token=fe03a56b-1e58-4f2c-addd-881ea610f532</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg1%2F14Dofde%603.mp3?alt=media&amp;token=c86b6c8c-a1a9-42fc-af60-327749611a67</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg1%2F15Taera.mp3?alt=media&amp;token=cb6ebb05-7f6a-48fb-872c-f97452e54d98</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg1%2F16Zarf.mp3?alt=media&amp;token=0ab0e898-0beb-4083-bcb1-ab2f32ce1197</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg1%2F17Enab.mp3?alt=media&amp;token=6c59d314-1136-495c-b70c-aee2dc1168e4</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg1%2F18Orab.mp3?alt=media&amp;token=b380d307-8383-4c09-a515-5fb462f3f3ea</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg1%2F19Farasha.mp3?alt=media&amp;token=08270dd7-115e-484f-b07b-5b9738bafc1f</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg1%2F20Qalm.mp3?alt=media&amp;token=036e176a-b625-4a3b-a102-e8a99aaa10b8</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg1%2F21Kalb.mp3?alt=media&amp;token=e6142099-de22-4c6c-b323-3f405b6ca171</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg1%2F22Lemona.mp3?alt=media&amp;token=5d9e3fb1-7d6c-40ae-82f5-9b30f9c296ec</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg1%2F23Moz.mp3?alt=media&amp;token=cba14329-7f27-4fd4-a796-76601e41505f</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg1%2F24Namla.mp3?alt=media&amp;token=729ebed3-eec6-4213-b319-3128b23a1cc0</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg1%2F25Her.mp3?alt=media&amp;token=56066916-70ad-464e-b459-5ef0e86ff272</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg1%2F26Warda.mp3?alt=media&amp;token=6fd8b5b1-0208-4de1-8495-d76bf3bc7dd9</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg1%2F27Yamama.mp3?alt=media&amp;token=f5af7432-edc5-4232-bc4d-ac3a545f2a11</item>
+    </string-array>
+    <string-array name="PicSounds2">
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg2%2F0Far.mp3?alt=media&amp;token=c1610169-eaed-4fa8-8d8e-65d8e2206c42</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg2%2F1Mosbah.mp3?alt=media&amp;token=26f9c334-ed55-4900-b900-10b5f20b99ee</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg2%2F2Dafter.mp3?alt=media&amp;token=5146641c-72ba-4505-9dbb-976df9a5ab3e</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg2%2F3Thawm.mp3?alt=media&amp;token=4569b228-7ca1-41bb-afe7-cf91a065abb7</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg2%2F4Negma.mp3?alt=media&amp;token=711005cb-04f8-4d88-b2fc-289698940404</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg2%2F5Nahla.mp3?alt=media&amp;token=a6a33be9-c1a5-408f-abda-af7d22e8a202</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg2%2F6Nakhla.mp3?alt=media&amp;token=843bc776-5276-42d5-9faa-da81c4123305</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg2%2F7Hodhod.mp3?alt=media&amp;token=8c960ddb-231d-48c1-a017-9c69b4164e57</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg2%2F8Hiza.mp3?alt=media&amp;token=f8c58949-9bc3-43ef-aa8e-56d778a07a45</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg2%2F9Gawareb.mp3?alt=media&amp;token=3a1b2497-8d9e-4aa8-87b4-038fd368d402</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg2%2F10Gazer.mp3?alt=media&amp;token=16d6f3ae-7c0e-43ab-92ad-381e420487aa</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg2%2F11Masjed.mp3?alt=media&amp;token=4f77541c-f30c-466c-9d36-7b5f7cdab886 </item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg2%2F12Mesht.mp3?alt=media&amp;token=8e09690f-3d63-45a0-8ce2-6236956582d5</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg2%2F13Asfor.mp3?alt=media&amp;token=2576d642-3970-48be-9a0f-913c5106dad7</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg2%2F14Medrab.mp3?alt=media&amp;token=c987e9f2-8551-422d-b6de-1f43b2ccf292</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg2%2F15Bata.mp3?alt=media&amp;token=77ff5604-4626-445a-bab4-faf557937fb9</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg2%2F16Nazara.mp3?alt=media&amp;token=c43aff76-a7ac-4bb6-92b9-70c49e9d6208</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg2%2F17Me3taf.mp3?alt=media&amp;token=ccab452d-c0f4-4dc8-b8e9-be083c936225</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg2%2F18beba%603a.mp3?alt=media&amp;token=11dcf1c5-8acd-4717-b1f5-e48863baa7f1</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg2%2F19Mahfaza.mp3?alt=media&amp;token=354bf9a7-0d56-4bfe-bf0c-1a20028da1e0</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg2%2F20Baqara.mp3?alt=media&amp;token=1b156b4a-6ab1-4694-aab0-6f75914793af</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg2%2F21Ketab.mp3?alt=media&amp;token=67b88a45-3830-48e0-8493-9130af00634c</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg2%2F22Solem.mp3?alt=media&amp;token=31e69ff3-e2a0-43b6-9f41-ef2ca316129c</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg2%2F23Samaka.mp3?alt=media&amp;token=5c86f645-0ee5-4b9e-9fba-8d89dea2a745</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg2%2F24Manara.mp3?alt=media&amp;token=b500d44c-5a68-4401-bb56-eec5aec32b07</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg2%2F25Mahd.mp3?alt=media&amp;token=29a0adf6-75db-46ff-8318-dfde0e5d023b</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg2%2F26Loha.mp3?alt=media&amp;token=31b5963e-88da-4976-b5bf-6af84d751e97</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg2%2F27Domia.mp3?alt=media&amp;token=5d691d1b-e7ef-4d25-81fb-ece23bb5a23f</item>
+    </string-array>
+    <string-array name="PicSounds3">
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg3%2F0Dawa.mp3?alt=media&amp;token=21c0f4c1-938f-49f6-b1e7-b084482c7ed6</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg3%2F1Bab.mp3?alt=media&amp;token=21ca3c3b-58cf-47dc-851f-4c96f772aaa9</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg3%2F2Toot.mp3?alt=media&amp;token=b2e76192-9b6c-4e8f-84da-1d8145de8e71</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg3%2F3Mothalth.mp3?alt=media&amp;token=8de97487-fb07-4279-86a4-8b4118c3a521</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg3%2F4Tag.mp3?alt=media&amp;token=b78a6d29-82f2-43db-afeb-31d300b52017</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg3%2F5Moftah.mp3?alt=media&amp;token=bd41bd4a-89c7-472f-b7f8-0caedf196c23</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg3%2F6Kokh.mp3?alt=media&amp;token=47b28cb4-cdd8-40b2-9d65-10cb9735a963</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg3%2F7yd.mp3?alt=media&amp;token=5be45991-8722-4f03-8dbc-521b2a0d31b5</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg3%2F8Qonfoz.mp3?alt=media&amp;token=390a7d2e-a7f6-4b94-b864-ca47fe1ebd88</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg3%2F9Nemr.mp3?alt=media&amp;token=78e89ff3-5919-4ba8-bb9a-e44636f2ff2f</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg3%2F10Khobz.mp3?alt=media&amp;token=925a983e-009b-4088-a2fd-dd50e7deb466</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg3%2F11Faras.mp3?alt=media&amp;token=cc8daa91-f349-47c9-b720-a9d28b0066d8</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg3%2F12Qersh.mp3?alt=media&amp;token=ecec1c97-e494-4230-9066-fa6d16918f59</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg3%2F13Maqs.mp3?alt=media&amp;token=57e6e3c3-e2aa-4029-b135-ec2900f54ba3</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg3%2F14Ders.mp3?alt=media&amp;token=4a129759-e922-4427-a2aa-dd85c7a2ba90</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg3%2F15Aqrat.mp3?alt=media&amp;token=aebc89b4-3f81-4878-8823-12767130add4</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg3%2F16Mazala.mp3?alt=media&amp;token=98d6a999-1795-46de-a4ac-d578d53727a7</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg3%2F17Mezia3.mp3?alt=media&amp;token=3ac7647b-a5e9-49e9-b3f9-cb3996db869f</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg3%2F18Dima%603.mp3?alt=media&amp;token=240d7eb8-6b42-4ddd-9acc-ef68d5c7a253</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg3%2F19Horof.mp3?alt=media&amp;token=d7a84232-1f9a-49f8-8154-89b08b65adc5</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg3%2F20Sendoq.mp3?alt=media&amp;token=daecfdd2-f312-43c4-a637-5af2999dcf1f</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg3%2F21Deek.mp3?alt=media&amp;token=5709bdf7-f747-428e-8acd-9e5b49548ab7</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg3%2F22Haml.mp3?alt=media&amp;token=8ce9c084-f797-4543-bde0-4a9fb0b39f58</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg3%2F23Derham.mp3?alt=media&amp;token=64b1fe06-4bcf-49e2-9980-832f8a0fb70f</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg3%2F24Hosan.mp3?alt=media&amp;token=15d5d5da-94a3-47e4-8443-d3eceb6f5535</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg3%2F25Monabh.mp3?alt=media&amp;token=59ae603a-5939-471d-a9a1-6fabc4c06250</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg3%2F26Dalw.mp3?alt=media&amp;token=7d93f81e-c3a9-40f3-a5f4-58194b670c80</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg3%2F27Korsi.mp3?alt=media&amp;token=e953f36a-50bd-4deb-9db5-c08229a26f94</item>
     </string-array>
 </resources>

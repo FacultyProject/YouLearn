@@ -43,9 +43,34 @@ public class LettersModel implements Serializable {
 
     private String pic3;
 
-   // private int sound1;
-   // private int sound2;
-   // private int sound3;
+    public String getPicSounds1() {
+        return picSounds1;
+    }
+
+    public void setPicSounds1(String picSounds1) {
+        this.picSounds1 = picSounds1;
+    }
+
+    private String picSounds1;
+
+    public String getPicSounds3() {
+        return picSounds3;
+    }
+
+    public void setPicSounds3(String picSounds3) {
+        this.picSounds3 = picSounds3;
+    }
+
+    public String getPicSounds2() {
+        return picSounds2;
+    }
+
+    public void setPicSounds2(String picSounds2) {
+        this.picSounds2 = picSounds2;
+    }
+
+    private String picSounds2;
+    private String picSounds3;
 
     public String getLetterSound() {
         return letterSound;

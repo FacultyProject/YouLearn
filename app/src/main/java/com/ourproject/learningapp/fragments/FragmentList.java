@@ -22,7 +22,8 @@ import java.util.List;
 public class FragmentList extends Fragment {
     List<LettersModel>list=new ArrayList<>();
     String letters[],lettersNamed1[],lettersNamed2[],lettersNamed3[],
-            lettersImages1[],lettersSounds[],lettersImages2[],lettersImages3[];
+            lettersImages1[],lettersSounds[],lettersImages2[],lettersImages3[],
+            picSounds1[],picSounds3[],picSounds2[];
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -35,6 +36,9 @@ public class FragmentList extends Fragment {
         lettersImages2=getActivity().getResources().getStringArray(R.array.lettersImages2);
         lettersImages3=getActivity().getResources().getStringArray(R.array.lettersImages3);
         lettersSounds=getActivity().getResources().getStringArray(R.array.lettersSounds);
+        picSounds1 =getActivity().getResources().getStringArray(R.array.PicSounds1);
+        picSounds2=getActivity().getResources().getStringArray(R.array.PicSounds2);
+        picSounds3=getActivity().getResources().getStringArray(R.array.PicSounds3);
         for (int i=0;i<letters.length;i++){
             LettersModel lettersModel=new LettersModel();
             lettersModel.setLetter(letters[i]);
@@ -45,6 +49,9 @@ public class FragmentList extends Fragment {
             lettersModel.setPic2(lettersImages2[i]);
             lettersModel.setPic3(lettersImages3[i]);
             lettersModel.setLetterSound(lettersSounds[i]);
+            lettersModel.setPicSounds1(picSounds1[i]);
+            lettersModel.setPicSounds2(picSounds2[i]);
+            lettersModel.setPicSounds3(picSounds3[i]);
             list.add(lettersModel);
         }
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.letters_recyvlerView);
