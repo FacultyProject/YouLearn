@@ -19,7 +19,7 @@ import java.util.List;
 /**
  * Created by Mohamed Ali on 3/2/2017.
  */
-public class FragmentList extends Fragment {
+public class ListFragment extends Fragment {
     List<LettersModel>list=new ArrayList<>();
     String letters[],lettersNamed1[],lettersNamed2[],lettersNamed3[],
             lettersImages1[],lettersSounds[],lettersImages2[],lettersImages3[],

@@ -336,4 +336,47 @@
         <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg3%2F26Dalw.mp3?alt=media&amp;token=7d93f81e-c3a9-40f3-a5f4-58194b670c80</item>
         <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/sounds%2Fg3%2F27Korsi.mp3?alt=media&amp;token=e953f36a-50bd-4deb-9db5-c08229a26f94</item>
     </string-array>
+
+    <string-array name="mad1">
+        <item>ءَاوَى</item>
+        <item>مُوسَى</item>
+        <item>تِينَ</item>
+    </string-array>
+
+    <string-array name="mad2">
+        <item>قَالَ</item>
+        <item>أُولَى</item>
+        <item>حِينَ</item>
+    </string-array>
+
+    <string-array name="mad3">
+        <item>رَانَ</item>
+        <item>طُورِ</item>
+        <item>رِيحٌ</item>
+    </string-array>
+
+    <string-array name="mad4">
+        <item>نَارٌ</item>
+        <item>مَاعُونَ</item>
+        <item>فِيلِ</item>
+    </string-array>
+
+    <string-array name="mad5">
+        <item>هَدَى</item>
+        <item>سَاهُونَ</item>
+        <item>تِينَ</item>
+    </string-array>
+
+    <string-array name="mad6">
+        <item>نَادى</item>
+        <item>صُورِ</item>
+        <item>تِينَ</item>
+    </string-array>
+
+    <string-array name="madletters">
+        <item>أ</item>
+        <item>و</item>
+        <item>ي</item>
+
+    </string-array>
 </resources>

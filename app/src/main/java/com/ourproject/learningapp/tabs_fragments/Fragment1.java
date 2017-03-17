@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.ourproject.learningapp.activities.LettersActivity;
+import com.ourproject.learningapp.activities.MadLettersActivity;
 import com.ourproject.learningapp.activities.MainActivity;
 import com.ourproject.learningapp.R;
 import com.ourproject.learningapp.services.ServiceClass;
@@ -28,10 +29,20 @@ public class Fragment1 extends Fragment {
         View view = inflater.inflate(R.layout.frag1, container, false);
 
         ImageView imageView = (ImageView) view.findViewById(R.id.arabic_letters_img);
+        ImageView madImage= (ImageView) view.findViewById(R.id.mamdod_img);
+
         //TextView textView = (TextView) view.findViewById(R.id.text);
 
 
         //textView.setTypeface(MainActivity.font);
+        madImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), MadLettersActivity.class);
+                getActivity().startActivity(intent);
+            }
+        });
+
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

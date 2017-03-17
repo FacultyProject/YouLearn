@@ -23,6 +23,7 @@ public class LetterInfo extends AppCompatActivity {
         Bundle bundle=new Bundle();
         bundle.putSerializable("wordslist",  intent.getSerializableExtra("wordslist"));
               letterFragment.setArguments(bundle);
+
         FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.fmain2,letterFragment);
         fragmentTransaction.commit();
