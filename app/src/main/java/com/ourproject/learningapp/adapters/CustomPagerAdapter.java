@@ -23,7 +23,7 @@ public class CustomPagerAdapter extends FragmentPagerAdapter {
 
     private Context context;
 
-    private int [] icons ={R.drawable.book,R.drawable.a,R.drawable.a};
+    private int [] icons ={R.drawable.book,R.drawable.exersiceicon,R.drawable.a};
     private String [] fragments={"fragment 1","fragment 2","fragment 3"};
 
     public CustomPagerAdapter(FragmentManager fm, Context ApplicationContext) {

@@ -19,7 +19,7 @@ public class MadLetterFragment extends Fragment {
 
 
     private TextView letterMad,mWord1,mWord2,mWord3,mWord4,mWord5,mWord6;
-    MadModel madModel;
+    private MadModel madModel;
     public MadLetterFragment() {
         // Required empty public constructor
     }

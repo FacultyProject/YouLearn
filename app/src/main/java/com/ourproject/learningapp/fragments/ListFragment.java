@@ -20,8 +20,8 @@ import java.util.List;
  * Created by Mohamed Ali on 3/2/2017.
  */
 public class ListFragment extends Fragment {
-    List<LettersModel>list=new ArrayList<>();
-    String letters[],lettersNamed1[],lettersNamed2[],lettersNamed3[],
+    private List<LettersModel>list=new ArrayList<>();
+    private String letters[],lettersNamed1[],lettersNamed2[],lettersNamed3[],
             lettersImages1[],lettersSounds[],lettersImages2[],lettersImages3[],
             picSounds1[],picSounds3[],picSounds2[];
     @Nullable
