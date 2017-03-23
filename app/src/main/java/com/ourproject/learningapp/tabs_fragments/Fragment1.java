@@ -1,6 +1,7 @@
 package com.ourproject.learningapp.tabs_fragments;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -14,6 +15,7 @@ import com.ourproject.learningapp.activities.LettersActivity;
 import com.ourproject.learningapp.activities.MadLettersActivity;
 import com.ourproject.learningapp.activities.MainActivity;
 import com.ourproject.learningapp.R;
+import com.ourproject.learningapp.globals.GlobalLetter;
 import com.ourproject.learningapp.services.ServiceClass;
 
 /**
@@ -30,14 +32,25 @@ public class Fragment1 extends Fragment {
 
         ImageView imageView = (ImageView) view.findViewById(R.id.arabic_letters_img);
         ImageView madImage= (ImageView) view.findViewById(R.id.mamdod_img);
+        ImageView Shortmov= (ImageView) view.findViewById(R.id.shortmov);
 
         //TextView textView = (TextView) view.findViewById(R.id.text);
 
 
         //textView.setTypeface(MainActivity.font);
+        Shortmov.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                GlobalLetter.LETTERTYPE="ShortMovement";
+                Intent intent = new Intent(getActivity(), MadLettersActivity.class);
+                getActivity().startActivity(intent);
+            }
+        });
+
         madImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                GlobalLetter.LETTERTYPE="MadMovement";
                 Intent intent = new Intent(getActivity(), MadLettersActivity.class);
                 getActivity().startActivity(intent);
             }

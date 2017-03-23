@@ -49,7 +49,6 @@ public class MadLettersAdapter extends RecyclerView.Adapter<MadLettersAdapter.My
             @Override
             public void onClick(View view) {
 
-
                 Intent intent= new Intent(context,MadLetterInfo.class);
                 intent.putExtra("madwordslist",letttersInfo.get(position));
                 context.startActivity(intent);

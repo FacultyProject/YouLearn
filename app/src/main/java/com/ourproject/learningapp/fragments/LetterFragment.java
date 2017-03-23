@@ -38,7 +38,6 @@ public class LetterFragment extends Fragment {
         Bundle bundle = getArguments();
         lettersModel=(LettersModel) bundle.getSerializable("wordslist");
 
-
     }
 
     @Override

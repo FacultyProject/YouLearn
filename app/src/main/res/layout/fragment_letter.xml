@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="#ecd8c6"
+    android:background="@color/colorPrimary"
     tools:context="com.ourproject.learningapp.fragments.LetterFragment">
 
     <TextView

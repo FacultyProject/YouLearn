@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">LearningApp</string>
+    <string name="app_name">YouLearn</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -120,7 +120,7 @@
         <item>حمل</item>
         <item>درهم</item>
         <item>حصان</item>
-        <item>منيه</item>
+        <item>أمنيه</item>
         <item>دلو</item>
         <item>كرسي</item>
     </string-array>
@@ -378,5 +378,96 @@
         <item>و</item>
         <item>ي</item>
 
+    </string-array>
+
+    <string-array name="HorofMadmoma">
+        <item>أُ</item>
+        <item>بُ</item>
+        <item>تُ</item>
+        <item>ثُ</item>
+        <item>جُ</item>
+        <item>حُ</item>
+        <item>خُ</item>
+        <item>دُ</item>
+        <item>ذُ</item>
+        <item>رُ</item>
+        <item>زُ</item>
+        <item>سُ</item>
+        <item>شُ</item>
+        <item>صُ</item>
+        <item>ضُ</item>
+        <item>طُ</item>
+        <item>ظُ</item>
+        <item>عُ</item>
+        <item>غُ</item>
+        <item>فُ</item>
+        <item>قُ</item>
+        <item>كُ</item>
+        <item>لُ</item>
+        <item>مُ</item>
+        <item>نُ</item>
+        <item>هـُ</item>
+        <item>وُ</item>
+        <item>يُ</item>
+    </string-array>
+    <string-array name="HorofMaftoha">
+        <item>أَ</item>
+        <item>بَ</item>
+        <item>تَ</item>
+        <item>تَ</item>
+        <item>جَ</item>
+        <item>حَ</item>
+        <item>خَ</item>
+        <item>دَ</item>
+        <item>ذَ</item>
+        <item>رَ</item>
+        <item>زَ</item>
+        <item>سَ</item>
+        <item>شَ</item>
+        <item>صَ</item>
+        <item>ضَ</item>
+        <item>طَ</item>
+        <item>ظَ</item>
+        <item>عَ</item>
+        <item>غَ</item>
+        <item>فَ</item>
+        <item>قَ</item>
+        <item>كَ</item>
+        <item>لَ</item>
+        <item>مَ</item>
+        <item>نَ</item>
+        <item>هَـ</item>
+        <item>وَ</item>
+        <item>يَ</item>
+    </string-array>
+    <string-array name="HorofMaksora">
+        <item>أَ</item>
+        <item>بِ</item>
+        <item>تِ</item>
+        <item>ثِ</item>
+        <item>جِ</item>
+        <item>حِ</item>
+        <item>خِ</item>
+        <item>دِ</item>
+        <item>ذِ</item>
+        <item>رِ</item>
+        <item>زِ</item>
+        <item>سِ</item>
+        <item>شِ</item>
+        <item>صِ</item>
+        <item>ضِ</item>
+        <item>طِ</item>
+        <item>ظِ</item>
+        <item>عِ</item>
+        <item>غِ</item>
+        <item>فِ</item>
+        <item>قِ</item>
+        <item>كِ</item>
+        <item>لِ</item>
+        <item>مِ</item>
+        <item>نِ</item>
+        <item>هِـ</item>
+        <item>وِ</item>
+        <item>يِ</item>
     </string-array>
 </resources>
