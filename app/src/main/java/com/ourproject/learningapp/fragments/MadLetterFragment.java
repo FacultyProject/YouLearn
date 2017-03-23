@@ -48,6 +48,7 @@ public class MadLetterFragment extends Fragment {
 
         letterMad.setText(madModel.getLetter());
         mWord1.setText(madModel.getWord1());
+
         mWord2.setText(madModel.getWord2());
         mWord3.setText(madModel.getWord3());
         mWord4.setText(madModel.getWord4());

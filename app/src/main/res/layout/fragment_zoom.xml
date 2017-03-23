@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<ImageView
+    android:layout_width="match_parent"
+    android:layout_weight="3"
+    android:layout_height="0dp"
+    android:src="@drawable/mouse"
+    android:id="@+id/image"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.5"
+        android:gravity="center_horizontal"
+        android:textSize="100sp"
+        android:text="dsdsd"
+        android:textColor="#000"
+        android:id="@+id/text"/>
+</LinearLayout>

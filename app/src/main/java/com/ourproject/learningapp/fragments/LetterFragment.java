@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentActivity;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
@@ -66,18 +67,45 @@ public class LetterFragment extends Fragment {
         word1Img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                ZoomFragment zoomFragment=new ZoomFragment();
+                Bundle bundle=new Bundle();
+                bundle.putString("image",lettersModel.getPic1());
+                bundle.putString("text",lettersModel.getWord1());
+                zoomFragment.setArguments(bundle);
+                ((FragmentActivity)getActivity()).getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.letter_fragment,zoomFragment)
+                        .addToBackStack(null)
+                        .commit();
                 playSound(lettersModel.getPicSounds1());
             }
         });
         word2Img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                ZoomFragment zoomFragment=new ZoomFragment();
+                Bundle bundle=new Bundle();
+                bundle.putString("image",lettersModel.getPic2());
+                bundle.putString("text",lettersModel.getWord2());
+                zoomFragment.setArguments(bundle);
+                ((FragmentActivity)getActivity()).getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.letter_fragment,zoomFragment)
+                        .addToBackStack(null)
+                        .commit();
                 playSound(lettersModel.getPicSounds2());
             }
         });
         word3Img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                ZoomFragment zoomFragment=new ZoomFragment();
+                Bundle bundle=new Bundle();
+                bundle.putString("image",lettersModel.getPic3());
+                bundle.putString("text",lettersModel.getWord3());
+                zoomFragment.setArguments(bundle);
+                ((FragmentActivity)getActivity()).getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.letter_fragment,zoomFragment)
+                        .addToBackStack(null)
+                        .commit();
                 playSound(lettersModel.getPicSounds3());
             }
         });
