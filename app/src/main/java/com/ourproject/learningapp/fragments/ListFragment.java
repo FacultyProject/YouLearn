@@ -1,10 +1,12 @@
 package com.ourproject.learningapp.fragments;
 
 import android.app.Fragment;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -55,9 +57,29 @@ public class ListFragment extends Fragment {
             list.add(lettersModel);
         }
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.letters_recyvlerView);
-        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(),4));
+        RtlGridLayoutManager gridLayoutManager = new RtlGridLayoutManager(getActivity(),4);
+        recyclerView.setLayoutManager(gridLayoutManager);
         LettersAdapter lettersAdapter = new LettersAdapter(list, getActivity());
         recyclerView.setAdapter(lettersAdapter);
         return view;
+    }
+    public class RtlGridLayoutManager extends GridLayoutManager {
+
+        public RtlGridLayoutManager(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+            super(context, attrs, defStyleAttr, defStyleRes);
+        }
+
+        public RtlGridLayoutManager(Context context, int spanCount) {
+            super(context, spanCount);
+        }
+
+        public RtlGridLayoutManager(Context context, int spanCount, int orientation, boolean reverseLayout) {
+            super(context, spanCount, orientation, reverseLayout);
+        }
+
+        @Override
+        protected boolean isLayoutRTL(){
+            return true;
+        }
     }
 }

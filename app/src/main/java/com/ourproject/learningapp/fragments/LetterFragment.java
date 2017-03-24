@@ -1,9 +1,7 @@
 package com.ourproject.learningapp.fragments;
 
 import android.app.Fragment;
-import android.content.Intent;
 import android.graphics.Color;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
@@ -18,18 +16,16 @@ import android.widget.TextView;
 
 import com.ourproject.learningapp.R;
 import com.ourproject.learningapp.activities.MainActivity;
+import com.ourproject.learningapp.globals.GlobalLetter;
 import com.ourproject.learningapp.models.LettersModel;
-import com.ourproject.learningapp.services.OnlineServiceClass;
-import com.ourproject.learningapp.services.ServiceClass;
 import com.squareup.picasso.Picasso;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 /**
  * Created by Mohamed Ali on 3/14/2017.
  */
-public class LetterFragment extends Fragment {
+public class LetterFragment extends Fragment implements View.OnClickListener {
     TextView wordTxt1,wordTxt2,wordTxt3,letter;
     ImageView word1Img,word2Img,word3Img;
     LettersModel lettersModel;
@@ -40,12 +36,26 @@ public class LetterFragment extends Fragment {
         lettersModel=(LettersModel) bundle.getSerializable("wordslist");
 
     }
+    private void toZoomFrag(String image,String text,String sound){
+        ZoomFragment zoomFragment=new ZoomFragment();
+        Bundle bundle=new Bundle();
+        bundle.putString("image",image);
+        bundle.putString("text",text);
+        bundle.putString("sound",sound);
+        zoomFragment.setArguments(bundle);
+        ((FragmentActivity)getActivity()).getSupportFragmentManager().beginTransaction()
+                .replace(R.id.letter_fragment,zoomFragment)
+                .addToBackStack(null)
+                .commit();
+    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view =inflater.inflate(R.layout.fragment_letter, container, false);
+
         letter= (TextView) view.findViewById(R.id.letter);
         wordTxt1= (TextView) view.findViewById(R.id.word1);
         wordTxt2= (TextView) view.findViewById(R.id.word2);
@@ -53,62 +63,20 @@ public class LetterFragment extends Fragment {
         word1Img= (ImageView) view.findViewById(R.id.word_image1);
         word2Img= (ImageView) view.findViewById(R.id.word_image2);
         word3Img= (ImageView) view.findViewById(R.id.word_image3);
+
         letter.setText(lettersModel.getLetter());
         colorChar(wordTxt1,lettersModel.getLetter(),lettersModel.getWord1());
         colorChar(wordTxt2,lettersModel.getLetter(),lettersModel.getWord2());
         colorChar(wordTxt3,lettersModel.getLetter(),lettersModel.getWord3());
 
-        letter.setOnClickListener(new View.OnClickListener() {
-         @Override
-         public void onClick(View view) {
-             playSound(lettersModel.getLetterSound());
-         }
-     });
-        word1Img.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ZoomFragment zoomFragment=new ZoomFragment();
-                Bundle bundle=new Bundle();
-                bundle.putString("image",lettersModel.getPic1());
-                bundle.putString("text",lettersModel.getWord1());
-                zoomFragment.setArguments(bundle);
-                ((FragmentActivity)getActivity()).getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.letter_fragment,zoomFragment)
-                        .addToBackStack(null)
-                        .commit();
-                playSound(lettersModel.getPicSounds1());
-            }
-        });
-        word2Img.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ZoomFragment zoomFragment=new ZoomFragment();
-                Bundle bundle=new Bundle();
-                bundle.putString("image",lettersModel.getPic2());
-                bundle.putString("text",lettersModel.getWord2());
-                zoomFragment.setArguments(bundle);
-                ((FragmentActivity)getActivity()).getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.letter_fragment,zoomFragment)
-                        .addToBackStack(null)
-                        .commit();
-                playSound(lettersModel.getPicSounds2());
-            }
-        });
-        word3Img.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ZoomFragment zoomFragment=new ZoomFragment();
-                Bundle bundle=new Bundle();
-                bundle.putString("image",lettersModel.getPic3());
-                bundle.putString("text",lettersModel.getWord3());
-                zoomFragment.setArguments(bundle);
-                ((FragmentActivity)getActivity()).getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.letter_fragment,zoomFragment)
-                        .addToBackStack(null)
-                        .commit();
-                playSound(lettersModel.getPicSounds3());
-            }
-        });
+        letter.setOnClickListener(this);
+        wordTxt1.setOnClickListener(this);
+        wordTxt2.setOnClickListener(this);
+        wordTxt3.setOnClickListener(this);
+        word1Img.setOnClickListener(this);
+        word2Img.setOnClickListener(this);
+        word3Img.setOnClickListener(this);
+
         Picasso.with(getActivity()).load(lettersModel.getPic1())
                 .into(word1Img);
         Picasso.with(getActivity()).load(lettersModel.getPic2())
@@ -118,7 +86,7 @@ public class LetterFragment extends Fragment {
 
         return view;
     }
-    private void colorChar(TextView textView,String ch,String word){
+    public void colorChar(TextView textView,String ch,String word){
         if (ch.contains("ه"))
             ch="ه";
         else if (ch.contains("أ")&&word.contains("ء"))
@@ -139,10 +107,40 @@ public class LetterFragment extends Fragment {
         textView.setText(wordtoSpan);
         textView.setTypeface(MainActivity.font);
     }
-    private void playSound(String string){
-        getActivity().stopService(new Intent(getActivity(), OnlineServiceClass.class));
-        Intent serviceIntent = new Intent(getActivity(), OnlineServiceClass.class);
-        serviceIntent.putExtra("url",string);
-        getActivity().startService(serviceIntent);
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.letter:
+                GlobalLetter.pMusic(lettersModel.getLetterSound());
+                break;
+            case R.id.word1:
+                GlobalLetter.pMusic(lettersModel.getPicSounds1());
+
+                break;
+            case R.id.word2:
+                GlobalLetter.pMusic(lettersModel.getPicSounds2());
+
+                break;
+            case R.id.word3:
+                GlobalLetter.pMusic(lettersModel.getPicSounds3());
+
+                break;
+            case R.id.word_image1:
+                toZoomFrag(lettersModel.getPic1(),lettersModel.getWord1(),lettersModel.getPicSounds1());
+                GlobalLetter.pMusic(lettersModel.getPicSounds1());
+
+                break;
+            case R.id.word_image2:
+                toZoomFrag(lettersModel.getPic2(),lettersModel.getWord2(),lettersModel.getPicSounds2());
+                GlobalLetter.pMusic(lettersModel.getPicSounds2());
+
+                break;
+            case R.id.word_image3:
+                toZoomFrag(lettersModel.getPic3(),lettersModel.getWord3(),lettersModel.getPicSounds3());
+                GlobalLetter.pMusic(lettersModel.getPicSounds3());
+
+                break;
+        }
     }
 }

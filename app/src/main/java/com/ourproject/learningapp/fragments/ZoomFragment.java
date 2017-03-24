@@ -1,6 +1,5 @@
 package com.ourproject.learningapp.fragments;
 
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -12,6 +11,7 @@ import android.widget.TextView;
 
 import com.ourproject.learningapp.R;
 import com.ourproject.learningapp.activities.MainActivity;
+import com.ourproject.learningapp.globals.GlobalLetter;
 import com.squareup.picasso.Picasso;
 
 /**
@@ -22,7 +22,6 @@ public class ZoomFragment extends Fragment {
     ImageView imageView;
     TextView textView;
     Bundle bundle;
-    String word,image;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +37,12 @@ public class ZoomFragment extends Fragment {
         textView=(TextView)view.findViewById(R.id.text);
         textView.setText(bundle.get("text").toString());
         textView.setTypeface(MainActivity.font);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                GlobalLetter.pMusic(bundle.getString("sound").toString());
+            }
+        });
         return view;
     }
 }
