@@ -470,4 +470,80 @@
         <item>وِ</item>
         <item>يِ</item>
     </string-array>
+
+    <string-array name="Quizwords">
+        <item>أسد</item>
+        <item>باب</item>
+        <item>ثعلب</item>
+    </string-array>
+
+
+    <string-array name="Quizpics">
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/quizes%2Fquiz1%2Fimages%2F00.png?alt=media&amp;token=3a8572be-bc06-4487-b640-85c0fbdb3b4f</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/quizes%2Fquiz1%2Fimages%2F01.png?alt=media&amp;token=95883f20-ca06-4bf2-ac85-adca469aa4c0</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/quizes%2Fquiz1%2Fimages%2F02.png?alt=media&amp;token=a764cdbe-d162-4613-bd7b-d443236c72a1</item>
+    </string-array>
+
+    <string-array name="q1Letters1">
+        <item>ف</item>
+        <item>س</item>
+        <item>ع</item>
+    </string-array>
+
+    <string-array name="q1Letters2">
+        <item>أ</item>
+        <item>ب</item>
+        <item>ي</item>
+    </string-array>
+
+    <string-array name="q1Letters3">
+        <item>غ</item>
+        <item>ش</item>
+        <item>ث</item>
+    </string-array>
+
+    <string-array name="q1Letters4">
+        <item>س</item>
+        <item>ض</item>
+        <item>خ</item>
+    </string-array>
+
+    <string-array name="q1Letters5">
+        <item>ر</item>
+        <item>ا</item>
+        <item>ب</item>
+    </string-array>
+
+    <string-array name="q1Letters6">
+        <item>ش</item>
+        <item>ج</item>
+        <item>س</item>
+    </string-array>
+
+
+    <string-array name="q1Letters7">
+        <item>ق</item>
+        <item>ب</item>
+        <item>ع</item>
+    </string-array>
+
+    <string-array name="q1Letters8">
+        <item>ن</item>
+        <item>ل</item>
+        <item>ل</item>
+    </string-array>
+
+    <string-array name="q1Letters9">
+        <item>د</item>
+        <item>ع</item>
+        <item>د</item>
+    </string-array>
+
+    <string-array name="q1Letters10">
+        <item>ت</item>
+        <item>ث</item>
+        <item>ذ</item>
+    </string-array>
+
+
 </resources>
