@@ -479,13 +479,13 @@
 
 
     <string-array name="Quizpics">
-        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/quizes%2Fquiz1%2Fimages%2F00.png?alt=media&amp;token=3a8572be-bc06-4487-b640-85c0fbdb3b4f</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/images%2Fg2%2Fshoes.png?alt=media&amp;token=49dbf2de-4b41-44d5-afe3-1fa149c2fcb9</item>
         <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/quizes%2Fquiz1%2Fimages%2F01.png?alt=media&amp;token=95883f20-ca06-4bf2-ac85-adca469aa4c0</item>
         <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/quizes%2Fquiz1%2Fimages%2F02.png?alt=media&amp;token=a764cdbe-d162-4613-bd7b-d443236c72a1</item>
     </string-array>
 
     <string-array name="q1Letters1">
-        <item>ف</item>
+        <item>ض</item>
         <item>س</item>
         <item>ع</item>
     </string-array>
@@ -528,13 +528,13 @@
     </string-array>
 
     <string-array name="q1Letters8">
-        <item>ن</item>
+        <item>د</item>
         <item>ل</item>
         <item>ل</item>
     </string-array>
 
     <string-array name="q1Letters9">
-        <item>د</item>
+        <item>ن</item>
         <item>ع</item>
         <item>د</item>
     </string-array>

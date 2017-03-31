@@ -59,18 +59,19 @@ public class Quiz1FragmentInfo extends Fragment {
         L10= (TextView) view.findViewById(R.id.l10);
         Del= (ImageView) view.findViewById(R.id.del);
 
-        Picasso.with(getActivity()).load(quizModel1.getPicUrl()).into(qimageView);
+        Picasso.with(getActivity()).load(quizModel1.getPicUrl())
+                .into(qimageView);
            WordPic=quizModel1.getPicWord();
         L1.setText(quizModel1.getLetter1());
-        L2.setText(quizModel1.getLetter1());
-        L3.setText(quizModel1.getLetter1());
-        L4.setText(quizModel1.getLetter1());
-        L5.setText(quizModel1.getLetter1());
-        L6.setText(quizModel1.getLetter1());
-        L7.setText(quizModel1.getLetter1());
-        L8.setText(quizModel1.getLetter1());
-        L9.setText(quizModel1.getLetter1());
-        L10.setText(quizModel1.getLetter1());
+        L2.setText(quizModel1.getLetter2());
+        L3.setText(quizModel1.getLetter3());
+        L4.setText(quizModel1.getLetter4());
+        L5.setText(quizModel1.getLetter5());
+        L6.setText(quizModel1.getLetter6());
+        L7.setText(quizModel1.getLetter7());
+        L8.setText(quizModel1.getLetter8());
+        L9.setText(quizModel1.getLetter9());
+        L10.setText(quizModel1.getLetter10());
 
         Del.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -135,14 +136,14 @@ public class Quiz1FragmentInfo extends Fragment {
         L9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ButtonListner(L8);
+                ButtonListner(L9);
             }
         });
 
         L10.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ButtonListner(L8);
+                ButtonListner(L10);
             }
         });
 

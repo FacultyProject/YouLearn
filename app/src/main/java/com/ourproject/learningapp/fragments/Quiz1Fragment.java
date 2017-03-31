@@ -49,7 +49,7 @@ public class Quiz1Fragment extends Fragment {
         Letter9=getActivity().getResources().getStringArray(R.array.q1Letters9);
         Letter10=getActivity().getResources().getStringArray(R.array.q1Letters10);
 
-        for(int i=0;i<PicName.length;i++){
+        for(int i=0;i<PicUrl.length;i++){
             QuizModel1 quizModel1=new QuizModel1();
             quizModel1.setPicUrl(PicUrl[i]);
             quizModel1.setPicWord(PicName[i]);

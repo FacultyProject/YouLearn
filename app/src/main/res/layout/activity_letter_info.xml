@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#331a00"
+    android:background="#b7f5ea"
 
     tools:context="com.ourproject.learningapp.activities.LettersActivity">
     <FrameLayout
