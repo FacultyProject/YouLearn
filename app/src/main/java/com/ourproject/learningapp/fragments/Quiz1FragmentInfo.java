@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.ourproject.learningapp.R;
 import com.ourproject.learningapp.activities.PopActivity;
+import com.ourproject.learningapp.globals.GlobalLetter;
 import com.ourproject.learningapp.models.MadModel;
 import com.ourproject.learningapp.models.QuizModel1;
 import com.squareup.picasso.Picasso;
@@ -21,7 +22,9 @@ import com.squareup.picasso.Picasso;
  * A simple {@link Fragment} subclass.
  */
 public class Quiz1FragmentInfo extends Fragment {
-      String WordPic;
+    String RandLetter;
+    String WordPic;
+    String [] Letters;
     TextView Word,L1,L2,L3,L4,L5,L6,L7,L8,L9,L10;
     ImageView qimageView;
     public String Tempword="";
@@ -44,7 +47,7 @@ public class Quiz1FragmentInfo extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-       View view= inflater.inflate(R.layout.fragment_quiz1_fragment_info, container, false);
+        View view= inflater.inflate(R.layout.fragment_quiz1_fragment_info, container, false);
         qimageView= (ImageView) view.findViewById(R.id.qimage);
         Word= (TextView) view.findViewById(R.id.word);
         L1= (TextView) view.findViewById(R.id.l1);
@@ -59,19 +62,51 @@ public class Quiz1FragmentInfo extends Fragment {
         L10= (TextView) view.findViewById(R.id.l10);
         Del= (ImageView) view.findViewById(R.id.del);
 
-        Picasso.with(getActivity()).load(quizModel1.getPicUrl())
-                .into(qimageView);
-           WordPic=quizModel1.getPicWord();
-        L1.setText(quizModel1.getLetter1());
-        L2.setText(quizModel1.getLetter2());
-        L3.setText(quizModel1.getLetter3());
-        L4.setText(quizModel1.getLetter4());
-        L5.setText(quizModel1.getLetter5());
-        L6.setText(quizModel1.getLetter6());
-        L7.setText(quizModel1.getLetter7());
-        L8.setText(quizModel1.getLetter8());
-        L9.setText(quizModel1.getLetter9());
-        L10.setText(quizModel1.getLetter10());
+        if(GlobalLetter.QUIZID.equals("qIamge1") ||GlobalLetter.QUIZID.equals("qIamge2") ){
+            qimageView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    GlobalLetter.pMusic(quizModel1.getSoundUrl());
+                }
+            });}
+
+        if(GlobalLetter.QUIZID.equals("qIamge1") ||GlobalLetter.QUIZID.equals("qIamge3"))
+            Picasso.with(getActivity()).load(quizModel1.getPicUrl())
+                    .into(qimageView);
+        else
+            qimageView.setImageResource(R.drawable.funnyteacher);
+        Letters=getActivity().getResources().getStringArray(R.array.letters);
+        int [] RandArr=new int[10];
+        CreateRandArr(RandArr);
+
+        WordPic=quizModel1.getPicWord();
+        String[] SplitedWord = quizModel1.getPicWord().split("");
+        String arrChars[] =new String[10];
+        for(int i=0;i<SplitedWord.length;i++){
+            AddToStringArray(arrChars, SplitedWord[i]);
+        }
+        for(int i=0;i<10-(SplitedWord.length-1) ;i++){
+            do{
+                RandLetter=Letters[random(0,27)];
+            }while(IsFoundInStringArray(arrChars,RandLetter));
+            AddToStringArray(arrChars, RandLetter);
+        }
+        for(int i=0;i<arrChars.length  ;i++){
+            if(arrChars[i].equals("")){
+                arrChars[i]=Letters[random(0,27)];
+            }
+        }
+
+        L1.setText(arrChars[RandArr[0]]);
+        L2.setText(arrChars[RandArr[1]]);
+        L3.setText(arrChars[RandArr[2]]);
+        L4.setText(arrChars[RandArr[3]]);
+        L5.setText(arrChars[RandArr[4]]);
+        L6.setText(arrChars[RandArr[5]]);
+        L7.setText(arrChars[RandArr[6]]);
+        L8.setText(arrChars[RandArr[7]]);
+        L9.setText(arrChars[RandArr[8]]);
+        L10.setText(arrChars[RandArr[9]]);
 
         Del.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -132,14 +167,12 @@ public class Quiz1FragmentInfo extends Fragment {
                 ButtonListner(L8);
             }
         });
-
         L9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 ButtonListner(L9);
             }
         });
-
         L10.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -160,6 +193,63 @@ public class Quiz1FragmentInfo extends Fragment {
             if (WordPic.equals(Tempword)) {
                 startActivity(new Intent(getActivity(),PopActivity.class));
             }
+        }
+    }
+
+
+
+    public  void AddToStringArray(String [] arr,String s){
+        for(int i=0;i<arr.length;i++){
+            if(arr[i] == null){
+                arr[i]=s;
+                break;
+            }
+        }
+    }
+
+
+
+    public  boolean IsFoundInStringArray(String [] arr,String s){
+        for(int i=0;i<arr.length;i++){
+            if(arr[i] == null ? s == null : arr[i].equals(s))
+                return true;
+        }
+        return false;
+    }
+
+    public  int random(int a,int b){
+        b++;
+        return (int) (a+((b-a)*Math.random()));
+    }
+    public   void addtoarray(int[] arr, int num) {
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == -1) {
+                arr[i] = num;
+                break;
+            }
+        }
+    }
+
+    public   boolean IsFoundInArray(int [] arr,int num){
+        for(int i=0;i<arr.length;i++){
+            if(arr[i]==num)
+                return true;
+        }
+        return false;
+    }
+    public   void NegativeArray(int []arr){
+        for(int i=0;i<arr.length;i++)
+            arr[i]=-1;
+    }
+
+    public void CreateRandArr(int [] arr){
+        NegativeArray(arr);
+        int num;
+        for(int i=0;i<arr.length;i++) {
+            do {
+                num = random(0, 9);
+            } while (IsFoundInArray(arr, num));
+            addtoarray(arr, num);
         }
     }
 

@@ -2,6 +2,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 <ImageView
     android:layout_width="match_parent"
     android:layout_weight="3"
@@ -17,4 +24,6 @@
         android:text="dsdsd"
         android:textColor="#000"
         android:id="@+id/text"/>
+    </LinearLayout>
+    </ScrollView>
 </LinearLayout>

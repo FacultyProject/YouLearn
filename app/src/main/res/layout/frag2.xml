@@ -1,16 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:padding="5dp"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <ScrollView
+        android:elevation="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="300dp">
+                <ImageView
+                    android:layout_margin="2dp"
+                    android:background="@drawable/img_background"
+                    android:id="@+id/qimage1"
+                    android:src="@drawable/level1_icon"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+                <ImageView
+                    android:layout_margin="2dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/img_background"
+                    android:id="@+id/qimage2"
+                    android:src="@drawable/level2_icon"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
 
-   <LinearLayout
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content">
-       <ImageView
-           android:id="@+id/qimage1"
-           android:src="@drawable/stop"
-           android:layout_width="200dp"
-           android:layout_height="200dp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="300dp">
+                <ImageView
+                    android:layout_margin="2dp"
+                    android:background="@drawable/img_background"
+                    android:id="@+id/qimage3"
+                    android:src="@drawable/level3_icon"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+                <ImageView
+                    android:layout_margin="2dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/img_background"
+                    android:id="@+id/qimage4"
+                    android:src="@drawable/level2_icon"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
 
-   </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

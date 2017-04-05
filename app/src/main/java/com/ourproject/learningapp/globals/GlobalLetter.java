@@ -9,6 +9,7 @@ import java.io.IOException;
  */
 
 public class GlobalLetter {
+    public static String QUIZID="none";
     private static MediaPlayer soundFile=new MediaPlayer();
     public static String LETTERTYPE="none";
     public static void pMusic(String url){
