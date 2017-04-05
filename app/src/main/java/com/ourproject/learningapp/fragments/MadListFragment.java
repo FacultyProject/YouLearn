@@ -34,7 +34,6 @@ public class MadListFragment extends Fragment {
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_fragment_mad_list, container, false);
 
-        if(GlobalLetter.LETTERTYPE.equals("MadMovement")) {
             lettersMad = getActivity().getResources().getStringArray(R.array.madletters);
             WordMad1 = getActivity().getResources().getStringArray(R.array.mad1);
             WordMad2 = getActivity().getResources().getStringArray(R.array.mad2);
@@ -42,17 +41,8 @@ public class MadListFragment extends Fragment {
             WordMad4 = getActivity().getResources().getStringArray(R.array.mad4);
             WordMad5 = getActivity().getResources().getStringArray(R.array.mad5);
             WordMad6 = getActivity().getResources().getStringArray(R.array.mad6);
-        }
-        else
-        {
-            lettersMad = getActivity().getResources().getStringArray(R.array.letters);
-            WordMad1 = getActivity().getResources().getStringArray(R.array.HorofMadmoma);
-            WordMad2 = getActivity().getResources().getStringArray(R.array.HorofMaksora);
-            WordMad3 = getActivity().getResources().getStringArray(R.array.HorofMaftoha);
-            WordMad4 = getActivity().getResources().getStringArray(R.array.lettersName1);
-            WordMad5 = getActivity().getResources().getStringArray(R.array.lettersName1);
-            WordMad6 = getActivity().getResources().getStringArray(R.array.lettersName1);
-        }
+
+
 
         for(int i = 0; i < lettersMad.length; i++){
             MadModel madModel=new MadModel();

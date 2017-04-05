@@ -10,7 +10,7 @@
 
     <TextView
         android:layout_marginBottom="20dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:layout_weight="3"
         android:clickable="true"
         android:layout_gravity="center_horizontal"
@@ -21,39 +21,68 @@
         android:textSize="150sp"
         android:textColor="@android:color/background_dark"
         android:id="@+id/letter" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/shortmov_layout">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="بِ"
+            android:id="@+id/letter_maksor"
+            android:gravity="center"
+            android:textSize="70sp"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:text="بَ"
+            android:id="@+id/letter_maftoh"
+            android:textSize="70sp"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:text="بُ"
+            android:id="@+id/letter_madmom"
+            android:textSize="70sp"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_weight="2"
-            android:orientation="horizontal"
-            android:layout_height="0dp">
-            <ImageView
-                android:layout_weight="1"
-                android:src="@drawable/tablets"
-                android:layout_width="0dp"
-                android:id="@+id/word_image3"
-                android:layout_height="wrap_content" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_weight="2"
+        android:orientation="horizontal"
+        android:layout_height="0dp">
+        <ImageView
+            android:layout_weight="1"
+            android:src="@drawable/tablets"
+            android:layout_width="0dp"
+            android:id="@+id/word_image3"
+            android:layout_height="wrap_content" />
 
-            <ImageView
-                android:layout_weight="1"
-                android:src="@drawable/mouse"
-                android:layout_width="0dp"
-                android:id="@+id/word_image2"
-                android:layout_height="wrap_content" />
+        <ImageView
+            android:layout_weight="1"
+            android:src="@drawable/mouse"
+            android:layout_width="0dp"
+            android:id="@+id/word_image2"
+            android:layout_height="wrap_content" />
 
-            <ImageView
-                android:layout_weight="1"
-                android:src="@drawable/rabbit"
-                android:layout_width="0dp"
-                android:id="@+id/word_image1"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
+        <ImageView
+            android:layout_weight="1"
+            android:src="@drawable/rabbit"
+            android:layout_width="0dp"
+            android:id="@+id/word_image1"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
 
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_weight="2"
-            android:layout_height="0dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_weight="2"
+        android:layout_height="0dp">
         <TextView
             android:gravity="center"
             android:layout_weight="1"
@@ -81,7 +110,7 @@
             android:text="Test"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
-        </LinearLayout>
+    </LinearLayout>
 
 
 

@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.ourproject.learningapp.R;
@@ -26,7 +27,7 @@ import java.util.ArrayList;
  * Created by Mohamed Ali on 3/14/2017.
  */
 public class LetterFragment extends Fragment implements View.OnClickListener {
-    TextView wordTxt1,wordTxt2,wordTxt3,letter;
+    TextView wordTxt1,wordTxt2,wordTxt3,letter,letterF,letterD,letterK;
     ImageView word1Img,word2Img,word3Img;
     LettersModel lettersModel;
     @Override
@@ -55,7 +56,9 @@ public class LetterFragment extends Fragment implements View.OnClickListener {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view =inflater.inflate(R.layout.fragment_letter, container, false);
-
+        if (GlobalLetter.LETTERTYPE.equals("NORMAL_MOVEMENT")){
+        LinearLayout myLayout = (LinearLayout)view. findViewById(R.id.shortmov_layout);
+        myLayout.setVisibility(View.GONE);}
         letter= (TextView) view.findViewById(R.id.letter);
         wordTxt1= (TextView) view.findViewById(R.id.word1);
         wordTxt2= (TextView) view.findViewById(R.id.word2);
@@ -63,8 +66,15 @@ public class LetterFragment extends Fragment implements View.OnClickListener {
         word1Img= (ImageView) view.findViewById(R.id.word_image1);
         word2Img= (ImageView) view.findViewById(R.id.word_image2);
         word3Img= (ImageView) view.findViewById(R.id.word_image3);
+        letterD= (TextView) view.findViewById(R.id.letter_madmom);
+        letterF= (TextView) view.findViewById(R.id.letter_maftoh);
+        letterK= (TextView) view.findViewById(R.id.letter_maksor);
 
         letter.setText(lettersModel.getLetter());
+        letterF.setText(lettersModel.getLetter()+"َ");
+        letterD.setText(lettersModel.getLetter()+"ُ");
+        letterK.setText(lettersModel.getLetter()+"ِ");
+
         colorChar(wordTxt1,lettersModel.getLetter(),lettersModel.getWord1());
         colorChar(wordTxt2,lettersModel.getLetter(),lettersModel.getWord2());
         colorChar(wordTxt3,lettersModel.getLetter(),lettersModel.getWord3());
@@ -91,6 +101,8 @@ public class LetterFragment extends Fragment implements View.OnClickListener {
             ch="ه";
         else if (ch.contains("أ")&&word.contains("ء"))
             ch="ء";
+        else if (ch.contains("أ")&&word.contains("إ"))
+            ch="إ";
         String ayeTemp = word;
 
         ArrayList<Integer> positionInt = new ArrayList<>();

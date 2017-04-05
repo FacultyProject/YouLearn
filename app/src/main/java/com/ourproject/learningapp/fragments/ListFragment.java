@@ -10,9 +10,11 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import com.ourproject.learningapp.R;
 import com.ourproject.learningapp.adapters.LettersAdapter;
+import com.ourproject.learningapp.globals.GlobalLetter;
 import com.ourproject.learningapp.models.LettersModel;
 
 import java.util.ArrayList;
@@ -30,17 +32,33 @@ public class ListFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_list, container, false);
-        letters=getActivity().getResources().getStringArray(R.array.letters);
-        lettersNamed1=getActivity().getResources().getStringArray(R.array.lettersName1);
-        lettersNamed2=getActivity().getResources().getStringArray(R.array.lettersName2);
-        lettersNamed3=getActivity().getResources().getStringArray(R.array.lettersName3);
-        lettersImages1=getActivity().getResources().getStringArray(R.array.lettersImages1);
-        lettersImages2=getActivity().getResources().getStringArray(R.array.lettersImages2);
-        lettersImages3=getActivity().getResources().getStringArray(R.array.lettersImages3);
-        lettersSounds=getActivity().getResources().getStringArray(R.array.lettersSounds);
-        picSounds1 =getActivity().getResources().getStringArray(R.array.PicSounds1);
-        picSounds2=getActivity().getResources().getStringArray(R.array.PicSounds2);
-        picSounds3=getActivity().getResources().getStringArray(R.array.PicSounds3);
+
+        if (GlobalLetter.LETTERTYPE.equals("NORMAL_MOVEMENT")) {
+            letters = getActivity().getResources().getStringArray(R.array.letters);
+            lettersNamed1 = getActivity().getResources().getStringArray(R.array.lettersName1);
+            lettersNamed2 = getActivity().getResources().getStringArray(R.array.lettersName2);
+            lettersNamed3 = getActivity().getResources().getStringArray(R.array.lettersName3);
+            lettersImages1 = getActivity().getResources().getStringArray(R.array.lettersImages1);
+            lettersImages2 = getActivity().getResources().getStringArray(R.array.lettersImages2);
+            lettersImages3 = getActivity().getResources().getStringArray(R.array.lettersImages3);
+            lettersSounds = getActivity().getResources().getStringArray(R.array.lettersSounds);
+            picSounds1 = getActivity().getResources().getStringArray(R.array.PicSounds1);
+            picSounds2 = getActivity().getResources().getStringArray(R.array.PicSounds2);
+            picSounds3 = getActivity().getResources().getStringArray(R.array.PicSounds3);
+        }else
+        {
+            letters = getActivity().getResources().getStringArray(R.array.letters);
+            lettersNamed1 = getActivity().getResources().getStringArray(R.array.KalematEldam);
+            lettersNamed2 = getActivity().getResources().getStringArray(R.array.KalematElfath);
+            lettersNamed3 = getActivity().getResources().getStringArray(R.array.KalematElkasr);
+            lettersImages1 = getActivity().getResources().getStringArray(R.array.DamPics);
+            lettersImages2 = getActivity().getResources().getStringArray(R.array.FathPics);
+            lettersImages3 = getActivity().getResources().getStringArray(R.array.KasrPics);
+            lettersSounds = getActivity().getResources().getStringArray(R.array.lettersSounds);
+            picSounds1 = getActivity().getResources().getStringArray(R.array.damsound);
+            picSounds2 = getActivity().getResources().getStringArray(R.array.fathsound);
+            picSounds3 = getActivity().getResources().getStringArray(R.array.kasrsound);
+        }
         for (int i=0;i<letters.length;i++){
             LettersModel lettersModel=new LettersModel();
             lettersModel.setLetter(letters[i]);

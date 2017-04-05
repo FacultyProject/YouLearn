@@ -42,7 +42,7 @@ public class Fragment1 extends Fragment {
             @Override
             public void onClick(View view) {
                 GlobalLetter.LETTERTYPE="ShortMovement";
-                Intent intent = new Intent(getActivity(), MadLettersActivity.class);
+                Intent intent = new Intent(getActivity(), LettersActivity.class);
                 getActivity().startActivity(intent);
             }
         });
@@ -50,7 +50,6 @@ public class Fragment1 extends Fragment {
         madImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                GlobalLetter.LETTERTYPE="MadMovement";
                 Intent intent = new Intent(getActivity(), MadLettersActivity.class);
                 getActivity().startActivity(intent);
             }
@@ -59,6 +58,8 @@ public class Fragment1 extends Fragment {
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                GlobalLetter.LETTERTYPE="NORMAL_MOVEMENT";
+
                 getActivity().stopService(new Intent(getActivity(), ServiceClass.class));
 
                 Intent intent = new Intent(getActivity(), LettersActivity.class);
