@@ -2,6 +2,7 @@ package com.ourproject.learningapp.fragments;
 
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -62,6 +63,7 @@ public class Quiz1FragmentInfo extends Fragment {
         L10= (TextView) view.findViewById(R.id.l10);
         Del= (ImageView) view.findViewById(R.id.del);
 
+
         if(GlobalLetter.QUIZID.equals("qIamge1") ||GlobalLetter.QUIZID.equals("qIamge2") ){
             qimageView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -112,12 +114,14 @@ public class Quiz1FragmentInfo extends Fragment {
             @Override
             public void onClick(View view) {
                 Word.setText("");Tempword="";
+                SetToDefault(L1,L2,L3,L4,L5,L6,L7,L8,L9,L10);
             }
         });
 
         L1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 ButtonListner(L1);
             }
         });
@@ -184,6 +188,11 @@ public class Quiz1FragmentInfo extends Fragment {
     }
 
     public void ButtonListner(TextView view){
+        if(!quizModel1.getPicWord().contains(view.getText()))
+            view.setBackgroundResource( R.drawable.wrong_circle);
+        else
+            view.setBackgroundResource( R.drawable.right_circle);
+
         if (WordPic.equals(Tempword)) {
             startActivity(new Intent(getActivity(),PopActivity.class));
         }
@@ -198,6 +207,10 @@ public class Quiz1FragmentInfo extends Fragment {
 
 
 
+    public void SetToDefault(TextView ... textViews){
+        for(TextView v:textViews)
+            v.setBackgroundResource( R.drawable.img);
+    }
     public  void AddToStringArray(String [] arr,String s){
         for(int i=0;i<arr.length;i++){
             if(arr[i] == null){

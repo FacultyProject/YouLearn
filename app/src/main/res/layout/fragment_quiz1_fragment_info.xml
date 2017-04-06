@@ -144,19 +144,19 @@
 
         </LinearLayout>
         <LinearLayout
+            android:layout_margin="20dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="50dp">
             <ImageView
+                android:src="@drawable/erase_all"
                 android:id="@+id/del"
-                android:src="@drawable/button_normal"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp" />
-            <TextView
-                android:textSize="40dp"
-                android:text="مسح"
-                android:textColor="@android:color/background_dark"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+
+                android:layout_height="match_parent"
+                android:layout_width="50dp"/>
+             <ImageView
+                 android:src="@drawable/exersiceicon"
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent" />
         </LinearLayout>
 
 
