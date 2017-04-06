@@ -35,7 +35,10 @@
         <activity android:name=".activities.MadLettersActivity" />
         <activity android:name=".activities.Quiz1Activity" />
         <activity android:name=".activities.Quiz1Info" />
-        <activity android:name=".activities.PopActivity" android:theme="@style/AppTheme.CustomTheme"></activity>
+        <activity
+            android:name=".activities.PopActivity"
+            android:theme="@style/AppTheme.CustomTheme" />
+        <activity android:name=".activities.Quiz4Activity"></activity>
     </application>
 
 </manifest>

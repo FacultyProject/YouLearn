@@ -50,7 +50,7 @@
                     android:layout_weight="1"
                     android:background="@drawable/img_background"
                     android:id="@+id/qimage4"
-                    android:src="@drawable/level2_icon"
+                    android:src="@drawable/level_4"
                     android:layout_width="0dp"
                     android:layout_height="match_parent" />
             </LinearLayout>
