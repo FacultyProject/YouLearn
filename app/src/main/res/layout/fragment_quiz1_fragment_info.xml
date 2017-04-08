@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+
+    android:orientation="vertical">
+
+    <ImageView
+        android:padding="10dp"
+        android:id="@+id/qimage"
+        android:src="@drawable/mouse"
+        android:layout_width="match_parent"
+        android:layout_height="220dp" />
+    <TextView
+        android:id="@+id/word"
+        android:textSize="40dp"
+        android:textColor="#000"
+        android:gravity="center"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:padding="10dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_margin="1dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/l4"
+                android:layout_margin="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="خ"
+                android:gravity="center"
+                android:textSize="40sp"
+                android:background="@drawable/img"
+                android:textColor="@android:color/background_dark" />
+            <TextView
+                android:id="@+id/l3"
+                android:layout_margin="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="أ"
+                android:gravity="center"
+                android:textSize="40sp"
+                android:background="@drawable/img"
+                android:textColor="@android:color/background_dark" />
+            <TextView
+                android:id="@+id/l2"
+                android:layout_margin="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="س"
+                android:gravity="center"
+                android:textSize="40sp"
+                android:background="@drawable/img"
+                android:textColor="@android:color/background_dark" />
+            <TextView
+                android:id="@+id/l1"
+                android:layout_margin="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ي"
+                android:gravity="center"
+                android:textSize="40sp"
+                android:background="@drawable/img"
+                android:textColor="@android:color/background_dark" />
+            <TextView
+                android:id="@+id/l9"
+                android:layout_margin="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ي"
+                android:gravity="center"
+                android:textSize="40sp"
+                android:background="@drawable/img"
+                android:textColor="@android:color/background_dark" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_margin="1dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/l8"
+                android:layout_margin="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="و"
+                android:gravity="center"
+                android:textSize="40sp"
+                android:background="@drawable/img"
+                android:textColor="@android:color/background_dark" />
+            <TextView
+                android:id="@+id/l7"
+                android:layout_margin="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ك"
+                android:gravity="center"
+                android:textSize="40sp"
+                android:background="@drawable/img"
+                android:textColor="@android:color/background_dark" />
+            <TextView
+                android:id="@+id/l6"
+                android:layout_margin="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ر"
+                android:gravity="center"
+                android:textSize="40sp"
+                android:background="@drawable/img"
+                android:textColor="@android:color/background_dark" />
+            <TextView
+                android:id="@+id/l5"
+                android:layout_margin="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ف"
+                android:gravity="center"
+                android:textSize="40sp"
+                android:background="@drawable/img"
+                android:textColor="@android:color/background_dark" />
+
+            <TextView
+                android:id="@+id/l10"
+                android:layout_margin="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ف"
+                android:gravity="center"
+                android:textSize="40sp"
+                android:background="@drawable/img"
+                android:textColor="@android:color/background_dark" />
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_margin="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+            <ImageView
+                android:src="@drawable/erase_all"
+                android:id="@+id/del"
+
+                android:layout_height="match_parent"
+                android:layout_width="50dp"/>
+             <ImageView
+                 android:src="@drawable/exersiceicon"
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+</LinearLayout>
