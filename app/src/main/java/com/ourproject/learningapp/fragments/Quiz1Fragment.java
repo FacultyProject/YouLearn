@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.ourproject.learningapp.Myalert;
 import com.ourproject.learningapp.R;
 import com.ourproject.learningapp.globals.GlobalLetter;
 import com.squareup.picasso.Picasso;
@@ -20,13 +19,10 @@ import java.util.Random;
  * A simple {@link Fragment} subclass.
  */
 public class Quiz1Fragment extends Fragment {
-    String RandLetter;
-    String WordPic;
-    String [] Letters;
-    TextView Word,L1,L2,L3,L4,L5,L6,L7,L8,L9,L10;
-    ImageView qimageView;
-    public String Tempword="";
-    ImageView Del ,DelOne;
+    private  String RandLetter,WordPic,ImageUrl,Tempword="";
+    private String [] Letters,SplitedWord,arrChars ;
+    private TextView Word,L1,L2,L3,L4,L5,L6,L7,L8,L9,L10;
+    private ImageView qimageView,Del ,DelOne;
 
     public Quiz1Fragment() {
         // Required empty public constructor
@@ -37,6 +33,23 @@ public class Quiz1Fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        Random r=new Random();
+        final int Randnum=r.nextInt(28);
+        int Randlist=r.nextInt(3);
+        int [] RandArr=new int[10];
+        CreateRandArr(RandArr);
+        Letters=getActivity().getResources().getStringArray(R.array.letters);
+        if(Randlist==0){
+        WordPic=getActivity().getResources().getStringArray(R.array.lettersName1)[Randnum];
+        ImageUrl=getActivity().getResources().getStringArray(R.array.lettersImages1)[Randnum];
+        }else if(Randlist==1){
+            WordPic=getActivity().getResources().getStringArray(R.array.lettersName2)[Randnum];
+            ImageUrl=getActivity().getResources().getStringArray(R.array.lettersImages2)[Randnum];
+        }
+        else {
+            WordPic=getActivity().getResources().getStringArray(R.array.lettersName3)[Randnum];
+            ImageUrl=getActivity().getResources().getStringArray(R.array.lettersImages3)[Randnum];
+        }
 
         View view=inflater.inflate(R.layout.fragment_quiz1, container, false);
         qimageView= (ImageView) view.findViewById(R.id.qimage);
@@ -53,6 +66,20 @@ public class Quiz1Fragment extends Fragment {
         L9= (TextView) view.findViewById(R.id.l9);
         L10= (TextView) view.findViewById(R.id.l10);
         Del= (ImageView) view.findViewById(R.id.del);
+        DelOne= (ImageView) view.findViewById(R.id.delOnlyOne);
+
+        DelOne.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                char [] ch=Tempword.toCharArray();
+                Word.setText("");Tempword="";
+                for(int i=0;i<ch.length-1;i++){
+                        Word.setText(Word.getText().toString().concat(String.valueOf(ch[i])));
+                        Tempword=Tempword.concat(String.valueOf(ch[i])) ;
+
+                }
+            }
+        });
 
         Del.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,9 +89,8 @@ public class Quiz1Fragment extends Fragment {
             }
         });
 
-        Random r=new Random();
-        final int Randnum=r.nextInt(28);
-         String ImageUrl=getActivity().getResources().getStringArray(R.array.lettersImages1)[Randnum];
+
+
 
         if(GlobalLetter.QUIZID.equals("qIamge1") || GlobalLetter.QUIZID.equals("qIamge2") ){
             qimageView.setOnClickListener(new View.OnClickListener() {
@@ -75,18 +101,13 @@ public class Quiz1Fragment extends Fragment {
             });}
 
 
-        int [] RandArr=new int[10];
-        CreateRandArr(RandArr);
-        Letters=getActivity().getResources().getStringArray(R.array.letters);
-        WordPic=getActivity().getResources().getStringArray(R.array.lettersName1)[Randnum];
-
         if(GlobalLetter.QUIZID.equals("qIamge1") ||GlobalLetter.QUIZID.equals("qIamge3"))
         Picasso.with(getActivity()).load(ImageUrl).into(qimageView);
         else
             qimageView.setImageResource(R.drawable.funnyteacher);
 
-        String[] SplitedWord = WordPic.split("");
-        String arrChars[] =new String[10];
+         SplitedWord = WordPic.split("");
+          arrChars  =new String[10];
         for(int i=0;i<SplitedWord.length;i++){
             AddToStringArray(arrChars, SplitedWord[i]);
         }
@@ -97,8 +118,11 @@ public class Quiz1Fragment extends Fragment {
             AddToStringArray(arrChars, RandLetter);
         }
         for(int i=0;i<arrChars.length  ;i++){
-            if(arrChars[i].equals("")){
-                arrChars[i]=Letters[random(0,27)];
+            if(arrChars[i].equals("")) {
+                do {
+                    RandLetter = Letters[random(0, 27)];
+                } while (IsFoundInStringArray(arrChars, RandLetter));
+                arrChars[i] = RandLetter;
             }
         }
 
@@ -190,19 +214,25 @@ public class Quiz1Fragment extends Fragment {
         else
             view.setBackgroundResource( R.drawable.right_circle);
 
+        if(Tempword.length() >WordPic.length()){
+            WrongAnsAlert wrongAnsAlert =new WrongAnsAlert();
+            wrongAnsAlert.show(getFragmentManager(),"Wrong Alert");
+        }
+        else {
         if (WordPic.equals(Tempword)) {
-            //startActivity(new Intent(getActivity(),PopActivity.class));
-            Myalert myalert=new Myalert();
-            myalert.show(getFragmentManager(),"My Alert");
+
+            RightAnsAlert rightAnsAlert =new RightAnsAlert();
+            rightAnsAlert.show(getFragmentManager(),"Right Alert");
         }
         else {
             Tempword = Tempword.concat(view.getText().toString());
             Word.setText(Tempword);
             if (WordPic.equals(Tempword)) {
-                //startActivity(new Intent(getActivity(),PopActivity.class));
-                Myalert myalert=new Myalert();
-                myalert.show(getFragmentManager(),"My Alert");
+
+                RightAnsAlert rightAnsAlert =new RightAnsAlert();
+                rightAnsAlert.show(getFragmentManager(),"Right Alert");
             }
+        }
         }
     }
 
@@ -211,7 +241,7 @@ public class Quiz1Fragment extends Fragment {
             v.setBackgroundResource( R.drawable.img);
     }
 
-    /////////////////////////////////////////////////////
+    //-------------Pure java functions ---------------------//
     public  void AddToStringArray(String [] arr,String s){
         for(int i=0;i<arr.length;i++){
             if(arr[i] == null){

@@ -1,4 +1,4 @@
-package com.ourproject.learningapp;
+package com.ourproject.learningapp.fragments;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -9,20 +9,21 @@ import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentActivity;
 import android.widget.Toast;
 
-import com.ourproject.learningapp.fragments.Quiz1Fragment;
+import com.ourproject.learningapp.R;
 
 /**
- * Created by Moetaz on 4/7/2017.
+ * Created by Moetaz on 4/8/2017.
  */
 
-public class Myalert extends DialogFragment {
+public class WrongAnsAlert extends DialogFragment {
+
 
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
         builder.setTitle("My Alert");
-        builder.setMessage("أحسنت تجرب مرة أخري؟");
+        builder.setMessage("خطأ تجرب مرة أخري؟");
         builder.setNegativeButton("لا", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {

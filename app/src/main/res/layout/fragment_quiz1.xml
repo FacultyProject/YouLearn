@@ -155,7 +155,7 @@
                 android:layout_width="50dp"/>
             <ImageView
                 android:id="@+id/delOnlyOne"
-                android:src="@drawable/exersiceicon"
+                android:src="@drawable/erasericon"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
         </LinearLayout>
