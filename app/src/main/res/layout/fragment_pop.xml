@@ -6,17 +6,39 @@
     android:layout_height="match_parent"
 
     >
-    <TextView
+    <RelativeLayout
+        android:layout_width="300dp"
+        android:layout_height="350dp"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:textColor="#000"
         android:background="@color/colorPrimary"
-        android:gravity="center"
-        android:textSize="50dp"
-        android:text="أحسنت!"
-        android:textStyle="bold"
-        android:layout_width="300dp"
-        android:layout_height="200dp" />
+        >
+
+        <TextView
+            android:textColor="#000"
+            android:textSize="60sp"
+            android:gravity="center"
+            android:text="أحسنت!"
+            android:id="@+id/textView"
+            android:textStyle="bold"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Medium Text"
+            android:textSize="40sp"
+            android:layout_marginTop="10dp"
+            android:textColor="#000"
+            android:id="@+id/word"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+
+
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="80dp"

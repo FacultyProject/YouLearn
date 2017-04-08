@@ -1,6 +1,7 @@
 package com.ourproject.learningapp.fragments;
 
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -14,6 +15,7 @@ import com.ourproject.learningapp.PositionRespone;
 import com.ourproject.learningapp.R;
 import com.squareup.picasso.Picasso;
 
+import java.io.IOException;
 import java.util.Random;
 
 /**
@@ -25,16 +27,16 @@ public class Q4Fragment extends Fragment {
     int[] index,imagesIndex;
     String[] images;
     public static int position =0,s,s0;
-    String[]letters,lettersImages1,lettersSounds;
+    String[]letters,lettersImages1,lettersSounds,word1;
     ImageView imageView,imageView2,imageView3;
     TextView textView;
+    public static String ans="false";
+    PopFragment popFragment;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.fragment_q4, container, false);
         index=randArray(28);
-        imagesIndex=randArray(3);
-        images=new String[3];
         imageView= (ImageView)view. findViewById(R.id.imageView);
         imageView2= (ImageView)view. findViewById(R.id.imageView2);
         imageView3= (ImageView)view. findViewById(R.id.imageView3);
@@ -42,8 +44,9 @@ public class Q4Fragment extends Fragment {
         letters=getActivity().getResources().getStringArray(R.array.letters);
         lettersSounds=getActivity().getResources().getStringArray(R.array.lettersSounds);
         lettersImages1=getActivity().getResources().getStringArray(R.array.lettersImages1);
+        word1=getActivity().getResources().getStringArray(R.array.lettersName1);
         showData(position++);
-        final PopFragment popFragment=new PopFragment();
+        popFragment=new PopFragment();
         popFragment.setPositionRespone(new PositionRespone() {
             @Override
             public void postitionPlus(int position) {
@@ -51,27 +54,56 @@ public class Q4Fragment extends Fragment {
             }
         });
 
-
+        textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                pMusic(lettersSounds[index[position-1]]);
+            }
+        });
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (lettersImages1[index[position-1]]==images[0]){
+                    ans="true";
+                }else
+                    ans="false";
+                toPopFrag(word1[index[position-1]]);
 
-                (getActivity()).getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.fragment_main,popFragment)
-                        .addToBackStack(null)
-                        .commit();
+            }
+        });
+        imageView2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (lettersImages1[index[position-1]]==images[1]){
+                    ans="true";
+                }else
+                    ans="false";
+                toPopFrag(word1[index[position-1]]);
 
+            }
+        });
+        imageView3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (lettersImages1[index[position-1]]==images[2]){
+                    ans="true";
+                }else
+                    ans="false";
+                toPopFrag(word1[index[position-1]]);
             }
         });
         return view;
     }
     private void showData(int position){
-
+        imagesIndex=randArray(3);
+        images=new String[3];
         textView.setText(letters[index[position]]);
         images[imagesIndex[0]]=lettersImages1[index[position]];
         Random random = new Random();
-        s=random.nextInt(28);
-        s0=random.nextInt(28);
+        do {
+            s=random.nextInt(28);
+            s0=random.nextInt(28);
+        }while (position==s||position==s0||s==s0);
         images[imagesIndex[1]]=lettersImages1[index[s]];
         images[imagesIndex[2]]=lettersImages1[index[s0]];
         Picasso.with(getActivity()).load(images[0])
@@ -107,6 +139,28 @@ public class Q4Fragment extends Fragment {
             arr[i]=n;
         }
         return arr;
+    }
+    public static void pMusic(String url){
+        MediaPlayer soundFile=new MediaPlayer();
+        try {
+            soundFile.stop();
+            soundFile = new MediaPlayer();
+            soundFile.setDataSource(url);
+            soundFile.prepare();
+            soundFile.start();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+    private void toPopFrag(String text){
+        Bundle bundle=new Bundle();
+        bundle.putString("text",text);
+        popFragment.setArguments(bundle);
+        (getActivity()).getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment_main,popFragment)
+                .addToBackStack(null)
+                .commit();
     }
 
 }

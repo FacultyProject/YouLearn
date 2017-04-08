@@ -10,9 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.ourproject.learningapp.R;
-import com.ourproject.learningapp.activities.LettersActivity;
 import com.ourproject.learningapp.activities.Quiz1Activity;
-import com.ourproject.learningapp.activities.Quiz4Activity;
 import com.ourproject.learningapp.globals.GlobalLetter;
 
 /**
@@ -66,8 +64,8 @@ public class Fragment2 extends Fragment {
         QImaeg4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                Intent intent = new Intent(getActivity(), Quiz4Activity.class);
+                GlobalLetter.QUIZID="qIamge4";
+                Intent intent = new Intent(getActivity(), Quiz1Activity.class);
                 getActivity().startActivity(intent);
             }
         });

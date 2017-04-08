@@ -37,7 +37,6 @@
         <activity
             android:name=".activities.PopActivity"
             android:theme="@style/AppTheme.CustomTheme" />
-        <activity android:name=".activities.Quiz4Activity"></activity>
     </application>
 
 </manifest>
