@@ -28,10 +28,9 @@ public class Q4Fragment extends Fragment {
     String[] images;
     public static int position =0,s,s0;
     String[]letters,lettersImages1,lettersSounds,word1;
-    ImageView imageView,imageView2,imageView3;
+    ImageView imageView,imageView2,imageView3,play;
     TextView textView;
     public static String ans="false";
-    PopFragment popFragment;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -46,8 +45,9 @@ public class Q4Fragment extends Fragment {
         lettersImages1=getActivity().getResources().getStringArray(R.array.lettersImages1);
         word1=getActivity().getResources().getStringArray(R.array.lettersName1);
         showData(position++);
-        popFragment=new PopFragment();
-        popFragment.setPositionRespone(new PositionRespone() {
+        final Myalert myalert=new Myalert();
+
+        myalert.setPositionRespone(new PositionRespone() {
             @Override
             public void postitionPlus(int position) {
                 showData(position);
@@ -67,7 +67,8 @@ public class Q4Fragment extends Fragment {
                     ans="true";
                 }else
                     ans="false";
-                toPopFrag(word1[index[position-1]]);
+                myalert.show(getFragmentManager(),"");
+
 
             }
         });
@@ -78,7 +79,8 @@ public class Q4Fragment extends Fragment {
                     ans="true";
                 }else
                     ans="false";
-                toPopFrag(word1[index[position-1]]);
+                myalert.show(getFragmentManager(),"");
+
 
             }
         });
@@ -89,7 +91,8 @@ public class Q4Fragment extends Fragment {
                     ans="true";
                 }else
                     ans="false";
-                toPopFrag(word1[index[position-1]]);
+                myalert.show(getFragmentManager(),"");
+
             }
         });
         return view;
@@ -152,15 +155,6 @@ public class Q4Fragment extends Fragment {
             e.printStackTrace();
         }
 
-    }
-    private void toPopFrag(String text){
-        Bundle bundle=new Bundle();
-        bundle.putString("text",text);
-        popFragment.setArguments(bundle);
-        (getActivity()).getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fragment_main,popFragment)
-                .addToBackStack(null)
-                .commit();
     }
 
 }
