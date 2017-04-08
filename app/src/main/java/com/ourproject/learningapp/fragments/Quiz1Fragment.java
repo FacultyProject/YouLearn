@@ -35,7 +35,7 @@ public class Quiz1Fragment extends Fragment {
         // Inflate the layout for this fragment
         Random r=new Random();
         final int Randnum=r.nextInt(28);
-        int Randlist=r.nextInt(3);
+        final int Randlist=r.nextInt(3);
         int [] RandArr=new int[10];
         CreateRandArr(RandArr);
         Letters=getActivity().getResources().getStringArray(R.array.letters);
@@ -96,7 +96,12 @@ public class Quiz1Fragment extends Fragment {
             qimageView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    if(Randlist==0)
                     GlobalLetter.pMusic(getActivity().getResources().getStringArray(R.array.PicSounds1)[Randnum]);
+                    else if(Randlist==1)
+                        GlobalLetter.pMusic(getActivity().getResources().getStringArray(R.array.PicSounds2)[Randnum]);
+                    else
+                        GlobalLetter.pMusic(getActivity().getResources().getStringArray(R.array.PicSounds3)[Randnum]);
                 }
             });}
 
