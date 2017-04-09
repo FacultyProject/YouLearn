@@ -7,6 +7,9 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentActivity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.ourproject.learningapp.R;
@@ -18,28 +21,26 @@ import com.ourproject.learningapp.fragments.Quiz1Fragment;
 
 public class RightAnsAlert extends DialogFragment {
 
+    ImageView imageView;
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
-        builder.setTitle("My Alert");
-        builder.setMessage("أحسنت تجرب مرة أخري؟");
-        builder.setNegativeButton("لا", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                Toast.makeText(getActivity(),"Cancel Clicked", Toast.LENGTH_LONG);
-            }
-        });
 
-        builder.setPositiveButton("نعم", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                Quiz1Fragment mainFragment=new Quiz1Fragment();
-                ((FragmentActivity)getContext()).getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.fQ1mian,mainFragment)
-                        .commit();
-            }
-        });
+        LayoutInflater layoutInflater=getActivity().getLayoutInflater();
+        View view=layoutInflater.inflate(R.layout.fragment_pop,null);
+        imageView= (ImageView) view.findViewById(R.id.next);
+        builder.setView(view);
+            imageView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Quiz1Fragment mainFragment=new Quiz1Fragment();
+                    ((FragmentActivity)getContext()).getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.fQ1mian,mainFragment)
+                            .commit();
+                    dismiss();
+                }
+            });
 
         Dialog dialog=builder.create();
 

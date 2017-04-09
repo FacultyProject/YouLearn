@@ -116,7 +116,7 @@ public class Quiz1Fragment extends Fragment {
         for(int i=0;i<SplitedWord.length;i++){
             AddToStringArray(arrChars, SplitedWord[i]);
         }
-        for(int i=0;i<10-(SplitedWord.length-1) ;i++){
+        for(int i=0;i<10-(SplitedWord.length- 1) ;i++){
             do{
                 RandLetter=Letters[random(0,27)];
             }while(IsFoundInStringArray(arrChars,RandLetter));
@@ -220,6 +220,8 @@ public class Quiz1Fragment extends Fragment {
             view.setBackgroundResource( R.drawable.right_circle);
 
         if(Tempword.length() >WordPic.length()){
+            Word.setText("");Tempword="";
+            SetToDefault(L1,L2,L3,L4,L5,L6,L7,L8,L9,L10);
             WrongAnsAlert wrongAnsAlert =new WrongAnsAlert();
             wrongAnsAlert.show(getFragmentManager(),"Wrong Alert");
         }

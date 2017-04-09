@@ -7,6 +7,10 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentActivity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ourproject.learningapp.R;
@@ -17,29 +21,23 @@ import com.ourproject.learningapp.R;
 
 public class WrongAnsAlert extends DialogFragment {
 
-
+    ImageView imageView;
+    TextView textView;
+    TextView textView2;
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
-        builder.setTitle("My Alert");
-        builder.setMessage("خطأ تجرب مرة أخري؟");
-        builder.setNegativeButton("لا", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                Toast.makeText(getActivity(),"Cancel Clicked", Toast.LENGTH_LONG);
-            }
-        });
 
-        builder.setPositiveButton("نعم", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                Quiz1Fragment mainFragment=new Quiz1Fragment();
-                ((FragmentActivity)getContext()).getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.fQ1mian,mainFragment)
-                        .commit();
-            }
-        });
+        LayoutInflater layoutInflater=getActivity().getLayoutInflater();
+        View view=layoutInflater.inflate(R.layout.fragment_pop,null);
+        imageView= (ImageView) view.findViewById(R.id.next);
+        textView= (TextView) view.findViewById(R.id.textView);
+        textView2= (TextView) view.findViewById(R.id.textv2);
+        textView.setText("حاول مرة اخري!");
+        builder.setView(view);
+        textView2.setVisibility(View.INVISIBLE);
+        imageView.setVisibility(View.INVISIBLE);
 
         Dialog dialog=builder.create();
 

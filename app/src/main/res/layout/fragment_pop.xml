@@ -33,6 +33,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true">
         <TextView
+            android:id="@+id/textv2"
             android:layout_width="wrap_content"
             android:layout_height="80dp"
             android:text="السؤال التالي"
