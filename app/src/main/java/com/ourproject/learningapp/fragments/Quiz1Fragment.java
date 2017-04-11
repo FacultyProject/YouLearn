@@ -1,7 +1,11 @@
 package com.ourproject.learningapp.fragments;
 
 
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,10 +33,12 @@ public class Quiz1Fragment extends Fragment {
     }
 
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        
         Random r=new Random();
         final int Randnum=r.nextInt(28);
         final int Randlist=r.nextInt(3);
@@ -67,6 +73,8 @@ public class Quiz1Fragment extends Fragment {
         L10= (TextView) view.findViewById(R.id.l10);
         Del= (ImageView) view.findViewById(R.id.del);
         DelOne= (ImageView) view.findViewById(R.id.delOnlyOne);
+
+        LettersAnimation(L1,L2,L3,L4,L5,L6,L7,L8,L9,L10);
 
         DelOne.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -214,6 +222,7 @@ public class Quiz1Fragment extends Fragment {
 
     public void ButtonListner(TextView view){
 
+
         if(!WordPic.contains(view.getText()))
             view.setBackgroundResource( R.drawable.wrong_circle);
         else
@@ -240,6 +249,16 @@ public class Quiz1Fragment extends Fragment {
                 rightAnsAlert.show(getFragmentManager(),"Right Alert");
             }
         }
+        }
+    }
+
+    public void LettersAnimation(View ... views){
+        for(View v:views){
+            ObjectAnimator a1= ObjectAnimator.ofFloat(v,"translationY",-600,0);
+            a1.setDuration(2300);
+            AnimatorSet animatorSet =new AnimatorSet();
+            animatorSet.playTogether(a1);
+            animatorSet.start();
         }
     }
 
