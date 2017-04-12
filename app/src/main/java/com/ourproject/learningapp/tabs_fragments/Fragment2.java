@@ -77,6 +77,15 @@ public class Fragment2 extends Fragment {
                 getActivity().startActivity(intent);
             }
         });
+
+        QImaeg6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                GlobalLetter.QUIZID="qIamge6";
+                Intent intent = new Intent(getActivity(), Quiz1Activity.class);
+                getActivity().startActivity(intent);
+            }
+        });
         return view;
     }
 }

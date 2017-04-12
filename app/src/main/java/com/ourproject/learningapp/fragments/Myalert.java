@@ -38,7 +38,7 @@ public class Myalert extends DialogFragment {
         alertDialog.setView(ansDialogView);
         textView=(TextView)ansDialogView.findViewById(R.id.textView);
         LinearLayout myLayout = (LinearLayout)ansDialogView. findViewById(R.id.linearLayout);
-        if (Q4Fragment.position==28){
+        if (Q4Fragment.position==28 || Q5Fragment.COUNT==10){
             textView.setTextSize(30);
             textView.setText(" اكتمل الاختبار");
             ansDialogView.findViewById(R.id.textView).setOnClickListener(new View.OnClickListener() {

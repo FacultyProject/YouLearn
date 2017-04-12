@@ -58,22 +58,23 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="300dp">
-                <ImageView
-                    android:layout_margin="2dp"
-                    android:background="@drawable/img_background"
-                    android:id="@+id/qimage5"
-                    android:src="@drawable/level3_icon"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" />
+
                 <ImageView
                     android:layout_margin="2dp"
                     android:layout_weight="1"
                     android:background="@drawable/img_background"
-                    android:id="@+id/qimage6"
-                    android:src="@drawable/level_4"
+                    android:id="@+id/qimage5"
+                    android:src="@drawable/level_5"
                     android:layout_width="0dp"
                     android:layout_height="match_parent" />
+                <ImageView
+                    android:layout_margin="2dp"
+                    android:background="@drawable/img_background"
+                    android:id="@+id/qimage6"
+                    android:src="@drawable/level_6"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
             </LinearLayout>
 
 
