@@ -17,10 +17,7 @@ import com.ourproject.learningapp.globals.GlobalLetter;
  * Created by Moetaz on 2/24/2017.
  */
 public class Fragment2 extends Fragment {
-    ImageView QImaeg1;
-    ImageView QImaeg2;
-    ImageView QImaeg3;
-    ImageView QImaeg4;
+    private ImageView QImaeg1,QImaeg2,QImaeg3,QImaeg4,QImaeg5,QImaeg6;
 
     @Nullable
     @Override
@@ -30,6 +27,9 @@ public class Fragment2 extends Fragment {
         QImaeg2 = (ImageView) view.findViewById(R.id.qimage2);
         QImaeg3 = (ImageView) view.findViewById(R.id.qimage3);
         QImaeg4 = (ImageView) view.findViewById(R.id.qimage4);
+        QImaeg5 = (ImageView) view.findViewById(R.id.qimage5);
+        QImaeg6 = (ImageView) view.findViewById(R.id.qimage6);
+
         QImaeg1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -65,6 +65,14 @@ public class Fragment2 extends Fragment {
             @Override
             public void onClick(View view) {
                 GlobalLetter.QUIZID="qIamge4";
+                Intent intent = new Intent(getActivity(), Quiz1Activity.class);
+                getActivity().startActivity(intent);
+            }
+        });
+        QImaeg5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                GlobalLetter.QUIZID="qIamge5";
                 Intent intent = new Intent(getActivity(), Quiz1Activity.class);
                 getActivity().startActivity(intent);
             }
