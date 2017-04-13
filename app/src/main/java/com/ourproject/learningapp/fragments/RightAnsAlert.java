@@ -34,10 +34,18 @@ public class RightAnsAlert extends DialogFragment {
             imageView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Quiz1Fragment mainFragment=new Quiz1Fragment();
-                    ((FragmentActivity)getContext()).getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.fQ1mian,mainFragment)
-                            .commit();
+                    if(Q6Fragment.TAG == "Q5"){
+                        Q6Fragment q6Fragment = new Q6Fragment();
+                        ((FragmentActivity) getContext()).getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.fQ1mian, q6Fragment)
+                                .commit();
+                    }
+                    else {
+                        Quiz1Fragment quiz1Fragment = new Quiz1Fragment();
+                        ((FragmentActivity) getContext()).getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.fQ1mian, quiz1Fragment)
+                                .commit();
+                    }
                     dismiss();
                 }
             });

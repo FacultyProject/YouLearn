@@ -23,6 +23,7 @@ import java.util.Random;
  * A simple {@link Fragment} subclass.
  */
 public class Q6Fragment extends Fragment {
+    public static final String TAG="Q5";
         int rand;
         private String [] Words,PicWords;
         ImageView imageView,Rec;
@@ -68,7 +69,7 @@ public class Q6Fragment extends Fragment {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-
+        String WORDPIC=Words[rand].replace("ة", "ه");
         super.onActivityResult(requestCode, resultCode, data);
         ArrayList<String> result=new ArrayList<>();
         switch (requestCode){
@@ -77,6 +78,15 @@ public class Q6Fragment extends Fragment {
                  result=data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
                 textView2.setText(result.get(0));
                 break;
+        }
+        if (WORDPIC.equals(result.get(0)) || WORDPIC.contains(result.get(0)) || result.get(0).contains(WORDPIC)) {
+            RightAnsAlert rightAnsAlert=new RightAnsAlert();
+            rightAnsAlert.show(getFragmentManager(),"qAlert");
+
+        }else{
+            WrongAnsAlert wrongAnsAlert=new WrongAnsAlert();
+            wrongAnsAlert.show(getFragmentManager(),"qAlert");
+            //textView2.setText("");
         }
 
     }
