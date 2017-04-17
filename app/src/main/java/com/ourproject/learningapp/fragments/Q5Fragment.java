@@ -1,6 +1,7 @@
 package com.ourproject.learningapp.fragments;
 
 
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -290,11 +291,21 @@ public class Q5Fragment extends Fragment {
     }
 
     public void lFade(TextView ...textViews){
-        //Fade fade=new Fade();
-        Explode fade=new Explode();
-        fade.setDuration(4000);
-        TransitionManager.beginDelayedTransition(mRoot,fade);
-        toggleVisibilty(textViews);
+
+        if(Build.VERSION.SDK_INT >= 21) {
+            //Fade fade=new Fade();
+            Explode fade = new Explode();
+            fade.setDuration(4000);
+            TransitionManager.beginDelayedTransition(mRoot, fade);
+            toggleVisibilty(textViews);
+        }
+        else{
+            for(TextView current : textViews){
+                if(current.getVisibility()==View.VISIBLE){
+                    current.setVisibility(View.INVISIBLE);
+                }
+            }
+        }
 
     }
     public void toggleVisibilty(TextView ...textViews){
@@ -312,7 +323,7 @@ public class Q5Fragment extends Fragment {
             TwoLetters[1]=RandLetters[id];
             if(TwoLetters[0].equals(TwoLetters[1])) {
                 COUNT++;
-                //Toast.makeText(getActivity(),"Good",Toast.LENGTH_LONG).show();
+
                 lFade(Towviews);
                 if(COUNT==10) {
                     Myalert myalert = new Myalert();

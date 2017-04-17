@@ -21,7 +21,7 @@ import com.ourproject.learningapp.activities.MainActivity;
  */
 
 public class Myalert extends DialogFragment {
-    TextView textView,word;
+    TextView textView;
     PositionRespone positionRespone;
 
 

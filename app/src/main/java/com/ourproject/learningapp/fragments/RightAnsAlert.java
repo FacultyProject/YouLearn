@@ -39,14 +39,17 @@ public class RightAnsAlert extends DialogFragment {
                         ((FragmentActivity) getContext()).getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.fQ1mian, q6Fragment)
                                 .commit();
+                        dismiss();
                     }
                     else {
                         Quiz1Fragment quiz1Fragment = new Quiz1Fragment();
                         ((FragmentActivity) getContext()).getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.fQ1mian, quiz1Fragment)
                                 .commit();
+
+                        dismiss();
                     }
-                    dismiss();
+
                 }
             });
 
