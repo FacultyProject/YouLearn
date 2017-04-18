@@ -34,11 +34,13 @@ public class RightAnsAlert extends DialogFragment {
             imageView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if(Q6Fragment.TAG == "Q5"){
+                    if(Q6Fragment.TAG ){
+
                         Q6Fragment q6Fragment = new Q6Fragment();
                         ((FragmentActivity) getContext()).getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.fQ1mian, q6Fragment)
                                 .commit();
+
                         dismiss();
                     }
                     else {

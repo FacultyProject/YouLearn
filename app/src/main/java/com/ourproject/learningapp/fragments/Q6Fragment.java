@@ -23,7 +23,7 @@ import java.util.Random;
  * A simple {@link Fragment} subclass.
  */
 public class Q6Fragment extends Fragment {
-    public static final String TAG = "Q5";
+    public static   boolean TAG = false;
     int rand;
     private String[] Words, PicWords;
     ImageView imageView, Rec;
@@ -82,6 +82,7 @@ public class Q6Fragment extends Fragment {
                 break;
         }
         if (WORDPIC.equals(result.get(0)) || WORDPIC.contains(result.get(0)) || result.get(0).contains(WORDPIC)) {
+            Q6Fragment.TAG=true;
             RightAnsAlert rightAnsAlert = new RightAnsAlert();
             rightAnsAlert.show(getFragmentManager(), "qAlert");
 
