@@ -27,27 +27,24 @@ public class Quiz1Fragment extends Fragment {
     private String [] Letters,SplitedWord,arrChars ;
     private TextView Word,L1,L2,L3,L4,L5,L6,L7,L8,L9,L10;
     private ImageView qimageView,Del ,DelOne;
+    final int Randnum=new Random().nextInt(28);
+    final int Randlist=new Random().nextInt(3);
+    int [] RandArr;
 
     public Quiz1Fragment() {
         // Required empty public constructor
     }
 
 
-
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        
-        Random r=new Random();
-        final int Randnum=r.nextInt(28);
-        final int Randlist=r.nextInt(3);
-        int [] RandArr=new int[10];
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+           RandArr=new int[10];
         CreateRandArr(RandArr);
         Letters=getActivity().getResources().getStringArray(R.array.letters);
         if(Randlist==0){
-        WordPic=getActivity().getResources().getStringArray(R.array.lettersName1)[Randnum];
-        ImageUrl=getActivity().getResources().getStringArray(R.array.lettersImages1)[Randnum];
+            WordPic=getActivity().getResources().getStringArray(R.array.lettersName1)[Randnum];
+            ImageUrl=getActivity().getResources().getStringArray(R.array.lettersImages1)[Randnum];
         }else if(Randlist==1){
             WordPic=getActivity().getResources().getStringArray(R.array.lettersName2)[Randnum];
             ImageUrl=getActivity().getResources().getStringArray(R.array.lettersImages2)[Randnum];
@@ -56,6 +53,14 @@ public class Quiz1Fragment extends Fragment {
             WordPic=getActivity().getResources().getStringArray(R.array.lettersName3)[Randnum];
             ImageUrl=getActivity().getResources().getStringArray(R.array.lettersImages3)[Randnum];
         }
+
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+
 
         View view=inflater.inflate(R.layout.fragment_quiz1, container, false);
         qimageView= (ImageView) view.findViewById(R.id.qimage);

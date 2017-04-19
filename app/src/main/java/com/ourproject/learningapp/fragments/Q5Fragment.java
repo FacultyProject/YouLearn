@@ -5,8 +5,10 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.transition.Explode;
 import android.transition.TransitionManager;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,13 +23,15 @@ import java.util.Random;
  * A simple {@link Fragment} subclass.
  */
 public class Q5Fragment extends Fragment {
+    private boolean inThreadMode =false,inWaitMode=false;
+
     public static int COUNT=0;
     ViewGroup mRoot;
     ArrayList<String> arrayList;
     String [] Letters,RandLetters;
     String letter;
     private TextView L1,L2,L3,L4,L5,L6,L7,L8,L9,L10,L11,L12,L13,L14,L15,L16,L17,L18,L19,L20;
-    boolean check=false;
+    boolean isSecondLetter =false;
     String [] TwoLetters=new String [2];
     TextView [] Towviews =new TextView[2];
     int id;
@@ -36,6 +40,8 @@ public class Q5Fragment extends Fragment {
     public Q5Fragment() {
         // Required empty public constructor
     }
+
+
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -98,6 +104,21 @@ public class Q5Fragment extends Fragment {
         L20= (TextView) view.findViewById(R.id.R20);
 
 
+        view.setFocusableInTouchMode(true);
+        view.requestFocus();
+        view.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                //Log.i(tag, "keyCode: " + keyCode);
+                if( (keyCode == KeyEvent.KEYCODE_BACK ) && !inThreadMode) {
+                   // Log.i(tag, "onKey Back listener is working!!!");
+                    getFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+        });
 
         Settext(L1,L2,L3,L4,L5,L6,L7,L8,L9,L10,L11,L12,L13,L14,L15,L16,L17,L18,L19,L20);
         Thread timer=new Thread() {
@@ -106,6 +127,7 @@ public class Q5Fragment extends Fragment {
 
                 try
                 {
+                    inThreadMode =true;
                     sleep(5000);
                 }
                 catch (InterruptedException e)
@@ -117,6 +139,7 @@ public class Q5Fragment extends Fragment {
                         @Override
                         public void run() {
                             SetToDefault(L1,L2,L3,L4,L5,L6,L7,L8,L9,L10,L11,L12,L13,L14,L15,L16,L17,L18,L19,L20);
+                           inThreadMode =false;
                         }
                     });
 
@@ -126,10 +149,12 @@ public class Q5Fragment extends Fragment {
         };
         timer.start();
 
+
         L1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 id=0;
+                if(!inWaitMode)
                 LetterListner(L1,id);
             }
         });
@@ -137,6 +162,7 @@ public class Q5Fragment extends Fragment {
             @Override
             public void onClick(View view) {
                 id=1;
+                if(!inWaitMode)
                 LetterListner(L2,id);
             }
         });
@@ -144,7 +170,7 @@ public class Q5Fragment extends Fragment {
             @Override
             public void onClick(View view) {
                 id=2;
-
+                if(!inWaitMode)
                 LetterListner(L3,id);
             }
         });
@@ -152,6 +178,7 @@ public class Q5Fragment extends Fragment {
             @Override
             public void onClick(View view) {
                 id=3;
+                if(!inWaitMode)
                 LetterListner(L4,id);
 
             }
@@ -160,6 +187,7 @@ public class Q5Fragment extends Fragment {
             @Override
             public void onClick(View view) {
                 id=4;
+                if(!inWaitMode)
                 LetterListner(L5,id);
 
             }
@@ -168,6 +196,7 @@ public class Q5Fragment extends Fragment {
             @Override
             public void onClick(View view) {
                 id=5;
+                if(!inWaitMode)
                 LetterListner(L6,id);
 
             }
@@ -176,6 +205,7 @@ public class Q5Fragment extends Fragment {
             @Override
             public void onClick(View view) {
                 id=6;
+                if(!inWaitMode)
                 LetterListner(L7,id);
 
             }
@@ -184,6 +214,7 @@ public class Q5Fragment extends Fragment {
             @Override
             public void onClick(View view) {
                 id=7;
+                if(!inWaitMode)
                 LetterListner(L8,id);
 
             }
@@ -192,6 +223,7 @@ public class Q5Fragment extends Fragment {
             @Override
             public void onClick(View view) {
                 id=8;
+                if(!inWaitMode)
                 LetterListner(L9,id);
 
             }
@@ -200,6 +232,7 @@ public class Q5Fragment extends Fragment {
             @Override
             public void onClick(View view) {
                 id=9;
+                if(!inWaitMode)
                 LetterListner(L10,id);
 
             }
@@ -208,6 +241,7 @@ public class Q5Fragment extends Fragment {
             @Override
             public void onClick(View view) {
                 id=10;
+                if(!inWaitMode)
                 LetterListner(L11,id);
 
             }
@@ -216,6 +250,7 @@ public class Q5Fragment extends Fragment {
             @Override
             public void onClick(View view) {
                 id=11;
+                if(!inWaitMode)
                 LetterListner(L12,id);
 
             }
@@ -224,6 +259,7 @@ public class Q5Fragment extends Fragment {
             @Override
             public void onClick(View view) {
                 id=12;
+                if(!inWaitMode)
                 LetterListner(L13,id);
 
             }
@@ -232,6 +268,7 @@ public class Q5Fragment extends Fragment {
             @Override
             public void onClick(View view) {
                 id=13;
+                if(!inWaitMode)
                 LetterListner(L14,id);
 
             }
@@ -240,6 +277,7 @@ public class Q5Fragment extends Fragment {
             @Override
             public void onClick(View view) {
                 id=14;
+                if(!inWaitMode)
                 LetterListner(L15,id);
 
             }
@@ -248,6 +286,7 @@ public class Q5Fragment extends Fragment {
             @Override
             public void onClick(View view) {
                 id=15;
+                if(!inWaitMode)
                 LetterListner(L16,id);
 
             }
@@ -257,6 +296,7 @@ public class Q5Fragment extends Fragment {
             @Override
             public void onClick(View view) {
                 id=16;
+                if(!inWaitMode)
                 LetterListner(L17,id);
 
             }
@@ -265,6 +305,7 @@ public class Q5Fragment extends Fragment {
             @Override
             public void onClick(View view) {
                 id=17;
+                if(!inWaitMode)
                 LetterListner(L18,id);
 
             }
@@ -273,6 +314,7 @@ public class Q5Fragment extends Fragment {
             @Override
             public void onClick(View view) {
                 id=18;
+                if(!inWaitMode)
                 LetterListner(L19,id);
 
             }
@@ -281,6 +323,7 @@ public class Q5Fragment extends Fragment {
             @Override
             public void onClick(View view) {
                 id=19;
+                if(!inWaitMode)
                 LetterListner(L20,id);
 
             }
@@ -317,14 +360,15 @@ public class Q5Fragment extends Fragment {
     }
 
     public void LetterListner(TextView textView,int id){
-        if(check){
+        if(isSecondLetter){
             textView.setText(RandLetters[id]);
             Towviews[1]=textView;
             TwoLetters[1]=RandLetters[id];
             if(TwoLetters[0].equals(TwoLetters[1])) {
                 COUNT++;
-
+                inWaitMode=true;
                 lFade(Towviews);
+                inWaitMode=false;
                 if(COUNT==10) {
                     Myalert myalert = new Myalert();
                     myalert.show(getFragmentManager(), "mAlert");
@@ -339,6 +383,8 @@ public class Q5Fragment extends Fragment {
 
                         try
                         {
+                            inWaitMode=true;
+                            inThreadMode=true;
                             sleep(3000);
                         }
                         catch (InterruptedException e)
@@ -350,6 +396,8 @@ public class Q5Fragment extends Fragment {
                                 @Override
                                 public void run() {
                                     SetToDefault(Towviews);
+                                    inThreadMode=false;
+                                    inWaitMode=false;
                                 }
                             });
 
@@ -360,14 +408,14 @@ public class Q5Fragment extends Fragment {
                 timer.start();
             }
 
-            check=false;
+            isSecondLetter =false;
 
         }
         else {
             textView.setText(RandLetters[id]);
             Towviews[0]=textView;
             TwoLetters[0]=RandLetters[id];
-            check=true;
+            isSecondLetter =true;
         }
     }
     public void Settext(TextView ...textViews){

@@ -29,8 +29,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <ImageView
+        android:layout_margin="10dp"
         android:id="@+id/StartRecord"
-        android:src="@drawable/play"
+        android:src="@drawable/mic"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

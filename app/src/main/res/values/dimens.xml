@@ -5,4 +5,5 @@
     <dimen name="frag1_imag_marg">3dp</dimen>
     <dimen name="mad_word_dim">30dp</dimen>
     <dimen name="circle_height">70dp</dimen>
+    <dimen name="letter_size">30dp</dimen>
 </resources>

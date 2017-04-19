@@ -38,7 +38,7 @@
                 android:layout_height="wrap_content"
                 android:text="خ"
                 android:gravity="center"
-                android:textSize="40sp"
+                android:textSize="@dimen/letter_size"
                 android:background="@drawable/img"
                 android:textColor="@android:color/background_dark" />
             <TextView
@@ -48,7 +48,7 @@
                 android:layout_height="wrap_content"
                 android:text="أ"
                 android:gravity="center"
-                android:textSize="40sp"
+                android:textSize="@dimen/letter_size"
                 android:background="@drawable/img"
                 android:textColor="@android:color/background_dark" />
             <TextView
@@ -58,7 +58,7 @@
                 android:layout_height="wrap_content"
                 android:text="س"
                 android:gravity="center"
-                android:textSize="40sp"
+                android:textSize="@dimen/letter_size"
                 android:background="@drawable/img"
                 android:textColor="@android:color/background_dark" />
             <TextView
@@ -68,7 +68,7 @@
                 android:layout_height="wrap_content"
                 android:text="ي"
                 android:gravity="center"
-                android:textSize="40sp"
+                android:textSize="@dimen/letter_size"
                 android:background="@drawable/img"
                 android:textColor="@android:color/background_dark" />
             <TextView
@@ -78,7 +78,7 @@
                 android:layout_height="wrap_content"
                 android:text="ي"
                 android:gravity="center"
-                android:textSize="40sp"
+                android:textSize="@dimen/letter_size"
                 android:background="@drawable/img"
                 android:textColor="@android:color/background_dark" />
 
@@ -96,7 +96,7 @@
                 android:layout_height="wrap_content"
                 android:text="و"
                 android:gravity="center"
-                android:textSize="40sp"
+                android:textSize="@dimen/letter_size"
                 android:background="@drawable/img"
                 android:textColor="@android:color/background_dark" />
             <TextView
@@ -106,7 +106,7 @@
                 android:layout_height="wrap_content"
                 android:text="ك"
                 android:gravity="center"
-                android:textSize="40sp"
+                android:textSize="@dimen/letter_size"
                 android:background="@drawable/img"
                 android:textColor="@android:color/background_dark" />
             <TextView
@@ -116,7 +116,7 @@
                 android:layout_height="wrap_content"
                 android:text="ر"
                 android:gravity="center"
-                android:textSize="40sp"
+                android:textSize="@dimen/letter_size"
                 android:background="@drawable/img"
                 android:textColor="@android:color/background_dark" />
             <TextView
@@ -126,7 +126,7 @@
                 android:layout_height="wrap_content"
                 android:text="ف"
                 android:gravity="center"
-                android:textSize="40sp"
+                android:textSize="@dimen/letter_size"
                 android:background="@drawable/img"
                 android:textColor="@android:color/background_dark" />
 
@@ -137,7 +137,7 @@
                 android:layout_height="wrap_content"
                 android:text="ف"
                 android:gravity="center"
-                android:textSize="40sp"
+                android:textSize="@dimen/letter_size"
                 android:background="@drawable/img"
                 android:textColor="@android:color/background_dark" />
 

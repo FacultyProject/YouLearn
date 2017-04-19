@@ -1,6 +1,7 @@
 package com.ourproject.learningapp.fragments;
 
 
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
@@ -58,9 +59,9 @@ public class Q6Fragment extends Fragment {
                 Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
                 intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
                 intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, "ar-EG");
-                if (intent.resolveActivity(getActivity().getPackageManager()) != null) {
+                try   {
                     startActivityForResult(intent, 10);
-                } else {
+                } catch (ActivityNotFoundException a){
                     Toast.makeText(getActivity(), "your device doent support", Toast.LENGTH_LONG).show();
 
                 }
@@ -71,7 +72,8 @@ public class Q6Fragment extends Fragment {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        String WORDPIC = Words[rand].replace("ة", "ه");
+        String WORDPIC = Words[rand].replace("ة", "ه").replace("أ", "ا");;
+
         super.onActivityResult(requestCode, resultCode, data);
         ArrayList<String> result = new ArrayList<>();
         switch (requestCode) {
