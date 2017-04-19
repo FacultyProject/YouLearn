@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.ourproject.learningapp.R;
+import com.ourproject.learningapp.activities.Quiz1Activity;
 import com.ourproject.learningapp.globals.GlobalLetter;
 import com.squareup.picasso.Picasso;
 
@@ -23,6 +24,7 @@ import java.util.Random;
  * A simple {@link Fragment} subclass.
  */
 public class Quiz1Fragment extends Fragment {
+   public static final int TAEGET=30;
     private  String RandLetter,WordPic,ImageUrl,Tempword="";
     private String [] Letters,SplitedWord,arrChars ;
     private TextView Word,L1,L2,L3,L4,L5,L6,L7,L8,L9,L10;
@@ -143,7 +145,6 @@ public class Quiz1Fragment extends Fragment {
                 arrChars[i] = RandLetter;
             }
         }
-
         L1.setText(arrChars[RandArr[0]]);
         L2.setText(arrChars[RandArr[1]]);
         L3.setText(arrChars[RandArr[2]]);
@@ -241,17 +242,30 @@ public class Quiz1Fragment extends Fragment {
         }
         else {
         if (WordPic.equals(Tempword)) {
-
-            RightAnsAlert rightAnsAlert =new RightAnsAlert();
-            rightAnsAlert.show(getFragmentManager(),"Right Alert");
+            GlobalLetter.nOfRightAns++;
+            if(GlobalLetter.nOfRightAns <  TAEGET) {
+                RightAnsAlert rightAnsAlert = new RightAnsAlert();
+                rightAnsAlert.show(getFragmentManager(), "Right Alert");
+            }
+            else
+            {
+                Myalert myalert=new Myalert();
+                myalert.show(getFragmentManager(),"m");
+            }
         }
         else {
             Tempword = Tempword.concat(view.getText().toString());
             Word.setText(Tempword);
             if (WordPic.equals(Tempword)) {
-
-                RightAnsAlert rightAnsAlert =new RightAnsAlert();
-                rightAnsAlert.show(getFragmentManager(),"Right Alert");
+                GlobalLetter.nOfRightAns++;
+                if(GlobalLetter.nOfRightAns <  TAEGET) {
+                    RightAnsAlert rightAnsAlert = new RightAnsAlert();
+                    rightAnsAlert.show(getFragmentManager(), "Right Alert");
+                }
+                else {
+                    Myalert myalert=new Myalert();
+                    myalert.show(getFragmentManager(),"m");
+                }
             }
         }
         }

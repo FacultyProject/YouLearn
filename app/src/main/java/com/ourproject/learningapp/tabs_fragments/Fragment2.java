@@ -33,6 +33,7 @@ public class Fragment2 extends Fragment {
         QImaeg1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                GlobalLetter.nOfRightAns=0;
                 GlobalLetter.QUIZID="qIamge1";
                 Intent intent = new Intent(getActivity(), Quiz1Activity.class);
                 getActivity().startActivity(intent);
@@ -44,6 +45,7 @@ public class Fragment2 extends Fragment {
         QImaeg2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                GlobalLetter.nOfRightAns=0;
                 GlobalLetter.QUIZID="qIamge2";
                 Intent intent = new Intent(getActivity(), Quiz1Activity.class);
                 getActivity().startActivity(intent);
@@ -55,6 +57,7 @@ public class Fragment2 extends Fragment {
         QImaeg3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                GlobalLetter.nOfRightAns=0;
                 GlobalLetter.QUIZID="qIamge3";
                 Intent intent = new Intent(getActivity(), Quiz1Activity.class);
                 getActivity().startActivity(intent);

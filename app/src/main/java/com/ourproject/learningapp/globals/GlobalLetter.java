@@ -9,6 +9,7 @@ import java.io.IOException;
  */
 
 public class GlobalLetter {
+    public static int nOfRightAns=0;
     public static String QUIZID="none";
     private static MediaPlayer soundFile=new MediaPlayer();
     public static String LETTERTYPE="none";

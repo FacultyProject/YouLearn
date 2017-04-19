@@ -24,7 +24,8 @@ import java.util.Random;
  * A simple {@link Fragment} subclass.
  */
 public class Q6Fragment extends Fragment {
-    public static   boolean TAG = false;
+
+    public static  boolean TAG = false;
     int rand;
     private String[] Words, PicWords;
     ImageView imageView, Rec;

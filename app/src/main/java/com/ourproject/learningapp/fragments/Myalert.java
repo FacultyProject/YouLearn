@@ -14,6 +14,8 @@ import android.widget.TextView;
 import com.ourproject.learningapp.PositionRespone;
 import com.ourproject.learningapp.R;
 import com.ourproject.learningapp.activities.MainActivity;
+import com.ourproject.learningapp.activities.Quiz1Activity;
+import com.ourproject.learningapp.globals.GlobalLetter;
 
 
 /**
@@ -38,7 +40,9 @@ public class Myalert extends DialogFragment {
         alertDialog.setView(ansDialogView);
         textView=(TextView)ansDialogView.findViewById(R.id.textView);
         LinearLayout myLayout = (LinearLayout)ansDialogView. findViewById(R.id.linearLayout);
-        if (Q4Fragment.position==28 || Q5Fragment.COUNT==10){
+        if (Q4Fragment.position==28 || Q5Fragment.COUNT==10 || GlobalLetter.nOfRightAns >=Quiz1Fragment.TAEGET){
+            GlobalLetter.nOfRightAns=0;
+            Q5Fragment.COUNT = 0;
             textView.setTextSize(30);
             textView.setText(" اكتمل الاختبار");
             ansDialogView.findViewById(R.id.textView).setOnClickListener(new View.OnClickListener() {
@@ -67,6 +71,9 @@ public class Myalert extends DialogFragment {
                 }
             });
             myLayout.setVisibility(View.INVISIBLE);
+        }
+        else{
+
         }
 
         alertDialog.show();
