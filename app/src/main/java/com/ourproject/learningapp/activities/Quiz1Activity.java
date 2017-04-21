@@ -28,6 +28,7 @@ public class Quiz1Activity extends AppCompatActivity {
                     .commit();
         }
         else if(GlobalLetter.QUIZID=="qIamge6"){
+
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.fQ1mian, new Q6Fragment())
                     .commit();

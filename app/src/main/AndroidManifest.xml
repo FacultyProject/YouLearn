@@ -34,9 +34,6 @@
         <activity android:name=".activities.MadLetterInfo" />
         <activity android:name=".activities.MadLettersActivity" />
         <activity android:name=".activities.Quiz1Activity" />
-        <activity
-            android:name=".activities.PopActivity"
-            android:theme="@style/AppTheme.CustomTheme" />
     </application>
 
 </manifest>

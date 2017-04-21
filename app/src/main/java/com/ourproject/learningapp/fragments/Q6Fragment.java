@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ourproject.learningapp.R;
+import com.ourproject.learningapp.globals.GlobalLetter;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -24,9 +25,9 @@ import java.util.Random;
  * A simple {@link Fragment} subclass.
  */
 public class Q6Fragment extends Fragment {
-
+    public static final int TARGER2=3;
     public static  boolean TAG = false;
-    int rand;
+    int rand,Randlist;
     private String[] Words, PicWords;
     ImageView imageView, Rec;
     TextView textView1, textView2;
@@ -38,8 +39,19 @@ public class Q6Fragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Words = getActivity().getResources().getStringArray(R.array.lettersName1);
-        PicWords = getActivity().getResources().getStringArray(R.array.lettersImages1);
+        Randlist=new Random().nextInt(3);
+        if(Randlist == 0) {
+            Words = getActivity().getResources().getStringArray(R.array.lettersName1);
+            PicWords = getActivity().getResources().getStringArray(R.array.lettersImages1);
+        }else if(Randlist == 1){
+            Words = getActivity().getResources().getStringArray(R.array.lettersName2);
+            PicWords = getActivity().getResources().getStringArray(R.array.lettersImages2);
+        }
+        else
+        {
+            Words = getActivity().getResources().getStringArray(R.array.lettersName3);
+            PicWords = getActivity().getResources().getStringArray(R.array.lettersImages3);
+        }
         rand = new Random().nextInt(28);
     }
 
@@ -73,27 +85,45 @@ public class Q6Fragment extends Fragment {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        String WORDPIC = Words[rand].replace("ة", "ه").replace("أ", "ا");;
-
         super.onActivityResult(requestCode, resultCode, data);
-        ArrayList<String> result = new ArrayList<>();
-        switch (requestCode) {
-            case 10:
-                if (resultCode == getActivity().RESULT_OK && data != null)
-                    result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-                textView2.setText(result.get(0));
-                break;
-        }
-        if (WORDPIC.equals(result.get(0)) || WORDPIC.contains(result.get(0)) || result.get(0).contains(WORDPIC)) {
-            Q6Fragment.TAG=true;
-            RightAnsAlert rightAnsAlert = new RightAnsAlert();
-            rightAnsAlert.show(getFragmentManager(), "qAlert");
 
-        } else {
-            WrongAnsAlert wrongAnsAlert = new WrongAnsAlert();
-            wrongAnsAlert.show(getFragmentManager(), "qAlert");
-            //textView2.setText("");
-        }
+            try {
+                String WORDPIC = Words[rand].replace("ة", "ه").replace("أ", "ا");
+
+                ArrayList<String> result = new ArrayList<>();
+                switch (requestCode) {
+                    case 10:
+
+                          if (resultCode == getActivity().RESULT_OK && data != null) {
+                            result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+                            textView2.setText(result.get(0));
+                        }
+                        break;
+
+                }
+
+
+                if (WORDPIC.equals(result.get(0)) || WORDPIC.contains(result.get(0)) || result.get(0).contains(WORDPIC)) {
+                    GlobalLetter.nOfRightAns++;
+                    Q6Fragment.TAG = true;
+                    if(GlobalLetter.nOfRightAns < TARGER2) {
+                        RightAnsAlert rightAnsAlert = new RightAnsAlert();
+                        rightAnsAlert.show(getFragmentManager(), "qAlert");
+                    }
+                    else{
+                        Q6Fragment.TAG = false;
+                        Myalert myalert=new Myalert();
+                        myalert.show(getFragmentManager(),"mm");
+                    }
+
+                } else {
+                    WrongAnsAlert wrongAnsAlert = new WrongAnsAlert();
+                    wrongAnsAlert.show(getFragmentManager(), "qAlert");
+                    //textView2.setText("");
+                }
+            }catch (Exception e){
+                Toast.makeText(getActivity(), "من فضلك انطق الكلمه", Toast.LENGTH_LONG).show();
+            }
 
     }
 }

@@ -40,7 +40,8 @@ public class Myalert extends DialogFragment {
         alertDialog.setView(ansDialogView);
         textView=(TextView)ansDialogView.findViewById(R.id.textView);
         LinearLayout myLayout = (LinearLayout)ansDialogView. findViewById(R.id.linearLayout);
-        if (Q4Fragment.position==28 || Q5Fragment.COUNT==10 || GlobalLetter.nOfRightAns >=Quiz1Fragment.TAEGET){
+        if (Q4Fragment.position==28 || Q5Fragment.COUNT==10 || GlobalLetter.nOfRightAns >=Quiz1Fragment.TAEGET
+                || GlobalLetter.nOfRightAns >= Q6Fragment.TARGER2){
             GlobalLetter.nOfRightAns=0;
             Q5Fragment.COUNT = 0;
             textView.setTextSize(30);

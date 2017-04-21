@@ -234,7 +234,7 @@ public class Quiz1Fragment extends Fragment {
         else
             view.setBackgroundResource( R.drawable.right_circle);
 
-        if(Tempword.length() >WordPic.length()){
+        if(Tempword.length() > WordPic.length()){
             Word.setText("");Tempword="";
             SetToDefault(L1,L2,L3,L4,L5,L6,L7,L8,L9,L10);
             WrongAnsAlert wrongAnsAlert =new WrongAnsAlert();

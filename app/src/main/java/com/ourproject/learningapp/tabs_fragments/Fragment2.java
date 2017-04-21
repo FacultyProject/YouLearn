@@ -33,10 +33,11 @@ public class Fragment2 extends Fragment {
         QImaeg1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                GlobalLetter.nOfRightAns=0;
-                GlobalLetter.QUIZID="qIamge1";
+                GlobalLetter.QUIZID="qIamge5";
                 Intent intent = new Intent(getActivity(), Quiz1Activity.class);
                 getActivity().startActivity(intent);
+
+
             }
         });
 
@@ -45,10 +46,10 @@ public class Fragment2 extends Fragment {
         QImaeg2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                GlobalLetter.nOfRightAns=0;
-                GlobalLetter.QUIZID="qIamge2";
+                GlobalLetter.QUIZID="qIamge4";
                 Intent intent = new Intent(getActivity(), Quiz1Activity.class);
                 getActivity().startActivity(intent);
+
             }
         });
 
@@ -58,24 +59,29 @@ public class Fragment2 extends Fragment {
             @Override
             public void onClick(View view) {
                 GlobalLetter.nOfRightAns=0;
-                GlobalLetter.QUIZID="qIamge3";
+                GlobalLetter.QUIZID="qIamge1";
                 Intent intent = new Intent(getActivity(), Quiz1Activity.class);
                 getActivity().startActivity(intent);
+
             }
         });
 
         QImaeg4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                GlobalLetter.QUIZID="qIamge4";
+                GlobalLetter.nOfRightAns=0;
+                GlobalLetter.QUIZID="qIamge2";
                 Intent intent = new Intent(getActivity(), Quiz1Activity.class);
                 getActivity().startActivity(intent);
+
             }
         });
         QImaeg5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                GlobalLetter.QUIZID="qIamge5";
+
+                GlobalLetter.nOfRightAns=0;
+                GlobalLetter.QUIZID="qIamge3";
                 Intent intent = new Intent(getActivity(), Quiz1Activity.class);
                 getActivity().startActivity(intent);
             }
@@ -84,6 +90,7 @@ public class Fragment2 extends Fragment {
         QImaeg6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                GlobalLetter.nOfRightAns=0;
                 GlobalLetter.QUIZID="qIamge6";
                 Intent intent = new Intent(getActivity(), Quiz1Activity.class);
                 getActivity().startActivity(intent);
