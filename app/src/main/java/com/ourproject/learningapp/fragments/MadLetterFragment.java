@@ -1,25 +1,35 @@
 package com.ourproject.learningapp.fragments;
 
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
+import android.app.Fragment;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.ourproject.learningapp.R;
+import com.ourproject.learningapp.adapters.LettersAdapter;
+import com.ourproject.learningapp.adapters.MadLettersAdapter;
 import com.ourproject.learningapp.models.MadModel;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class MadLetterFragment extends Fragment {
 
-
-    private TextView letterMad,mWord1,mWord2,mWord3,mWord4,mWord5,mWord6;
-    private MadModel madModel;
+    Bundle bundle;
+    Boolean aBoolean=false;
+    private String letterSection[],letter1Sounds[],letter2Sounds[],letter3Sounds[];
+    String letters;
+    private List<MadModel> listMad = new ArrayList<>();
     public MadLetterFragment() {
         // Required empty public constructor
     }
@@ -27,8 +37,6 @@ public class MadLetterFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Bundle bundle=getArguments();
-        madModel =(MadModel) bundle.getSerializable("madwordslist");
 
     }
 
@@ -37,24 +45,38 @@ public class MadLetterFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_mad_letter, container, false);
-
-        letterMad= (TextView) view.findViewById(R.id.letter_mad);
-        mWord1= (TextView) view.findViewById(R.id.MWord1);
-        mWord2= (TextView) view.findViewById(R.id.MWord2);
-        mWord3= (TextView) view.findViewById(R.id.MWord3);
-        mWord4= (TextView) view.findViewById(R.id.MWord4);
-        mWord5= (TextView) view.findViewById(R.id.MWord5);
-        mWord6= (TextView) view.findViewById(R.id.MWord6);
-
-        letterMad.setText(madModel.getLetter());
-        mWord1.setText(madModel.getWord1());
-
-        mWord2.setText(madModel.getWord2());
-        mWord3.setText(madModel.getWord3());
-        mWord4.setText(madModel.getWord4());
-        mWord5.setText(madModel.getWord5());
-        mWord6.setText(madModel.getWord6());
-        return view;
+        bundle=getArguments();
+        letters=bundle.getString("letter");
+        letterSection = getActivity().getResources().getStringArray(R.array.letters);
+        letter1Sounds = getActivity().getResources().getStringArray(R.array.MadBelAlfSounds);
+        letter2Sounds = getActivity().getResources().getStringArray(R.array.MadBelWawSounds);
+        letter3Sounds = getActivity().getResources().getStringArray(R.array.MadBelYaaSounds);
+        for (int i = 0; i< letterSection.length; i++) {
+            MadModel madModel=new MadModel();
+            madModel.setLetterSection(letterSection[i]+bundle.get("letterI"));
+            if (bundle.get("letterI").toString()=="ا") {
+                madModel.setSectionSound(letter1Sounds[i]);
+            }
+            else if (bundle.get("letterI").toString()=="و") {
+                madModel.setSectionSound(letter2Sounds[i]);
+            }
+            else {
+                madModel.setSectionSound(letter3Sounds[i]);
+            }
+            listMad.add(madModel);
+        }
+        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.Madletters_recyvlerView);
+        RtlGridLayoutManager gridLayoutManager = new RtlGridLayoutManager(getActivity(),2);
+        recyclerView.setLayoutManager(gridLayoutManager);
+        MadLettersAdapter lettersAdapter = new MadLettersAdapter(listMad, getActivity());
+        recyclerView.setAdapter(lettersAdapter);
+            return view;
     }
+    public class RtlGridLayoutManager extends GridLayoutManager {
 
+        public RtlGridLayoutManager(Context context, int spanCount) {
+            super(context, spanCount);
+        }
+
+    }
 }

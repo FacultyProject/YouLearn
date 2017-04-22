@@ -49,7 +49,7 @@
         <item>سنجاب</item>
         <item>شجرة</item>
         <item>صقر</item>
-        <item>ضفدع</item>
+        <item>ضفدعة</item>
         <item>طائرة</item>
         <item>ظرف</item>
         <item>عنب</item>
@@ -605,6 +605,96 @@
         <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/ELhorofElqasira%2Fsounds%2FAlkasr%2F25.mp3?alt=media&amp;token=b7342247-0ba3-4480-9ff0-a084ff2505a3</item>
         <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/ELhorofElqasira%2Fsounds%2FAlkasr%2F26.mp3?alt=media&amp;token=93806bee-c032-474e-9769-01fddd901571</item>
         <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/ELhorofElqasira%2Fsounds%2FAlkasr%2F27.mp3?alt=media&amp;token=b334bf7b-2215-4537-8207-aa68e4dfe261</item>
+    </string-array>
+    <string-array name="MadBelAlfSounds">
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelAlf%2F00.mp3?alt=media&amp;token=5826a683-2c95-4af5-af0f-6db5bee68d8f</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelAlf%2F01.mp3?alt=media&amp;token=77406521-751a-46e8-bec4-c5db8fba8e08</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelAlf%2F02.mp3?alt=media&amp;token=56e0a1e3-3513-44d5-8f23-94ba3a3c5b5f</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelAlf%2F03.mp3?alt=media&amp;token=a7b57be1-96d0-4ea2-aaa9-1589a64e2b5c</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelAlf%2F04.mp3?alt=media&amp;token=c5fd0639-66f8-4625-8032-dea4ebe2d0ae</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelAlf%2F05.mp3?alt=media&amp;token=d0dc2904-3c9a-42c9-aa5f-6a57d82f3414</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelAlf%2F06.mp3?alt=media&amp;token=3b7883f7-cd52-4c45-83ae-f679617eb3e2</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelAlf%2F07.mp3?alt=media&amp;token=58c804e7-45fe-4d24-9dde-ed4b616c932d</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelAlf%2F08.mp3?alt=media&amp;token=dc4a3339-79b9-4187-8791-f78faec30b9e</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelAlf%2F09.mp3?alt=media&amp;token=dd828d59-a0bc-4850-b912-1dd3f583d64c</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelAlf%2F10.mp3?alt=media&amp;token=e4bdd686-938d-4c7a-9d0d-6cad191a09a5</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelAlf%2F11.mp3?alt=media&amp;token=419a27b6-23ce-45a7-a276-c0fb05433d8b</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelAlf%2F12.mp3?alt=media&amp;token=0f9cd9ac-ae64-4c18-b618-81a3710b7035</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelAlf%2F13.mp3?alt=media&amp;token=0c61ad2d-ce3a-4b94-b37b-2d827da799a1</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelAlf%2F14.mp3?alt=media&amp;token=27d6e996-7e4e-403a-a161-392a3db823a7</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelAlf%2F15.mp3?alt=media&amp;token=c59ac836-9bcd-4b9b-ad3d-1ac8924c3c93</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelAlf%2F16.mp3?alt=media&amp;token=f8df9d27-2507-487f-b7fa-be64cd1b7f1e</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelAlf%2F17.mp3?alt=media&amp;token=ba01bca4-d6d9-4e3d-998c-267f7dbd2f53</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelAlf%2F18.mp3?alt=media&amp;token=6a002c9e-d03a-4edf-99d1-bfc9b6f25be5</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelAlf%2F19.mp3?alt=media&amp;token=f787477f-776e-4ac9-be92-a47319a76182</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelAlf%2F20.mp3?alt=media&amp;token=ffb1ca1e-f023-47be-907d-c7cbb7f4e04b</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelAlf%2F21.mp3?alt=media&amp;token=96806008-0223-4120-acc4-ec268d8ef18b</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelAlf%2F22.mp3?alt=media&amp;token=9a304d90-3028-4358-8623-08e25d7b6142</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelAlf%2F23.mp3?alt=media&amp;token=7c66ad51-9ef1-4d90-a944-55caf4607063</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelAlf%2F24.mp3?alt=media&amp;token=3a7155c3-9bc7-4096-ba7b-4ebcbb8d7406</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelAlf%2F25.mp3?alt=media&amp;token=607e250b-77a7-40c6-a787-b2583110d6e5</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelAlf%2F26.mp3?alt=media&amp;token=fcefdfa2-8510-406c-8818-d09370907bf6</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelAlf%2F27.mp3?alt=media&amp;token=0c362c88-960f-4717-bd4d-a981dd162bd7</item>
+    </string-array>
+    <string-array name="MadBelWawSounds">
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelWaw%2F00.mp3?alt=media&amp;token=83b496ca-4007-4858-8e67-bf8b74e79e9a</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelWaw%2F01.mp3?alt=media&amp;token=ec0c2f67-49f8-4eb9-a924-159fe28d08f1</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelWaw%2F02.mp3?alt=media&amp;token=1205cc0b-e23f-432a-8253-1b857c9a670f</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelWaw%2F03.mp3?alt=media&amp;token=64fcbbdd-623a-43ee-9380-f1513c6d7110</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelWaw%2F04.mp3?alt=media&amp;token=18fbf785-c011-49f0-8a52-3fd14cee1400</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelWaw%2F05.mp3?alt=media&amp;token=723c978a-381f-4262-98bd-5a70b7f51268</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelWaw%2F06.mp3?alt=media&amp;token=bf839dc8-8c21-48d0-a531-2a20f0d0773c</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelWaw%2F07.mp3?alt=media&amp;token=8c64e4b0-4b83-4eb9-af9d-5220c4c4cfc4</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelWaw%2F08.mp3?alt=media&amp;token=c7626dbd-a999-4b3e-b36e-755410d43f33</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelWaw%2F09.mp3?alt=media&amp;token=7b5213da-61e5-43a6-a694-f874274d6f93</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelWaw%2F10.mp3?alt=media&amp;token=bcfb8750-39e5-4c5a-99ae-4ab5ed0714b3</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelWaw%2F11.mp3?alt=media&amp;token=051c0836-2050-44cf-879c-a73e8edab23e</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelWaw%2F12.mp3?alt=media&amp;token=8ad763ae-15dc-495a-ac47-f4c685c0ef53</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelWaw%2F13.mp3?alt=media&amp;token=62f930d2-bc23-4a4a-b652-4e5366fcb212</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelWaw%2F14.mp3?alt=media&amp;token=0989375a-e316-4931-acfd-6ea1dc767891</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelWaw%2F15.mp3?alt=media&amp;token=d5c16c02-7ca0-4037-8d8d-4cb444547cd6</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelWaw%2F16.mp3?alt=media&amp;token=3848c823-07ee-4527-b7e0-a032cc7ee423</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelWaw%2F17.mp3?alt=media&amp;token=7f48093a-ecca-42b1-bc63-9b508d47b62d</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelWaw%2F18.mp3?alt=media&amp;token=7a5b674d-6497-49b2-bf6e-698b84141923</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelWaw%2F19.mp3?alt=media&amp;token=38f6fafe-98ed-4721-9e42-5dfa4bc1293b</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelWaw%2F20.mp3?alt=media&amp;token=550ab474-f10b-409f-a6e2-b3aca1870577</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelWaw%2F21.mp3?alt=media&amp;token=f7a853ed-ceb0-4d0e-809a-89de15ca23d7</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelWaw%2F22.mp3?alt=media&amp;token=004de0d6-29ec-4bb8-abb3-f35486385362</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelWaw%2F23.mp3?alt=media&amp;token=219b7350-da5d-4d54-90ff-75ef4366f6af</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelWaw%2F24.mp3?alt=media&amp;token=1e49ba89-1711-40af-b867-07b4d8003940</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelWaw%2F25.mp3?alt=media&amp;token=686614f8-285b-47f2-93af-446d4b697fe6</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelWaw%2F26.mp3?alt=media&amp;token=df742fbf-7066-42e9-953d-357f16ce9743</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelWaw%2F27.mp3?alt=media&amp;token=9aebc8f5-7463-4917-b81c-e5459bccc4e0</item>
+    </string-array>
+    <string-array name="MadBelYaaSounds">
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelYaa%2F00.mp3?alt=media&amp;token=e0282797-29a2-4865-8360-5fc3608b9dfb</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelYaa%2F01.mp3?alt=media&amp;token=41102122-01d9-4328-bcc3-02400ba9bde8</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelYaa%2F02.mp3?alt=media&amp;token=17c4262c-b801-4090-b3b7-cc8d1113da0c</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelYaa%2F03.mp3?alt=media&amp;token=92e9652d-e86e-4987-85c3-930f3ebf1988</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelYaa%2F04.mp3?alt=media&amp;token=17c522d8-6b3b-46fc-826b-9a830462465e</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelYaa%2F05.mp3?alt=media&amp;token=38e9460e-5dba-447c-ad44-517af31e13a4</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelYaa%2F06.mp3?alt=media&amp;token=c1fe885d-feb1-40d6-98d6-cfddcbc7465f</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelYaa%2F07.mp3?alt=media&amp;token=76462785-d6ba-4479-a3e0-8dade45091c7</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelYaa%2F08.mp3?alt=media&amp;token=cbbd9660-0418-4b09-ae2b-5b370e66d5ab</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelYaa%2F09.mp3?alt=media&amp;token=8b8ed7a8-1bb2-459e-9625-9709d1d49a47</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelYaa%2F10.mp3?alt=media&amp;token=17edd3f5-945d-42f6-a8b9-a41db1d93116</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelYaa%2F11.mp3?alt=media&amp;token=b1075a7f-0c74-4f34-bcdd-7026cdb7b36a</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelYaa%2F12.mp3?alt=media&amp;token=2a8a415e-8a2b-4b68-be08-3cbdcf952b59</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelYaa%2F13.mp3?alt=media&amp;token=a2acb766-655f-4063-a215-b81ec18e275a</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelYaa%2F14.mp3?alt=media&amp;token=990115a5-1c90-4025-b35b-b24f31d91a76</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelYaa%2F15.mp3?alt=media&amp;token=e10e3d89-6dd0-4078-af4f-99648bede1f8</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelYaa%2F16.mp3?alt=media&amp;token=50268c6a-c4d1-4a66-8ac9-94b4b1ae3cc6</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelYaa%2F17.mp3?alt=media&amp;token=5ed1735f-1a65-41e9-b8a0-55ccc8bc97e6</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelYaa%2F18.mp3?alt=media&amp;token=5e98143e-031d-416a-89d0-a43d0d8a7364</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelYaa%2F19.mp3?alt=media&amp;token=d4257d9a-49d0-452c-8ac6-57caf0ce22ab</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelYaa%2F20.mp3?alt=media&amp;token=9e2677f1-c2e3-4273-bf5e-8f6d5e962bf5</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelYaa%2F21.mp3?alt=media&amp;token=7f23c89c-211e-42cd-8bd8-46285b181222</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelYaa%2F22.mp3?alt=media&amp;token=b340a4d6-f570-4369-b645-ecb2226fb878</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelYaa%2F23.mp3?alt=media&amp;token=271ca8c5-0c1f-4bba-9c1b-cee0f151220c</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelYaa%2F24.mp3?alt=media&amp;token=13ffbbc9-4aff-46e2-a48b-9d74eb4d04de</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelYaa%2F25.mp3?alt=media&amp;token=0e6c1ae5-b399-4471-af6c-1a5c63663def</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelYaa%2F26.mp3?alt=media&amp;token=dfa00b3b-b70f-4d2b-a47c-6fb0c0b038fc</item>
+        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelYaa%2F27.mp3?alt=media&amp;token=d97b43cf-a045-4698-b47b-9e413f7b8616</item>
     </string-array>
     <string-array name="mad1">
         <item>ءَاوَى</item>

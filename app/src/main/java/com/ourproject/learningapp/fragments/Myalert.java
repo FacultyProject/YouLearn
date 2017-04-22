@@ -7,14 +7,12 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.ourproject.learningapp.PositionRespone;
+import com.ourproject.learningapp.Interface.PositionRespone;
 import com.ourproject.learningapp.R;
 import com.ourproject.learningapp.activities.MainActivity;
-import com.ourproject.learningapp.activities.Quiz1Activity;
 import com.ourproject.learningapp.globals.GlobalLetter;
 
 

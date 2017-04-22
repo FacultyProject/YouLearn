@@ -1,110 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
     android:orientation="vertical"
-    tools:context="com.ourproject.learningapp.fragments.MadLetterFragment">
-
-    <TextView
-         android:textStyle="bold"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="20dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="200dp"
-        android:text="ب"
-        android:gravity="center"
-        android:textSize="150sp"
-        android:textColor="@android:color/background_dark"
-        android:id="@+id/letter_mad" />
-
-    <LinearLayout
-        android:layout_marginBottom="150dp"
-        android:orientation="vertical"
+    android:padding="5dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <LinearLayout
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_weight="1"
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="0dp">
-            <TextView
-                android:textStyle="bold"
-                android:id="@+id/MWord1"
-                android:gravity="center_horizontal"
-                android:textSize="@dimen/mad_word_dim"
-                android:textColor="@android:color/background_dark"
-                android:text="استخدام"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent" />
-            <TextView
-                android:textStyle="bold"
-                android:id="@+id/MWord2"
-                android:gravity="center_horizontal"
-                android:textSize="@dimen/mad_word_dim"
-                android:textColor="@android:color/background_dark"
-                android:text="ب"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent" />
-            <TextView
-                android:textStyle="bold"
-                android:id="@+id/MWord3"
-                android:gravity="center_horizontal"
-                android:textSize="@dimen/mad_word_dim"
-                android:textColor="@android:color/background_dark"
-                android:text="ب"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_weight="1"
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="0dp">
-            <TextView
-                android:textStyle="bold"
-                android:id="@+id/MWord4"
-                android:gravity="center_horizontal"
-                android:textSize="@dimen/mad_word_dim"
-                android:textColor="@android:color/background_dark"
-                android:text="ب"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent" />
-            <TextView
-                android:textStyle="bold"
-                android:id="@+id/MWord5"
-                android:gravity="center_horizontal"
-                android:textSize="@dimen/mad_word_dim"
-                android:textColor="@android:color/background_dark"
-                android:text="ب"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent" />
-            <TextView
-                android:textStyle="bold"
-                android:id="@+id/MWord6"
-                android:gravity="center_horizontal"
-                android:textSize="@dimen/mad_word_dim"
-                android:textColor="@android:color/background_dark"
-                android:text="ب"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent" />
-
-        </LinearLayout>
-
-
-    </LinearLayout>
-
+        android:layout_height="wrap_content"
+        android:id="@+id/Madletters_recyvlerView"
+        />
 </LinearLayout>

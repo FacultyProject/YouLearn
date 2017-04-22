@@ -1,22 +1,16 @@
 package com.ourproject.learningapp.adapters;
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.ourproject.learningapp.R;
-import com.ourproject.learningapp.activities.LetterInfo;
-import com.ourproject.learningapp.activities.MadLetterInfo;
-import com.ourproject.learningapp.activities.MadLettersActivity;
 import com.ourproject.learningapp.activities.MainActivity;
-import com.ourproject.learningapp.models.LettersModel;
+import com.ourproject.learningapp.globals.GlobalLetter;
 import com.ourproject.learningapp.models.MadModel;
-import com.ourproject.learningapp.services.ServiceClass;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,16 +36,14 @@ public class MadLettersAdapter extends RecyclerView.Adapter<MadLettersAdapter.My
 
     @Override
     public void onBindViewHolder(final MyViewHolder holder, final int position) {
-        holder.textView.setText(letttersInfo.get(position).getLetter());
+        holder.textView.setText(letttersInfo.get(position).getLetterSection());
         holder.textView.setTypeface(MainActivity.font);
 
-        holder.textView.setOnClickListener(new View.OnClickListener() {
+        holder.imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                Intent intent= new Intent(context,MadLetterInfo.class);
-                intent.putExtra("madwordslist",letttersInfo.get(position));
-                context.startActivity(intent);
+                GlobalLetter.pMusic(letttersInfo.get(position).getSectionSound());
 
             }
         });
@@ -64,9 +56,11 @@ public class MadLettersAdapter extends RecyclerView.Adapter<MadLettersAdapter.My
 
     class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView textView;
+        ImageView imageView;
         public MyViewHolder(View itemView) {
             super(itemView);
             textView = (TextView) itemView.findViewById(R.id.mark_mad);
+            imageView= (ImageView) itemView.findViewById(R.id.play);
         }
     }
 }

@@ -37,12 +37,13 @@ public class LetterFragment extends Fragment implements View.OnClickListener {
         lettersModel=(LettersModel) bundle.getSerializable("wordslist");
 
     }
-    private void toZoomFrag(String image,String text,String sound){
+    private void toZoomFrag(String image,String text,String sound,String letter){
         ZoomFragment zoomFragment=new ZoomFragment();
         Bundle bundle=new Bundle();
         bundle.putString("image",image);
         bundle.putString("text",text);
         bundle.putString("sound",sound);
+        bundle.putString("letter",letter);
         zoomFragment.setArguments(bundle);
         ((FragmentActivity)getActivity()).getSupportFragmentManager().beginTransaction()
                 .replace(R.id.letter_fragment,zoomFragment)
@@ -75,9 +76,9 @@ public class LetterFragment extends Fragment implements View.OnClickListener {
         letterD.setText(lettersModel.getLetter()+"ُ");
         letterK.setText(lettersModel.getLetter()+"ِ");
 
-        colorChar(wordTxt1,lettersModel.getLetter(),lettersModel.getWord1());
-        colorChar(wordTxt2,lettersModel.getLetter(),lettersModel.getWord2());
-        colorChar(wordTxt3,lettersModel.getLetter(),lettersModel.getWord3());
+        GlobalLetter.colorChar(wordTxt1,lettersModel.getLetter(),lettersModel.getWord1());
+        GlobalLetter.colorChar(wordTxt2,lettersModel.getLetter(),lettersModel.getWord2());
+        GlobalLetter.colorChar(wordTxt3,lettersModel.getLetter(),lettersModel.getWord3());
 
         letter.setOnClickListener(this);
         wordTxt1.setOnClickListener(this);
@@ -96,29 +97,7 @@ public class LetterFragment extends Fragment implements View.OnClickListener {
 
         return view;
     }
-    public void colorChar(TextView textView,String ch,String word){
-        if (ch.contains("ه"))
-            ch="ه";
-        else if (ch.contains("أ")&&word.contains("ء"))
-            ch="ء";
-        else if (ch.contains("أ")&&word.contains("إ"))
-            ch="إ";
-        String ayeTemp = word;
 
-        ArrayList<Integer> positionInt = new ArrayList<>();
-        for (int i = 0; i < ayeTemp.length(); i++) {
-            if (ayeTemp.contains(ch)) {
-                if (positionInt.size() == 0) {
-                    positionInt.add(ayeTemp.indexOf(ch));
-            }
-        }}
-        Spannable wordtoSpan = new SpannableString(word);
-        for (int i = 0; i < positionInt.size(); i++) {
-            wordtoSpan.setSpan(new ForegroundColorSpan(Color.RED), positionInt.get(i), positionInt.get(i) + 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-        }
-        textView.setText(wordtoSpan);
-        textView.setTypeface(MainActivity.font);
-    }
 
     @Override
     public void onClick(View view) {
@@ -139,17 +118,17 @@ public class LetterFragment extends Fragment implements View.OnClickListener {
 
                 break;
             case R.id.word_image1:
-                toZoomFrag(lettersModel.getPic1(),lettersModel.getWord1(),lettersModel.getPicSounds1());
+                toZoomFrag(lettersModel.getPic1(),lettersModel.getWord1(),lettersModel.getPicSounds1(),lettersModel.getLetter());
                 GlobalLetter.pMusic(lettersModel.getPicSounds1());
 
                 break;
             case R.id.word_image2:
-                toZoomFrag(lettersModel.getPic2(),lettersModel.getWord2(),lettersModel.getPicSounds2());
+                toZoomFrag(lettersModel.getPic2(),lettersModel.getWord2(),lettersModel.getPicSounds2(),lettersModel.getLetter());
                 GlobalLetter.pMusic(lettersModel.getPicSounds2());
 
                 break;
             case R.id.word_image3:
-                toZoomFrag(lettersModel.getPic3(),lettersModel.getWord3(),lettersModel.getPicSounds3());
+                toZoomFrag(lettersModel.getPic3(),lettersModel.getWord3(),lettersModel.getPicSounds3(),lettersModel.getLetter());
                 GlobalLetter.pMusic(lettersModel.getPicSounds3());
 
                 break;

@@ -37,6 +37,7 @@ public class ZoomFragment extends Fragment {
         textView=(TextView)view.findViewById(R.id.text);
         textView.setText(bundle.get("text").toString());
         textView.setTypeface(MainActivity.font);
+        GlobalLetter.colorChar(textView,bundle.get("letter").toString(),bundle.get("text").toString());
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

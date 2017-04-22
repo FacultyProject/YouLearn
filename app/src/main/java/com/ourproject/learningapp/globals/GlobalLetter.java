@@ -1,8 +1,19 @@
 package com.ourproject.learningapp.globals;
 
+import android.content.Context;
+import android.graphics.Color;
 import android.media.MediaPlayer;
+import android.net.ConnectivityManager;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.ourproject.learningapp.activities.MainActivity;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * Created by Moetaz on 3/23/2017.
@@ -13,7 +24,7 @@ public class GlobalLetter {
     public static String QUIZID="none";
     private static MediaPlayer soundFile=new MediaPlayer();
     public static String LETTERTYPE="none";
-    public static void pMusic(String url){
+    public static void pMusic(String url) {
         try {
             soundFile.stop();
             soundFile = new MediaPlayer();
@@ -23,6 +34,29 @@ public class GlobalLetter {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
 
+    public static void colorChar(TextView textView, String ch, String word){
+        if (ch.contains("ه"))
+            ch="ه";
+        else if (ch.contains("أ")&&word.contains("ء"))
+            ch="ء";
+        else if (ch.contains("أ")&&word.contains("إ"))
+            ch="إ";
+        String ayeTemp = word;
+
+        ArrayList<Integer> positionInt = new ArrayList<>();
+        for (int i = 0; i < ayeTemp.length(); i++) {
+            if (ayeTemp.contains(ch)) {
+                if (positionInt.size() == 0) {
+                    positionInt.add(ayeTemp.indexOf(ch));
+                }
+            }}
+        Spannable wordtoSpan = new SpannableString(word);
+        for (int i = 0; i < positionInt.size(); i++) {
+            wordtoSpan.setSpan(new ForegroundColorSpan(Color.RED), positionInt.get(i), positionInt.get(i) + 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        }
+        textView.setText(wordtoSpan);
+        textView.setTypeface(MainActivity.font);
     }
 }
