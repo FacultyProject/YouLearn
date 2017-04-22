@@ -41,6 +41,7 @@ public class MainFragment extends Fragment {
         toolbar= (Toolbar) view.findViewById(R.id.app_bar);
         ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
 
+
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {

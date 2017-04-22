@@ -4,9 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.ourproject.learningapp.fragments.Q6Fragment">
-
+    tools:context="com.ourproject.learningapp.fragments.Q6Fragment"
+    android:background="@drawable/bg"
+    >
      <ImageView
+         android:layout_margin="10dp"
          android:id="@+id/img"
          android:layout_gravity="center"
          android:src="@drawable/mouse"
@@ -29,9 +31,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <ImageView
-        android:layout_margin="10dp"
+        android:layout_margin="15dp"
         android:id="@+id/StartRecord"
-        android:src="@drawable/mic"
+        android:src="@drawable/microphone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
