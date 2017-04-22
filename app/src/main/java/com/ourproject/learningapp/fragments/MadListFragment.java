@@ -42,7 +42,8 @@ public class MadListFragment extends Fragment implements View.OnClickListener {
         letter3.setOnClickListener(this);
         return view;
     }
-    private void setLettersMad(String letter){
+    private void setLettersMad(String letter,String letterRef){
+        GlobalLetter.MAD_LETTER=letterRef;
         Intent intent= new Intent(getActivity(),MadLetterInfo.class);
         intent.putExtra("letter",letter);
         getActivity().startActivity(intent);
@@ -52,13 +53,13 @@ public class MadListFragment extends Fragment implements View.OnClickListener {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.mad1:
-                setLettersMad("ا");
+                setLettersMad("ا","Alf");
                 break;
             case R.id.mad2:
-                setLettersMad("و");
+                setLettersMad("و","Waw");
                 break;
             case R.id.mad3:
-                setLettersMad("ي");
+                setLettersMad("ي","Yaa");
                 break;
         }
     }

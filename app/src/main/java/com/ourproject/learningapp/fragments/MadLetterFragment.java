@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import com.ourproject.learningapp.R;
 import com.ourproject.learningapp.adapters.LettersAdapter;
 import com.ourproject.learningapp.adapters.MadLettersAdapter;
+import com.ourproject.learningapp.globals.GlobalLetter;
 import com.ourproject.learningapp.models.MadModel;
 
 import java.util.ArrayList;
@@ -37,6 +38,7 @@ public class MadLetterFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        bundle=getArguments();
 
     }
 
@@ -45,8 +47,6 @@ public class MadLetterFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_mad_letter, container, false);
-        bundle=getArguments();
-        letters=bundle.getString("letter");
         letterSection = getActivity().getResources().getStringArray(R.array.letters);
         letter1Sounds = getActivity().getResources().getStringArray(R.array.MadBelAlfSounds);
         letter2Sounds = getActivity().getResources().getStringArray(R.array.MadBelWawSounds);
@@ -54,10 +54,10 @@ public class MadLetterFragment extends Fragment {
         for (int i = 0; i< letterSection.length; i++) {
             MadModel madModel=new MadModel();
             madModel.setLetterSection(letterSection[i]+bundle.get("letterI"));
-            if (bundle.get("letterI").toString()=="ا") {
+            if (GlobalLetter.MAD_LETTER=="Alf") {
                 madModel.setSectionSound(letter1Sounds[i]);
             }
-            else if (bundle.get("letterI").toString()=="و") {
+            else if (GlobalLetter.MAD_LETTER=="Waw") {
                 madModel.setSectionSound(letter2Sounds[i]);
             }
             else {
@@ -77,6 +77,9 @@ public class MadLetterFragment extends Fragment {
         public RtlGridLayoutManager(Context context, int spanCount) {
             super(context, spanCount);
         }
-
+        @Override
+        protected boolean isLayoutRTL(){
+            return true;
+        }
     }
 }

@@ -22,6 +22,7 @@ import java.util.ArrayList;
 public class GlobalLetter {
     public static int nOfRightAns=0;
     public static String QUIZID="none";
+    public static String MAD_LETTER=null;
     private static MediaPlayer soundFile=new MediaPlayer();
     public static String LETTERTYPE="none";
     public static void pMusic(String url) {

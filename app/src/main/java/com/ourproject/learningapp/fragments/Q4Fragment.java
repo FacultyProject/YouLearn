@@ -1,6 +1,8 @@
 package com.ourproject.learningapp.fragments;
 
 
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -22,7 +24,6 @@ import java.util.Random;
  * A simple {@link Fragment} subclass.
  */
 public class Q4Fragment extends Fragment {
-    public static int TRUEPOSTION;
 
     int[] index,imagesIndex;
     String[] images;
@@ -46,14 +47,13 @@ public class Q4Fragment extends Fragment {
         word1=getActivity().getResources().getStringArray(R.array.lettersName1);
         showData(position++);
         final Myalert myalert=new Myalert();
-
         myalert.setPositionRespone(new PositionRespone() {
             @Override
             public void postitionPlus(int position) {
                 showData(position);
             }
         });
-
+        LettersAnimation(textView,imageView,imageView2,imageView3);
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -116,7 +116,15 @@ public class Q4Fragment extends Fragment {
         Picasso.with(getActivity()).load(images[2])
                 .into(imageView3);
     }
-    public  int[] randArray(int num){
+    public void LettersAnimation(View ... views){
+        for(View v:views){
+            ObjectAnimator a1= ObjectAnimator.ofFloat(v,"translationY",-600,0);
+            a1.setDuration(2300);
+            AnimatorSet animatorSet =new AnimatorSet();
+            animatorSet.playTogether(a1);
+            animatorSet.start();
+        }
+    }    public  int[] randArray(int num){
         int[] arr;
         arr=new int[num];
         int n;
