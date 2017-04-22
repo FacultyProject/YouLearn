@@ -15,8 +15,6 @@ public class LettersActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_letters);
-        //Toolbar toolbar= (Toolbar) findViewById(R.id.app_bar);
-        //setSupportActionBar(toolbar);
         Fragment fragment = new ListFragment();
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();

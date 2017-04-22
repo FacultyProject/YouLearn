@@ -47,11 +47,12 @@ public class Myalert extends DialogFragment {
             ansDialogView.findViewById(R.id.textView).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent=new Intent(getActivity(),MainActivity.class);
-                    startActivity(intent);
+                    (getActivity()).finish();
+                    positionRespone.postitionPlus(Q4Fragment.position=0);
+
                 }
             });
-            myLayout.setVisibility(View.VISIBLE);
+            myLayout.setVisibility(View.INVISIBLE);
         }else if (Q4Fragment.ans=="true"){
             ansDialogView.findViewById(R.id.next).setOnClickListener(new View.OnClickListener() {
                 @Override
