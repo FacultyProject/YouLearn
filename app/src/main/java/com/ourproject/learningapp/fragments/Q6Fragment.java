@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -66,6 +68,24 @@ public class Q6Fragment extends Fragment {
         textView2 = (TextView) view.findViewById(R.id.incomeWord);
         Picasso.with(getActivity()).load(PicWords[rand]).into(imageView);
         textView1.setText(Words[rand]);
+
+        view.setFocusableInTouchMode(true);
+        view.requestFocus();
+        view.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                //Log.i(tag, "keyCode: " + keyCode);
+                if( (keyCode == KeyEvent.KEYCODE_BACK )  ) {
+                    // Log.i(tag, "onKey Back listener is working!!!");
+                     TAG = false;
+                    getFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+        });
+
         Rec.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -104,26 +124,46 @@ public class Q6Fragment extends Fragment {
 
 
                 if (WORDPIC.equals(result.get(0)) || WORDPIC.contains(result.get(0)) || result.get(0).contains(WORDPIC)) {
-                    GlobalLetter.nOfRightAns++;
-                    Q6Fragment.TAG = true;
-                    if(GlobalLetter.nOfRightAns < TARGER2) {
-                        RightAnsAlert rightAnsAlert = new RightAnsAlert();
-                        rightAnsAlert.show(getFragmentManager(), "qAlert");
+                    if(GlobalLetter.SelfTestMode){
+                        GlobalLetter.scr++;
+                        GlobalLetter.rAnswer=true;
+                        SelfTestAlert selfTestAlert=new SelfTestAlert();
+                        selfTestAlert.show(getFragmentManager(),"sAlert");
                     }
-                    else{
-                        Q6Fragment.TAG = false;
-                        Myalert myalert=new Myalert();
-                        myalert.show(getFragmentManager(),"mm");
+                    else {
+                        GlobalLetter.nOfRightAns++;
+                        Q6Fragment.TAG = true;
+                        goTOalert();
                     }
-
                 } else {
-                    WrongAnsAlert wrongAnsAlert = new WrongAnsAlert();
-                    wrongAnsAlert.show(getFragmentManager(), "qAlert");
+                    if(GlobalLetter.SelfTestMode){
+
+                        GlobalLetter.rAnswer=false;
+                        SelfTestAlert selfTestAlert=new SelfTestAlert();
+                        selfTestAlert.show(getFragmentManager(),"srAlert");
+                    }
+                    else {
+                        WrongAnsAlert wrongAnsAlert = new WrongAnsAlert();
+                        wrongAnsAlert.show(getFragmentManager(), "qAlert");
+                    }
                     //textView2.setText("");
                 }
             }catch (Exception e){
                 Toast.makeText(getActivity(), "من فضلك انطق الكلمه", Toast.LENGTH_LONG).show();
             }
+
+    }
+
+    public void goTOalert(){
+        if(GlobalLetter.nOfRightAns < TARGER2) {
+            RightAnsAlert rightAnsAlert = new RightAnsAlert();
+            rightAnsAlert.show(getFragmentManager(), "qAlert");
+        }
+        else{
+            Q6Fragment.TAG = false;
+            Myalert myalert=new Myalert();
+            myalert.show(getFragmentManager(),"mm");
+        }
 
     }
 }

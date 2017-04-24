@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +18,7 @@ import android.widget.TextView;
 import com.ourproject.learningapp.R;
 import com.ourproject.learningapp.activities.Quiz1Activity;
 import com.ourproject.learningapp.globals.GlobalLetter;
+import com.ourproject.learningapp.tabs_fragments.Fragment3;
 import com.squareup.picasso.Picasso;
 
 import java.util.Random;
@@ -82,6 +85,9 @@ public class Quiz1Fragment extends Fragment {
         DelOne= (ImageView) view.findViewById(R.id.delOnlyOne);
 
         LettersAnimation(L1,L2,L3,L4,L5,L6,L7,L8,L9,L10);
+
+
+
 
         DelOne.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -228,49 +234,63 @@ public class Quiz1Fragment extends Fragment {
 
     public void ButtonListner(TextView view){
 
+        if(Tempword.length() < WordPic.length())
+        LettersColor(view);
 
-        if(!WordPic.contains(view.getText()))
-            view.setBackgroundResource( R.drawable.wrong_circle);
-        else
-            view.setBackgroundResource( R.drawable.right_circle);
 
-        if(Tempword.length() > WordPic.length()){
-            Word.setText("");Tempword="";
-            SetToDefault(L1,L2,L3,L4,L5,L6,L7,L8,L9,L10);
-            WrongAnsAlert wrongAnsAlert =new WrongAnsAlert();
-            wrongAnsAlert.show(getFragmentManager(),"Wrong Alert");
+        if(Tempword.length() > WordPic.length()) {
+
+            Word.setText("");
+            Tempword = "";
+            SetToDefault(L1, L2, L3, L4, L5, L6, L7, L8, L9, L10);
+
+            if (GlobalLetter.SelfTestMode == true) {
+                GlobalLetter.rAnswer=false;
+                SelfTestAlert selfTestAlert = new SelfTestAlert();
+                selfTestAlert.show(getFragmentManager(), "Salert");
+
+            } else{
+                WrongAnsAlert wrongAnsAlert = new WrongAnsAlert();
+            wrongAnsAlert.show(getFragmentManager(), "Wrong Alert");
+        }
         }
         else {
         if (WordPic.equals(Tempword)) {
-            GlobalLetter.nOfRightAns++;
-            if(GlobalLetter.nOfRightAns <  TAEGET) {
-                RightAnsAlert rightAnsAlert = new RightAnsAlert();
-                rightAnsAlert.show(getFragmentManager(), "Right Alert");
-            }
-            else
-            {
-                Myalert myalert=new Myalert();
-                myalert.show(getFragmentManager(),"m");
-            }
+
+            if(GlobalLetter.SelfTestMode == true){
+                GlobalLetter.scr++;
+                GlobalLetter.rAnswer=true;
+                SelfTestAlert selfTestAlert=new SelfTestAlert();
+                selfTestAlert.show(getFragmentManager(),"Salert");
+
+            }else
+            GoToAlert();
         }
         else {
             Tempword = Tempword.concat(view.getText().toString());
             Word.setText(Tempword);
-            if (WordPic.equals(Tempword)) {
-                GlobalLetter.nOfRightAns++;
-                if(GlobalLetter.nOfRightAns <  TAEGET) {
-                    RightAnsAlert rightAnsAlert = new RightAnsAlert();
-                    rightAnsAlert.show(getFragmentManager(), "Right Alert");
-                }
-                else {
-                    Myalert myalert=new Myalert();
-                    myalert.show(getFragmentManager(),"m");
-                }
+            if (WordPic.equals(Tempword))
+            {
+
+                if(GlobalLetter.SelfTestMode == true){
+                    GlobalLetter.scr++;
+                    GlobalLetter.rAnswer=true;
+                    SelfTestAlert selfTestAlert=new SelfTestAlert();
+                    selfTestAlert.show(getFragmentManager(),"Salert");
+
+                }else
+                GoToAlert();
             }
         }
         }
     }
 
+    public void LettersColor(TextView view){
+        if(!WordPic.contains(view.getText())  )
+            view.setBackgroundResource( R.drawable.wrong_circle);
+        else
+            view.setBackgroundResource( R.drawable.right_circle);
+    }
     public void LettersAnimation(View ... views){
         for(View v:views){
             ObjectAnimator a1= ObjectAnimator.ofFloat(v,"translationY",-600,0);
@@ -284,6 +304,19 @@ public class Quiz1Fragment extends Fragment {
     public void SetToDefault(TextView ... textViews){
         for(TextView v:textViews)
             v.setBackgroundResource( R.drawable.img);
+    }
+
+    public void GoToAlert(){
+        GlobalLetter.nOfRightAns++;
+        if(GlobalLetter.nOfRightAns <  TAEGET) {
+            RightAnsAlert rightAnsAlert = new RightAnsAlert();
+            rightAnsAlert.show(getFragmentManager(), "Right Alert");
+        }
+        else
+        {
+            Myalert myalert=new Myalert();
+            myalert.show(getFragmentManager(),"m");
+        }
     }
 
     //-------------Pure java functions ---------------------//

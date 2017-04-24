@@ -19,6 +19,7 @@
 
 
         <android.support.v7.widget.CardView
+
             android:layout_margin="@dimen/frag1_imag_marg"
             android:layout_width="0dp"
             android:layout_height="match_parent"

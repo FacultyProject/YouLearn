@@ -20,6 +20,10 @@ import java.util.ArrayList;
  */
 
 public class GlobalLetter {
+    public static boolean rAnswer=false;
+    public static int nOfQUESTONS=0;
+    public static int scr=0;
+    public static boolean SelfTestMode=false;
     public static int nOfRightAns=0;
     public static String QUIZID="none";
     public static String MAD_LETTER=null;

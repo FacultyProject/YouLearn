@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.ourproject.learningapp">
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -35,6 +35,8 @@
         <activity android:name=".activities.MadLetterInfo" />
         <activity android:name=".activities.MadLettersActivity" />
         <activity android:name=".activities.Quiz1Activity" />
+        <activity android:name=".activities.SelfTestActivity" />
+        <activity android:name=".activities.ScoreBoardActivity"></activity>
     </application>
 
 </manifest>

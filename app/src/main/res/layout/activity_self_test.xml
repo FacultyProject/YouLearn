@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_self_test"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context="com.ourproject.learningapp.activities.SelfTestActivity"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:weightSum="4"
+        android:orientation="horizontal"
+        android:background="#ddf7f1"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+
+        <ImageView
+            android:id="@+id/home"
+            android:layout_weight="2"
+            android:src="@drawable/home_icon"
+            android:layout_width="70dp"
+            android:layout_height="match_parent" />
+        <TextView
+            android:id="@+id/score"
+            android:layout_weight="2"
+            android:textColor="#000"
+            android:textSize="50dp"
+            android:text="00"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+
+    <FrameLayout
+        android:layout_weight="9"
+        android:id="@+id/fmainST"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+
+    </FrameLayout>
+
+
+</LinearLayout>

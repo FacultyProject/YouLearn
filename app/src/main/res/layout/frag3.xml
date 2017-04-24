@@ -1,16 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1516">
 
-    <TextView
-        android:paddingTop="20dp"
-        android:layout_marginTop="200dp"
-        android:gravity="center"
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/selftest"
+             app:cardElevation="5dp"
+            android:layout_weight="1"
+            android:layout_margin="3dp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <ImageView
+
+                    android:layout_weight="3"
+                    android:src="@drawable/selfstudy"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp" />
+            <TextView
+
+                android:padding="2dp"
+                android:gravity="center"
+                android:textSize="30dp"
+                android:textColor="#000"
+                android:text="أختبر نفسك"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp" />
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+    <android.support.v7.widget.CardView
+        android:layout_weight="1"
+        app:cardElevation="5dp"
+        android:layout_margin="3dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView3"
-        android:text="Fragment number 3"
-        android:textSize="20sp"
-        android:textColor="#000"/>
+        android:layout_height="0dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <ImageView
+
+                android:layout_weight="3"
+                android:src="@drawable/challengefriends"
+                android:layout_width="match_parent"
+                android:layout_height="0dp" />
+            <TextView
+                android:padding="2dp"
+                android:gravity="center"
+                android:textSize="30dp"
+                android:textColor="#000"
+                android:text="تحدي أصدقائك"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp" />
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
 </LinearLayout>
