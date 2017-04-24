@@ -112,11 +112,11 @@ public class Quiz1Fragment extends Fragment {
                 @Override
                 public void onClick(View view) {
                     if(Randlist==0)
-                    GlobalLetter.pMusic(getActivity().getResources().getStringArray(R.array.PicSounds1)[Randnum]);
+                    GlobalLetter.pMusic(getActivity().getResources().getStringArray(R.array.PicSounds1)[Randnum],getActivity());
                     else if(Randlist==1)
-                        GlobalLetter.pMusic(getActivity().getResources().getStringArray(R.array.PicSounds2)[Randnum]);
+                        GlobalLetter.pMusic(getActivity().getResources().getStringArray(R.array.PicSounds2)[Randnum],getActivity());
                     else
-                        GlobalLetter.pMusic(getActivity().getResources().getStringArray(R.array.PicSounds3)[Randnum]);
+                        GlobalLetter.pMusic(getActivity().getResources().getStringArray(R.array.PicSounds3)[Randnum],getActivity());
                 }
             });}
 

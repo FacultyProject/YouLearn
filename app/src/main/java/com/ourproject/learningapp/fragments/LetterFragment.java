@@ -33,8 +33,9 @@ public class LetterFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Bundle bundle = getArguments();
+                Bundle bundle = getArguments();
         lettersModel=(LettersModel) bundle.getSerializable("wordslist");
+        GlobalLetter.pMusic(lettersModel.getLetterSound(),getActivity());
 
     }
     private void toZoomFrag(String image,String text,String sound,String letter){
@@ -103,33 +104,33 @@ public class LetterFragment extends Fragment implements View.OnClickListener {
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.letter:
-                GlobalLetter.pMusic(lettersModel.getLetterSound());
+                GlobalLetter.pMusic(lettersModel.getLetterSound(),getActivity());
                 break;
             case R.id.word1:
-                GlobalLetter.pMusic(lettersModel.getPicSounds1());
+                GlobalLetter.pMusic(lettersModel.getPicSounds1(),getActivity());
 
                 break;
             case R.id.word2:
-                GlobalLetter.pMusic(lettersModel.getPicSounds2());
+                GlobalLetter.pMusic(lettersModel.getPicSounds2(),getActivity());
 
                 break;
             case R.id.word3:
-                GlobalLetter.pMusic(lettersModel.getPicSounds3());
+                GlobalLetter.pMusic(lettersModel.getPicSounds3(),getActivity());
 
                 break;
             case R.id.word_image1:
                 toZoomFrag(lettersModel.getPic1(),lettersModel.getWord1(),lettersModel.getPicSounds1(),lettersModel.getLetter());
-                GlobalLetter.pMusic(lettersModel.getPicSounds1());
+                GlobalLetter.pMusic(lettersModel.getPicSounds1(),getActivity());
 
                 break;
             case R.id.word_image2:
                 toZoomFrag(lettersModel.getPic2(),lettersModel.getWord2(),lettersModel.getPicSounds2(),lettersModel.getLetter());
-                GlobalLetter.pMusic(lettersModel.getPicSounds2());
+                GlobalLetter.pMusic(lettersModel.getPicSounds2(),getActivity());
 
                 break;
             case R.id.word_image3:
                 toZoomFrag(lettersModel.getPic3(),lettersModel.getWord3(),lettersModel.getPicSounds3(),lettersModel.getLetter());
-                GlobalLetter.pMusic(lettersModel.getPicSounds3());
+                GlobalLetter.pMusic(lettersModel.getPicSounds3(),getActivity());
 
                 break;
         }

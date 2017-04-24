@@ -41,7 +41,7 @@ public class ZoomFragment extends Fragment {
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                GlobalLetter.pMusic(bundle.getString("sound").toString());
+                GlobalLetter.pMusic(bundle.getString("sound").toString(),getActivity());
             }
         });
         return view;

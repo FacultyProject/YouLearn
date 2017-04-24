@@ -43,7 +43,7 @@ public class MadLettersAdapter extends RecyclerView.Adapter<MadLettersAdapter.My
             @Override
             public void onClick(View view) {
 
-                GlobalLetter.pMusic(letttersInfo.get(position).getSectionSound());
+                GlobalLetter.pMusic(letttersInfo.get(position).getSectionSound(),context);
 
             }
         });

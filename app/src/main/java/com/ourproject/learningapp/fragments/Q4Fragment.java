@@ -110,11 +110,11 @@ public class Q4Fragment extends Fragment {
         images[imagesIndex[1]]=lettersImages1[index[s]];
         images[imagesIndex[2]]=lettersImages1[index[s0]];
         Picasso.with(getActivity()).load(images[0])
-                .into(imageView);
+                .placeholder(R.drawable.load_icon).into(imageView);
         Picasso.with(getActivity()).load(images[1])
-                .into(imageView2);
+                .placeholder(R.drawable.load_icon).into(imageView2);
         Picasso.with(getActivity()).load(images[2])
-                .into(imageView3);
+                .placeholder(R.drawable.load_icon).into(imageView3);
     }
     public void LettersAnimation(View ... views){
         for(View v:views){
