@@ -29,16 +29,19 @@ public class GlobalLetter {
     public static String MAD_LETTER=null;
     private static MediaPlayer soundFile=new MediaPlayer();
     public static String LETTERTYPE="none";
-    public static void pMusic(String url) {
-        try {
-            soundFile.stop();
-            soundFile = new MediaPlayer();
-            soundFile.setDataSource(url);
-            soundFile.prepare();
-            soundFile.start();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public static void pMusic(String url,Context context) {
+        if (isNetworkConnected(context)) {
+            try {
+                soundFile.stop();
+                soundFile = new MediaPlayer();
+                soundFile.setDataSource(url);
+                soundFile.prepare();
+                soundFile.start();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }else
+            Toast.makeText(context,"Check INTERNET Connection!",Toast.LENGTH_LONG).show();
     }
 
     public static void colorChar(TextView textView, String ch, String word){
@@ -63,5 +66,9 @@ public class GlobalLetter {
         }
         textView.setText(wordtoSpan);
         textView.setTypeface(MainActivity.font);
+    }
+    private static boolean isNetworkConnected(Context context) {
+        ConnectivityManager cm = (ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        return cm.getActiveNetworkInfo() != null;
     }
 }

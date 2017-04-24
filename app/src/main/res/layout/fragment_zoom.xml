@@ -10,6 +10,7 @@
 <ImageView
     android:layout_width="match_parent"
     android:layout_weight="3"
+    android:padding="20dp"
     android:layout_height="0dp"
     android:src="@drawable/mouse"
     android:id="@+id/image"/>

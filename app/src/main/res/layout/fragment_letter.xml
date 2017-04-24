@@ -18,14 +18,14 @@
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:text="ي"
-        android:gravity="center"
+        android:gravity="bottom"
         android:textSize="150sp"
         android:textColor="@android:color/background_dark"
         android:id="@+id/letter" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1.5"
+        android:layout_weight="2.5"
         android:id="@+id/shortmov_layout">
         <TextView
             android:layout_width="0dp"
