@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import com.ourproject.learningapp.R;
 import com.ourproject.learningapp.activities.Quiz1Activity;
+import com.ourproject.learningapp.activities.SelfTestActivity;
 import com.ourproject.learningapp.globals.GlobalLetter;
 import com.ourproject.learningapp.tabs_fragments.Fragment3;
 import com.squareup.picasso.Picasso;
@@ -245,6 +246,7 @@ public class Quiz1Fragment extends Fragment {
             SetToDefault(L1, L2, L3, L4, L5, L6, L7, L8, L9, L10);
 
             if (GlobalLetter.SelfTestMode == true) {
+                SelfTestActivity.TimerIsRunning=false;
                 GlobalLetter.rAnswer=false;
                 SelfTestAlert selfTestAlert = new SelfTestAlert();
                 selfTestAlert.show(getFragmentManager(), "Salert");
@@ -254,10 +256,12 @@ public class Quiz1Fragment extends Fragment {
             wrongAnsAlert.show(getFragmentManager(), "Wrong Alert");
         }
         }
+
         else {
         if (WordPic.equals(Tempword)) {
 
             if(GlobalLetter.SelfTestMode == true){
+                SelfTestActivity.TimerIsRunning=false;
                 GlobalLetter.scr++;
                 GlobalLetter.rAnswer=true;
                 SelfTestAlert selfTestAlert=new SelfTestAlert();
@@ -273,6 +277,7 @@ public class Quiz1Fragment extends Fragment {
             {
 
                 if(GlobalLetter.SelfTestMode == true){
+                    SelfTestActivity.TimerIsRunning=false;
                     GlobalLetter.scr++;
                     GlobalLetter.rAnswer=true;
                     SelfTestAlert selfTestAlert=new SelfTestAlert();

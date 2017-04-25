@@ -36,10 +36,14 @@ public class SelfTestAlert extends DialogFragment {
         textView= (TextView) view.findViewById(R.id.textView);
         if(!GlobalLetter.rAnswer)
         textView.setText("اجابة خاطئه");
+        else if(SelfTestActivity.isTimeReachedZero )
+            textView.setText(" الوقت انتهي");
+
         builder.setView(view);
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                GlobalLetter.rAnswer=false;
                 startActivity(new Intent(getActivity(), SelfTestActivity.class));
                 dismiss();
 
