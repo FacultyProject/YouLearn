@@ -7,7 +7,7 @@
 
     <TextView
         android:textColor="#000"
-        android:textSize="60sp"
+        android:textSize="50sp"
         android:gravity="center"
         android:text="أحسنت!"
         android:id="@+id/textView"

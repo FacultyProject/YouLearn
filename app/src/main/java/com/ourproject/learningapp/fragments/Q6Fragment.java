@@ -17,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ourproject.learningapp.R;
+import com.ourproject.learningapp.activities.SelfTestActivity;
 import com.ourproject.learningapp.globals.GlobalLetter;
 import com.squareup.picasso.Picasso;
 
@@ -123,8 +124,10 @@ public class Q6Fragment extends Fragment {
                 }
 
 
-                if (WORDPIC.equals(result.get(0)) || WORDPIC.contains(result.get(0)) || result.get(0).contains(WORDPIC)) {
+                if (WORDPIC.equals(result.get(0)) || WORDPIC.contains(result.get(0)) || result.get(0).contains(WORDPIC)
+                        || CompareStrings(WORDPIC.toCharArray(),result.get(0).toCharArray()) ) {
                     if(GlobalLetter.SelfTestMode){
+                        SelfTestActivity.TimerIsRunning=false;
                         GlobalLetter.scr++;
                         GlobalLetter.rAnswer=true;
                         SelfTestAlert selfTestAlert=new SelfTestAlert();
@@ -137,7 +140,7 @@ public class Q6Fragment extends Fragment {
                     }
                 } else {
                     if(GlobalLetter.SelfTestMode){
-
+                        SelfTestActivity.TimerIsRunning=false;
                         GlobalLetter.rAnswer=false;
                         SelfTestAlert selfTestAlert=new SelfTestAlert();
                         selfTestAlert.show(getFragmentManager(),"srAlert");
@@ -153,6 +156,19 @@ public class Q6Fragment extends Fragment {
             }
 
     }
+
+        public   boolean CompareStrings(char [] s1,char [] s2){
+            int count = 0;
+            for(int i=0;i<s1.length;i++){
+                for(int j=0;j<s2.length;j++){
+                    if(s1[i] == (s2[j])){
+                        count ++;
+                        break;
+                    }
+                }
+            }
+            return count >= 3;
+        }
 
     public void goTOalert(){
         if(GlobalLetter.nOfRightAns < TARGER2) {

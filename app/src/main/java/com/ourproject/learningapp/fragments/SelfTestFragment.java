@@ -29,7 +29,7 @@ public class SelfTestFragment extends Fragment {
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_self_test, container, false);
 
-        if(GlobalLetter.nOfQUESTONS < 15)
+        if(GlobalLetter.nOfQUESTONS < 16)
         getActivity().getSupportFragmentManager().beginTransaction()
                 .replace(R.id.fmainST, new Quiz1Fragment() )
                 .commit();
