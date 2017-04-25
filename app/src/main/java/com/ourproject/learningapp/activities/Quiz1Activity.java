@@ -1,5 +1,6 @@
 package com.ourproject.learningapp.activities;
 
+import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -11,12 +12,13 @@ import com.ourproject.learningapp.fragments.Quiz1Fragment;
 import com.ourproject.learningapp.globals.GlobalLetter;
 
 public class Quiz1Activity extends AppCompatActivity {
+    public static Quiz1Activity instance = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz1);
-
+        instance=this;
 
         if ( GlobalLetter.QUIZID=="qIamge4"){
             getSupportFragmentManager().beginTransaction()
@@ -39,6 +41,4 @@ public class Quiz1Activity extends AppCompatActivity {
                     .commit();
         }
     }
-
-
 }

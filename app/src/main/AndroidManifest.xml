@@ -34,7 +34,8 @@
 
         <activity android:name=".activities.MadLetterInfo" />
         <activity android:name=".activities.MadLettersActivity" />
-        <activity android:name=".activities.Quiz1Activity" />
+        <activity android:name=".activities.Quiz1Activity"
+            android:clearTaskOnLaunch="true"/>
         <activity android:name=".activities.SelfTestActivity" />
         <activity android:name=".activities.ScoreBoardActivity"></activity>
     </application>
