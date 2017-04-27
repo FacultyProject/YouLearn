@@ -10,10 +10,10 @@
 
     <ImageView
         android:id="@+id/play"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_margin="10dp"
-        android:src="@drawable/sound_icon" />
+        android:src="@drawable/play" />
    <TextView
        android:layout_width="fill_parent"
        android:layout_height="wrap_content"
