@@ -20,6 +20,7 @@ import java.util.ArrayList;
  */
 
 public class GlobalLetter {
+    public static int c=0;
     public static boolean rAnswer=false;
     public static int nOfQUESTONS=0;
     public static int scr=0;

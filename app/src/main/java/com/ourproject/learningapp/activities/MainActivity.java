@@ -3,8 +3,10 @@ package com.ourproject.learningapp.activities;
 
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 
 import com.ourproject.learningapp.fragments.MainFragment;
 import com.ourproject.learningapp.R;
@@ -35,5 +37,17 @@ public class MainActivity extends AppCompatActivity {
         super.onDestroy();
         stopService(new Intent(this, ServiceClass.class));
 
+    }
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            Intent homeIntent = new Intent(Intent.ACTION_MAIN);
+            homeIntent.addCategory( Intent.CATEGORY_HOME );
+            homeIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(homeIntent);
+
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }

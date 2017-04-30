@@ -1,6 +1,7 @@
 package com.ourproject.learningapp.activities;
 
 import android.content.Intent;
+import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -27,7 +28,7 @@ public class SelfTestActivity extends AppCompatActivity {
      int StartTimer=60;
     public static boolean isTimeReachedZero;
     ImageView HomeImg;
-    TextView Score;
+    TextView Score,Questions;
     TextView Timer;
 
     @Override
@@ -37,6 +38,9 @@ public class SelfTestActivity extends AppCompatActivity {
         TimerIsRunning=true;
         isTimeReachedZero=false;
         Timer= (TextView) findViewById(R.id.timer);
+        Questions= (TextView) findViewById(R.id.nofquietions);
+        Questions.setText(String.valueOf(GlobalLetter.nOfQUESTONS));
+
         if(GlobalLetter.nOfQUESTONS == 21){
             TimerIsRunning=false;
             startActivity(new Intent(getApplicationContext(),ScoreBoardActivity.class));
@@ -49,6 +53,7 @@ public class SelfTestActivity extends AppCompatActivity {
         HomeImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 TimerIsRunning=false;
                 StartTimer=60;
                 GlobalLetter.SelfTestMode=false;
@@ -90,6 +95,8 @@ public class SelfTestActivity extends AppCompatActivity {
         }
         return super.onKeyDown(keyCode, event);
     }
+
+
 
     class mythread extends Thread{
 
