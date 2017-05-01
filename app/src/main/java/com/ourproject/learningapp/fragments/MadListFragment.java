@@ -4,22 +4,14 @@ package com.ourproject.learningapp.fragments;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.ourproject.learningapp.R;
 import com.ourproject.learningapp.activities.MadLetterInfo;
-import com.ourproject.learningapp.adapters.MadLettersAdapter;
-import com.ourproject.learningapp.globals.GlobalLetter;
-import com.ourproject.learningapp.models.MadModel;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.ourproject.learningapp.globals.GlobalVariables;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -43,7 +35,7 @@ public class MadListFragment extends Fragment implements View.OnClickListener {
         return view;
     }
     private void setLettersMad(String letter,String letterRef){
-        GlobalLetter.MAD_LETTER=letterRef;
+        GlobalVariables.MAD_LETTER=letterRef;
         Intent intent= new Intent(getActivity(),MadLetterInfo.class);
         intent.putExtra("letter",letter);
         getActivity().startActivity(intent);

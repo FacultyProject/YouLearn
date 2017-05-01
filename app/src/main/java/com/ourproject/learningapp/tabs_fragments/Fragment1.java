@@ -1,7 +1,6 @@
 package com.ourproject.learningapp.tabs_fragments;
 
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -9,13 +8,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.ourproject.learningapp.activities.LettersActivity;
 import com.ourproject.learningapp.activities.MadLettersActivity;
-import com.ourproject.learningapp.activities.MainActivity;
 import com.ourproject.learningapp.R;
-import com.ourproject.learningapp.globals.GlobalLetter;
+import com.ourproject.learningapp.globals.GlobalVariables;
 import com.ourproject.learningapp.services.ServiceClass;
 
 /**
@@ -41,7 +38,7 @@ public class Fragment1 extends Fragment {
         Shortmov.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                GlobalLetter.LETTERTYPE="ShortMovement";
+                GlobalVariables.LETTERTYPE="ShortMovement";
                 Intent intent = new Intent(getActivity(), LettersActivity.class);
                 getActivity().startActivity(intent);
             }
@@ -58,7 +55,7 @@ public class Fragment1 extends Fragment {
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                GlobalLetter.LETTERTYPE="NORMAL_MOVEMENT";
+                GlobalVariables.LETTERTYPE="NORMAL_MOVEMENT";
 
                 getActivity().stopService(new Intent(getActivity(), ServiceClass.class));
 

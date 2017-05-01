@@ -11,7 +11,7 @@ import android.widget.ImageView;
 
 import com.ourproject.learningapp.R;
 import com.ourproject.learningapp.activities.Quiz1Activity;
-import com.ourproject.learningapp.globals.GlobalLetter;
+import com.ourproject.learningapp.globals.GlobalVariables;
 
 /**
  * Created by Moetaz on 2/24/2017.
@@ -33,7 +33,7 @@ public class Fragment2 extends Fragment {
         QImaeg1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                GlobalLetter.QUIZID="qIamge5";
+                GlobalVariables.QUIZID="qIamge5";
                 Intent intent = new Intent(getActivity(), Quiz1Activity.class);
                 getActivity().startActivity(intent);
 
@@ -46,7 +46,7 @@ public class Fragment2 extends Fragment {
         QImaeg2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                GlobalLetter.QUIZID="qIamge4";
+                GlobalVariables.QUIZID="qIamge4";
                 Intent intent = new Intent(getActivity(), Quiz1Activity.class);
                 getActivity().startActivity(intent);
 
@@ -58,8 +58,8 @@ public class Fragment2 extends Fragment {
         QImaeg3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                GlobalLetter.nOfRightAns=0;
-                GlobalLetter.QUIZID="qIamge1";
+                GlobalVariables.nOfRightAns=0;
+                GlobalVariables.QUIZID="qIamge1";
                 Intent intent = new Intent(getActivity(), Quiz1Activity.class);
                 getActivity().startActivity(intent);
 
@@ -69,8 +69,8 @@ public class Fragment2 extends Fragment {
         QImaeg4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                GlobalLetter.nOfRightAns=0;
-                GlobalLetter.QUIZID="qIamge2";
+                GlobalVariables.nOfRightAns=0;
+                GlobalVariables.QUIZID="qIamge2";
                 Intent intent = new Intent(getActivity(), Quiz1Activity.class);
                 getActivity().startActivity(intent);
 
@@ -80,8 +80,8 @@ public class Fragment2 extends Fragment {
             @Override
             public void onClick(View view) {
 
-                GlobalLetter.nOfRightAns=0;
-                GlobalLetter.QUIZID="qIamge3";
+                GlobalVariables.nOfRightAns=0;
+                GlobalVariables.QUIZID="qIamge3";
                 Intent intent = new Intent(getActivity(), Quiz1Activity.class);
                 getActivity().startActivity(intent);
             }
@@ -90,8 +90,8 @@ public class Fragment2 extends Fragment {
         QImaeg6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                GlobalLetter.nOfRightAns=0;
-                GlobalLetter.QUIZID="qIamge6";
+                GlobalVariables.nOfRightAns=0;
+                GlobalVariables.QUIZID="qIamge6";
                 Intent intent = new Intent(getActivity(), Quiz1Activity.class);
                 getActivity().startActivity(intent);
             }

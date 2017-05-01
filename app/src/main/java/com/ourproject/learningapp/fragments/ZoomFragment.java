@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.ourproject.learningapp.R;
 import com.ourproject.learningapp.activities.MainActivity;
-import com.ourproject.learningapp.globals.GlobalLetter;
+import com.ourproject.learningapp.globals.GlobalVariables;
 import com.squareup.picasso.Picasso;
 
 /**
@@ -37,11 +37,11 @@ public class ZoomFragment extends Fragment {
         textView=(TextView)view.findViewById(R.id.text);
         textView.setText(bundle.get("text").toString());
         textView.setTypeface(MainActivity.font);
-        GlobalLetter.colorChar(textView,bundle.get("letter").toString(),bundle.get("text").toString());
+        GlobalVariables.colorChar(textView,bundle.get("letter").toString(),bundle.get("text").toString());
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                GlobalLetter.pMusic(bundle.getString("sound").toString(),getActivity());
+                GlobalVariables.pMusic(bundle.getString("sound").toString(),getActivity());
             }
         });
         return view;

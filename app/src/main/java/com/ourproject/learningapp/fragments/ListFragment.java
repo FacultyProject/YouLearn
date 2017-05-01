@@ -10,11 +10,10 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 
 import com.ourproject.learningapp.R;
 import com.ourproject.learningapp.adapters.LettersAdapter;
-import com.ourproject.learningapp.globals.GlobalLetter;
+import com.ourproject.learningapp.globals.GlobalVariables;
 import com.ourproject.learningapp.models.LettersModel;
 
 import java.util.ArrayList;
@@ -33,7 +32,7 @@ public class ListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_list, container, false);
 
-        if (GlobalLetter.LETTERTYPE.equals("NORMAL_MOVEMENT")) {
+        if (GlobalVariables.LETTERTYPE.equals("NORMAL_MOVEMENT")) {
             letters = getActivity().getResources().getStringArray(R.array.letters);
             lettersNamed1 = getActivity().getResources().getStringArray(R.array.lettersName1);
             lettersNamed2 = getActivity().getResources().getStringArray(R.array.lettersName2);

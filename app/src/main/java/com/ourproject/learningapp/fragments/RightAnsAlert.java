@@ -2,7 +2,6 @@ package com.ourproject.learningapp.fragments;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
@@ -10,10 +9,10 @@ import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import com.ourproject.learningapp.R;
-import com.ourproject.learningapp.fragments.Quiz1Fragment;
+import com.ourproject.learningapp.globals.GlobalVariables;
 
 /**
  * Created by Moetaz on 4/7/2017.
@@ -22,19 +21,31 @@ import com.ourproject.learningapp.fragments.Quiz1Fragment;
 public class RightAnsAlert extends DialogFragment {
 
     ImageView imageView;
+    TextView textView1,textView2;
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
-        LayoutInflater layoutInflater=getActivity().getLayoutInflater();
-        View view=layoutInflater.inflate(R.layout.fragment_pop,null);
-        imageView= (ImageView) view.findViewById(R.id.next);
+        LayoutInflater layoutInflater = getActivity().getLayoutInflater();
+        View view = layoutInflater.inflate(R.layout.fragment_pop, null);
+        imageView = (ImageView) view.findViewById(R.id.next);
+        textView1= (TextView) view.findViewById(R.id.textView);
+        textView2= (TextView) view.findViewById(R.id.textv2);
+
         builder.setView(view);
+
+        if (GlobalVariables.QuizCompleted) {
+            GlobalVariables.QuizCompleted=false;
+            textView1.setText("أكتمل الاختبار");
+            textView2.setText("");
+            imageView.setVisibility(View.INVISIBLE);
+
+        } else{
             imageView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if(Q6Fragment.TAG ){
+                    if (GlobalVariables.TAG.equals("Q6Fragment")) {
 
                         Q6Fragment q6Fragment = new Q6Fragment();
                         ((FragmentActivity) getContext()).getSupportFragmentManager().beginTransaction()
@@ -42,8 +53,7 @@ public class RightAnsAlert extends DialogFragment {
                                 .commit();
 
                         dismiss();
-                    }
-                    else {
+                    } else {
                         Quiz1Fragment quiz1Fragment = new Quiz1Fragment();
                         ((FragmentActivity) getContext()).getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.fQ1mian, quiz1Fragment)
@@ -54,7 +64,7 @@ public class RightAnsAlert extends DialogFragment {
 
                 }
             });
-
+    }
         Dialog dialog=builder.create();
 
         return dialog;

@@ -19,8 +19,15 @@ import java.util.ArrayList;
  * Created by Moetaz on 3/23/2017.
  */
 
-public class GlobalLetter {
-    public static int c=0;
+public class GlobalVariables {
+    public static boolean QuizCompleted = false;
+    public static String TAG = "none";
+    public static ArrayList<Integer> G1=new ArrayList<>();
+    public static ArrayList<Integer> G2=new ArrayList<>();
+    public static ArrayList<Integer> G3=new ArrayList<>();
+
+
+
     public static boolean rAnswer=false;
     public static int nOfQUESTONS=0;
     public static int scr=0;

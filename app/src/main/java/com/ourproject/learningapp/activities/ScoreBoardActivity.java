@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.ourproject.learningapp.R;
-import com.ourproject.learningapp.globals.GlobalLetter;
+import com.ourproject.learningapp.globals.GlobalVariables;
 
 public class ScoreBoardActivity extends Activity {
 
@@ -26,14 +26,14 @@ public class ScoreBoardActivity extends Activity {
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                GlobalLetter.SelfTestMode=false;
-                GlobalLetter.scr=0;
-                GlobalLetter.nOfQUESTONS=0;
+                GlobalVariables.SelfTestMode=false;
+                GlobalVariables.scr=0;
+                GlobalVariables.nOfQUESTONS=0;
                 startActivity(new Intent(getApplicationContext(),MainActivity.class));
             }
         });
 
-        textView.setText(String.valueOf(GlobalLetter.scr));
+        textView.setText(String.valueOf(GlobalVariables.scr));
     }
 
     @Override

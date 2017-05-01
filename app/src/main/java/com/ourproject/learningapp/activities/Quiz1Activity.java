@@ -1,6 +1,5 @@
 package com.ourproject.learningapp.activities;
 
-import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -9,7 +8,7 @@ import com.ourproject.learningapp.fragments.Q4Fragment;
 import com.ourproject.learningapp.fragments.Q5Fragment;
 import com.ourproject.learningapp.fragments.Q6Fragment;
 import com.ourproject.learningapp.fragments.Quiz1Fragment;
-import com.ourproject.learningapp.globals.GlobalLetter;
+import com.ourproject.learningapp.globals.GlobalVariables;
 
 public class Quiz1Activity extends AppCompatActivity {
     public static Quiz1Activity instance = null;
@@ -20,22 +19,28 @@ public class Quiz1Activity extends AppCompatActivity {
         setContentView(R.layout.activity_quiz1);
         instance=this;
 
-        if ( GlobalLetter.QUIZID=="qIamge4"){
+        if ( GlobalVariables.QUIZID=="qIamge4"){
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.fQ1mian, new Q4Fragment())
                     .commit();
-        }else if(GlobalLetter.QUIZID=="qIamge5"){
+        }else if(GlobalVariables.QUIZID=="qIamge5"){
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.fQ1mian, new Q5Fragment())
                     .commit();
         }
-        else if(GlobalLetter.QUIZID=="qIamge6"){
+        else if(GlobalVariables.QUIZID=="qIamge6"){
 
+            GlobalVariables.G1.clear();
+            GlobalVariables.G2.clear();
+            GlobalVariables.G3.clear();
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.fQ1mian, new Q6Fragment())
                     .commit();
         }
         else {
+            GlobalVariables.G1.clear();
+            GlobalVariables.G2.clear();
+            GlobalVariables.G3.clear();
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.fQ1mian, new Quiz1Fragment())
                     .commit();

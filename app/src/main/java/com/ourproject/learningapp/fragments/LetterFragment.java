@@ -1,13 +1,9 @@
 package com.ourproject.learningapp.fragments;
 
 import android.app.Fragment;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
-import android.text.Spannable;
-import android.text.SpannableString;
-import android.text.style.ForegroundColorSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,12 +12,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.ourproject.learningapp.R;
-import com.ourproject.learningapp.activities.MainActivity;
-import com.ourproject.learningapp.globals.GlobalLetter;
+import com.ourproject.learningapp.globals.GlobalVariables;
 import com.ourproject.learningapp.models.LettersModel;
 import com.squareup.picasso.Picasso;
-
-import java.util.ArrayList;
 
 /**
  * Created by Mohamed Ali on 3/14/2017.
@@ -35,7 +28,7 @@ public class LetterFragment extends Fragment implements View.OnClickListener {
         super.onCreate(savedInstanceState);
                 Bundle bundle = getArguments();
         lettersModel=(LettersModel) bundle.getSerializable("wordslist");
-        GlobalLetter.pMusic(lettersModel.getLetterSound(),getActivity());
+        GlobalVariables.pMusic(lettersModel.getLetterSound(),getActivity());
 
     }
     private void toZoomFrag(String image,String text,String sound,String letter){
@@ -58,7 +51,7 @@ public class LetterFragment extends Fragment implements View.OnClickListener {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view =inflater.inflate(R.layout.fragment_letter, container, false);
-        if (GlobalLetter.LETTERTYPE.equals("NORMAL_MOVEMENT")){
+        if (GlobalVariables.LETTERTYPE.equals("NORMAL_MOVEMENT")){
         LinearLayout myLayout = (LinearLayout)view. findViewById(R.id.shortmov_layout);
         myLayout.setVisibility(View.GONE);}
         letter= (TextView) view.findViewById(R.id.letter);
@@ -77,9 +70,9 @@ public class LetterFragment extends Fragment implements View.OnClickListener {
         letterD.setText(lettersModel.getLetter()+"ُ");
         letterK.setText(lettersModel.getLetter()+"ِ");
 
-        GlobalLetter.colorChar(wordTxt1,lettersModel.getLetter(),lettersModel.getWord1());
-        GlobalLetter.colorChar(wordTxt2,lettersModel.getLetter(),lettersModel.getWord2());
-        GlobalLetter.colorChar(wordTxt3,lettersModel.getLetter(),lettersModel.getWord3());
+        GlobalVariables.colorChar(wordTxt1,lettersModel.getLetter(),lettersModel.getWord1());
+        GlobalVariables.colorChar(wordTxt2,lettersModel.getLetter(),lettersModel.getWord2());
+        GlobalVariables.colorChar(wordTxt3,lettersModel.getLetter(),lettersModel.getWord3());
 
         letter.setOnClickListener(this);
         wordTxt1.setOnClickListener(this);
@@ -104,33 +97,33 @@ public class LetterFragment extends Fragment implements View.OnClickListener {
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.letter:
-                GlobalLetter.pMusic(lettersModel.getLetterSound(),getActivity());
+                GlobalVariables.pMusic(lettersModel.getLetterSound(),getActivity());
                 break;
             case R.id.word1:
-                GlobalLetter.pMusic(lettersModel.getPicSounds1(),getActivity());
+                GlobalVariables.pMusic(lettersModel.getPicSounds1(),getActivity());
 
                 break;
             case R.id.word2:
-                GlobalLetter.pMusic(lettersModel.getPicSounds2(),getActivity());
+                GlobalVariables.pMusic(lettersModel.getPicSounds2(),getActivity());
 
                 break;
             case R.id.word3:
-                GlobalLetter.pMusic(lettersModel.getPicSounds3(),getActivity());
+                GlobalVariables.pMusic(lettersModel.getPicSounds3(),getActivity());
 
                 break;
             case R.id.word_image1:
                 toZoomFrag(lettersModel.getPic1(),lettersModel.getWord1(),lettersModel.getPicSounds1(),lettersModel.getLetter());
-                GlobalLetter.pMusic(lettersModel.getPicSounds1(),getActivity());
+                GlobalVariables.pMusic(lettersModel.getPicSounds1(),getActivity());
 
                 break;
             case R.id.word_image2:
                 toZoomFrag(lettersModel.getPic2(),lettersModel.getWord2(),lettersModel.getPicSounds2(),lettersModel.getLetter());
-                GlobalLetter.pMusic(lettersModel.getPicSounds2(),getActivity());
+                GlobalVariables.pMusic(lettersModel.getPicSounds2(),getActivity());
 
                 break;
             case R.id.word_image3:
                 toZoomFrag(lettersModel.getPic3(),lettersModel.getWord3(),lettersModel.getPicSounds3(),lettersModel.getLetter());
-                GlobalLetter.pMusic(lettersModel.getPicSounds3(),getActivity());
+                GlobalVariables.pMusic(lettersModel.getPicSounds3(),getActivity());
 
                 break;
         }

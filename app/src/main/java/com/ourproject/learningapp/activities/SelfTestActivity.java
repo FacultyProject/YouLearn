@@ -1,10 +1,8 @@
 package com.ourproject.learningapp.activities;
 
 import android.content.Intent;
-import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
@@ -12,14 +10,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ourproject.learningapp.R;
-import com.ourproject.learningapp.fragments.Q4Fragment;
 import com.ourproject.learningapp.fragments.SelfTestAlert;
 import com.ourproject.learningapp.fragments.SelfTestFragment;
-import com.ourproject.learningapp.fragments.WrongAnsAlert;
-import com.ourproject.learningapp.globals.GlobalLetter;
-import com.ourproject.learningapp.tabs_fragments.Fragment3;
-
-import static com.ourproject.learningapp.globals.GlobalLetter.QUIZID;
+import com.ourproject.learningapp.globals.GlobalVariables;
 
 
 public class SelfTestActivity extends AppCompatActivity {
@@ -39,15 +32,15 @@ public class SelfTestActivity extends AppCompatActivity {
         isTimeReachedZero=false;
         Timer= (TextView) findViewById(R.id.timer);
         Questions= (TextView) findViewById(R.id.nofquietions);
-        Questions.setText(String.valueOf(GlobalLetter.nOfQUESTONS));
+        Questions.setText(String.valueOf(GlobalVariables.nOfQUESTONS));
 
-        if(GlobalLetter.nOfQUESTONS == 21){
+        if(GlobalVariables.nOfQUESTONS == 21){
             TimerIsRunning=false;
             startActivity(new Intent(getApplicationContext(),ScoreBoardActivity.class));
         }
 
 
-        GlobalLetter.nOfQUESTONS++;
+        GlobalVariables.nOfQUESTONS++;
         HomeImg= (ImageView) findViewById(R.id.home);
         Score= (TextView) findViewById(R.id.score);
         HomeImg.setOnClickListener(new View.OnClickListener() {
@@ -56,14 +49,14 @@ public class SelfTestActivity extends AppCompatActivity {
 
                 TimerIsRunning=false;
                 StartTimer=60;
-                GlobalLetter.SelfTestMode=false;
-                GlobalLetter.scr=0;
-                GlobalLetter.nOfQUESTONS=0;
+                GlobalVariables.SelfTestMode=false;
+                GlobalVariables.scr=0;
+                GlobalVariables.nOfQUESTONS=0;
                 startActivity(new Intent(getApplicationContext(),MainActivity.class));
             }
         });
 
-         Score.setText( String.valueOf(GlobalLetter.scr));
+         Score.setText( String.valueOf(GlobalVariables.scr));
         try {
             mythread t=new mythread();
             t.start();
@@ -72,13 +65,13 @@ public class SelfTestActivity extends AppCompatActivity {
         }
 
 
-        GlobalLetter.SelfTestMode=true;
-        if(GlobalLetter.nOfQUESTONS < 6)
-        GlobalLetter.QUIZID="qIamge1";
-        else if (GlobalLetter.nOfQUESTONS < 11 && GlobalLetter.nOfQUESTONS >= 6 )
-            GlobalLetter.QUIZID="qIamge2";
+        GlobalVariables.SelfTestMode=true;
+        if(GlobalVariables.nOfQUESTONS < 6)
+        GlobalVariables.QUIZID="qIamge1";
+        else if (GlobalVariables.nOfQUESTONS < 11 && GlobalVariables.nOfQUESTONS >= 6 )
+            GlobalVariables.QUIZID="qIamge2";
         else
-            GlobalLetter.QUIZID="qIamge3";
+            GlobalVariables.QUIZID="qIamge3";
 
 
         getSupportFragmentManager().beginTransaction()
@@ -115,7 +108,7 @@ public class SelfTestActivity extends AppCompatActivity {
                 });
                  StartTimer--;
                 if(StartTimer == EndPoint){
-                    GlobalLetter.rAnswer=true;
+                    GlobalVariables.rAnswer=true;
                     isTimeReachedZero=true;
 
                         TimerIsRunning=false;

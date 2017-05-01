@@ -7,15 +7,13 @@ import android.support.annotation.Nullable;
 import android.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.ourproject.learningapp.R;
-import com.ourproject.learningapp.adapters.LettersAdapter;
 import com.ourproject.learningapp.adapters.MadLettersAdapter;
-import com.ourproject.learningapp.globals.GlobalLetter;
+import com.ourproject.learningapp.globals.GlobalVariables;
 import com.ourproject.learningapp.models.MadModel;
 
 import java.util.ArrayList;
@@ -54,10 +52,10 @@ public class MadLetterFragment extends Fragment {
         for (int i = 0; i< letterSection.length; i++) {
             MadModel madModel=new MadModel();
             madModel.setLetterSection(letterSection[i]+bundle.get("letterI"));
-            if (GlobalLetter.MAD_LETTER=="Alf") {
+            if (GlobalVariables.MAD_LETTER=="Alf") {
                 madModel.setSectionSound(letter1Sounds[i]);
             }
-            else if (GlobalLetter.MAD_LETTER=="Waw") {
+            else if (GlobalVariables.MAD_LETTER=="Waw") {
                 madModel.setSectionSound(letter2Sounds[i]);
             }
             else {

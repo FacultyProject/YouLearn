@@ -13,8 +13,6 @@ import android.widget.TextView;
 
 import com.ourproject.learningapp.R;
 import com.ourproject.learningapp.activities.SelfTestActivity;
-import com.ourproject.learningapp.dataStorage.QuizLevels;
-import com.ourproject.learningapp.globals.GlobalLetter;
 
 /**
  * Created by Moetaz on 2/27/2017.
@@ -36,19 +34,6 @@ public class Fragment3 extends Fragment {
             }
         });
 
-      /**
-        button = (Button) view.findViewById(R.id.buTest);
-        textView = (TextView) view.findViewById(R.id.tTest);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                GlobalLetter.c++;
-                new QuizLevels(getActivity()).SaveItem(1);
-            }
-        });
-        //if (!(GlobalLetter.c == 0))
-            // textView.setText( new QuizLevels(getActivity()).GetItem("1"));
-                **/
 
             return view;
     }

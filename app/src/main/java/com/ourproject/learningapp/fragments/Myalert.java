@@ -1,7 +1,6 @@
 package com.ourproject.learningapp.fragments;
 
 import android.app.Dialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
@@ -12,8 +11,6 @@ import android.widget.TextView;
 
 import com.ourproject.learningapp.Interface.PositionRespone;
 import com.ourproject.learningapp.R;
-import com.ourproject.learningapp.activities.MainActivity;
-import com.ourproject.learningapp.globals.GlobalLetter;
 
 
 /**
@@ -38,9 +35,8 @@ public class Myalert extends DialogFragment {
         alertDialog.setView(ansDialogView);
         textView=(TextView)ansDialogView.findViewById(R.id.textView);
         LinearLayout myLayout = (LinearLayout)ansDialogView. findViewById(R.id.linearLayout);
-        if (Q4Fragment.position==28 || Q5Fragment.COUNT==10 || GlobalLetter.nOfRightAns >=Quiz1Fragment.TAEGET
-                || GlobalLetter.nOfRightAns >= Q6Fragment.TARGER2){
-            GlobalLetter.nOfRightAns=0;
+        if (Q4Fragment.position==28 || Q5Fragment.COUNT==1 ){
+
             Q5Fragment.COUNT = 0;
             textView.setTextSize(30);
             textView.setText(" اكتمل الاختبار");

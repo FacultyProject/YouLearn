@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.ourproject.learningapp.R;
 import com.ourproject.learningapp.activities.MainActivity;
-import com.ourproject.learningapp.globals.GlobalLetter;
+import com.ourproject.learningapp.globals.GlobalVariables;
 import com.ourproject.learningapp.models.MadModel;
 import java.util.ArrayList;
 import java.util.List;
@@ -43,7 +43,7 @@ public class MadLettersAdapter extends RecyclerView.Adapter<MadLettersAdapter.My
             @Override
             public void onClick(View view) {
 
-                GlobalLetter.pMusic(letttersInfo.get(position).getSectionSound(),context);
+                GlobalVariables.pMusic(letttersInfo.get(position).getSectionSound(),context);
 
             }
         });

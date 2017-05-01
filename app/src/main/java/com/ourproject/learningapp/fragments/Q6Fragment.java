@@ -18,7 +18,7 @@ import android.widget.Toast;
 
 import com.ourproject.learningapp.R;
 import com.ourproject.learningapp.activities.SelfTestActivity;
-import com.ourproject.learningapp.globals.GlobalLetter;
+import com.ourproject.learningapp.globals.GlobalVariables;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -28,7 +28,7 @@ import java.util.Random;
  * A simple {@link Fragment} subclass.
  */
 public class Q6Fragment extends Fragment {
-    public static final int TARGER2=3;
+    public static final int TARGER2=10;
     public static  boolean TAG = false;
     int rand,Randlist;
     private String[] Words, PicWords;
@@ -44,18 +44,34 @@ public class Q6Fragment extends Fragment {
         super.onCreate(savedInstanceState);
         Randlist=new Random().nextInt(3);
         if(Randlist == 0) {
+            do{
+                rand = new Random().nextInt(28);
+            }while (GlobalVariables.G1.contains(rand));
+            GlobalVariables.G1.add(rand);
+
             Words = getActivity().getResources().getStringArray(R.array.lettersName1);
             PicWords = getActivity().getResources().getStringArray(R.array.lettersImages1);
         }else if(Randlist == 1){
+            do{
+                rand = new Random().nextInt(28);
+            }while (GlobalVariables.G2.contains(rand));
+            GlobalVariables.G2.add(rand);
+
             Words = getActivity().getResources().getStringArray(R.array.lettersName2);
             PicWords = getActivity().getResources().getStringArray(R.array.lettersImages2);
         }
         else
+
         {
+            do{
+                rand = new Random().nextInt(28);
+            }while (GlobalVariables.G3.contains(rand));
+            GlobalVariables.G3.add(rand);
+
             Words = getActivity().getResources().getStringArray(R.array.lettersName3);
             PicWords = getActivity().getResources().getStringArray(R.array.lettersImages3);
         }
-        rand = new Random().nextInt(28);
+
     }
 
     @Override
@@ -78,6 +94,7 @@ public class Q6Fragment extends Fragment {
                 //Log.i(tag, "keyCode: " + keyCode);
                 if( (keyCode == KeyEvent.KEYCODE_BACK )  ) {
                     // Log.i(tag, "onKey Back listener is working!!!");
+                    GlobalVariables.TAG="none";
                      TAG = false;
                     getFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
                     return false;
@@ -126,22 +143,23 @@ public class Q6Fragment extends Fragment {
 
                 if (WORDPIC.equals(result.get(0)) || WORDPIC.contains(result.get(0)) || result.get(0).contains(WORDPIC)
                         || CompareStrings(WORDPIC.toCharArray(),result.get(0).toCharArray()) ) {
-                    if(GlobalLetter.SelfTestMode){
+                    if(GlobalVariables.SelfTestMode){
                         SelfTestActivity.TimerIsRunning=false;
-                        GlobalLetter.scr++;
-                        GlobalLetter.rAnswer=true;
+                        GlobalVariables.scr++;
+                        GlobalVariables.rAnswer=true;
                         SelfTestAlert selfTestAlert=new SelfTestAlert();
                         selfTestAlert.show(getFragmentManager(),"sAlert");
                     }
                     else {
-                        GlobalLetter.nOfRightAns++;
+                        GlobalVariables.nOfRightAns++;
+                        GlobalVariables.TAG="Q6Fragment";
                         Q6Fragment.TAG = true;
                         goTOalert();
                     }
                 } else {
-                    if(GlobalLetter.SelfTestMode){
+                    if(GlobalVariables.SelfTestMode){
                         SelfTestActivity.TimerIsRunning=false;
-                        GlobalLetter.rAnswer=false;
+                        GlobalVariables.rAnswer=false;
                         SelfTestAlert selfTestAlert=new SelfTestAlert();
                         selfTestAlert.show(getFragmentManager(),"srAlert");
                     }
@@ -171,14 +189,16 @@ public class Q6Fragment extends Fragment {
         }
 
     public void goTOalert(){
-        if(GlobalLetter.nOfRightAns < TARGER2) {
+        if(GlobalVariables.nOfRightAns < TARGER2) {
             RightAnsAlert rightAnsAlert = new RightAnsAlert();
             rightAnsAlert.show(getFragmentManager(), "qAlert");
         }
         else{
-            Q6Fragment.TAG = false;
-            Myalert myalert=new Myalert();
-            myalert.show(getFragmentManager(),"mm");
+            GlobalVariables.TAG="none";
+
+            GlobalVariables.QuizCompleted=true;
+            RightAnsAlert rightAnsAlert = new RightAnsAlert();
+            rightAnsAlert.show(getFragmentManager(), "qAlert");
         }
 
     }
