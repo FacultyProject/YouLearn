@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "222316174707",
+    "firebase_url": "https://youlearn-56a66.firebaseio.com",
+    "project_id": "youlearn-56a66",
+    "storage_bucket": "youlearn-56a66.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:222316174707:android:576a2daf1f176c70",
+        "android_client_info": {
+          "package_name": "com.ourproject.learningapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "222316174707-mg89a52fk8273qq1picft7k6oe29lp2b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ourproject.learningapp",
+            "certificate_hash": "581f0e442bc8f5d40ac8281ff14c2c76ca683dd6"
+          }
+        },
+        {
+          "client_id": "222316174707-i197mf3nflfq861ldenka903ju1lifu9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAyKv7wslRVDWginGI4ShYzOUK2n4JxhUY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "222316174707-i197mf3nflfq861ldenka903ju1lifu9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
