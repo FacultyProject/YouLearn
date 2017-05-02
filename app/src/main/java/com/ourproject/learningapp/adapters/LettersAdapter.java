@@ -14,6 +14,7 @@ import com.ourproject.learningapp.R;
 import com.ourproject.learningapp.activities.LetterInfo;
 import com.ourproject.learningapp.activities.MainActivity;
 import com.ourproject.learningapp.fragments.LetterFragment;
+import com.ourproject.learningapp.globals.GlobalVariables;
 import com.ourproject.learningapp.models.LettersModel;
 import com.ourproject.learningapp.models.MadModel;
 import com.ourproject.learningapp.services.ServiceClass;
@@ -53,17 +54,25 @@ public class LettersAdapter extends RecyclerView.Adapter<LettersAdapter.MyViewHo
             public void onClick(View view) {
                 context.stopService(new Intent(context,ServiceClass.class));
 
-                if (MainActivity.mTwoPane) {
-                    Bundle bundle = new Bundle();
-                    LetterFragment detailFragment = new LetterFragment();
-                    bundle.putSerializable("wordslist", letttersInfo.get(position));
-                    detailFragment.setArguments(bundle);
-                    ((FragmentActivity) context).getFragmentManager().beginTransaction().replace(R.id.letter_detail_container, detailFragment).commit();
+                if (GlobalVariables.LETTERTYPE.equals("NORMAL_MOVEMENT")||GlobalVariables.LETTERTYPE.equals("ShortMovement")) {
+                    if (MainActivity.mTwoPane) {
+                        Bundle bundle = new Bundle();
+                        LetterFragment detailFragment = new LetterFragment();
+                        bundle.putSerializable("wordslist", letttersInfo.get(position));
+                        detailFragment.setArguments(bundle);
+                        ((FragmentActivity) context).getFragmentManager().beginTransaction().replace(R.id.letter_detail_container, detailFragment).commit();
 
+                    } else {
+                        Intent intent = new Intent(context, LetterInfo.class);
+                        intent.putExtra("wordslist", letttersInfo.get(position));
+                        context.startActivity(intent);
+                    }
                 }else {
                     Intent intent = new Intent(context, LetterInfo.class);
-                    intent.putExtra("wordslist", letttersInfo.get(position));
+                    GlobalVariables.ainmLetterPosition =Integer.toString(position+1);
                     context.startActivity(intent);
+
+
                 }
             }
         });

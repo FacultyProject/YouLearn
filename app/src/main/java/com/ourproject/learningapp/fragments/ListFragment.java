@@ -31,47 +31,52 @@ public class ListFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_list, container, false);
-
-        if (GlobalVariables.LETTERTYPE.equals("NORMAL_MOVEMENT")) {
-            letters = getActivity().getResources().getStringArray(R.array.letters);
-            lettersNamed1 = getActivity().getResources().getStringArray(R.array.lettersName1);
-            lettersNamed2 = getActivity().getResources().getStringArray(R.array.lettersName2);
-            lettersNamed3 = getActivity().getResources().getStringArray(R.array.lettersName3);
-            lettersImages1 = getActivity().getResources().getStringArray(R.array.lettersImages1);
-            lettersImages2 = getActivity().getResources().getStringArray(R.array.lettersImages2);
-            lettersImages3 = getActivity().getResources().getStringArray(R.array.lettersImages3);
-            lettersSounds = getActivity().getResources().getStringArray(R.array.lettersSounds);
-            picSounds1 = getActivity().getResources().getStringArray(R.array.PicSounds1);
-            picSounds2 = getActivity().getResources().getStringArray(R.array.PicSounds2);
-            picSounds3 = getActivity().getResources().getStringArray(R.array.PicSounds3);
-        }else
-        {
-            letters = getActivity().getResources().getStringArray(R.array.letters);
-            lettersNamed1 = getActivity().getResources().getStringArray(R.array.KalematEldam);
-            lettersNamed2 = getActivity().getResources().getStringArray(R.array.KalematElfath);
-            lettersNamed3 = getActivity().getResources().getStringArray(R.array.KalematElkasr);
-            lettersImages1 = getActivity().getResources().getStringArray(R.array.DamPics);
-            lettersImages2 = getActivity().getResources().getStringArray(R.array.FathPics);
-            lettersImages3 = getActivity().getResources().getStringArray(R.array.KasrPics);
-            lettersSounds = getActivity().getResources().getStringArray(R.array.lettersSounds);
-            picSounds1 = getActivity().getResources().getStringArray(R.array.damsound);
-            picSounds2 = getActivity().getResources().getStringArray(R.array.fathsound);
-            picSounds3 = getActivity().getResources().getStringArray(R.array.kasrsound);
-        }
-        for (int i=0;i<letters.length;i++){
-            LettersModel lettersModel=new LettersModel();
-            lettersModel.setLetter(letters[i]);
-            lettersModel.setWord1(lettersNamed1[i]);
-            lettersModel.setWord2(lettersNamed2[i]);
-            lettersModel.setWord3(lettersNamed3[i]);
-            lettersModel.setPic1(lettersImages1[i]);
-            lettersModel.setPic2(lettersImages2[i]);
-            lettersModel.setPic3(lettersImages3[i]);
-            lettersModel.setLetterSound(lettersSounds[i]);
-            lettersModel.setPicSounds1(picSounds1[i]);
-            lettersModel.setPicSounds2(picSounds2[i]);
-            lettersModel.setPicSounds3(picSounds3[i]);
-            list.add(lettersModel);
+        letters = getActivity().getResources().getStringArray(R.array.letters);
+        if (GlobalVariables.LETTERTYPE.equals("NORMAL_MOVEMENT")||GlobalVariables.LETTERTYPE.equals("ShortMovement")) {
+            if (GlobalVariables.LETTERTYPE.equals("NORMAL_MOVEMENT")) {
+                lettersNamed1 = getActivity().getResources().getStringArray(R.array.lettersName1);
+                lettersNamed2 = getActivity().getResources().getStringArray(R.array.lettersName2);
+                lettersNamed3 = getActivity().getResources().getStringArray(R.array.lettersName3);
+                lettersImages1 = getActivity().getResources().getStringArray(R.array.lettersImages1);
+                lettersImages2 = getActivity().getResources().getStringArray(R.array.lettersImages2);
+                lettersImages3 = getActivity().getResources().getStringArray(R.array.lettersImages3);
+                lettersSounds = getActivity().getResources().getStringArray(R.array.lettersSounds);
+                picSounds1 = getActivity().getResources().getStringArray(R.array.PicSounds1);
+                picSounds2 = getActivity().getResources().getStringArray(R.array.PicSounds2);
+                picSounds3 = getActivity().getResources().getStringArray(R.array.PicSounds3);
+            } else if (GlobalVariables.LETTERTYPE.equals("ShortMovement")) {
+                lettersNamed1 = getActivity().getResources().getStringArray(R.array.KalematEldam);
+                lettersNamed2 = getActivity().getResources().getStringArray(R.array.KalematElfath);
+                lettersNamed3 = getActivity().getResources().getStringArray(R.array.KalematElkasr);
+                lettersImages1 = getActivity().getResources().getStringArray(R.array.DamPics);
+                lettersImages2 = getActivity().getResources().getStringArray(R.array.FathPics);
+                lettersImages3 = getActivity().getResources().getStringArray(R.array.KasrPics);
+                lettersSounds = getActivity().getResources().getStringArray(R.array.lettersSounds);
+                picSounds1 = getActivity().getResources().getStringArray(R.array.damsound);
+                picSounds2 = getActivity().getResources().getStringArray(R.array.fathsound);
+                picSounds3 = getActivity().getResources().getStringArray(R.array.kasrsound);
+            }
+            for (int i = 0; i < letters.length; i++) {
+                LettersModel lettersModel = new LettersModel();
+                lettersModel.setLetter(letters[i]);
+                lettersModel.setWord1(lettersNamed1[i]);
+                lettersModel.setWord2(lettersNamed2[i]);
+                lettersModel.setWord3(lettersNamed3[i]);
+                lettersModel.setPic1(lettersImages1[i]);
+                lettersModel.setPic2(lettersImages2[i]);
+                lettersModel.setPic3(lettersImages3[i]);
+                lettersModel.setLetterSound(lettersSounds[i]);
+                lettersModel.setPicSounds1(picSounds1[i]);
+                lettersModel.setPicSounds2(picSounds2[i]);
+                lettersModel.setPicSounds3(picSounds3[i]);
+                list.add(lettersModel);
+            }
+        }else {
+            for (int i = 0; i < letters.length; i++) {
+                LettersModel lettersModel = new LettersModel();
+                lettersModel.setLetter(letters[i]);
+                list.add(lettersModel);
+            }
         }
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.letters_recyvlerView);
         RtlGridLayoutManager gridLayoutManager = new RtlGridLayoutManager(getActivity(),4);

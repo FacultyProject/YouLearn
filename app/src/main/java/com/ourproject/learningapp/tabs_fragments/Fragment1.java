@@ -30,6 +30,7 @@ public class Fragment1 extends Fragment {
         ImageView imageView = (ImageView) view.findViewById(R.id.arabic_letters_img);
         ImageView madImage= (ImageView) view.findViewById(R.id.mamdod_img);
         ImageView Shortmov= (ImageView) view.findViewById(R.id.shortmov);
+        ImageView letterAnim= (ImageView) view.findViewById(R.id.letters_animation);
 
         //TextView textView = (TextView) view.findViewById(R.id.text);
 
@@ -67,7 +68,14 @@ public class Fragment1 extends Fragment {
                 getActivity().startService(serviceIntent);
             }
         });
-
+        letterAnim.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                GlobalVariables.LETTERTYPE="LETTER_ANIMATION";
+                Intent intent = new Intent(getActivity(), LettersActivity.class);
+                getActivity().startActivity(intent);
+            }
+        });
         /**buPlay = (ImageView) view.findViewById(R.id.play);
         buPlay.setOnClickListener(new View.OnClickListener() {
             @Override
