@@ -26,12 +26,10 @@ public class GlobalVariables {
     public static ArrayList<Integer> G2=new ArrayList<>();
     public static ArrayList<Integer> G3=new ArrayList<>();
 
-
-
     public static boolean rAnswer=false;
     public static int nOfQUESTONS=0;
     public static int scr=0;
-    public static String ainmLetterPosition =null;
+    public static String  ainmLetterPosition =null;
     public static boolean SelfTestMode=false;
     public static int nOfRightAns=0;
     public static String QUIZID="none";
