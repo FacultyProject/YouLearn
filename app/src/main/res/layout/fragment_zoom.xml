@@ -7,21 +7,28 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-<ImageView
-    android:layout_width="match_parent"
-    android:layout_weight="3"
-    android:padding="20dp"
-    android:layout_height="0dp"
-    android:src="@drawable/mouse"
-    android:id="@+id/image"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1.5"
-        android:gravity="center_horizontal"
-        android:textSize="100sp"
-        android:text="dsdsd"
-        android:textColor="#000"
-        android:id="@+id/text"/>
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_margin="20dp"
+            android:layout_height="0dp"
+            android:layout_weight=".5"
+            android:src="@drawable/play"
+            android:id="@+id/play"/>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_weight="2"
+            android:padding="20dp"
+            android:layout_height="0dp"
+            android:src="@drawable/mouse"
+            android:id="@+id/image"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.5"
+            android:gravity="center_horizontal"
+            android:textSize="100sp"
+            android:text="dsdsd"
+            android:textColor="#000"
+            android:id="@+id/text"/>
     </LinearLayout>
 </LinearLayout>

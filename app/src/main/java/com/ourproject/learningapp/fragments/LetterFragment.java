@@ -21,7 +21,7 @@ import com.squareup.picasso.Picasso;
  */
 public class LetterFragment extends Fragment implements View.OnClickListener {
     TextView wordTxt1,wordTxt2,wordTxt3,letter,letterF,letterD,letterK;
-    ImageView word1Img,word2Img,word3Img;
+    ImageView word1Img,word2Img,word3Img,play;
     LettersModel lettersModel;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -55,6 +55,7 @@ public class LetterFragment extends Fragment implements View.OnClickListener {
         LinearLayout myLayout = (LinearLayout)view. findViewById(R.id.shortmov_layout);
         myLayout.setVisibility(View.GONE);}
         letter= (TextView) view.findViewById(R.id.letter);
+        play= (ImageView) view.findViewById(R.id.play);
         wordTxt1= (TextView) view.findViewById(R.id.word1);
         wordTxt2= (TextView) view.findViewById(R.id.word2);
         wordTxt3= (TextView) view.findViewById(R.id.word3);
@@ -74,7 +75,7 @@ public class LetterFragment extends Fragment implements View.OnClickListener {
         GlobalVariables.colorChar(wordTxt2,lettersModel.getLetter(),lettersModel.getWord2());
         GlobalVariables.colorChar(wordTxt3,lettersModel.getLetter(),lettersModel.getWord3());
 
-        letter.setOnClickListener(this);
+        play.setOnClickListener(this);
         wordTxt1.setOnClickListener(this);
         wordTxt2.setOnClickListener(this);
         wordTxt3.setOnClickListener(this);
@@ -96,7 +97,7 @@ public class LetterFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View view) {
         switch (view.getId()){
-            case R.id.letter:
+            case R.id.play:
                 GlobalVariables.pMusic(lettersModel.getLetterSound(),getActivity());
                 break;
             case R.id.word1:
