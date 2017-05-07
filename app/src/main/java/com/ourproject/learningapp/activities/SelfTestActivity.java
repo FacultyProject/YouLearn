@@ -1,8 +1,10 @@
 package com.ourproject.learningapp.activities;
 
 import android.content.Intent;
+import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
@@ -18,11 +20,19 @@ import com.ourproject.learningapp.globals.GlobalVariables;
 public class SelfTestActivity extends AppCompatActivity {
     private final int EndPoint=0;
     public static boolean TimerIsRunning;
-     int StartTimer=60;
+     int StartTimer=15;
     public static boolean isTimeReachedZero;
     ImageView HomeImg;
     TextView Score,Questions;
     TextView Timer;
+
+
+
+    @Override
+    public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
+        //super.onSaveInstanceState(outState, outPersistentState);
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,10 +44,11 @@ public class SelfTestActivity extends AppCompatActivity {
         Questions= (TextView) findViewById(R.id.nofquietions);
         Questions.setText(String.valueOf(GlobalVariables.nOfQUESTONS));
 
-        if(GlobalVariables.nOfQUESTONS == 21){
+        if(GlobalVariables.nOfQUESTONS == 7){
             TimerIsRunning=false;
             startActivity(new Intent(getApplicationContext(),ScoreBoardActivity.class));
         }
+
 
 
         GlobalVariables.nOfQUESTONS++;
@@ -66,9 +77,9 @@ public class SelfTestActivity extends AppCompatActivity {
 
 
         GlobalVariables.SelfTestMode=true;
-        if(GlobalVariables.nOfQUESTONS < 6)
+        if(GlobalVariables.nOfQUESTONS < 2)
         GlobalVariables.QUIZID="qIamge1";
-        else if (GlobalVariables.nOfQUESTONS < 11 && GlobalVariables.nOfQUESTONS >= 6 )
+        else if (GlobalVariables.nOfQUESTONS < 4 && GlobalVariables.nOfQUESTONS >= 2 )
             GlobalVariables.QUIZID="qIamge2";
         else
             GlobalVariables.QUIZID="qIamge3";
@@ -107,13 +118,20 @@ public class SelfTestActivity extends AppCompatActivity {
                     }
                 });
                  StartTimer--;
+                //if(!isFinishing())
                 if(StartTimer == EndPoint){
                     GlobalVariables.rAnswer=true;
                     isTimeReachedZero=true;
 
                         TimerIsRunning=false;
                         SelfTestAlert selfTestAlert=new SelfTestAlert();
-                        selfTestAlert.show(getSupportFragmentManager(),"anotheralert");
+                    try {
+
+
+                        selfTestAlert.show(getSupportFragmentManager(), "anotheralert");
+                    }catch (IllegalStateException e){
+                        Log.e("Error","Erroe");
+                    }
 
 
                 }

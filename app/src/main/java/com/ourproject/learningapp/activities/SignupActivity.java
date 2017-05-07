@@ -29,14 +29,17 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
     private TextView signin;
     private ProgressDialog progressDialog;
     private FirebaseAuth firebaseAuth;
-    private Firebase mRoot;
+    private Firebase mUsers,mScr;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
         firebaseAuth=FirebaseAuth.getInstance();
         Firebase.setAndroidContext(this);
-        mRoot = new Firebase("https://youlearn-56a66.firebaseio.com/users");
+
+        mUsers = new Firebase("https://youlearn-56a66.firebaseio.com/users");
+        mScr = new Firebase("https://youlearn-56a66.firebaseio.com/score");
+
         progressDialog=new ProgressDialog(this);
         if(firebaseAuth.getCurrentUser() != null){
             finish();
@@ -73,8 +76,13 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            Firebase childRef = mRoot.child(EMAIL.substring(0,EMAIL.indexOf('@')));
-                            childRef.setValue("-2");
+                            Firebase childRef1 = mUsers.child(EMAIL.substring(0,EMAIL.indexOf('@')));
+                            childRef1.setValue((EMAIL.substring(0,EMAIL.indexOf('@'))));
+
+                            Firebase childRef2 = mScr.child(EMAIL.substring(0,EMAIL.indexOf('@')));
+                            childRef2.setValue("-2");
+
+
                             finish();
                             startActivity(new Intent(getApplicationContext(),MainActivity.class));
                         }else{

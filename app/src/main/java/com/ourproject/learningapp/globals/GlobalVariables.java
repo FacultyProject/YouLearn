@@ -20,6 +20,8 @@ import java.util.ArrayList;
  */
 
 public class GlobalVariables {
+    public static boolean onDataChange =false;
+    public static boolean ChallangeMode = false;
     public static boolean QuizCompleted = false;
     public static String TAG = "none";
     public static ArrayList<Integer> G1=new ArrayList<>();
