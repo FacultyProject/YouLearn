@@ -111,6 +111,9 @@ public class UsersListFragment extends Fragment {
                 Firebase childRef2 = mCompitiors.child(mUsres.get(i));
                 childRef2.setValue(USER);
 
+                Firebase childRef3 = mCompitiors.child(USER);
+                childRef3.setValue(mUsres.get(i));
+
                 GlobalVariables.ChallangeMode = true;
                 startActivity(new Intent(getActivity(), SelfTestActivity.class));
             }

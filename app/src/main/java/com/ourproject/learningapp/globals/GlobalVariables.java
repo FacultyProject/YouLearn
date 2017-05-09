@@ -20,6 +20,8 @@ import java.util.ArrayList;
  */
 
 public class GlobalVariables {
+    public static boolean Is2ndPlayerPlay = false;
+    public static boolean Is1stPlayerPlay = false;
     public static boolean onDataChange =false;
     public static boolean ChallangeMode = false;
     public static boolean QuizCompleted = false;

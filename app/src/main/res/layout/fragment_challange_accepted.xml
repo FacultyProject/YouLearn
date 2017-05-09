@@ -1,13 +1,31 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.ourproject.learningapp.fragments.ChallangeAccepted">
 
-    <!-- TODO: Update blank fragment layout -->
+    <ImageView
+        android:id="@+id/home2"
+        android:src="@drawable/home_icon"
+        android:layout_width="100dp"
+        android:layout_height="100dp" />
+     <TextView
+         android:id="@+id/t1"
+         android:layout_margin="30dp"
+         android:textColor="#000"
+         android:text="Test"
+         android:textSize="30dp"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content" />
     <TextView
+        android:id="@+id/t2"
+        android:layout_margin="30dp"
+        android:textColor="#000"
+        android:textSize="30dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="Hello from ChallangeAccepted" />
 
-</FrameLayout>
+</LinearLayout>

@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
@@ -44,6 +45,9 @@ public class Fragment3 extends Fragment {
         SelfTestCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+
+
                 startActivity(new Intent(getActivity(), SelfTestActivity.class));
             }
         });
@@ -64,14 +68,15 @@ public class Fragment3 extends Fragment {
                              String UserScr = (String) dataSnapshot.getValue();
 
                              if ((Integer.parseInt(UserScr) *  1) == -2) {
-                                 Log.e("one", "-2");
+
                                  startActivity(new Intent(getActivity(), ChallangeActivity.class));
                              } else if ((Integer.parseInt(UserScr) *  1) == -1) {
                                  GlobalVariables.ChallangeMode = true;
-                                 Log.e("two", "-1");
+                                 GlobalVariables.Is2ndPlayerPlay = true;
+
                                  startActivity(new Intent(getActivity(), SelfTestActivity.class));
                              } else if (Integer.parseInt(UserScr) >= 0) {
-                                 Log.e("three", UserScr);
+
                                  startActivity(new Intent(getActivity(), CompitionResultActivity.class));
                              }
                              else
