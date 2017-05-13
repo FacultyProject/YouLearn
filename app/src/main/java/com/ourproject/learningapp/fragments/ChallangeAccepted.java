@@ -30,6 +30,7 @@ public class ChallangeAccepted extends Fragment {
     ImageView imageView;
     FirebaseAuth firebaseAuth;
     Firebase mScr,mCompititors;
+    boolean Enter = false;
 
     public ChallangeAccepted() {
         // Required empty public constructor
@@ -51,54 +52,92 @@ public class ChallangeAccepted extends Fragment {
 
 
           FirebaseUser user = firebaseAuth.getCurrentUser();
-        final String USER = user.getEmail().substring(0,user.getEmail().indexOf('@'));
+          final String USER = user.getEmail().substring(0,user.getEmail().indexOf('@'));
 
-        if(GlobalVariables.Is1stPlayerPlay){
+        if(!GlobalVariables.Is2ndPlayerPlay){
+
             mScr.child(USER).addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     String UserScr2 = dataSnapshot.getValue(String.class);
-                    textView1.setText(UserScr2);
+                    if(Integer.parseInt(UserScr2) >= 0){
+                        textView1.setText(UserScr2);
+                        mScr.child(new SharedPref(getActivity()).GetItem("Challanger")).addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(DataSnapshot dataSnapshot) {
+                                String US2 = dataSnapshot.getValue(String.class);
+                                textView2.setText(US2);
+                            }
 
+                            @Override
+                            public void onCancelled(FirebaseError firebaseError) {
+
+                            }
+                        });
+                    }
+                    else
+                        Enter = true;
 
                 }
 
                 @Override
                 public void onCancelled(FirebaseError firebaseError) {
-                    Toast.makeText(getActivity(), "ERROR", Toast.LENGTH_LONG).show();
                 }
             });
 
-             mCompititors.child(USER).addValueEventListener(new ValueEventListener() {
-                 @Override
-                 public void onDataChange(DataSnapshot dataSnapshot) {
-                     String User2 = dataSnapshot.getValue(String.class);
-                     Firebase Ref1 = mScr.child(User2);
-                     Ref1.setValue("-2");
 
-                     mScr.child(User2).addValueEventListener(new ValueEventListener() {
-                         @Override
-                         public void onDataChange(DataSnapshot dataSnapshot) {
-                             String Userscr2 = dataSnapshot.getValue(String.class);
-                             textView2.setText(Userscr2);
-                         }
+            if(Enter) {
 
-                         @Override
-                         public void onCancelled(FirebaseError firebaseError) {
+                mScr.child(USER).addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        String UserScr2 = dataSnapshot.getValue(String.class);
+                        textView1.setText(UserScr2);
 
-                         }
-                     });
-                 }
 
-                 @Override
-                 public void onCancelled(FirebaseError firebaseError) {
+                    }
 
-                 }
-             });
+                    @Override
+                    public void onCancelled(FirebaseError firebaseError) {
+                        Toast.makeText(getActivity(), "ERROR", Toast.LENGTH_LONG).show();
+                    }
+                });
+
+                mCompititors.child(USER).addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        String User2 = dataSnapshot.getValue(String.class);
+                        Firebase Ref1 = mScr.child(User2);
+                        Ref1.setValue("-2");
+
+                        mScr.child(User2).addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(DataSnapshot dataSnapshot) {
+                                String Userscr2 = dataSnapshot.getValue(String.class);
+                                textView2.setText(Userscr2);
+                            }
+
+                            @Override
+                            public void onCancelled(FirebaseError firebaseError) {
+
+                            }
+                        });
+                    }
+
+                    @Override
+                    public void onCancelled(FirebaseError firebaseError) {
+
+                    }
+                });
+
+
+            }
+
 
         }else {
             textView1.setText(String.valueOf(GlobalVariables.scr));
-            mScr.child("user").addValueEventListener(new ValueEventListener() {
+            //changed here
+            mScr.child(new SharedPref(getActivity()).GetItem("Challanger")).addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     String UserScr2 = dataSnapshot.getValue(String.class);
@@ -118,11 +157,15 @@ public class ChallangeAccepted extends Fragment {
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(GlobalVariables.Is1stPlayerPlay){
+                if( !GlobalVariables.Is2ndPlayerPlay){
                     Firebase Ref1 = mScr.child(USER);
                     Ref1.setValue("-2");
+                    Firebase Ref2 = mScr.child(new SharedPref(getActivity()).GetItem("Challanger"));
+                    Ref2.setValue("-2");
+                    startActivity(new Intent(getActivity(), MainActivity.class));
                 }else {
-                    GlobalVariables.Is2ndPlayerPlay = false;
+                    GlobalVariables.Is2ndPlayerFinish = true;
+                     //GlobalVariables.Is2ndPlayerPlay = false;
                     Firebase Ref1 = mScr.child(USER);
                     Ref1.setValue(String.valueOf(GlobalVariables.scr));
                     GlobalVariables.ChallangeMode = false;

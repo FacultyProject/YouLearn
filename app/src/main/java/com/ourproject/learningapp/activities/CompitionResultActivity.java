@@ -3,6 +3,7 @@ package com.ourproject.learningapp.activities;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
@@ -33,12 +34,19 @@ public class CompitionResultActivity extends AppCompatActivity {
 
                 if (GlobalVariables.onDataChange){
                     GlobalVariables.onDataChange = false;
+
                     CompititorUserScr = (String) dataSnapshot.getValue();
+                    Toast.makeText(getApplicationContext(),CompititorUserScr,Toast.LENGTH_LONG).show();
 
+                    if(GlobalVariables.Is2ndPlayerFinish){
+                        getSupportFragmentManager().beginTransaction()
+                                .add(R.id.fmainChallangeCase, new ChallangeNotYetAccepted())
+                                .commit();
+                    }
 
-                if (Integer.parseInt(CompititorUserScr) >= 0 || GlobalVariables.Is2ndPlayerPlay) {
+                else if (Integer.parseInt(CompititorUserScr) >= 0 || GlobalVariables.Is2ndPlayerPlay) {
                         if(!GlobalVariables.Is2ndPlayerPlay)
-                            GlobalVariables.Is1stPlayerPlay = true;
+                            GlobalVariables.Is2ndPlayerPlay = false;
                     getSupportFragmentManager().beginTransaction()
                             .add(R.id.fmainChallangeCase, new ChallangeAccepted())
                             .commit();
@@ -46,6 +54,7 @@ public class CompitionResultActivity extends AppCompatActivity {
                     getSupportFragmentManager().beginTransaction()
                             .add(R.id.fmainChallangeCase, new ChallangeNotYetAccepted())
                             .commit();
+
             }
 
 

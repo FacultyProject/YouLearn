@@ -57,12 +57,9 @@ public class SelfTestActivity extends AppCompatActivity {
             TimerIsRunning=false;
 
             if(GlobalVariables.Is2ndPlayerPlay) {
-               // Toast.makeText(getApplicationContext(),String.valueOf(GlobalVariables.Is2ndPlayerPlay)
-                        //.concat(" one"),Toast.LENGTH_LONG).show();
-                Save2ndUser();
-               // mScr = new Firebase("https://youlearn-56a66.firebaseio.com/score");
 
-                //Toast.makeText(getApplicationContext(), new SharedPref(getApplicationContext()).GetItem("User2"), Toast.LENGTH_LONG).show();
+                Save2ndUser();
+
                 startActivity(new Intent(getApplicationContext(), CompitionResultActivity.class));
             }
             else {
@@ -119,13 +116,16 @@ public class SelfTestActivity extends AppCompatActivity {
 
         firebaseAuth = FirebaseAuth.getInstance();
         FirebaseUser user = firebaseAuth.getCurrentUser();
+
         String USER = user.getEmail().substring(0,user.getEmail().indexOf('@'));
+
         mCompititors = new Firebase("https://youlearn-56a66.firebaseio.com/compititors");
         mCompititors.child(USER).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                String user =dataSnapshot.getValue(String.class);
-                new SharedPref(getApplicationContext()).SaveItem("User2",user);
+                String usercom =dataSnapshot.getValue(String.class);
+
+                new SharedPref(getApplicationContext()).SaveItem("Challanger",usercom);
             }
 
             @Override

@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#65f1ea"
     tools:context="com.ourproject.learningapp.fragments.ChallangeAccepted">
 
     <ImageView
@@ -11,21 +12,53 @@
         android:src="@drawable/home_icon"
         android:layout_width="100dp"
         android:layout_height="100dp" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+        <TextView
+            android:gravity="center"
+            android:textSize="40dp"
+            android:textColor="#4e0055"
+            android:text="User 1"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+        <TextView
+            android:gravity="center"
+            android:textSize="40dp"
+            android:textColor="#4e0055"
+            android:text="User 2"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
      <TextView
+         android:gravity="center"
+         android:layout_weight="1"
          android:id="@+id/t1"
          android:layout_margin="30dp"
          android:textColor="#000"
          android:text="Test"
          android:textSize="30dp"
-         android:layout_width="wrap_content"
+         android:layout_width="0dp"
          android:layout_height="wrap_content" />
     <TextView
+        android:gravity="center"
+        android:layout_weight="1"
         android:id="@+id/t2"
         android:layout_margin="30dp"
         android:textColor="#000"
         android:textSize="30dp"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:text="Hello from ChallangeAccepted" />
+        android:text="Hello  " />
+    </LinearLayout>
 
 </LinearLayout>
