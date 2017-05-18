@@ -51,14 +51,12 @@ public class ScoreBoardActivity extends Activity {
         textView.setText(String.valueOf(GlobalVariables.scr));
     }
 
+
     @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event)  {
-        if (Integer.parseInt(android.os.Build.VERSION.SDK) > 5
-                && keyCode == KeyEvent.KEYCODE_BACK
-                && event.getRepeatCount() == 0) {
-            Log.d("CDA", "onKeyDown Called");
-            onBackPressed();
-            return true;
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+
+            return false;
         }
         return super.onKeyDown(keyCode, event);
     }

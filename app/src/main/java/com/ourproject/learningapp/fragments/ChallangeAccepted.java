@@ -94,7 +94,6 @@ public class ChallangeAccepted extends Fragment {
                         String UserScr2 = dataSnapshot.getValue(String.class);
                         textView1.setText(UserScr2);
 
-
                     }
 
                     @Override
