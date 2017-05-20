@@ -5,9 +5,12 @@ package com.ourproject.learningapp.fragments;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
@@ -16,6 +19,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.ourproject.learningapp.activities.LoginActivity;
@@ -28,6 +32,9 @@ public class MainFragment extends Fragment {
     private ViewPager viewPager;
     private Toolbar toolbar;
     private FirebaseAuth firebaseAuth;
+    private DrawerLayout drawerLayout;
+    private NavigationView navigationView;
+    private ActionBarDrawerToggle actionBarDrawerToggle;
 
     public MainFragment() {
         // Required empty public constructor
@@ -60,6 +67,31 @@ public class MainFragment extends Fragment {
         toolbar = (Toolbar) view.findViewById(R.id.app_bar);
         ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
 
+        drawerLayout = (DrawerLayout) view.findViewById(R.id.drewer);
+        navigationView = (NavigationView) view.findViewById(R.id.nav);
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.item1:
+                        Toast.makeText(getActivity(),"Item 1",Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.settings:
+                        Toast.makeText(getActivity(),"Item 2",Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.mLogout: {
+                        firebaseAuth.signOut();
+                        getActivity().finish();
+                        startActivity(new Intent(getActivity(), LoginActivity.class));
+                    }
+                        break;
+                }
+                return true;
+            }
+        });
+        actionBarDrawerToggle = new ActionBarDrawerToggle(getActivity(),drawerLayout,toolbar,R.string.open,R.string.colse);
+        drawerLayout.setDrawerListener(actionBarDrawerToggle);
+        actionBarDrawerToggle.syncState();
 
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
@@ -92,10 +124,11 @@ public class MainFragment extends Fragment {
         int id = item.getItemId();
 
         if (id == R.id.logout) {
+            /**
             firebaseAuth.signOut();
             getActivity().finish();
             startActivity(new Intent(getActivity(), LoginActivity.class));
-
+            **/
             return true;
         }
 

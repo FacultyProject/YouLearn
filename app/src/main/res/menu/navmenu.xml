@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group>
+
+     <item android:id="@+id/item1" android:title="حول البرنامج"
+         android:icon="@drawable/info"/>
+
+        <item android:id="@+id/settings" android:title="الاعدادت"
+            android:icon="@drawable/settings"/>
+        <item android:id="@+id/offline" android:title="تحميل البيانات"
+            android:icon="@drawable/offline"/>
+
+        <item android:id="@+id/share" android:title="مشاركة التطبيق"
+            android:icon="@drawable/share"/>
+
+        <item android:id="@+id/mLogout" android:title="تسجيل الخروج"
+            android:icon="@drawable/logout"/>
+
+
+    </group>
+
+</menu>
