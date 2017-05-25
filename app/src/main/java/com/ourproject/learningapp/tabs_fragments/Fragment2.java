@@ -41,8 +41,6 @@ public class Fragment2 extends Fragment {
             }
         });
 
-
-
         QImaeg2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -52,7 +50,6 @@ public class Fragment2 extends Fragment {
 
             }
         });
-
 
 
         QImaeg3.setOnClickListener(new View.OnClickListener() {
