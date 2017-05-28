@@ -63,7 +63,6 @@ public class MainFragment extends Fragment {
         tabLayout = (TabLayout) view.findViewById(R.id.tabLayout);
         tabLayout.setupWithViewPager(viewPager);
 
-
         toolbar = (Toolbar) view.findViewById(R.id.app_bar);
         ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
 
