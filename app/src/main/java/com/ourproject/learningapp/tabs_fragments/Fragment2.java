@@ -17,7 +17,7 @@ import com.ourproject.learningapp.globals.GlobalVariables;
  * Created by Moetaz on 2/24/2017.
  */
 public class Fragment2 extends Fragment {
-    private ImageView QImaeg1,QImaeg2,QImaeg3,QImaeg4,QImaeg5,QImaeg6;
+    private ImageView QImaeg1,QImaeg2,QImaeg3,QImaeg4,QImaeg5,QImaeg6,QImaeg7;
 
     @Nullable
     @Override
@@ -29,6 +29,7 @@ public class Fragment2 extends Fragment {
         QImaeg4 = (ImageView) view.findViewById(R.id.qimage4);
         QImaeg5 = (ImageView) view.findViewById(R.id.qimage5);
         QImaeg6 = (ImageView) view.findViewById(R.id.qimage6);
+        QImaeg7 = (ImageView) view.findViewById(R.id.qimage7);
 
         QImaeg1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,6 +90,16 @@ public class Fragment2 extends Fragment {
             public void onClick(View view) {
                 GlobalVariables.nOfRightAns=0;
                 GlobalVariables.QUIZID="qIamge6";
+                Intent intent = new Intent(getActivity(), Quiz1Activity.class);
+                getActivity().startActivity(intent);
+            }
+        });
+
+        QImaeg7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                GlobalVariables.nOfRightAns=0;
+                GlobalVariables.QUIZID="qIamge7";
                 Intent intent = new Intent(getActivity(), Quiz1Activity.class);
                 getActivity().startActivity(intent);
             }

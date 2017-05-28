@@ -53,7 +53,16 @@ public class RightAnsAlert extends DialogFragment {
                                 .commit();
 
                         dismiss();
-                    } else {
+                    } else if(GlobalVariables.TAG.equals("Q7Fragment")){
+
+                        Q7Fragment q7Fragment = new Q7Fragment();
+                        ((FragmentActivity) getContext()).getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.fQ1mian, q7Fragment)
+                                .commit();
+
+                        dismiss();
+                    }
+                    else {
                         Quiz1Fragment quiz1Fragment = new Quiz1Fragment();
                         ((FragmentActivity) getContext()).getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.fQ1mian, quiz1Fragment)

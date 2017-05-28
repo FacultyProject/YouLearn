@@ -1,6 +1,7 @@
 package com.ourproject.learningapp.tabs_fragments;
 
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -8,6 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.ourproject.learningapp.activities.LettersActivity;
 import com.ourproject.learningapp.activities.MadLettersActivity;
@@ -21,11 +24,14 @@ import com.ourproject.learningapp.services.ServiceClass;
 public class Fragment1 extends Fragment {
     //ImageView buPlay, buStop;
 
+
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.frag1, container, false);
+
 
         ImageView imageView = (ImageView) view.findViewById(R.id.arabic_letters_img);
         ImageView madImage= (ImageView) view.findViewById(R.id.mamdod_img);

@@ -7,6 +7,7 @@ import com.ourproject.learningapp.R;
 import com.ourproject.learningapp.fragments.Q4Fragment;
 import com.ourproject.learningapp.fragments.Q5Fragment;
 import com.ourproject.learningapp.fragments.Q6Fragment;
+import com.ourproject.learningapp.fragments.Q7Fragment;
 import com.ourproject.learningapp.fragments.Quiz1Fragment;
 import com.ourproject.learningapp.globals.GlobalVariables;
 
@@ -36,8 +37,13 @@ public class Quiz1Activity extends AppCompatActivity {
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.fQ1mian, new Q6Fragment())
                     .commit();
+        }else if(GlobalVariables.QUIZID=="qIamge7"){
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.fQ1mian, new Q7Fragment())
+                    .commit();
         }
         else {
+            GlobalVariables.TAG = "none";
             GlobalVariables.G1.clear();
             GlobalVariables.G2.clear();
             GlobalVariables.G3.clear();

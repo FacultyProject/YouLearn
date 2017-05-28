@@ -1,13 +1,16 @@
 package com.ourproject.learningapp.fragments;
 
 
+import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewAnimationUtils;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -244,7 +247,7 @@ public class Quiz1Fragment extends Fragment {
 
     public void ButtonListner(TextView view){
 
-        if(Tempword.length() < WordPic.length())
+        if(Tempword.length() <= WordPic.length())
         LettersColor(view);
 
 
@@ -294,10 +297,36 @@ public class Quiz1Fragment extends Fragment {
     }
 
     public void LettersColor(TextView view){
-        if(!WordPic.contains(view.getText())  )
-            view.setBackgroundResource( R.drawable.wrong_circle);
-        else
-            view.setBackgroundResource( R.drawable.right_circle);
+        int finalRad = (int) Math.hypot(view.getWidth()/2,view.getHeight()/2);
+        if(!WordPic.contains(view.getText())  ) {
+
+
+            if(Build.VERSION.SDK_INT >= 21) {
+                Animator animator = ViewAnimationUtils.createCircularReveal(
+                        view,
+                        (int) view.getWidth() / 2,
+                        (int) view.getHeight() / 2, 0,
+                        finalRad);
+                view.setBackgroundResource(R.drawable.wrong_circle);
+
+                animator.start();
+            }
+            else
+                view.setBackgroundResource(R.drawable.wrong_circle);
+        }
+        else{
+            if(Build.VERSION.SDK_INT >= 21) {
+                Animator animator = ViewAnimationUtils.createCircularReveal(
+                        view,
+                        (int) view.getWidth() / 2,
+                        (int) view.getHeight() / 2, 0,
+                        finalRad);
+                view.setBackgroundResource(R.drawable.right_circle);
+
+                animator.start();
+            }else
+                view.setBackgroundResource(R.drawable.right_circle);
+        }
     }
     public void LettersAnimation(View ... views){
         for(View v:views){
@@ -388,6 +417,9 @@ public class Quiz1Fragment extends Fragment {
             addtoarray(arr, num);
         }
     }
+
+
+
 
 
 }
