@@ -34,7 +34,7 @@ public class ZoomFragment extends Fragment {
         View view=inflater.inflate(R.layout.fragment_zoom, container, false);
         imageView= (ImageView) view.findViewById(R.id.image);
         play=(ImageView) view.findViewById(R.id.play);
-        Picasso.with(getActivity()).load( bundle.get("image").toString()).into(imageView);
+        GlobalVariables.showPics(bundle.get("image").toString(),getActivity(),imageView);
         textView=(TextView)view.findViewById(R.id.text);
         textView.setText(bundle.get("text").toString());
         textView.setTypeface(MainActivity.font);

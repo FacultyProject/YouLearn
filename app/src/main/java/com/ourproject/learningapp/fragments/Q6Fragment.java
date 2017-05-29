@@ -83,7 +83,7 @@ public class Q6Fragment extends Fragment {
         Rec = (ImageView) view.findViewById(R.id.StartRecord);
         textView1 = (TextView) view.findViewById(R.id.wPic);
         textView2 = (TextView) view.findViewById(R.id.incomeWord);
-        Picasso.with(getActivity()).load(PicWords[rand]).into(imageView);
+        GlobalVariables.showPics(PicWords[rand],getActivity(),imageView);
         textView1.setText(Words[rand]);
 
         view.setFocusableInTouchMode(true);

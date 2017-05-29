@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.ourproject.learningapp.Interface.PositionRespone;
 import com.ourproject.learningapp.R;
+import com.ourproject.learningapp.globals.GlobalVariables;
 import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
@@ -109,12 +110,10 @@ public class Q4Fragment extends Fragment {
         }while (position==s||position==s0||s==s0);
         images[imagesIndex[1]]=lettersImages1[index[s]];
         images[imagesIndex[2]]=lettersImages1[index[s0]];
-        Picasso.with(getActivity()).load(images[0])
-                .placeholder(R.drawable.load_icon).into(imageView);
-        Picasso.with(getActivity()).load(images[1])
-                .placeholder(R.drawable.load_icon).into(imageView2);
-        Picasso.with(getActivity()).load(images[2])
-                .placeholder(R.drawable.load_icon).into(imageView3);
+        GlobalVariables.showPics(images[0],getActivity(),imageView);
+        GlobalVariables.showPics(images[1],getActivity(),imageView2);
+        GlobalVariables.showPics(images[2],getActivity(),imageView3);
+
     }
     public void LettersAnimation(View ... views){
         for(View v:views){

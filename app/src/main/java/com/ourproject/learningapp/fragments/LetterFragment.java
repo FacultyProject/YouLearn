@@ -83,12 +83,9 @@ public class LetterFragment extends Fragment implements View.OnClickListener {
         word2Img.setOnClickListener(this);
         word3Img.setOnClickListener(this);
 
-        Picasso.with(getActivity()).load(lettersModel.getPic1())
-                .into(word1Img);
-        Picasso.with(getActivity()).load(lettersModel.getPic2())
-                .into(word2Img);
-        Picasso.with(getActivity()).load(lettersModel.getPic3())
-                .into(word3Img);
+        GlobalVariables.showPics(lettersModel.getPic1(),getActivity(),word1Img);
+        GlobalVariables.showPics(lettersModel.getPic2(),getActivity(),word2Img);
+        GlobalVariables.showPics(lettersModel.getPic3(),getActivity(),word3Img);
 
         return view;
     }
