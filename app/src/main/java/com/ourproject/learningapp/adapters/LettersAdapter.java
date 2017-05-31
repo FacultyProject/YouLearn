@@ -60,7 +60,8 @@ public class LettersAdapter extends RecyclerView.Adapter<LettersAdapter.MyViewHo
                         LetterFragment detailFragment = new LetterFragment();
                         bundle.putSerializable("wordslist", letttersInfo.get(position));
                         detailFragment.setArguments(bundle);
-                        ((FragmentActivity) context).getFragmentManager().beginTransaction().replace(R.id.letter_detail_container, detailFragment).commit();
+                        ((FragmentActivity) context).getFragmentManager().beginTransaction()
+                                .replace(R.id.letter_detail_container, detailFragment).commit();
 
                     } else {
                         Intent intent = new Intent(context, LetterInfo.class);

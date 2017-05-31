@@ -31,8 +31,10 @@ public class SelfTestAlert extends DialogFragment {
         View view=layoutInflater.inflate(R.layout.fragment_pop,null);
         imageView= (ImageView) view.findViewById(R.id.next);
         textView= (TextView) view.findViewById(R.id.textView);
-        if(!GlobalVariables.rAnswer)
-        textView.setText("اجابة خاطئه");
+        if(!GlobalVariables.rAnswer) {
+            textView.setText("اجابة خاطئه");
+            textView.setTextColor(getActivity().getResources().getColor(R.color.badModeColor));
+        }
         else if(SelfTestActivity.isTimeReachedZero )
             textView.setText(" الوقت انتهي");
 

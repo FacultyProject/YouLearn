@@ -32,6 +32,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.ourproject.learningapp.activities.LoginActivity;
 import com.ourproject.learningapp.adapters.CustomPagerAdapter;
 import com.ourproject.learningapp.R;
+import com.ourproject.learningapp.globals.GlobalVariables;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -66,6 +67,8 @@ public class MainFragment extends Fragment {
             startActivity(new Intent(getActivity(), LoginActivity.class));
 
         }
+
+
     }
 
     @Override
@@ -79,6 +82,10 @@ public class MainFragment extends Fragment {
 
         tabLayout = (TabLayout) view.findViewById(R.id.tabLayout);
         tabLayout.setupWithViewPager(viewPager);
+        if (GlobalVariables.BackFrom3rdTab) {
+            GlobalVariables.BackFrom3rdTab = false;
+            viewPager.setCurrentItem(2);
+        }
         downloadManager = (DownloadManager) getActivity().getSystemService(Context.DOWNLOAD_SERVICE);
 
         List<String> finalArray = new ArrayList<>();
@@ -162,33 +169,12 @@ public class MainFragment extends Fragment {
                 viewPager.setCurrentItem(tab.getPosition());
             }
         });
-        setHasOptionsMenu(true);
+
         return view;
     }
 
 
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.main, menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-
-        if (id == R.id.logout) {
-            /**
-             firebaseAuth.signOut();
-             getActivity().finish();
-             startActivity(new Intent(getActivity(), LoginActivity.class));
-             **/
-            return true;
-        }
-
-
-        return super.onOptionsItemSelected(item);
-    }
-    public void DownloadChecker(DownloadManager downloadManager, String url,int index) {
+    public void DownloadChecker(DownloadManager downloadManager, String url, int index) {
         String type = null;
         String url0 = url.replace("https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/", "");
         String url1 = url0.substring(0, url0.length() - 57);
@@ -225,8 +211,8 @@ public class MainFragment extends Fragment {
             request.setVisibleInDownloadsUi(false);
             request.setDestinationInExternalFilesDir(getActivity(), Environment.DIRECTORY_DOWNLOADS, url1 + "." + type);
             reference = downloadManager.enqueue(request);
-            if (id==index)
-                referenceID=reference;
+            if (id == index)
+                referenceID = reference;
         }
     }
 
@@ -255,6 +241,7 @@ public class MainFragment extends Fragment {
         } else
             id = index;
     }
+
     private BroadcastReceiver downloadReceiver = new BroadcastReceiver() {
 
         @Override
@@ -263,7 +250,7 @@ public class MainFragment extends Fragment {
             //check if the broadcast message is for our Enqueued download
             long referenceId = intent.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, -1);
 
-            if(referenceId ==referenceID) {
+            if (referenceId == referenceID) {
 
                 Toast toast = Toast.makeText(getActivity(),
                         "Downloads Complete", Toast.LENGTH_LONG);

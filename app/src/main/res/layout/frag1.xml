@@ -97,6 +97,9 @@
             android:orientation="horizontal">
 
             <ImageView
+                
+                android:scaleType="fitXY"
+                android:src="@drawable/dr"
                 android:id="@+id/letters_animation"
                 android:layout_width="match_parent"
                 android:layout_margin="2dp"

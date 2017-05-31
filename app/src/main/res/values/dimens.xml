@@ -4,6 +4,8 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="frag1_imag_marg">3dp</dimen>
     <dimen name="mad_word_dim">30dp</dimen>
-    <dimen name="circle_height">100dp</dimen>
+    <dimen name="circle_height">80dp</dimen>
     <dimen name="letter_size">30dp</dimen>
+    <dimen name="bubble_margin">2dp</dimen>
+    <dimen name="layout_margin">5dp</dimen>
 </resources>

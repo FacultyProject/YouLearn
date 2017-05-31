@@ -5,18 +5,22 @@
     android:id="@+id/activity_self_test"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     tools:context="com.ourproject.learningapp.activities.SelfTestActivity"
     android:orientation="vertical">
 
-
+<android.support.v7.widget.CardView
+    android:layout_marginBottom="2dp"
+    app:cardElevation="3dp"
+    android:layout_weight="1"
+    android:layout_width="match_parent"
+    android:layout_height="0dp">
     <LinearLayout
 
         android:orientation="horizontal"
         android:background="#ddf7f1"
-        android:layout_weight="1"
+
         android:layout_width="match_parent"
-        android:layout_height="0dp">
+        android:layout_height="match_parent">
 
         <ImageView
             android:layout_margin="2dp"
@@ -84,6 +88,7 @@
 
 
     </LinearLayout>
+</android.support.v7.widget.CardView>
 
 
     <FrameLayout

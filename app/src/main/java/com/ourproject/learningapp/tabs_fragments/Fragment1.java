@@ -1,7 +1,7 @@
 package com.ourproject.learningapp.tabs_fragments;
 
 import android.content.Intent;
-import android.graphics.drawable.ColorDrawable;
+
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -9,8 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import com.ourproject.learningapp.activities.LettersActivity;
 import com.ourproject.learningapp.activities.MadLettersActivity;
@@ -22,9 +20,6 @@ import com.ourproject.learningapp.services.ServiceClass;
  * Created by Moetaz on 2/24/2017.
  */
 public class Fragment1 extends Fragment {
-    //ImageView buPlay, buStop;
-
-
 
     @Nullable
     @Override
@@ -34,18 +29,15 @@ public class Fragment1 extends Fragment {
 
 
         ImageView imageView = (ImageView) view.findViewById(R.id.arabic_letters_img);
-        ImageView madImage= (ImageView) view.findViewById(R.id.mamdod_img);
-        ImageView Shortmov= (ImageView) view.findViewById(R.id.shortmov);
-        ImageView letterAnim= (ImageView) view.findViewById(R.id.letters_animation);
-
-        //TextView textView = (TextView) view.findViewById(R.id.text);
+        ImageView madImage = (ImageView) view.findViewById(R.id.mamdod_img);
+        ImageView Shortmov = (ImageView) view.findViewById(R.id.shortmov);
+        ImageView letterAnim = (ImageView) view.findViewById(R.id.letters_animation);
 
 
-        //textView.setTypeface(MainActivity.font);
         Shortmov.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                GlobalVariables.LETTERTYPE="ShortMovement";
+                GlobalVariables.LETTERTYPE = "ShortMovement";
                 Intent intent = new Intent(getActivity(), LettersActivity.class);
                 getActivity().startActivity(intent);
             }
@@ -62,7 +54,7 @@ public class Fragment1 extends Fragment {
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                GlobalVariables.LETTERTYPE="NORMAL_MOVEMENT";
+                GlobalVariables.LETTERTYPE = "NORMAL_MOVEMENT";
 
                 getActivity().stopService(new Intent(getActivity(), ServiceClass.class));
 
@@ -77,29 +69,12 @@ public class Fragment1 extends Fragment {
         letterAnim.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                GlobalVariables.LETTERTYPE="LETTER_ANIMATION";
+                GlobalVariables.LETTERTYPE = "LETTER_ANIMATION";
                 Intent intent = new Intent(getActivity(), LettersActivity.class);
                 getActivity().startActivity(intent);
             }
         });
-        /**buPlay = (ImageView) view.findViewById(R.id.play);
-        buPlay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                getActivity().stopService(new Intent(getActivity(), ServiceClass.class));
-                Intent serviceIntent = new Intent(getActivity(), ServiceClass.class);
-                serviceIntent.putExtra("id", R.raw.full_nasheed);
-                getActivity().startService(serviceIntent);
-            }
-        });
 
-        buStop = (ImageView) view.findViewById(R.id.stop);
-        buStop.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                getActivity().stopService(new Intent(getActivity(), ServiceClass.class));
-            }
-        });**/
         return view;
     }
 }

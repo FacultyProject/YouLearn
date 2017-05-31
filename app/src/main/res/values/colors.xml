@@ -3,4 +3,6 @@
     <color name="colorPrimary">#99ffc2</color>
     <color name="colorPrimaryDark">#4dc6c4</color>
     <color name="colorAccent">#e6ac00</color>
+    <color name="goodModeColor">#41b93f</color>
+    <color name="badModeColor">#e70b3e</color>
 </resources>

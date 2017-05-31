@@ -46,10 +46,6 @@ public class Q7Fragment extends Fragment {
         }
 
 
-        // DamSounds = getActivity().getResources().getStringArray(R.array.damsound);
-        //FathSounds = getActivity().getResources().getStringArray(R.array.fathsound);
-        //KasrSounds = getActivity().getResources().getStringArray(R.array.kasrsound);
-
         DamLetters = getActivity().getResources().getStringArray(R.array.HorofMadmoma);
         FathLetters = getActivity().getResources().getStringArray(R.array.HorofMaftoha);
         KasrLetters = getActivity().getResources().getStringArray(R.array.HorofMaksora);

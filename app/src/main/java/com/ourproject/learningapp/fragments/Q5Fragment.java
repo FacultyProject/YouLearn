@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.ourproject.learningapp.R;
+import com.ourproject.learningapp.globals.GlobalVariables;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -23,15 +24,13 @@ import java.util.Random;
  * A simple {@link Fragment} subclass.
  */
 public class Q5Fragment extends Fragment {
-    private boolean inThreadMode =false,inWaitMode=false;
-
+    private boolean inThreadMode =false,inWaitMode=false,isSecondLetter =false;
     public static int COUNT=0;
     ViewGroup mRoot;
     ArrayList<String> arrayList;
     String [] Letters,RandLetters;
     String letter;
     private TextView L1,L2,L3,L4,L5,L6,L7,L8,L9,L10,L11,L12,L13,L14,L15,L16,L17,L18,L19,L20;
-    boolean isSecondLetter =false;
     String [] TwoLetters=new String [2];
     TextView [] Towviews =new TextView[2];
     int id;
@@ -338,9 +337,10 @@ public class Q5Fragment extends Fragment {
         if(Build.VERSION.SDK_INT >= 21) {
             //Fade fade=new Fade();
             Explode fade = new Explode();
-            fade.setDuration(4000);
+            fade.setDuration(3000);
             TransitionManager.beginDelayedTransition(mRoot, fade);
             toggleVisibilty(textViews);
+
         }
         else{
             for(TextView current : textViews){
@@ -370,8 +370,9 @@ public class Q5Fragment extends Fragment {
                 lFade(Towviews);
                 inWaitMode=false;
                 if(COUNT==10) {
-                    Myalert myalert = new Myalert();
-                    myalert.show(getFragmentManager(), "mAlert");
+                    GlobalVariables.QuizCompleted = true;
+                    RightAnsAlert rightAnsAlert = new RightAnsAlert();
+                    rightAnsAlert.show(getFragmentManager(), "mAlert");
                 }
             }
             else

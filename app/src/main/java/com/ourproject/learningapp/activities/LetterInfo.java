@@ -6,7 +6,7 @@ import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-
+import android.app.Fragment;
 import com.ourproject.learningapp.R;
 import com.ourproject.learningapp.fragments.LetterFragment;
 import com.ourproject.learningapp.fragments.LettersAnim;

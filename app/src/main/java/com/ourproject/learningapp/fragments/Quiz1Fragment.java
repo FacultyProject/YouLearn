@@ -115,8 +115,10 @@ public class Quiz1Fragment extends Fragment {
 
                 }
 
-                SetToDefault(aTextview.get(aTextview.size()-1));
-                aTextview.remove(aTextview.size()-1);
+                if(!aTextview.isEmpty()) {
+                    SetToDefault(aTextview.get(aTextview.size() - 1));
+                    aTextview.remove(aTextview.size() - 1);
+                }
             }
         });
 

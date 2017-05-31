@@ -8,6 +8,7 @@ import java.io.Serializable;
 
 public class MadModel implements Serializable {
     private String letterSection;
+    private String sectionSound;
 
     public String getLetterSection() {
         return letterSection;
@@ -25,6 +26,6 @@ public class MadModel implements Serializable {
         this.sectionSound = sectionSound;
     }
 
-    private String sectionSound;
+
 
 }

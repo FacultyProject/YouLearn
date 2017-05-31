@@ -5,6 +5,9 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="open">Ok</string>
     <string name="colse">Close</string>
+    <string name="tranName1">tImage</string>
+    <string name="tranName2">tText</string>
+    <string name="tranName3">tIcon</string>
     <string-array name="letters">
         <item>أ</item>
         <item>ب</item>
@@ -85,7 +88,7 @@
         <item>بطة</item>
         <item>نظارة</item>
         <item>معطف</item>
-        <item>ببغاغ</item>
+        <item>ببغاء</item>
         <item>محفظه</item>
         <item>بقرة</item>
         <item>كتاب</item>
@@ -802,7 +805,7 @@
         <item>يَ</item>
     </string-array>
     <string-array name="HorofMaksora">
-        <item>أَ</item>
+        <item>أَِ</item>
         <item>بِ</item>
         <item>تِ</item>
         <item>ثِ</item>

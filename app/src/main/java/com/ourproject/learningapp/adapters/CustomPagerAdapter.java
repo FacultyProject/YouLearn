@@ -23,12 +23,12 @@ public class CustomPagerAdapter extends FragmentPagerAdapter {
 
     private Context context;
 
-    private int [] icons ={R.drawable.book,R.drawable.exersiceicon,R.drawable.exersiceicon};
-    private String [] fragments={"fragment 1","fragment 2","fragment 3"};
+    private int[] icons = {R.drawable.book, R.drawable.exersiceicon, R.drawable.exersiceicon};
+    private String[] fragments = {"fragment 1", "fragment 2", "fragment 3"};
 
     public CustomPagerAdapter(FragmentManager fm, Context ApplicationContext) {
         super(fm);
-        this.context=ApplicationContext;
+        this.context = ApplicationContext;
     }
 
     @Override
@@ -43,10 +43,9 @@ public class CustomPagerAdapter extends FragmentPagerAdapter {
     }
 
 
-
     @Override
     public Fragment getItem(int position) {
-        switch(position)  {
+        switch (position) {
             case 0:
                 return new Fragment1();
             case 1:

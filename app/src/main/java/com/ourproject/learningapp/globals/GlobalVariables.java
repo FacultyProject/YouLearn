@@ -25,6 +25,7 @@ import java.util.ArrayList;
  */
 
 public class GlobalVariables {
+    public static boolean BackFrom3rdTab = false;
     public static boolean Is2ndPlayerPlay = false;
     public static boolean Is2ndPlayerFinish = false;
     public static boolean onDataChange =false;

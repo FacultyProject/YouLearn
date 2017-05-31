@@ -28,9 +28,9 @@ import com.ourproject.learningapp.globals.GlobalVariables;
  */
 public class Fragment3 extends Fragment {
 
-    CardView SelfTestCard ,cardView2;
-    FirebaseAuth firebaseAuth;
-    Firebase mScr;
+    private CardView SelfTestCard ,cardView2;
+    private FirebaseAuth firebaseAuth;
+    private Firebase mScr;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable final Bundle savedInstanceState) {
@@ -57,7 +57,7 @@ public class Fragment3 extends Fragment {
             public void onClick(View view) {
                 String USER = user.getEmail().substring(0,user.getEmail().indexOf('@'));
                     GlobalVariables.onDataChange = true;
-                     //Log.e("onDataChange",String.valueOf(onDataChange));
+
                  mScr.child(USER).addValueEventListener(new ValueEventListener() {
 
 

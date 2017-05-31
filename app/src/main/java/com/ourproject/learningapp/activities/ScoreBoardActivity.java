@@ -27,7 +27,6 @@ public class ScoreBoardActivity extends Activity {
         setContentView(R.layout.activity_score_board);
         imageView= (ImageView) findViewById(R.id.home_ic);
         textView= (TextView) findViewById(R.id.scr);
-
         firebaseAuth = FirebaseAuth.getInstance();
         FirebaseUser user = firebaseAuth.getCurrentUser();
         final String USER = user.getEmail().substring(0,user.getEmail().indexOf('@'));
@@ -44,6 +43,7 @@ public class ScoreBoardActivity extends Activity {
                 GlobalVariables.SelfTestMode=false;
                 GlobalVariables.scr=0;
                 GlobalVariables.nOfQUESTONS=0;
+                GlobalVariables.BackFrom3rdTab = true;
                 startActivity(new Intent(getApplicationContext(),MainActivity.class));
             }
         });
