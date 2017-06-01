@@ -35,16 +35,7 @@ public class ScoreBoardActivity extends Activity {
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(GlobalVariables.ChallangeMode){
-                    GlobalVariables.ChallangeMode = false;
-                    mScr.child(USER).setValue(String.valueOf(GlobalVariables.scr));
-
-                }
-                GlobalVariables.SelfTestMode=false;
-                GlobalVariables.scr=0;
-                GlobalVariables.nOfQUESTONS=0;
-                GlobalVariables.BackFrom3rdTab = true;
-                startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                GoToHome(USER);
             }
         });
 
@@ -56,9 +47,26 @@ public class ScoreBoardActivity extends Activity {
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
 
+            firebaseAuth = FirebaseAuth.getInstance();
+            FirebaseUser user = firebaseAuth.getCurrentUser();
+            final String USER = user.getEmail().substring(0,user.getEmail().indexOf('@'));
+            GoToHome(USER);
             return false;
         }
         return super.onKeyDown(keyCode, event);
+    }
+
+    public void GoToHome(String user){
+        if(GlobalVariables.ChallangeMode){
+            GlobalVariables.ChallangeMode = false;
+            mScr.child(user).setValue(String.valueOf(GlobalVariables.scr));
+
+        }
+        GlobalVariables.SelfTestMode=false;
+        GlobalVariables.scr=0;
+        GlobalVariables.nOfQUESTONS=0;
+        GlobalVariables.BackFrom3rdTab = true;
+        startActivity(new Intent(getApplicationContext(),MainActivity.class));
     }
 
 

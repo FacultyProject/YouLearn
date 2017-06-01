@@ -132,4 +132,8 @@ public class GlobalVariables {
         ConnectivityManager cm = (ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
         return cm.getActiveNetworkInfo() != null;
     }
+
+    public static void message(Context context,String m){
+        Toast.makeText(context,m,Toast.LENGTH_LONG).show();
+    }
 }

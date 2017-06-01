@@ -28,18 +28,15 @@ public class SelfTestActivity extends AppCompatActivity {
     public static boolean TimerIsRunning;
     int StartTimer = 15;
     public static boolean isTimeReachedZero;
-    ImageView HomeImg;
-    TextView Score, Questions;
-    TextView Timer;
-    FirebaseAuth firebaseAuth;
-    Firebase mCompititors, mScr;
-
+    private ImageView HomeImg;
+    private TextView Score, Questions, Timer;
+    private FirebaseAuth firebaseAuth;
+    private Firebase mCompititors, mScr;
 
     @Override
     public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
         //super.onSaveInstanceState(outState, outPersistentState);
     }
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,20 +64,13 @@ public class SelfTestActivity extends AppCompatActivity {
             }
         }
 
-
         GlobalVariables.nOfQUESTONS++;
         HomeImg = (ImageView) findViewById(R.id.home);
         Score = (TextView) findViewById(R.id.score);
         HomeImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                GlobalVariables.BackFrom3rdTab = true;
-                TimerIsRunning = false;
-                StartTimer = 60;
-                GlobalVariables.SelfTestMode = false;
-                GlobalVariables.scr = 0;
-                GlobalVariables.nOfQUESTONS = 0;
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                GoToHome();
             }
         });
 
@@ -105,6 +95,17 @@ public class SelfTestActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.fmainST, new SelfTestFragment())
                 .commit();
+
+    }
+
+    public void GoToHome() {
+        GlobalVariables.BackFrom3rdTab = true;
+        TimerIsRunning = false;
+        StartTimer = 60;
+        GlobalVariables.SelfTestMode = false;
+        GlobalVariables.scr = 0;
+        GlobalVariables.nOfQUESTONS = 0;
+        startActivity(new Intent(getApplicationContext(), MainActivity.class));
 
     }
 
@@ -135,7 +136,7 @@ public class SelfTestActivity extends AppCompatActivity {
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
-
+            GoToHome();
             return false;
         }
         return super.onKeyDown(keyCode, event);
@@ -167,12 +168,10 @@ public class SelfTestActivity extends AppCompatActivity {
                     SelfTestAlert selfTestAlert = new SelfTestAlert();
                     try {
 
-
                         selfTestAlert.show(getSupportFragmentManager(), "anotheralert");
                     } catch (IllegalStateException e) {
                         Log.e("Error", "Erroe");
                     }
-
 
                 }
 

@@ -25,10 +25,9 @@ public class Q7Fragment extends Fragment {
     public int check ;
     ArrayList<Integer> numList = new ArrayList<>();
     ArrayList<String> strList =new ArrayList<>();
-    String [] DamSounds ,FathSounds ,KasrSounds ,DamLetters ,FathLetters,KasrLetters;
+    String []  DamLetters ,FathLetters,KasrLetters;
     ImageView imageView;
     TextView textView1,textView2,textView3;
-    int color1 ,color2;
     int RandGroup,RandLetter;
     String RightLetter;
     public Q7Fragment() {
@@ -84,32 +83,14 @@ public class Q7Fragment extends Fragment {
         textView1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(RightLetter.equals(textView1.getText()))
-                {
-                    GlobalVariables.nOfRightAns++;
-                    GlobalVariables.TAG="Q7Fragment";
-                    goTOalert();
-                }else
-                {
-                    WrongAnsAlert wrongAnsAlert = new WrongAnsAlert();
-                    wrongAnsAlert.show(getFragmentManager(), "qAlert");
-                }
+                TextonClick((TextView) view);
             }
         });
 
         textView2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(RightLetter.equals(textView2.getText()))
-                {
-                    GlobalVariables.nOfRightAns++;
-                    GlobalVariables.TAG="Q7Fragment";
-                    goTOalert();
-                }else
-                {
-                    WrongAnsAlert wrongAnsAlert = new WrongAnsAlert();
-                    wrongAnsAlert.show(getFragmentManager(), "qAlert");
-                }
+                TextonClick((TextView) view);
 
             }
         });
@@ -117,20 +98,24 @@ public class Q7Fragment extends Fragment {
         textView3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(RightLetter.equals(textView3.getText()))
-                {
-                    GlobalVariables.nOfRightAns++;
-                    GlobalVariables.TAG="Q7Fragment";
-                    goTOalert();
-                }else
-                {
-                    WrongAnsAlert wrongAnsAlert = new WrongAnsAlert();
-                    wrongAnsAlert.show(getFragmentManager(), "qAlert");
-                }
+                TextonClick((TextView) view);
 
             }
         });
         return view;
+    }
+
+    public void TextonClick(TextView  view){
+        if(RightLetter.equals(view.getText()))
+        {
+            GlobalVariables.nOfRightAns++;
+            GlobalVariables.TAG="Q7Fragment";
+            goTOalert();
+        }else
+        {
+            WrongAnsAlert wrongAnsAlert = new WrongAnsAlert();
+            wrongAnsAlert.show(getFragmentManager(), "qAlert");
+        }
     }
 
 
@@ -139,8 +124,6 @@ public class Q7Fragment extends Fragment {
 
             RightAnsAlert rightAnsAlert = new RightAnsAlert();
             rightAnsAlert.show(getFragmentManager(), "qAlert");
-
-
 
     }
 

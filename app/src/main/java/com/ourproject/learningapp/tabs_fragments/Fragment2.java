@@ -34,20 +34,16 @@ public class Fragment2 extends Fragment {
         QImaeg1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                GlobalVariables.QUIZID="qIamge5";
-                Intent intent = new Intent(getActivity(), Quiz1Activity.class);
-                getActivity().startActivity(intent);
-
-
+                ImageonClick("qIamge5");
+                 
             }
         });
 
         QImaeg2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                GlobalVariables.QUIZID="qIamge4";
-                Intent intent = new Intent(getActivity(), Quiz1Activity.class);
-                getActivity().startActivity(intent);
+                ImageonClick("qIamge4");
+
 
             }
         });
@@ -56,10 +52,8 @@ public class Fragment2 extends Fragment {
         QImaeg3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                GlobalVariables.nOfRightAns=0;
-                GlobalVariables.QUIZID="qIamge1";
-                Intent intent = new Intent(getActivity(), Quiz1Activity.class);
-                getActivity().startActivity(intent);
+                ImageonClick("qIamge1");
+
 
             }
         });
@@ -67,43 +61,39 @@ public class Fragment2 extends Fragment {
         QImaeg4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                GlobalVariables.nOfRightAns=0;
-                GlobalVariables.QUIZID="qIamge2";
-                Intent intent = new Intent(getActivity(), Quiz1Activity.class);
-                getActivity().startActivity(intent);
+                ImageonClick("qIamge2");
 
             }
         });
         QImaeg5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                ImageonClick("qIamge3");
 
-                GlobalVariables.nOfRightAns=0;
-                GlobalVariables.QUIZID="qIamge3";
-                Intent intent = new Intent(getActivity(), Quiz1Activity.class);
-                getActivity().startActivity(intent);
             }
         });
 
         QImaeg6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                GlobalVariables.nOfRightAns=0;
-                GlobalVariables.QUIZID="qIamge6";
-                Intent intent = new Intent(getActivity(), Quiz1Activity.class);
-                getActivity().startActivity(intent);
+                ImageonClick("qIamge6");
+
             }
         });
 
         QImaeg7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                GlobalVariables.nOfRightAns=0;
-                GlobalVariables.QUIZID="qIamge7";
-                Intent intent = new Intent(getActivity(), Quiz1Activity.class);
-                getActivity().startActivity(intent);
+                ImageonClick("qIamge7");
             }
         });
         return view;
+    }
+
+    public void ImageonClick(String id){
+        GlobalVariables.nOfRightAns=0;
+        GlobalVariables.QUIZID=id;
+        Intent intent = new Intent(getActivity(), Quiz1Activity.class);
+        getActivity().startActivity(intent);
     }
 }

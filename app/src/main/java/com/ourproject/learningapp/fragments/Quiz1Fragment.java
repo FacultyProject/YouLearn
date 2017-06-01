@@ -27,7 +27,7 @@ import java.util.Random;
  * A simple {@link Fragment} subclass.
  */
 public class Quiz1Fragment extends Fragment {
-   public static final int TAEGET=3;
+    public static final int TAEGET=3;
     private  String RandLetter,WordPic,ImageUrl,Tempword="";
     private String [] Letters,SplitedWord,arrChars ;
     private TextView Word,L1,L2,L3,L4,L5,L6,L7,L8,L9,L10;
@@ -307,35 +307,13 @@ public class Quiz1Fragment extends Fragment {
     }
 
     public void LettersColor(TextView view){
-        int finalRad = (int) Math.hypot(view.getWidth()/2,view.getHeight()/2);
+
         if(!WordPic.contains(view.getText())  ) {
 
-
-            if(Build.VERSION.SDK_INT >= 21) {
-                Animator animator = ViewAnimationUtils.createCircularReveal(
-                        view,
-                        (int) view.getWidth() / 2,
-                        (int) view.getHeight() / 2, 0,
-                        finalRad);
-                view.setBackgroundResource(R.drawable.wrong_circle);
-
-                animator.start();
-            }
-            else
-                view.setBackgroundResource(R.drawable.wrong_circle);
+                CircularAnimation(view,R.drawable.wrong_circle);
         }
         else{
-            if(Build.VERSION.SDK_INT >= 21) {
-                Animator animator = ViewAnimationUtils.createCircularReveal(
-                        view,
-                        (int) view.getWidth() / 2,
-                        (int) view.getHeight() / 2, 0,
-                        finalRad);
-                view.setBackgroundResource(R.drawable.right_circle);
-
-                animator.start();
-            }else
-                view.setBackgroundResource(R.drawable.right_circle);
+            CircularAnimation(view,R.drawable.right_circle);
         }
     }
     public void LettersAnimation(View ... views){
@@ -350,21 +328,25 @@ public class Quiz1Fragment extends Fragment {
 
     public void SetToDefault(TextView ... textViews){
         for(TextView v:textViews) {
-            int finalRad = (int) Math.hypot(v.getWidth()/2,v.getHeight()/2);
-            if (Build.VERSION.SDK_INT >= 21) {
-                Animator animator = ViewAnimationUtils.createCircularReveal(
-                        v,
-                        (int) v.getWidth() / 2,
-                        (int) v.getHeight() / 2, 0,
-                        finalRad);
-                v.setBackgroundResource(R.drawable.img);
-
-                animator.start();
-            } else
-                v.setBackgroundResource(R.drawable.img);
+            CircularAnimation(v,R.drawable.img);
         }
 
 
+    }
+
+    public void CircularAnimation(View v,int color){
+        int finalRad = (int) Math.hypot(v.getWidth()/2,v.getHeight()/2);
+        if (Build.VERSION.SDK_INT >= 21) {
+            Animator animator = ViewAnimationUtils.createCircularReveal(
+                    v,
+                    (int) v.getWidth() / 2,
+                    (int) v.getHeight() / 2, 0,
+                    finalRad);
+            v.setBackgroundResource(color);
+
+            animator.start();
+        } else
+            v.setBackgroundResource(color);
     }
 
     public void GoToSelfTestAlert(){
