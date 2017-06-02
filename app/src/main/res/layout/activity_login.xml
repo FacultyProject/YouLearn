@@ -41,7 +41,6 @@
             android:layout_height="wrap_content" />
 
         <Button
-            android:background="@drawable/buttonanimation"
             android:text="دخول"
             android:id="@+id/busiGnin"
             android:layout_width="match_parent"

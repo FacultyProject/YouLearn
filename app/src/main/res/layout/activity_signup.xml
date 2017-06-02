@@ -40,7 +40,6 @@
             android:layout_height="wrap_content" />
 
         <Button
-            android:background="@drawable/buttonanimation"
             android:text="تسجيل"
             android:id="@+id/buRegister"
             android:layout_width="match_parent"

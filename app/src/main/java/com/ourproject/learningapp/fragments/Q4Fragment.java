@@ -30,7 +30,7 @@ public class Q4Fragment extends Fragment {
     String[] images;
     public static int position =0,s,s0;
     String[]letters,lettersImages1,lettersSounds,word1;
-    ImageView imageView,imageView2,imageView3,play;
+    ImageView imageView,imageView2,imageView3,playSound;
     TextView textView;
     public static String ans="false";
     @Nullable
@@ -41,6 +41,7 @@ public class Q4Fragment extends Fragment {
         imageView= (ImageView)view. findViewById(R.id.imageView);
         imageView2= (ImageView)view. findViewById(R.id.imageView2);
         imageView3= (ImageView)view. findViewById(R.id.imageView3);
+        playSound= (ImageView) view.findViewById(R.id.play_sound);
         textView= (TextView) view.findViewById(R.id.textView);
         letters=getActivity().getResources().getStringArray(R.array.letters);
         lettersSounds=getActivity().getResources().getStringArray(R.array.lettersSounds);
@@ -54,11 +55,11 @@ public class Q4Fragment extends Fragment {
                 showData(position);
             }
         });
-        LettersAnimation(textView,imageView,imageView2,imageView3);
-        textView.setOnClickListener(new View.OnClickListener() {
+        LettersAnimation(textView,imageView,imageView2,imageView3,playSound);
+        playSound.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                pMusic(lettersSounds[index[position-1]]);
+                GlobalVariables.pMusic(lettersSounds[index[position-1]],getActivity());
             }
         });
         imageView.setOnClickListener(new View.OnClickListener() {
@@ -68,6 +69,7 @@ public class Q4Fragment extends Fragment {
                     ans="true";
                 }else
                     ans="false";
+                myalert.setCancelable(false);
                 myalert.show(getFragmentManager(),"");
 
 
@@ -80,6 +82,7 @@ public class Q4Fragment extends Fragment {
                     ans="true";
                 }else
                     ans="false";
+                myalert.setCancelable(false);
                 myalert.show(getFragmentManager(),"");
 
 
@@ -92,6 +95,7 @@ public class Q4Fragment extends Fragment {
                     ans="true";
                 }else
                     ans="false";
+                myalert.setCancelable(false);
                 myalert.show(getFragmentManager(),"");
 
             }
@@ -150,18 +154,6 @@ public class Q4Fragment extends Fragment {
         }
         return arr;
     }
-    public static void pMusic(String url){
-        MediaPlayer soundFile=new MediaPlayer();
-        try {
-            soundFile.stop();
-            soundFile = new MediaPlayer();
-            soundFile.setDataSource(url);
-            soundFile.prepare();
-            soundFile.start();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 
-    }
 
 }
