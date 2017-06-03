@@ -20,6 +20,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.ourproject.learningapp.R;
 import com.ourproject.learningapp.activities.MainActivity;
 import com.ourproject.learningapp.dataStorage.SharedPref;
+import com.ourproject.learningapp.globals.ConstantVariables;
 import com.ourproject.learningapp.globals.GlobalVariables;
 
 /**
@@ -28,7 +29,7 @@ import com.ourproject.learningapp.globals.GlobalVariables;
 public class ChallangeAccepted extends Fragment {
     TextView textView1,textView2;
     ImageView imageView;
-    FirebaseAuth firebaseAuth;
+
     Firebase mScr,mCompititors;
     boolean Enter = false;
 
@@ -45,14 +46,12 @@ public class ChallangeAccepted extends Fragment {
         textView2 = (TextView) view.findViewById(R.id.t2);
         imageView = (ImageView) view.findViewById(R.id.home2);
 
-        firebaseAuth = FirebaseAuth.getInstance();
-        mScr = new Firebase("https://youlearn-56a66.firebaseio.com/score");
-        mCompititors = new Firebase("https://youlearn-56a66.firebaseio.com/compititors");
+
+        mScr = new Firebase(ConstantVariables.fScore);
+        mCompititors = new Firebase(ConstantVariables.fCompititors);
 
 
-
-          FirebaseUser user = firebaseAuth.getCurrentUser();
-          final String USER = user.getEmail().substring(0,user.getEmail().indexOf('@'));
+          final String USER = GlobalVariables.getUserName();
 
         if(!GlobalVariables.Is2ndPlayerPlay){
 

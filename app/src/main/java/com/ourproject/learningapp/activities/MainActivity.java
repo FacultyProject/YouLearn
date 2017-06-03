@@ -3,11 +3,9 @@ package com.ourproject.learningapp.activities;
 
 import android.content.Intent;
 import android.graphics.Typeface;
-import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
-
 import com.ourproject.learningapp.fragments.MainFragment;
 import com.ourproject.learningapp.R;
 import com.ourproject.learningapp.services.ServiceClass;

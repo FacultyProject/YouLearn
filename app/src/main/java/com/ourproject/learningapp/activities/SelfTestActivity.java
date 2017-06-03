@@ -14,29 +14,29 @@ import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.ourproject.learningapp.R;
 import com.ourproject.learningapp.dataStorage.SharedPref;
 import com.ourproject.learningapp.fragments.SelfTestAlert;
 import com.ourproject.learningapp.fragments.SelfTestFragment;
+import com.ourproject.learningapp.globals.ConstantVariables;
 import com.ourproject.learningapp.globals.GlobalVariables;
 
 
 public class SelfTestActivity extends AppCompatActivity {
     private final int EndPoint = 0;
     public static boolean TimerIsRunning;
-    int StartTimer = 15;
+    private int StartTimer = 15;
     public static boolean isTimeReachedZero;
     private ImageView HomeImg;
     private TextView Score, Questions, Timer;
-    private FirebaseAuth firebaseAuth;
-    private Firebase mCompititors, mScr;
+    private Firebase mCompititors ;
 
     @Override
     public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
         //super.onSaveInstanceState(outState, outPersistentState);
     }
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +57,6 @@ public class SelfTestActivity extends AppCompatActivity {
 
                 startActivity(new Intent(getApplicationContext(), CompitionResultActivity.class));
             } else {
-                Log.e("to score", String.valueOf(GlobalVariables.Is2ndPlayerPlay));
                 Toast.makeText(getApplicationContext(), String.valueOf(GlobalVariables.Is2ndPlayerPlay)
                         .concat(" two"), Toast.LENGTH_LONG).show();
                 startActivity(new Intent(getApplicationContext(), ScoreBoardActivity.class));
@@ -76,10 +75,10 @@ public class SelfTestActivity extends AppCompatActivity {
 
         Score.setText(String.valueOf(GlobalVariables.scr));
         try {
-            mythread t = new mythread();
+            MyThread t = new MyThread();
             t.start();
         } catch (Exception e) {
-            Toast.makeText(SelfTestActivity.this, "ERROR", Toast.LENGTH_SHORT).show();
+            GlobalVariables.message(getApplicationContext(),"Error");
         }
 
 
@@ -111,12 +110,9 @@ public class SelfTestActivity extends AppCompatActivity {
 
     public void Save2ndUser() {
 
-        firebaseAuth = FirebaseAuth.getInstance();
-        FirebaseUser user = firebaseAuth.getCurrentUser();
+        String USER = GlobalVariables.getUserName();
 
-        String USER = user.getEmail().substring(0, user.getEmail().indexOf('@'));
-
-        mCompititors = new Firebase("https://youlearn-56a66.firebaseio.com/compititors");
+        mCompititors = new Firebase(ConstantVariables.fCompititors);
         mCompititors.child(USER).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -143,7 +139,7 @@ public class SelfTestActivity extends AppCompatActivity {
     }
 
 
-    class mythread extends Thread {
+    class MyThread extends Thread {
 
 
         @Override

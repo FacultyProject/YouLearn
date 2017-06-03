@@ -21,6 +21,7 @@ import com.ourproject.learningapp.R;
 import com.ourproject.learningapp.activities.ChallangeActivity;
 import com.ourproject.learningapp.activities.CompitionResultActivity;
 import com.ourproject.learningapp.activities.SelfTestActivity;
+import com.ourproject.learningapp.globals.ConstantVariables;
 import com.ourproject.learningapp.globals.GlobalVariables;
 
 /**
@@ -29,7 +30,6 @@ import com.ourproject.learningapp.globals.GlobalVariables;
 public class Fragment3 extends Fragment {
 
     private CardView SelfTestCard ,cardView2;
-    private FirebaseAuth firebaseAuth;
     private Firebase mScr;
     @Nullable
     @Override
@@ -38,9 +38,9 @@ public class Fragment3 extends Fragment {
         SelfTestCard = (CardView) view.findViewById(R.id.selftest);
         cardView2 = (CardView) view.findViewById(R.id.card2);
 
-        firebaseAuth = FirebaseAuth.getInstance();
-        mScr = new Firebase("https://youlearn-56a66.firebaseio.com/score");
-        final FirebaseUser user = firebaseAuth.getCurrentUser();
+
+        mScr = new Firebase(ConstantVariables.fScore);
+
 
         SelfTestCard.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,7 +55,7 @@ public class Fragment3 extends Fragment {
         cardView2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String USER = user.getEmail().substring(0,user.getEmail().indexOf('@'));
+                String USER = GlobalVariables.getUserName();
                     GlobalVariables.onDataChange = true;
 
                  mScr.child(USER).addValueEventListener(new ValueEventListener() {
@@ -93,10 +93,8 @@ public class Fragment3 extends Fragment {
                  });
 
 
-
             }
         });
-
 
 
             return view;

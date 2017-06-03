@@ -9,31 +9,28 @@ import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+
 import com.ourproject.learningapp.R;
 import com.ourproject.learningapp.dataStorage.SharedPref;
 import com.ourproject.learningapp.fragments.ChallangeAccepted;
 import com.ourproject.learningapp.fragments.ChallangeNotYetAccepted;
-import com.ourproject.learningapp.fragments.Q4Fragment;
+
+import com.ourproject.learningapp.globals.ConstantVariables;
 import com.ourproject.learningapp.globals.GlobalVariables;
 
 public class CompitionResultActivity extends AppCompatActivity {
 
     Firebase mScr,mCompititors;
     String CompititorUserScr = "-1";
-    FirebaseAuth firebaseAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_compition_result);
-        firebaseAuth = FirebaseAuth.getInstance();
-        FirebaseUser user = firebaseAuth.getCurrentUser();
 
-        String USER = user.getEmail().substring(0,user.getEmail().indexOf('@'));
-        mCompititors = new Firebase("https://youlearn-56a66.firebaseio.com/compititors");
+        String USER = GlobalVariables.getUserName();
+        mCompititors = new Firebase(ConstantVariables.fCompititors);
 
-        mScr = new Firebase("https://youlearn-56a66.firebaseio.com/score");
+        mScr = new Firebase(ConstantVariables.fScore);
 
         GlobalVariables.onDataChange = true;
 
@@ -82,9 +79,6 @@ public class CompitionResultActivity extends AppCompatActivity {
                 });
 
 
-
-
-
             }
 
             @Override
@@ -92,8 +86,6 @@ public class CompitionResultActivity extends AppCompatActivity {
 
             }
         });
-
-
 
 
     }

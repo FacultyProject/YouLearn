@@ -26,6 +26,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.ourproject.learningapp.R;
 import com.ourproject.learningapp.activities.SelfTestActivity;
 import com.ourproject.learningapp.dataStorage.SharedPref;
+import com.ourproject.learningapp.globals.ConstantVariables;
 import com.ourproject.learningapp.globals.GlobalVariables;
 
 import java.util.ArrayList;
@@ -38,7 +39,6 @@ public class UsersListFragment extends Fragment {
     private ListView listView;
     private ArrayList<String> mUsres = new ArrayList<>();
     private Firebase mRef,mScr,mCompitiors;
-    FirebaseAuth firebaseAuth;
     public UsersListFragment() {
         // Required empty public constructor
     }
@@ -54,13 +54,11 @@ public class UsersListFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_users_list, container, false);
-        mRef = new Firebase("https://youlearn-56a66.firebaseio.com/users");
-        mScr = new Firebase("https://youlearn-56a66.firebaseio.com/score");
-        mCompitiors = new Firebase("https://youlearn-56a66.firebaseio.com/compititors");
+        mRef = new Firebase(ConstantVariables.fUsers);
+        mScr = new Firebase(ConstantVariables.fScore);
+        mCompitiors = new Firebase(ConstantVariables.fCompititors);
 
-        firebaseAuth = FirebaseAuth.getInstance();
-        FirebaseUser user = firebaseAuth.getCurrentUser();
-        final String USER = user.getEmail().substring(0,user.getEmail().indexOf('@'));
+        final String USER = GlobalVariables.getUserName();
 
         listView = (ListView) view.findViewById(R.id.users_list);
 

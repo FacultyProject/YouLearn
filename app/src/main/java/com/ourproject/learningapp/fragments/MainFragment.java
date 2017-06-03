@@ -22,18 +22,17 @@ import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.firebase.auth.FirebaseAuth;
 import com.ourproject.learningapp.activities.LoginActivity;
 import com.ourproject.learningapp.adapters.CustomPagerAdapter;
 import com.ourproject.learningapp.R;
+import com.ourproject.learningapp.dataStorage.SharedPref;
 import com.ourproject.learningapp.globals.GlobalVariables;
-
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -67,7 +66,6 @@ public class MainFragment extends Fragment {
             startActivity(new Intent(getActivity(), LoginActivity.class));
 
         }
-
 
     }
 
@@ -112,6 +110,10 @@ public class MainFragment extends Fragment {
 
         drawerLayout = (DrawerLayout) view.findViewById(R.id.drewer);
         navigationView = (NavigationView) view.findViewById(R.id.nav);
+        View view1 = navigationView.getHeaderView(0);
+        TextView tView = (TextView) view1.findViewById(R.id.user);
+        tView.setText(new SharedPref(getActivity()).GetItem("UserId"));
+
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem item) {
@@ -120,7 +122,7 @@ public class MainFragment extends Fragment {
                         Toast.makeText(getActivity(), "Item 1", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.settings:
-                        Toast.makeText(getActivity(), "Item 2", Toast.LENGTH_SHORT).show();
+                        GlobalVariables.message(getContext(),GlobalVariables.getUserName());
                         break;
                     case R.id.offline: {
                         exists = true;

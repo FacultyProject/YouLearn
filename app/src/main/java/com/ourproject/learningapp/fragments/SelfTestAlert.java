@@ -52,6 +52,7 @@ public class SelfTestAlert extends DialogFragment {
 
         Dialog dialog=builder.create();
         dialog.setCanceledOnTouchOutside(false);
+
         return dialog;
     }
 }

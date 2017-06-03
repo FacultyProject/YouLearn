@@ -8,10 +8,16 @@ import java.io.Serializable;
 
 public class LettersModel implements Serializable {
     private String letter;
-
+    private String letterSound;
     private String word1;
     private String word2;
     private String word3;
+    private String pic1;
+    private String pic2;
+    private String pic3;
+    private String picSounds1;
+    private String picSounds2;
+    private String picSounds3;
 
     public String getPic1() {
         return pic1;
@@ -21,7 +27,6 @@ public class LettersModel implements Serializable {
         this.pic1 = pic1;
     }
 
-    private String pic1;
 
     public String getPic2() {
         return pic2;
@@ -31,7 +36,6 @@ public class LettersModel implements Serializable {
         this.pic2 = pic2;
     }
 
-    private String pic2;
 
     public String getPic3() {
         return pic3;
@@ -41,7 +45,6 @@ public class LettersModel implements Serializable {
         this.pic3 = pic3;
     }
 
-    private String pic3;
 
     public String getPicSounds1() {
         return picSounds1;
@@ -51,7 +54,6 @@ public class LettersModel implements Serializable {
         this.picSounds1 = picSounds1;
     }
 
-    private String picSounds1;
 
     public String getPicSounds3() {
         return picSounds3;
@@ -69,8 +71,6 @@ public class LettersModel implements Serializable {
         this.picSounds2 = picSounds2;
     }
 
-    private String picSounds2;
-    private String picSounds3;
 
     public String getLetterSound() {
         return letterSound;
@@ -80,7 +80,6 @@ public class LettersModel implements Serializable {
         this.letterSound = letterSound;
     }
 
-    private String letterSound;
 
     public String getLetter() {
         return letter;
@@ -115,4 +114,4 @@ public class LettersModel implements Serializable {
         this.word3 = word3;
     }
 
-   }
+}

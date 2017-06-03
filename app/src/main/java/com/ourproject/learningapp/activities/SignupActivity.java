@@ -20,6 +20,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthException;
 import com.ourproject.learningapp.R;
+import com.ourproject.learningapp.dataStorage.SharedPref;
 
 public class SignupActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -60,6 +61,7 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
         final String EMAIL=email.getText().toString().trim();
         String PASSWORD=password.getText().toString().trim();
 
+        new SharedPref(getApplicationContext()).SaveItem("UserId",EMAIL.substring(0, EMAIL.indexOf('@')));
         if(TextUtils.isEmpty(EMAIL)){
             Toast.makeText(SignupActivity.this,"Enter email",Toast.LENGTH_LONG).show();
 

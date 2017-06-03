@@ -18,6 +18,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.ourproject.learningapp.R;
+import com.ourproject.learningapp.dataStorage.SharedPref;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -55,6 +56,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         String EMAIL=email.getText().toString().trim();
         String PASSWORD=password.getText().toString().trim();
 
+        new SharedPref(getApplicationContext()).SaveItem("UserId",EMAIL.substring(0, EMAIL.indexOf('@')));
 
         if(TextUtils.isEmpty(EMAIL)){
             Toast.makeText(LoginActivity.this,"Enter email",Toast.LENGTH_LONG).show();

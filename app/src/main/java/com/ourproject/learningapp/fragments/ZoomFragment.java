@@ -31,6 +31,7 @@ public class  ZoomFragment extends Fragment {
         if (Build.VERSION.SDK_INT >= 21) {
             setSharedElementEnterTransition(TransitionInflater
                     .from(getActivity()).inflateTransition(android.R.transition.move));
+
         }
     }
 

@@ -21,9 +21,9 @@ import com.ourproject.learningapp.models.LettersModel;
  */
 public class LetterFragment extends Fragment implements View.OnClickListener {
     public static final String fTAG = LetterFragment.class.getSimpleName();
-    TextView wordTxt1, wordTxt2, wordTxt3, letter, letterF, letterD, letterK;
-    ImageView word1Img, word2Img, word3Img, play;
-    LettersModel lettersModel;
+    private TextView wordTxt1, wordTxt2, wordTxt3, letter, letterF, letterD, letterK;
+    private ImageView word1Img, word2Img, word3Img, play;
+    private  LettersModel lettersModel;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {

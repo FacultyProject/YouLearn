@@ -8,4 +8,5 @@
     <dimen name="letter_size">30dp</dimen>
     <dimen name="bubble_margin">2dp</dimen>
     <dimen name="layout_margin">5dp</dimen>
+    <dimen name="font_quiz_title">25dp</dimen>
 </resources>

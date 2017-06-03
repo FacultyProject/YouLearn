@@ -34,7 +34,7 @@
         <item>ل</item>
         <item>م</item>
         <item>ن</item>
-        <item>هـ</item>
+        <item>ه</item>
         <item>و</item>
         <item>ي</item>
     </string-array>
@@ -65,7 +65,7 @@
         <item>ليمونة</item>
         <item>موز</item>
         <item>نملة</item>
-        <item>هـر</item>
+        <item>هر</item>
         <item>وردة</item>
         <item>يمامة</item>
     </string-array>
@@ -770,7 +770,7 @@
         <item>لُ</item>
         <item>مُ</item>
         <item>نُ</item>
-        <item>هـُ</item>
+        <item>هُ</item>
         <item>وُ</item>
         <item>يُ</item>
     </string-array>

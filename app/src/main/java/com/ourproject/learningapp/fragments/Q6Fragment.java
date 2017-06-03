@@ -29,11 +29,11 @@ import java.util.Random;
  */
 public class Q6Fragment extends Fragment {
     public static final int TARGER2=10;
-    public static  boolean TAG = false;
-    int rand,Randlist;
+    //public static  boolean TAG = false;
+    private int rand,Randlist;
     private String[] Words, PicWords;
-    ImageView imageView, Rec;
-    TextView textView1, textView2;
+    private ImageView imageView, Rec;
+    private TextView textView1, textView2;
 
     public Q6Fragment() {
         // Required empty public constructor
@@ -46,7 +46,8 @@ public class Q6Fragment extends Fragment {
         if(Randlist == 0) {
             do{
                 rand = new Random().nextInt(28);
-            }while (GlobalVariables.G1.contains(rand));
+            }while (GlobalVariables.G1.contains(rand)
+                    || getActivity().getResources().getStringArray(R.array.lettersName1)[rand].length() <= 2);
             GlobalVariables.G1.add(rand);
 
             Words = getActivity().getResources().getStringArray(R.array.lettersName1);
@@ -54,7 +55,8 @@ public class Q6Fragment extends Fragment {
         }else if(Randlist == 1){
             do{
                 rand = new Random().nextInt(28);
-            }while (GlobalVariables.G2.contains(rand));
+            }while (GlobalVariables.G2.contains(rand)
+                    || getActivity().getResources().getStringArray(R.array.lettersName2)[rand].length() <= 2);
             GlobalVariables.G2.add(rand);
 
             Words = getActivity().getResources().getStringArray(R.array.lettersName2);
@@ -65,7 +67,8 @@ public class Q6Fragment extends Fragment {
         {
             do{
                 rand = new Random().nextInt(28);
-            }while (GlobalVariables.G3.contains(rand));
+            }while (GlobalVariables.G3.contains(rand)
+                    || getActivity().getResources().getStringArray(R.array.lettersName3)[rand].length() <= 2);
             GlobalVariables.G3.add(rand);
 
             Words = getActivity().getResources().getStringArray(R.array.lettersName3);
@@ -95,7 +98,7 @@ public class Q6Fragment extends Fragment {
                 if( (keyCode == KeyEvent.KEYCODE_BACK )  ) {
                     // Log.i(tag, "onKey Back listener is working!!!");
                     GlobalVariables.TAG="none";
-                     TAG = false;
+                     //TAG = false;
                     getFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
                     return false;
                 } else {
@@ -113,7 +116,7 @@ public class Q6Fragment extends Fragment {
                 try   {
                     startActivityForResult(intent, 10);
                 } catch (ActivityNotFoundException a){
-                    Toast.makeText(getActivity(), "your device doent support", Toast.LENGTH_LONG).show();
+                    GlobalVariables.message(getActivity(),"جهازك لا يدعم هذه الخاصيه");
 
                 }
             }
@@ -153,7 +156,7 @@ public class Q6Fragment extends Fragment {
                     else {
                         GlobalVariables.nOfRightAns++;
                         GlobalVariables.TAG="Q6Fragment";
-                        Q6Fragment.TAG = true;
+                        //Q6Fragment.TAG = true;
                         goTOalert();
                     }
                 } else {

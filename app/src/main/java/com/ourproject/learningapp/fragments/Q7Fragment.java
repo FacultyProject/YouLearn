@@ -4,12 +4,12 @@ package com.ourproject.learningapp.fragments;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.ourproject.learningapp.R;
 import com.ourproject.learningapp.globals.GlobalVariables;
@@ -23,23 +23,29 @@ import java.util.Random;
  */
 public class Q7Fragment extends Fragment {
     public int check ;
-    ArrayList<Integer> numList = new ArrayList<>();
-    ArrayList<String> strList =new ArrayList<>();
-    String []  DamLetters ,FathLetters,KasrLetters;
-    ImageView imageView;
-    TextView textView1,textView2,textView3;
-    int RandGroup,RandLetter;
-    String RightLetter;
+    public static final int TARGER3=3;
+    private ArrayList<Integer> numList = new ArrayList<>();
+    private ArrayList<String> strList =new ArrayList<>();
+    private String []  DamLetters ,FathLetters,KasrLetters;
+    private ImageView imageView;
+    private TextView textView1,textView2,textView3;
+    private int RandGroup,RandLetter;
+    private String RightLetter;
     public Q7Fragment() {
         // Required empty public constructor
     }
+
+
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         RandGroup = new Random().nextInt(3);
-        RandLetter = new Random().nextInt(28);
+        do {
+            RandLetter = new Random().nextInt(28);
+        }while(GlobalVariables.G1.contains(RandLetter));
+        GlobalVariables.G1.add(RandLetter);
         for(int i=0 ;i<3;i++){
             strList.add("null");
         }
@@ -78,6 +84,7 @@ public class Q7Fragment extends Fragment {
         textView1.setText(strList.get(0));
         textView2.setText(strList.get(1));
         textView3.setText(strList.get(2));
+
         CheckForNull(textView1,textView2,textView3);
 
         textView1.setOnClickListener(new View.OnClickListener() {
@@ -120,10 +127,19 @@ public class Q7Fragment extends Fragment {
 
 
 
-    public void goTOalert(){
 
+    public void goTOalert(){
+        if(GlobalVariables.nOfRightAns < TARGER3) {
             RightAnsAlert rightAnsAlert = new RightAnsAlert();
             rightAnsAlert.show(getFragmentManager(), "qAlert");
+        }
+        else{
+            GlobalVariables.TAG="none";
+
+            GlobalVariables.QuizCompleted=true;
+            RightAnsAlert rightAnsAlert = new RightAnsAlert();
+            rightAnsAlert.show(getFragmentManager(), "qAlert");
+        }
 
     }
 

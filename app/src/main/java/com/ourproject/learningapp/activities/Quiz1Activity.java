@@ -1,5 +1,6 @@
 package com.ourproject.learningapp.activities;
 
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -21,35 +22,32 @@ public class Quiz1Activity extends AppCompatActivity {
         instance=this;
 
         if ( GlobalVariables.QUIZID=="qIamge4"){
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.fQ1mian, new Q4Fragment())
-                    .commit();
-        }else if(GlobalVariables.QUIZID=="qIamge5"){
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.fQ1mian, new Q5Fragment())
-                    .commit();
+            GoToFragment(new Q4Fragment());
+        }
+        else if(GlobalVariables.QUIZID=="qIamge5"){
+            GoToFragment(new Q5Fragment());
         }
         else if(GlobalVariables.QUIZID=="qIamge6"){
 
-            GlobalVariables.G1.clear();
-            GlobalVariables.G2.clear();
-            GlobalVariables.G3.clear();
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.fQ1mian, new Q6Fragment())
-                    .commit();
-        }else if(GlobalVariables.QUIZID=="qIamge7"){
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.fQ1mian, new Q7Fragment())
-                    .commit();
+            GoToFragment(new Q6Fragment());
+        }
+        else if(GlobalVariables.QUIZID=="qIamge7"){
+            GoToFragment(new Q7Fragment());
         }
         else {
-            GlobalVariables.TAG = "none";
-            GlobalVariables.G1.clear();
-            GlobalVariables.G2.clear();
-            GlobalVariables.G3.clear();
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.fQ1mian, new Quiz1Fragment())
-                    .commit();
+            GoToFragment(new Quiz1Fragment());
+
         }
+    }
+
+    public void GoToFragment(Fragment fragment){
+        GlobalVariables.TAG = "none";
+        GlobalVariables.G1.clear();
+        GlobalVariables.G2.clear();
+        GlobalVariables.G3.clear();
+
+        getSupportFragmentManager().beginTransaction()
+                .add(R.id.fQ1mian, fragment)
+                .commit();
     }
 }

@@ -14,12 +14,9 @@ import android.view.ViewAnimationUtils;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.ourproject.learningapp.R;
 import com.ourproject.learningapp.activities.SelfTestActivity;
 import com.ourproject.learningapp.globals.GlobalVariables;
-import com.squareup.picasso.Picasso;
-
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -32,8 +29,8 @@ public class Quiz1Fragment extends Fragment {
     private String [] Letters,SplitedWord,arrChars ;
     private TextView Word,L1,L2,L3,L4,L5,L6,L7,L8,L9,L10;
     private ImageView qimageView,Del ,DelOne;
-    ArrayList<TextView> aTextview = new ArrayList<>();
-      int Randnum ;
+    private ArrayList<TextView> aTextview = new ArrayList<>();
+    private int Randnum ;
     final int Randlist=new Random().nextInt(3);
     int [] RandArr;
 
@@ -41,11 +38,9 @@ public class Quiz1Fragment extends Fragment {
         // Required empty public constructor
     }
 
-
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
 
            RandArr=new int[10];
         CreateRandArr(RandArr);
@@ -134,8 +129,6 @@ public class Quiz1Fragment extends Fragment {
         });
 
 
-
-
         if(GlobalVariables.QUIZID.equals("qIamge1") || GlobalVariables.QUIZID.equals("qIamge2") ){
             qimageView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -151,7 +144,8 @@ public class Quiz1Fragment extends Fragment {
 
 
         if(GlobalVariables.QUIZID.equals("qIamge1") || GlobalVariables.QUIZID.equals("qIamge3"))
-        Picasso.with(getActivity()).load(ImageUrl).into(qimageView);
+        //Picasso.with(getActivity()).load(ImageUrl).into(qimageView);
+        GlobalVariables.showPics(ImageUrl,getActivity(),qimageView);
         else
             qimageView.setImageResource(R.drawable.funnyteacher);
 
@@ -263,8 +257,7 @@ public class Quiz1Fragment extends Fragment {
 
         if(Tempword.length() > WordPic.length()) {
 
-            Word.setText("");
-            Tempword = "";
+            Word.setText(""); Tempword = "";
             SetToDefault(L1, L2, L3, L4, L5, L6, L7, L8, L9, L10);
 
             if (GlobalVariables.SelfTestMode == true) {
@@ -283,6 +276,7 @@ public class Quiz1Fragment extends Fragment {
             if(GlobalVariables.SelfTestMode == true){
                 GlobalVariables.rAnswer=true;
                 GlobalVariables.scr++;
+
                 GoToSelfTestAlert();
 
             }else
@@ -295,8 +289,9 @@ public class Quiz1Fragment extends Fragment {
             {
 
                 if(GlobalVariables.SelfTestMode == true){
-                    GlobalVariables.scr++;
                     GlobalVariables.rAnswer=true;
+                    GlobalVariables.scr++;
+
                     GoToSelfTestAlert();
 
                 }else
@@ -357,15 +352,18 @@ public class Quiz1Fragment extends Fragment {
     public void GoToAlert(){
         GlobalVariables.nOfRightAns++;
         if(GlobalVariables.nOfRightAns <  TAEGET) {
-            RightAnsAlert rightAnsAlert = new RightAnsAlert();
-            rightAnsAlert.show(getFragmentManager(), "Right Alert");
+            GoToRightAlert();
         }
         else
         {
             GlobalVariables.QuizCompleted=true;
-            RightAnsAlert rightAnsAlert = new RightAnsAlert();
-            rightAnsAlert.show(getFragmentManager(), "Right Alert");
+            GoToRightAlert();
         }
+    }
+
+    public void GoToRightAlert(){
+        RightAnsAlert rightAnsAlert = new RightAnsAlert();
+        rightAnsAlert.show(getFragmentManager(), "Right Alert");
     }
 
     //-------------Pure java functions ---------------------//
@@ -377,7 +375,6 @@ public class Quiz1Fragment extends Fragment {
             }
         }
     }
-
 
 
     public  boolean IsFoundInStringArray(String [] arr,String s){
@@ -401,7 +398,7 @@ public class Quiz1Fragment extends Fragment {
         }
     }
 
-    public   boolean IsFoundInArray(int [] arr,int num){
+    public boolean IsFoundInArray(int [] arr,int num){
         for(int i=0;i<arr.length;i++){
             if(arr[i]==num)
                 return true;
@@ -423,9 +420,4 @@ public class Quiz1Fragment extends Fragment {
             addtoarray(arr, num);
         }
     }
-
-
-
-
-
 }

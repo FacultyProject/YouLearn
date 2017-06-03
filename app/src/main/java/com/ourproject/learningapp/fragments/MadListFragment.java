@@ -18,8 +18,7 @@ import com.ourproject.learningapp.globals.GlobalVariables;
  */
 public class MadListFragment extends Fragment implements View.OnClickListener {
 
-    TextView letter1, letter2, letter3;
-
+    private TextView letter1, letter2, letter3;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
