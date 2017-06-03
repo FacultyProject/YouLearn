@@ -1,8 +1,15 @@
 
 package com.ourproject.learningapp.activities;
 
+import android.Manifest;
 import android.content.Intent;
 import android.graphics.Typeface;
+<<<<<<< HEAD
+=======
+import android.os.Build;
+import android.provider.Settings;
+import android.support.v4.app.ActivityCompat;
+>>>>>>> d827ae232524e208cf9a2821e37bc687156c0b8a
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -13,10 +20,14 @@ import com.ourproject.learningapp.services.ServiceClass;
 public class MainActivity extends AppCompatActivity {
     public static Typeface font;
     public static boolean mTwoPane;
+    final private int REQUEST_CODE = 123;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main);
+        if (Build.VERSION.SDK_INT >= 23)
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, REQUEST_CODE);
         font=Typeface.createFromAsset(getAssets(),"fonts/andlso.ttf");
 
         if (savedInstanceState == null) {

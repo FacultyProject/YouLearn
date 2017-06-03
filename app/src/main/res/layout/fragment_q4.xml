@@ -55,4 +55,12 @@
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="73dp" />
 
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/play_sound"
+        android:src="@drawable/play"
+        android:layout_above="@+id/textView"
+        android:layout_alignEnd="@+id/textView" />
+
 </RelativeLayout>

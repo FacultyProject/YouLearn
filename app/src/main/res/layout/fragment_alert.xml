@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_pop"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:textColor="@color/goodModeColor"
+        android:textSize="50sp"
+        android:gravity="center"
+        android:text="أحسنت!"
+        android:id="@+id/textView"
+        android:layout_marginTop="90dp"
+        android:textStyle="bold"
+        android:elevation="10dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/word"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:weightSum="1">
+        <TextView
+            android:id="@+id/textv2"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:text="السؤال التالي"
+            android:textStyle="bold"
+            android:layout_marginRight="10dp"
+            android:gravity="center_vertical"
+            android:textSize="25sp" />
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="80dp"
+            android:id="@+id/next"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/forward"
+            />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="80dp"
+        android:id="@+id/retry"
+        android:src="@drawable/retry"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true" />
+
+
+</RelativeLayout>

@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -14,11 +15,12 @@ import com.ourproject.learningapp.R;
 
 
 /**
- * Created by Moetaz on 4/7/2017.
+ * Created by Mohamed Ali on 4/7/2017.
  */
 
 public class Myalert extends DialogFragment {
     TextView textView;
+    ImageView retry;
     PositionRespone positionRespone;
 
 
@@ -31,9 +33,11 @@ public class Myalert extends DialogFragment {
         final android.support.v7.app.AlertDialog alertDialog = new android.support.v7.app.AlertDialog.Builder(getActivity()).create();
 
         LayoutInflater factory = LayoutInflater.from(getActivity());
-        final View ansDialogView = factory.inflate(R.layout.fragment_pop, null);
+        final View ansDialogView = factory.inflate(R.layout.fragment_alert, null);
         alertDialog.setView(ansDialogView);
         textView=(TextView)ansDialogView.findViewById(R.id.textView);
+        retry =(ImageView) ansDialogView.findViewById(R.id.retry);
+        retry.setVisibility(View.INVISIBLE);
         LinearLayout myLayout = (LinearLayout)ansDialogView. findViewById(R.id.linearLayout);
         if (Q4Fragment.position==28   ){
             textView.setTextSize(30);
@@ -56,9 +60,10 @@ public class Myalert extends DialogFragment {
                 }
             });}
         else if (Q4Fragment.ans=="false"){
+            retry.setVisibility(View.VISIBLE);
             textView.setText("حاول مرة اخري!");
             textView.setTextSize(30);
-            ansDialogView.findViewById(R.id.textView).setOnClickListener(new View.OnClickListener() {
+            ansDialogView.findViewById(R.id.retry).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     alertDialog.dismiss();
