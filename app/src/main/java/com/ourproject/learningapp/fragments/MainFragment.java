@@ -7,7 +7,9 @@ import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -18,6 +20,8 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -33,12 +37,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.firebase.ui.storage.images.FirebaseImageLoader;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.ourproject.learningapp.RoundImageView;
 import com.ourproject.learningapp.activities.LoginActivity;
 import com.ourproject.learningapp.adapters.CustomPagerAdapter;
 import com.ourproject.learningapp.R;
@@ -46,6 +53,7 @@ import com.ourproject.learningapp.dataStorage.SharedPref;
 import com.ourproject.learningapp.globals.GlobalVariables;
 import com.squareup.picasso.Picasso;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -84,6 +92,8 @@ public class MainFragment extends Fragment {
         }
         storageReference = FirebaseStorage.getInstance().getReference();
         progressDialog = new ProgressDialog(getActivity());
+
+
     }
 
     @Override
@@ -137,6 +147,10 @@ public class MainFragment extends Fragment {
                 startActivityForResult(intent,REQUET_CODE);
             }
         });
+        //StorageReference filepath2 = storageReference.child("usersProfilePic/"+GlobalVariables.getUserName()+".jpg");
+
+        //ProfImage.setImageResource(R.drawable.avatar);
+
         tView.setText(new SharedPref(getActivity()).GetItem("UserId"));
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
@@ -206,15 +220,16 @@ public class MainFragment extends Fragment {
         if(requestCode == REQUET_CODE && resultCode == getActivity().RESULT_OK){
             progressDialog.setMessage("Upload");
             progressDialog.show();
-             Uri uri = data.getData();
-           // Uri uri11 = (Uri) data.getExtras().get("data");
 
-               /** Bundle bundle = data.getExtras();
+            Bundle bundle = data.getExtras();
             Bitmap bitmap = (Bitmap) bundle.get("data");
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG,100,baos);
+            byte [] bData = baos.toByteArray();
             ProfImage.setImageBitmap(bitmap);
-            **/
-             StorageReference filepath = storageReference.child("usersProfilePic").child(GlobalVariables.getUserName());
-            filepath.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+
+            StorageReference filepath = storageReference.child("usersProfilePic/"+GlobalVariables.getUserName()+".jpg");
+            filepath.putBytes(bData).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                     progressDialog.dismiss();
@@ -225,7 +240,7 @@ public class MainFragment extends Fragment {
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
                 public void onFailure(@NonNull Exception e) {
-                    GlobalVariables.message(getActivity(),"Failed");
+                    GlobalVariables.message(getActivity(),e.getMessage());
                 }
             });
         }

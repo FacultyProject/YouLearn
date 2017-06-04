@@ -49,6 +49,7 @@ dependencies {
     compile 'com.google.firebase:firebase-crash:9.6.1'
     compile 'com.firebase:firebase-client-android:2.5.0'
     compile 'com.firebaseui:firebase-ui:0.4.3'
+    compile 'com.firebaseui:firebase-ui-storage:0.6.0'
     testCompile 'junit:junit:4.12'
 }
 
