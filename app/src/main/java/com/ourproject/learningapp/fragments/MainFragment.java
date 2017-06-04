@@ -3,13 +3,17 @@ package com.ourproject.learningapp.fragments;
 
 
 import android.app.DownloadManager;
+import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.provider.MediaStore;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
@@ -25,14 +29,23 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 import com.ourproject.learningapp.activities.LoginActivity;
 import com.ourproject.learningapp.adapters.CustomPagerAdapter;
 import com.ourproject.learningapp.R;
 import com.ourproject.learningapp.dataStorage.SharedPref;
 import com.ourproject.learningapp.globals.GlobalVariables;
+import com.squareup.picasso.Picasso;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -52,7 +65,10 @@ public class MainFragment extends Fragment {
     private Boolean exists = false;
     private String[] allFiles;
     private int id;
-
+    public static final int REQUET_CODE = 1;
+    private StorageReference storageReference;
+    private ProgressDialog progressDialog;
+    ImageView ProfImage;
     public MainFragment() {
         // Required empty public constructor
     }
@@ -66,7 +82,8 @@ public class MainFragment extends Fragment {
             startActivity(new Intent(getActivity(), LoginActivity.class));
 
         }
-
+        storageReference = FirebaseStorage.getInstance().getReference();
+        progressDialog = new ProgressDialog(getActivity());
     }
 
     @Override
@@ -112,6 +129,14 @@ public class MainFragment extends Fragment {
         navigationView = (NavigationView) view.findViewById(R.id.nav);
         View view1 = navigationView.getHeaderView(0);
         TextView tView = (TextView) view1.findViewById(R.id.user);
+          ProfImage = (ImageView) view1.findViewById(R.id.userpic);
+        ProfImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(intent,REQUET_CODE);
+            }
+        });
         tView.setText(new SharedPref(getActivity()).GetItem("UserId"));
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
@@ -175,6 +200,36 @@ public class MainFragment extends Fragment {
         return view;
     }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == REQUET_CODE && resultCode == getActivity().RESULT_OK){
+            progressDialog.setMessage("Upload");
+            progressDialog.show();
+             Uri uri = data.getData();
+           // Uri uri11 = (Uri) data.getExtras().get("data");
+
+               /** Bundle bundle = data.getExtras();
+            Bitmap bitmap = (Bitmap) bundle.get("data");
+            ProfImage.setImageBitmap(bitmap);
+            **/
+             StorageReference filepath = storageReference.child("usersProfilePic").child(GlobalVariables.getUserName());
+            filepath.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                    progressDialog.dismiss();
+                    Uri downloadurl = taskSnapshot.getDownloadUrl();
+                    Picasso.with(getActivity()).load(downloadurl).into(ProfImage);
+                    GlobalVariables.message(getActivity(),"Finished");
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    GlobalVariables.message(getActivity(),"Failed");
+                }
+            });
+        }
+    }
 
     public void DownloadChecker(DownloadManager downloadManager, String url, int index) {
         String type = null;

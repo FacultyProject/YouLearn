@@ -4,12 +4,11 @@ package com.ourproject.learningapp.activities;
 import android.Manifest;
 import android.content.Intent;
 import android.graphics.Typeface;
-<<<<<<< HEAD
-=======
+
 import android.os.Build;
 import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
->>>>>>> d827ae232524e208cf9a2821e37bc687156c0b8a
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;

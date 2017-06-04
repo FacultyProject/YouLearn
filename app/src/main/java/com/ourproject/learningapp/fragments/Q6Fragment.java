@@ -8,6 +8,7 @@ import android.speech.RecognizerIntent;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -94,7 +95,7 @@ public class Q6Fragment extends Fragment {
         view.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
-                //Log.i(tag, "keyCode: " + keyCode);
+               // Log.i(tag, "keyCode: " + keyCode);
                 if( (keyCode == KeyEvent.KEYCODE_BACK )  ) {
                     // Log.i(tag, "onKey Back listener is working!!!");
                     GlobalVariables.TAG="none";
