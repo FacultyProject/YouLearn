@@ -7,9 +7,7 @@ import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -20,8 +18,6 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
-import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -38,6 +34,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.firebase.client.DataSnapshot;
+import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
 import com.firebase.ui.storage.images.FirebaseImageLoader;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -45,11 +45,11 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-import com.ourproject.learningapp.RoundImageView;
 import com.ourproject.learningapp.activities.LoginActivity;
 import com.ourproject.learningapp.adapters.CustomPagerAdapter;
 import com.ourproject.learningapp.R;
 import com.ourproject.learningapp.dataStorage.SharedPref;
+import com.ourproject.learningapp.globals.ConstantVariables;
 import com.ourproject.learningapp.globals.GlobalVariables;
 import com.squareup.picasso.Picasso;
 
@@ -77,6 +77,7 @@ public class MainFragment extends Fragment {
     private StorageReference storageReference;
     private ProgressDialog progressDialog;
     ImageView ProfImage;
+    private Firebase mCheck;
     public MainFragment() {
         // Required empty public constructor
     }
@@ -92,7 +93,7 @@ public class MainFragment extends Fragment {
         }
         storageReference = FirebaseStorage.getInstance().getReference();
         progressDialog = new ProgressDialog(getActivity());
-
+        mCheck =new Firebase(ConstantVariables.fUserPicCheck);
 
     }
 
@@ -147,9 +148,25 @@ public class MainFragment extends Fragment {
                 startActivityForResult(intent,REQUET_CODE);
             }
         });
-        //StorageReference filepath2 = storageReference.child("usersProfilePic/"+GlobalVariables.getUserName()+".jpg");
+        final StorageReference filepath2 = storageReference.child("usersProfilePic/"+GlobalVariables.getUserName()+".jpg");
 
-        //ProfImage.setImageResource(R.drawable.avatar);
+        mCheck.child(GlobalVariables.getUserName()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String Userchekc = (String) dataSnapshot.getValue();
+                if(Integer.parseInt(Userchekc) == -1){
+                    ProfImage.setImageResource(R.drawable.avatar);
+                }else
+                   // Picasso.with(getActivity()).load(String.valueOf(filepath2)).into(ProfImage);
+                Glide.with(getActivity()).using(new FirebaseImageLoader()).load(filepath2).into(ProfImage);
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
 
         tView.setText(new SharedPref(getActivity()).GetItem("UserId"));
 
@@ -232,6 +249,8 @@ public class MainFragment extends Fragment {
             filepath.putBytes(bData).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                    Firebase childRef3 =mCheck.child(GlobalVariables.getUserName());
+                    childRef3.setValue("1");
                     progressDialog.dismiss();
                     Uri downloadurl = taskSnapshot.getDownloadUrl();
                     Picasso.with(getActivity()).load(downloadurl).into(ProfImage);
@@ -333,9 +352,7 @@ public class MainFragment extends Fragment {
 
             }
 
-
         }
     };
-
 }
 

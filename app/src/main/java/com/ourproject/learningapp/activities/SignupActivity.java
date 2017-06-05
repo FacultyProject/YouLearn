@@ -21,6 +21,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthException;
 import com.ourproject.learningapp.R;
 import com.ourproject.learningapp.dataStorage.SharedPref;
+import com.ourproject.learningapp.globals.ConstantVariables;
+import com.ourproject.learningapp.globals.GlobalVariables;
 
 public class SignupActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -30,7 +32,7 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
     private TextView signin;
     private ProgressDialog progressDialog;
     private FirebaseAuth firebaseAuth;
-    private Firebase mUsers,mScr;
+    private Firebase mUsers,mScr,mCheck;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +42,7 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
 
         mUsers = new Firebase("https://youlearn-56a66.firebaseio.com/users");
         mScr = new Firebase("https://youlearn-56a66.firebaseio.com/score");
+        mCheck =new Firebase(ConstantVariables.fUserPicCheck);
 
         progressDialog=new ProgressDialog(this);
         if(firebaseAuth.getCurrentUser() != null){
@@ -83,6 +86,9 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
 
                             Firebase childRef2 = mScr.child(EMAIL.substring(0,EMAIL.indexOf('@')));
                             childRef2.setValue("-2");
+
+                            Firebase childRef3 =mCheck.child(EMAIL.substring(0,EMAIL.indexOf('@')));
+                            childRef3.setValue("-1");
 
 
                             finish();

@@ -5,7 +5,7 @@
     android:background="#2ad22a"
 
      >
-<ImageView
+<de.hdodenhof.circleimageview.CircleImageView
     android:id="@+id/userpic"
     android:layout_marginTop="10dp"
     android:src="@drawable/avatar"
