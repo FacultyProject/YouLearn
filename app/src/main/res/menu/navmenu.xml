@@ -5,8 +5,7 @@
      <item android:id="@+id/item1" android:title="حول البرنامج"
          android:icon="@drawable/info"/>
 
-        <item android:id="@+id/settings" android:title="الاعدادت"
-            android:icon="@drawable/settings"/>
+
         <item android:id="@+id/offline" android:title="تحميل البيانات"
             android:icon="@drawable/offline"/>
 

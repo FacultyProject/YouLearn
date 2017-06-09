@@ -2,11 +2,13 @@
 package com.ourproject.learningapp.fragments;
 
 
+import android.app.Application;
 import android.app.DownloadManager;
 import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
@@ -175,10 +177,20 @@ public class MainFragment extends Fragment {
             public boolean onNavigationItemSelected(MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.item1:
-                        Toast.makeText(getActivity(), "Item 1", Toast.LENGTH_SHORT).show();
+                            getActivity().getSupportFragmentManager().beginTransaction()
+                                    .add(R.id.fmain, new AboutFrag())
+                                    .addToBackStack(null )
+                                    .commit();
                         break;
-                    case R.id.settings:
-                        GlobalVariables.message(getContext(),GlobalVariables.getUserName());
+                    case R.id.share:
+                        ApplicationInfo applicationInfo=getActivity().getApplicationContext().getApplicationInfo();
+                        String apkPath=applicationInfo.sourceDir;
+                        Intent intent=new Intent();
+                        intent.setAction(Intent.ACTION_SEND);
+                        intent.setType("application/vnd.android.package-archive");
+                        intent.putExtra(Intent.EXTRA_TEXT,Uri.fromFile(new File(apkPath)));
+                        getActivity().startActivity(Intent.createChooser(intent,"Share via"));
+
                         break;
                     case R.id.offline: {
                         exists = true;

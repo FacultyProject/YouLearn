@@ -31,6 +31,8 @@ public class Fragment2 extends Fragment {
         QImaeg6 = (ImageView) view.findViewById(R.id.qimage6);
         QImaeg7 = (ImageView) view.findViewById(R.id.qimage7);
 
+
+
         QImaeg1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

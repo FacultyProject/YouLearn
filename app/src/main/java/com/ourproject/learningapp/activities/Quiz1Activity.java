@@ -21,6 +21,7 @@ public class Quiz1Activity extends AppCompatActivity {
         setContentView(R.layout.activity_quiz1);
         instance=this;
 
+
         if ( GlobalVariables.QUIZID=="qIamge4"){
             GoToFragment(new Q4Fragment());
         }
