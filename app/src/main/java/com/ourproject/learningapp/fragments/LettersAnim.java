@@ -23,7 +23,7 @@ public class LettersAnim extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_letter_animation, container, false);
+        View view = inflater.inflate(R.layout.fragment_letter_drawing, container, false);
         lettersSounds=getActivity().getResources().getStringArray(R.array.lettersSounds);
         gif= (ImageView) view.findViewById(R.id.gif);
         playSound= (ImageView) view.findViewById(R.id.play);

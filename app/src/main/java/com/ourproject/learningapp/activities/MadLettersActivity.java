@@ -1,6 +1,7 @@
 package com.ourproject.learningapp.activities;
 
 
+import android.content.pm.ActivityInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -16,7 +17,9 @@ public class MadLettersActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mad_letters);
-
+        if (!MainActivity.mTwoPane){
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
+        }
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.fmainMad, new MadListFragment())
                 .commit();

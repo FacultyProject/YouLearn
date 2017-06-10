@@ -30,7 +30,7 @@ public class Q4Fragment extends Fragment {
     String[] images;
     public static int position =0,s,s0;
     String[]letters,lettersImages1,lettersSounds,word1;
-    ImageView imageView,imageView2,imageView3,playSound;
+    public static ImageView imageView,imageView2,imageView3,playSound;
     TextView textView;
     public static String ans="false";
     @Nullable
@@ -54,8 +54,13 @@ public class Q4Fragment extends Fragment {
             public void postitionPlus(int position) {
                 showData(position);
             }
+
+            @Override
+            public void animation(View... views) {
+                LettersAnimation(imageView,imageView2,imageView3);
+            }
         });
-        LettersAnimation(textView,imageView,imageView2,imageView3,playSound);
+        LettersAnimation(imageView,imageView2,imageView3);
         playSound.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -121,7 +126,7 @@ public class Q4Fragment extends Fragment {
     }
     public void LettersAnimation(View ... views){
         for(View v:views){
-            ObjectAnimator a1= ObjectAnimator.ofFloat(v,"translationY",-600,0);
+            ObjectAnimator a1= ObjectAnimator.ofFloat(v,"translationX",-600,0);
             a1.setDuration(2300);
             AnimatorSet animatorSet =new AnimatorSet();
             animatorSet.playTogether(a1);

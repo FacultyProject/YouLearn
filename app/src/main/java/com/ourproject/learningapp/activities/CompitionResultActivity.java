@@ -1,5 +1,6 @@
 package com.ourproject.learningapp.activities;
 
+import android.content.pm.ActivityInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
@@ -26,7 +27,9 @@ public class CompitionResultActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_compition_result);
-
+        if (!MainActivity.mTwoPane){
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
+        }
         String USER = GlobalVariables.getUserName();
         mCompititors = new Firebase(ConstantVariables.fCompititors);
 

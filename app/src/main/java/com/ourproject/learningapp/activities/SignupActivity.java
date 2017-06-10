@@ -2,6 +2,7 @@ package com.ourproject.learningapp.activities;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -39,7 +40,9 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
         setContentView(R.layout.activity_signup);
         firebaseAuth=FirebaseAuth.getInstance();
         Firebase.setAndroidContext(this);
-
+        if (!MainActivity.mTwoPane){
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
+        }
         mUsers = new Firebase("https://youlearn-56a66.firebaseio.com/users");
         mScr = new Firebase("https://youlearn-56a66.firebaseio.com/score");
         mCheck =new Firebase(ConstantVariables.fUserPicCheck);
