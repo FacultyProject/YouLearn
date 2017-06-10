@@ -41,6 +41,13 @@ public class RightAnsAlert extends DialogFragment {
             GlobalVariables.QuizCompleted=false;
             textView1.setText("أكتمل الاختبار");
             textView2.setText("");
+            view.findViewById(R.id.textView).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    (getActivity()).finish();
+
+                }
+            });
             imageView.setVisibility(View.INVISIBLE);
 
         } else{

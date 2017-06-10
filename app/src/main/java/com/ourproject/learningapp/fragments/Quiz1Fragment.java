@@ -28,7 +28,7 @@ public class Quiz1Fragment extends Fragment {
     private  String RandLetter,WordPic,ImageUrl,Tempword="";
     private String [] Letters,SplitedWord,arrChars ;
     private TextView Word,L1,L2,L3,L4,L5,L6,L7,L8,L9,L10;
-    private ImageView qimageView,Del ,DelOne;
+    private ImageView qimageView,Del ,DelOne,play;
     private ArrayList<TextView> aTextview = new ArrayList<>();
     private int Randnum ;
     final int Randlist=new Random().nextInt(3);
@@ -96,7 +96,8 @@ public class Quiz1Fragment extends Fragment {
         L10= (TextView) view.findViewById(R.id.l10);
         Del= (ImageView) view.findViewById(R.id.del);
         DelOne= (ImageView) view.findViewById(R.id.delOnlyOne);
-
+        play=(ImageView) view.findViewById(R.id.play);
+        play.setVisibility(View.GONE);
         LettersAnimation(L1,L2,L3,L4,L5,L6,L7,L8,L9,L10);
 
         DelOne.setOnClickListener(new View.OnClickListener() {
@@ -130,7 +131,8 @@ public class Quiz1Fragment extends Fragment {
 
 
         if(GlobalVariables.QUIZID.equals("qIamge1") || GlobalVariables.QUIZID.equals("qIamge2") ){
-            qimageView.setOnClickListener(new View.OnClickListener() {
+            play.setVisibility(View.VISIBLE);
+            play.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     if(Randlist==0)
@@ -266,6 +268,7 @@ public class Quiz1Fragment extends Fragment {
 
             } else{
                 WrongAnsAlert wrongAnsAlert = new WrongAnsAlert();
+                wrongAnsAlert.setCancelable(false);
                 wrongAnsAlert.show(getFragmentManager(), "Wrong Alert");
         }
         }
@@ -363,6 +366,7 @@ public class Quiz1Fragment extends Fragment {
 
     public void GoToRightAlert(){
         RightAnsAlert rightAnsAlert = new RightAnsAlert();
+        rightAnsAlert.setCancelable(false);
         rightAnsAlert.show(getFragmentManager(), "Right Alert");
     }
 
