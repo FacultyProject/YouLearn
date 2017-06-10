@@ -17,12 +17,13 @@ import com.ourproject.learningapp.globals.GlobalVariables;
  * Created by Moetaz on 2/24/2017.
  */
 public class Fragment2 extends Fragment {
-    private ImageView QImaeg1,QImaeg2,QImaeg3,QImaeg4,QImaeg5,QImaeg6,QImaeg7;
+    private ImageView QImaeg0,QImaeg1,QImaeg2,QImaeg3,QImaeg4,QImaeg5,QImaeg6,QImaeg7;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.frag2,container,false);
+        QImaeg0 = (ImageView) view.findViewById(R.id.qimage0);
         QImaeg1 = (ImageView) view.findViewById(R.id.qimage1);
         QImaeg2 = (ImageView) view.findViewById(R.id.qimage2);
         QImaeg3 = (ImageView) view.findViewById(R.id.qimage3);
@@ -31,6 +32,13 @@ public class Fragment2 extends Fragment {
         QImaeg6 = (ImageView) view.findViewById(R.id.qimage6);
         QImaeg7 = (ImageView) view.findViewById(R.id.qimage7);
 
+        QImaeg0.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ImageonClick("qIamge0");
+
+            }
+        });
 
 
         QImaeg1.setOnClickListener(new View.OnClickListener() {

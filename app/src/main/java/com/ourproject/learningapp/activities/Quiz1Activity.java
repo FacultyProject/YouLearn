@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.ourproject.learningapp.R;
+import com.ourproject.learningapp.fragments.LettersQuiz;
 import com.ourproject.learningapp.fragments.Q4Fragment;
 import com.ourproject.learningapp.fragments.Q5Fragment;
 import com.ourproject.learningapp.fragments.Q6Fragment;
@@ -21,8 +22,10 @@ public class Quiz1Activity extends AppCompatActivity {
         setContentView(R.layout.activity_quiz1);
         instance=this;
 
-
-        if ( GlobalVariables.QUIZID=="qIamge4"){
+        if ( GlobalVariables.QUIZID=="qIamge0"){
+            GoToFragment(new LettersQuiz());
+        }
+        else if ( GlobalVariables.QUIZID=="qIamge4"){
             GoToFragment(new Q4Fragment());
         }
         else if(GlobalVariables.QUIZID=="qIamge5"){

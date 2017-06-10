@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.ourproject.learningapp.Interface.PositionRespone;
 import com.ourproject.learningapp.R;
+import com.ourproject.learningapp.globals.GlobalVariables;
 
 
 /**
@@ -27,6 +28,7 @@ public class Myalert extends DialogFragment {
     public void setPositionRespone(PositionRespone positionRespone) {
         this.positionRespone = positionRespone;
     }
+
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -35,31 +37,37 @@ public class Myalert extends DialogFragment {
         LayoutInflater factory = LayoutInflater.from(getActivity());
         final View ansDialogView = factory.inflate(R.layout.fragment_alert, null);
         alertDialog.setView(ansDialogView);
-        textView=(TextView)ansDialogView.findViewById(R.id.textView);
-        retry =(ImageView) ansDialogView.findViewById(R.id.retry);
+        textView = (TextView) ansDialogView.findViewById(R.id.textView);
+        retry = (ImageView) ansDialogView.findViewById(R.id.retry);
         retry.setVisibility(View.INVISIBLE);
-        LinearLayout myLayout = (LinearLayout)ansDialogView. findViewById(R.id.linearLayout);
-        if (Q4Fragment.position==28   ){
+        LinearLayout myLayout = (LinearLayout) ansDialogView.findViewById(R.id.linearLayout);
+        if (Q4Fragment.position == 28 || LettersQuiz.position == 28) {
             textView.setTextSize(30);
             textView.setText(" اكتمل الاختبار");
             ansDialogView.findViewById(R.id.textView).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     (getActivity()).finish();
-                    positionRespone.postitionPlus(Q4Fragment.position=0);
+                    if (GlobalVariables.QUIZID == "qIamge0")
+                        positionRespone.postitionPlus(LettersQuiz.position = 0);
+                    else
+                    positionRespone.postitionPlus(Q4Fragment.position = 0);
 
                 }
             });
             myLayout.setVisibility(View.INVISIBLE);
-        }else if (Q4Fragment.ans=="true"){
+        } else if (Q4Fragment.ans == "true" || LettersQuiz.ans == "true") {
             ansDialogView.findViewById(R.id.next).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    positionRespone.postitionPlus(Q4Fragment.position++);
+                    if (GlobalVariables.QUIZID == "qIamge0")
+                        positionRespone.postitionPlus(LettersQuiz.position++);
+                    else
+                        positionRespone.postitionPlus(Q4Fragment.position++);
                     alertDialog.dismiss();
                 }
-            });}
-        else if (Q4Fragment.ans=="false"){
+            });
+        } else if (Q4Fragment.ans == "false" || LettersQuiz.ans == "false") {
             retry.setVisibility(View.VISIBLE);
             textView.setText("حاول مرة اخري!");
             textView.setTextSize(30);
@@ -70,8 +78,7 @@ public class Myalert extends DialogFragment {
                 }
             });
             myLayout.setVisibility(View.INVISIBLE);
-        }
-        else{
+        } else {
 
         }
 
