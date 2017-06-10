@@ -20,7 +20,7 @@ import com.ourproject.learningapp.globals.GlobalVariables;
 
 public class RightAnsAlert extends DialogFragment {
 
-    ImageView imageView;
+    ImageView imageView,Retry;
     TextView textView1,textView2;
     @NonNull
     @Override
@@ -32,7 +32,8 @@ public class RightAnsAlert extends DialogFragment {
         imageView = (ImageView) view.findViewById(R.id.next);
         textView1= (TextView) view.findViewById(R.id.textView);
         textView2= (TextView) view.findViewById(R.id.textv2);
-
+        Retry = (ImageView) view.findViewById(R.id.retry);
+        Retry.setVisibility(View.INVISIBLE);
         builder.setView(view);
 
         if (GlobalVariables.QuizCompleted) {

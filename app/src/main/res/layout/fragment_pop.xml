@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_pop"
-
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
-    <android.support.v7.widget.CardView
-        app:cardCornerRadius="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+
     <TextView
         android:textColor="@color/goodModeColor"
         android:textSize="50sp"
@@ -31,7 +26,8 @@
         android:id="@+id/linearLayout"
         android:layout_below="@+id/textView"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true">
+        android:layout_alignParentEnd="true"
+        android:weightSum="1">
         <TextView
             android:id="@+id/textv2"
             android:layout_width="wrap_content"
@@ -40,9 +36,8 @@
             android:textStyle="bold"
             android:layout_marginRight="10dp"
             android:gravity="center_vertical"
-            android:textSize="25sp"/>
+            android:textSize="25sp" />
         <ImageView
-
             android:layout_width="50dp"
             android:layout_height="80dp"
             android:id="@+id/next"
@@ -51,5 +46,13 @@
             />
     </LinearLayout>
 
-    </android.support.v7.widget.CardView>
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="80dp"
+        android:id="@+id/retry"
+        android:src="@drawable/retry"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true" />
+
+
 </RelativeLayout>

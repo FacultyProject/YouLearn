@@ -21,7 +21,7 @@ import com.ourproject.learningapp.globals.GlobalVariables;
 
 public class SelfTestAlert extends DialogFragment {
     TextView textView;
-    ImageView imageView;
+    ImageView imageView,Retry;
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -31,6 +31,9 @@ public class SelfTestAlert extends DialogFragment {
         View view=layoutInflater.inflate(R.layout.fragment_pop,null);
         imageView= (ImageView) view.findViewById(R.id.next);
         textView= (TextView) view.findViewById(R.id.textView);
+        Retry = (ImageView) view.findViewById(R.id.retry);
+        Retry.setVisibility(View.INVISIBLE);
+
         if(!GlobalVariables.rAnswer) {
             textView.setText("اجابة خاطئه");
             textView.setTextColor(getActivity().getResources().getColor(R.color.badModeColor));
