@@ -48,7 +48,7 @@ public class CompitionResultActivity extends AppCompatActivity {
                             GlobalVariables.onDataChange = false;
 
                             CompititorUserScr = (String) dataSnapshot.getValue();
-                            Toast.makeText(getApplicationContext(),CompititorUserScr,Toast.LENGTH_LONG).show();
+                           // Toast.makeText(getApplicationContext(),CompititorUserScr,Toast.LENGTH_LONG).show();
 
                             if(GlobalVariables.Is2ndPlayerFinish){
                                 getSupportFragmentManager().beginTransaction()

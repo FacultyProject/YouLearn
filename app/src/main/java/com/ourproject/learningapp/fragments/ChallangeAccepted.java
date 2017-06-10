@@ -27,7 +27,7 @@ import com.ourproject.learningapp.globals.GlobalVariables;
  * A simple {@link Fragment} subclass.
  */
 public class ChallangeAccepted extends Fragment {
-    TextView textView1,textView2;
+    TextView textView1,textView2,USER1,USER2;
     ImageView imageView;
 
     Firebase mScr,mCompititors;
@@ -45,7 +45,8 @@ public class ChallangeAccepted extends Fragment {
         textView1 = (TextView) view.findViewById(R.id.t1);
         textView2 = (TextView) view.findViewById(R.id.t2);
         imageView = (ImageView) view.findViewById(R.id.home2);
-
+        USER1 = (TextView) view.findViewById(R.id.user1);
+        USER2 = (TextView) view.findViewById(R.id.user2);
 
         mScr = new Firebase(ConstantVariables.fScore);
         mCompititors = new Firebase(ConstantVariables.fCompititors);
@@ -53,19 +54,23 @@ public class ChallangeAccepted extends Fragment {
 
           final String USER = GlobalVariables.getUserName();
 
-        if(!GlobalVariables.Is2ndPlayerPlay){
+        if(!GlobalVariables.Is2ndPlayerPlay) {
 
             mScr.child(USER).addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     String UserScr2 = dataSnapshot.getValue(String.class);
+
                     if(Integer.parseInt(UserScr2) >= 0){
                         textView1.setText(UserScr2);
+                        USER1.setText(GlobalVariables.getUserName());
+
                         mScr.child(new SharedPref(getActivity()).GetItem("Challanger")).addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(DataSnapshot dataSnapshot) {
                                 String US2 = dataSnapshot.getValue(String.class);
                                 textView2.setText(US2);
+                                USER2.setText(new SharedPref(getActivity()).GetItem("Challanger"));
                             }
 
                             @Override
@@ -93,6 +98,7 @@ public class ChallangeAccepted extends Fragment {
                         String UserScr2 = dataSnapshot.getValue(String.class);
                         textView1.setText(UserScr2);
 
+
                     }
 
                     @Override
@@ -104,7 +110,7 @@ public class ChallangeAccepted extends Fragment {
                 mCompititors.child(USER).addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                        String User2 = dataSnapshot.getValue(String.class);
+                        final String User2 = dataSnapshot.getValue(String.class);
                         Firebase Ref1 = mScr.child(User2);
                         Ref1.setValue("-2");
 
@@ -113,6 +119,7 @@ public class ChallangeAccepted extends Fragment {
                             public void onDataChange(DataSnapshot dataSnapshot) {
                                 String Userscr2 = dataSnapshot.getValue(String.class);
                                 textView2.setText(Userscr2);
+
                             }
 
                             @Override
@@ -134,13 +141,15 @@ public class ChallangeAccepted extends Fragment {
 
         }else {
             textView1.setText(String.valueOf(GlobalVariables.scr));
+            USER1.setText(GlobalVariables.getUserName());
+
             //changed here
             mScr.child(new SharedPref(getActivity()).GetItem("Challanger")).addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     String UserScr2 = dataSnapshot.getValue(String.class);
                     textView2.setText(UserScr2);
-
+                    USER2.setText(new SharedPref(getActivity()).GetItem("Challanger"));
 
                 }
 

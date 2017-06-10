@@ -57,8 +57,7 @@ public class SelfTestActivity extends AppCompatActivity {
 
                 startActivity(new Intent(getApplicationContext(), CompitionResultActivity.class));
             } else {
-                Toast.makeText(getApplicationContext(), String.valueOf(GlobalVariables.Is2ndPlayerPlay)
-                        .concat(" two"), Toast.LENGTH_LONG).show();
+
                 startActivity(new Intent(getApplicationContext(), ScoreBoardActivity.class));
             }
         }

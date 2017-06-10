@@ -8,15 +8,18 @@
     tools:context="com.ourproject.learningapp.fragments.ChallangeAccepted">
 
     <ImageView
+        android:layout_margin="20dp"
+        android:layout_gravity="center"
         android:id="@+id/home2"
         android:src="@drawable/home_icon"
-        android:layout_width="100dp"
-        android:layout_height="100dp" />
+        android:layout_width="50dp"
+        android:layout_height="50dp" />
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="100dp">
         <TextView
+            android:id="@+id/user1"
             android:gravity="center"
             android:textSize="40dp"
             android:textColor="#4e0055"
@@ -25,6 +28,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent" />
         <TextView
+            android:id="@+id/user2"
             android:gravity="center"
             android:textSize="40dp"
             android:textColor="#4e0055"
