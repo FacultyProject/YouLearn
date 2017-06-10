@@ -4,6 +4,7 @@ package com.ourproject.learningapp.activities;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.app.Fragment;
@@ -19,7 +20,9 @@ public class LetterInfo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_letter_info);
         Intent intent = this.getIntent();
-
+        if (!MainActivity.mTwoPane){
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
+        }
         if (GlobalVariables.LETTERTYPE.equals("NORMAL_MOVEMENT")||GlobalVariables.LETTERTYPE.equals("ShortMovement")) {
 
             LetterFragment letterFragment = new LetterFragment();

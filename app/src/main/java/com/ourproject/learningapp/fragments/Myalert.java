@@ -48,10 +48,13 @@ public class Myalert extends DialogFragment {
                 @Override
                 public void onClick(View view) {
                     (getActivity()).finish();
-                    if (GlobalVariables.QUIZID == "qIamge0")
+                    if (GlobalVariables.QUIZID == "qIamge0") {
                         positionRespone.postitionPlus(LettersQuiz.position = 0);
-                    else
-                    positionRespone.postitionPlus(Q4Fragment.position = 0);
+                    }
+                    else {
+                        positionRespone.postitionPlus(Q4Fragment.position = 0);
+                    }
+
 
                 }
             });
@@ -60,10 +63,16 @@ public class Myalert extends DialogFragment {
             ansDialogView.findViewById(R.id.next).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if (GlobalVariables.QUIZID == "qIamge0")
+                    if (GlobalVariables.QUIZID == "qIamge0") {
                         positionRespone.postitionPlus(LettersQuiz.position++);
-                    else
+                        positionRespone.animation(LettersQuiz.textView1,LettersQuiz.textView2,LettersQuiz.textView3);
+
+                    }
+                    else {
                         positionRespone.postitionPlus(Q4Fragment.position++);
+                        positionRespone.animation(Q4Fragment.imageView,Q4Fragment.imageView2,Q4Fragment.imageView3);
+
+                    }
                     alertDialog.dismiss();
                 }
             });

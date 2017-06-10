@@ -8,12 +8,16 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_margin="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
+
         android:orientation="vertical"
         android:id="@+id/linearLayout">
         <ImageView
             android:layout_width="100dp"
             android:layout_height="0dp"
+            android:layout_marginLeft="5dp"
             android:layout_weight="1"
             android:id="@+id/imageView"
             android:src="@drawable/x"
@@ -23,6 +27,7 @@
             android:layout_width="100dp"
             android:layout_height="0dp"
             android:layout_weight="1"
+            android:layout_marginLeft="5dp"
             android:id="@+id/imageView2"
             android:layout_below="@+id/imageView"
             android:src="@drawable/rabbit"
@@ -33,6 +38,7 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:id="@+id/imageView3"
+            android:layout_marginLeft="5dp"
             android:src="@drawable/mouse"
             android:layout_below="@+id/imageView2"
             android:layout_alignParentLeft="true"

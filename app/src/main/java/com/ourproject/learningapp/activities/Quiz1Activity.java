@@ -1,5 +1,6 @@
 package com.ourproject.learningapp.activities;
 
+import android.content.pm.ActivityInfo;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -21,7 +22,9 @@ public class Quiz1Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz1);
         instance=this;
-
+        if (!MainActivity.mTwoPane){
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
+        }
         if ( GlobalVariables.QUIZID=="qIamge0"){
             GoToFragment(new LettersQuiz());
         }

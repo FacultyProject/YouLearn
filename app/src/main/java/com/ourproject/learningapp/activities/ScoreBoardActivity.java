@@ -2,6 +2,7 @@ package com.ourproject.learningapp.activities;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -24,6 +25,9 @@ public class ScoreBoardActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (!MainActivity.mTwoPane){
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
+        }
         setContentView(R.layout.activity_score_board);
         imageView= (ImageView) findViewById(R.id.home_ic);
         textView= (TextView) findViewById(R.id.scr);

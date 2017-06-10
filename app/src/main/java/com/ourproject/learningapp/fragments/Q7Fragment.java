@@ -1,6 +1,8 @@
 package com.ourproject.learningapp.fragments;
 
 
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -64,7 +66,7 @@ public class Q7Fragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view =inflater.inflate(R.layout.fragment_q7, container, false);
-        imageView = (ImageView) view.findViewById(R.id.soundofword);
+        imageView = (ImageView) view.findViewById(R.id.play);
         textView1 = (TextView) view.findViewById(R.id.text1);
         textView2 = (TextView) view.findViewById(R.id.text2);
         textView3 = (TextView) view.findViewById(R.id.text3);
@@ -84,6 +86,7 @@ public class Q7Fragment extends Fragment {
         textView1.setText(strList.get(0));
         textView2.setText(strList.get(1));
         textView3.setText(strList.get(2));
+        LettersAnimation(textView1, textView2, textView3);
 
         CheckForNull(textView1,textView2,textView3);
 
@@ -173,7 +176,15 @@ public class Q7Fragment extends Fragment {
 
 
     }
-
+    public void LettersAnimation(View... views) {
+        for (View v : views) {
+            ObjectAnimator a1 = ObjectAnimator.ofFloat(v, "translationX", 600, 0);
+            a1.setDuration(2300);
+            AnimatorSet animatorSet = new AnimatorSet();
+            animatorSet.playTogether(a1);
+            animatorSet.start();
+        }
+    }
     public void GetRightLetter (){
         if(RandGroup == 0)
             RightLetter = DamLetters[RandLetter];

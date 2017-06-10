@@ -3,6 +3,7 @@ package com.ourproject.learningapp.activities;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -17,7 +18,9 @@ public class MadLetterInfo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mad_letter_info);
         Intent intent = this.getIntent();
-
+        if (!MainActivity.mTwoPane){
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
+        }
         MadLetterFragment madLetterFragment= new MadLetterFragment();
 
         Bundle bundle=new Bundle();

@@ -3,6 +3,8 @@ package com.ourproject.learningapp.activities;
 
 import android.Manifest;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.graphics.Typeface;
 
 import android.os.Build;
@@ -37,6 +39,9 @@ public class MainActivity extends AppCompatActivity {
         boolean tabletSize =getResources().getBoolean(R.bool.isTablet);
         if (tabletSize){
             mTwoPane=true;
+        }
+        if (!mTwoPane){
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
         }
     }
 

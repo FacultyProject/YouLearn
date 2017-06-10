@@ -1,5 +1,6 @@
 package com.ourproject.learningapp.activities;
 
+import android.content.pm.ActivityInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -17,5 +18,9 @@ public class ChallangeActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.fmain_challange, new UsersListFragment())
                 .commit();
+        if (!MainActivity.mTwoPane){
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
+        }
     }
+
 }
