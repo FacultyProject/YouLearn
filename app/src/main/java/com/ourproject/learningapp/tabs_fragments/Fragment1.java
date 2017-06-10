@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.ourproject.learningapp.activities.LettersActivity;
 import com.ourproject.learningapp.activities.MadLettersActivity;
@@ -31,7 +32,8 @@ public class Fragment1 extends Fragment {
         ImageView imageView = (ImageView) view.findViewById(R.id.arabic_letters_img);
         ImageView madImage = (ImageView) view.findViewById(R.id.mamdod_img);
         ImageView Shortmov = (ImageView) view.findViewById(R.id.shortmov);
-        ImageView letterAnim = (ImageView) view.findViewById(R.id.letters_animation);
+        LinearLayout myLayout = (LinearLayout) view.findViewById(R.id.letters_animation);
+
 
 
         Shortmov.setOnClickListener(new View.OnClickListener() {
@@ -56,7 +58,6 @@ public class Fragment1 extends Fragment {
             public void onClick(View view) {
                 GlobalVariables.LETTERTYPE = "NORMAL_MOVEMENT";
 
-                getActivity().stopService(new Intent(getActivity(), ServiceClass.class));
 
                 Intent intent = new Intent(getActivity(), LettersActivity.class);
                 getActivity().startActivity(intent);
@@ -66,7 +67,7 @@ public class Fragment1 extends Fragment {
                 getActivity().startService(serviceIntent);
             }
         });
-        letterAnim.setOnClickListener(new View.OnClickListener() {
+        myLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 GlobalVariables.LETTERTYPE = "LETTER_ANIMATION";
