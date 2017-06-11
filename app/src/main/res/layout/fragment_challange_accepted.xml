@@ -21,7 +21,7 @@
         <TextView
             android:id="@+id/user1"
             android:gravity="center"
-            android:textSize="40dp"
+            android:textSize="25dp"
             android:textColor="#4e0055"
             android:text="User 1"
             android:layout_weight="1"
@@ -30,7 +30,7 @@
         <TextView
             android:id="@+id/user2"
             android:gravity="center"
-            android:textSize="40dp"
+            android:textSize="25dp"
             android:textColor="#4e0055"
             android:text="User 2"
             android:layout_weight="1"

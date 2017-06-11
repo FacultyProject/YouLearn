@@ -25,7 +25,7 @@ import java.util.Random;
  */
 public class Q7Fragment extends Fragment {
     public int check ;
-    public static final int TARGER3=3;
+    public static final int TARGER3=4;
     private ArrayList<Integer> numList = new ArrayList<>();
     private ArrayList<String> strList =new ArrayList<>();
     private String []  DamLetters ,FathLetters,KasrLetters;

@@ -24,7 +24,7 @@ import java.util.Random;
  * A simple {@link Fragment} subclass.
  */
 public class Quiz1Fragment extends Fragment {
-    public static final int TAEGET=3;
+    public static final int TAEGET=4;
     private  String RandLetter,WordPic,ImageUrl,Tempword="";
     private String [] Letters,SplitedWord,arrChars ;
     private TextView Word,L1,L2,L3,L4,L5,L6,L7,L8,L9,L10;

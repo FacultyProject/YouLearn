@@ -52,7 +52,7 @@ public class SelfTestActivity extends AppCompatActivity {
         Questions = (TextView) findViewById(R.id.nofquietions);
         Questions.setText(String.valueOf(GlobalVariables.nOfQUESTONS));
 
-        if (GlobalVariables.nOfQUESTONS == 7) {
+        if (GlobalVariables.nOfQUESTONS == 8) {
             TimerIsRunning = false;
 
             if (GlobalVariables.Is2ndPlayerPlay) {
@@ -86,9 +86,9 @@ public class SelfTestActivity extends AppCompatActivity {
 
 
         GlobalVariables.SelfTestMode = true;
-        if (GlobalVariables.nOfQUESTONS < 2)
+        if (GlobalVariables.nOfQUESTONS < 3)
             GlobalVariables.QUIZID = "qIamge1";
-        else if (GlobalVariables.nOfQUESTONS < 4 && GlobalVariables.nOfQUESTONS >= 2)
+        else if (GlobalVariables.nOfQUESTONS < 5 && GlobalVariables.nOfQUESTONS >= 3)
             GlobalVariables.QUIZID = "qIamge2";
         else
             GlobalVariables.QUIZID = "qIamge3";

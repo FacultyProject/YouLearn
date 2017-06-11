@@ -29,7 +29,7 @@ import java.util.Random;
  * A simple {@link Fragment} subclass.
  */
 public class Q6Fragment extends Fragment {
-    public static final int TARGER2=10;
+    public static final int TARGER2=4;
     //public static  boolean TAG = false;
     private int rand,Randlist;
     private String[] Words, PicWords;
