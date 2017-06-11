@@ -41,20 +41,18 @@
             android:clearTaskOnLaunch="true" />
         <activity android:name=".activities.SelfTestActivity" />
         <activity android:name=".activities.ScoreBoardActivity" />
-        <activity android:name=".activities.SignupActivity">
-
-        </activity>
+        <activity android:name=".activities.SignupActivity"></activity>
         <activity android:name=".activities.LoginActivity" />
         <activity android:name=".activities.ChallangeActivity" />
         <activity android:name=".activities.CompitionResultActivity" />
         <activity android:name=".activities.StartActivity">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".activities.About"></activity>
     </application>
 
 </manifest>

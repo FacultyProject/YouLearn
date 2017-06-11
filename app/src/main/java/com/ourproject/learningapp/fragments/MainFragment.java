@@ -49,6 +49,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.ourproject.learningapp.activities.About;
 import com.ourproject.learningapp.activities.LoginActivity;
 import com.ourproject.learningapp.adapters.CustomPagerAdapter;
 import com.ourproject.learningapp.R;
@@ -82,6 +83,7 @@ public class MainFragment extends Fragment {
     private ProgressDialog progressDialog;
     ImageView ProfImage;
     private Firebase mCheck;
+
     public MainFragment() {
         // Required empty public constructor
     }
@@ -99,7 +101,7 @@ public class MainFragment extends Fragment {
         }
         storageReference = FirebaseStorage.getInstance().getReference();
         progressDialog = new ProgressDialog(getActivity());
-        mCheck =new Firebase(ConstantVariables.fUserPicCheck);
+        mCheck = new Firebase(ConstantVariables.fUserPicCheck);
 
 
     }
@@ -148,25 +150,25 @@ public class MainFragment extends Fragment {
         navigationView = (NavigationView) view.findViewById(R.id.nav);
         View view1 = navigationView.getHeaderView(0);
         TextView tView = (TextView) view1.findViewById(R.id.user);
-          ProfImage = (ImageView) view1.findViewById(R.id.userpic);
+        ProfImage = (ImageView) view1.findViewById(R.id.userpic);
         ProfImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                startActivityForResult(intent,REQUET_CODE);
+                startActivityForResult(intent, REQUET_CODE);
             }
         });
-        final StorageReference filepath2 = storageReference.child("usersProfilePic/"+GlobalVariables.getUserName()+".jpg");
+        final StorageReference filepath2 = storageReference.child("usersProfilePic/" + GlobalVariables.getUserName() + ".jpg");
 
         mCheck.child(GlobalVariables.getUserName()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String Userchekc = (String) dataSnapshot.getValue();
-                if(Integer.parseInt(Userchekc) == -1){
+                if (Integer.parseInt(Userchekc) == -1) {
                     ProfImage.setImageResource(R.drawable.avatar);
-                }else
-                   // Picasso.with(getActivity()).load(String.valueOf(filepath2)).into(ProfImage);
-                Glide.with(getActivity()).using(new FirebaseImageLoader()).load(filepath2).into(ProfImage);
+                } else
+                    // Picasso.with(getActivity()).load(String.valueOf(filepath2)).into(ProfImage);
+                    Glide.with(getActivity()).using(new FirebaseImageLoader()).load(filepath2).into(ProfImage);
             }
 
             @Override
@@ -183,19 +185,18 @@ public class MainFragment extends Fragment {
             public boolean onNavigationItemSelected(MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.item1:
-                            getActivity().getSupportFragmentManager().beginTransaction()
-                                    .add(R.id.fmain, new AboutFrag())
-                                    .addToBackStack(null )
-                                    .commit();
+                        Intent intent1 = new Intent(getActivity(), About.class);
+                        getActivity().startActivity(intent1);
+
                         break;
                     case R.id.share:
-                        ApplicationInfo applicationInfo=getActivity().getApplicationContext().getApplicationInfo();
-                        String apkPath=applicationInfo.sourceDir;
-                        Intent intent=new Intent();
+                        ApplicationInfo applicationInfo = getActivity().getApplicationContext().getApplicationInfo();
+                        String apkPath = applicationInfo.sourceDir;
+                        Intent intent = new Intent();
                         intent.setAction(Intent.ACTION_SEND);
                         intent.setType("application/vnd.android.package-archive");
-                        intent.putExtra(Intent.EXTRA_TEXT,Uri.fromFile(new File(apkPath)));
-                        getActivity().startActivity(Intent.createChooser(intent,"Share via"));
+                        intent.putExtra(Intent.EXTRA_TEXT, Uri.fromFile(new File(apkPath)));
+                        getActivity().startActivity(Intent.createChooser(intent, "Share via"));
 
                         break;
                     case R.id.offline: {
@@ -252,32 +253,32 @@ public class MainFragment extends Fragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == REQUET_CODE && resultCode == getActivity().RESULT_OK){
+        if (requestCode == REQUET_CODE && resultCode == getActivity().RESULT_OK) {
             progressDialog.setMessage("Upload");
             progressDialog.show();
 
             Bundle bundle = data.getExtras();
             Bitmap bitmap = (Bitmap) bundle.get("data");
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
-            bitmap.compress(Bitmap.CompressFormat.JPEG,100,baos);
-            byte [] bData = baos.toByteArray();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+            byte[] bData = baos.toByteArray();
             ProfImage.setImageBitmap(bitmap);
 
-            StorageReference filepath = storageReference.child("usersProfilePic/"+GlobalVariables.getUserName()+".jpg");
+            StorageReference filepath = storageReference.child("usersProfilePic/" + GlobalVariables.getUserName() + ".jpg");
             filepath.putBytes(bData).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                    Firebase childRef3 =mCheck.child(GlobalVariables.getUserName());
+                    Firebase childRef3 = mCheck.child(GlobalVariables.getUserName());
                     childRef3.setValue("1");
                     progressDialog.dismiss();
                     Uri downloadurl = taskSnapshot.getDownloadUrl();
                     Picasso.with(getActivity()).load(downloadurl).into(ProfImage);
-                    GlobalVariables.message(getActivity(),"Finished");
+                    GlobalVariables.message(getActivity(), "Finished");
                 }
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
                 public void onFailure(@NonNull Exception e) {
-                    GlobalVariables.message(getActivity(),e.getMessage());
+                    GlobalVariables.message(getActivity(), e.getMessage());
                 }
             });
         }
