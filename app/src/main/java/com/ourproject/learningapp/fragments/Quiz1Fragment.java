@@ -350,6 +350,7 @@ public class Quiz1Fragment extends Fragment {
     public void GoToSelfTestAlert(){
         SelfTestActivity.TimerIsRunning=false;
         SelfTestAlert selfTestAlert=new SelfTestAlert();
+        selfTestAlert.setCancelable(false);
         selfTestAlert.show(getFragmentManager(),"Salert");
     }
     public void GoToAlert(){

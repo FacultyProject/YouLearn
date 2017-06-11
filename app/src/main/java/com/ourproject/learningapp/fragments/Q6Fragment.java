@@ -152,6 +152,7 @@ public class Q6Fragment extends Fragment {
                         GlobalVariables.scr++;
                         GlobalVariables.rAnswer=true;
                         SelfTestAlert selfTestAlert=new SelfTestAlert();
+                        selfTestAlert.setCancelable(false);
                         selfTestAlert.show(getFragmentManager(),"sAlert");
                     }
                     else {
@@ -169,6 +170,7 @@ public class Q6Fragment extends Fragment {
                     }
                     else {
                         WrongAnsAlert wrongAnsAlert = new WrongAnsAlert();
+                        wrongAnsAlert.setCancelable(false);
                         wrongAnsAlert.show(getFragmentManager(), "qAlert");
                     }
                     //textView2.setText("");
@@ -195,6 +197,7 @@ public class Q6Fragment extends Fragment {
     public void goTOalert(){
         if(GlobalVariables.nOfRightAns < TARGER2) {
             RightAnsAlert rightAnsAlert = new RightAnsAlert();
+            rightAnsAlert.setCancelable(false);
             rightAnsAlert.show(getFragmentManager(), "qAlert");
         }
         else{
