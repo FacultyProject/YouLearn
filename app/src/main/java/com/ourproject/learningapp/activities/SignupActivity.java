@@ -70,11 +70,11 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
         new SharedPref(getApplicationContext()).SaveItem("UserId",EMAIL.substring(0, EMAIL.indexOf('@')));
         if(TextUtils.isEmpty(EMAIL)){
             Toast.makeText(SignupActivity.this,"Enter email",Toast.LENGTH_LONG).show();
-
+                return;
         }
         if(TextUtils.isEmpty(PASSWORD)){
             Toast.makeText(SignupActivity.this,"Enter password",Toast.LENGTH_LONG).show();
-
+            return;
         }
         progressDialog.setMessage("Registering ...");
         progressDialog.show();

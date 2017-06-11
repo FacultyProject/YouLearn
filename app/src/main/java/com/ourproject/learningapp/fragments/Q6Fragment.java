@@ -138,7 +138,7 @@ public class Q6Fragment extends Fragment {
 
                           if (resultCode == getActivity().RESULT_OK && data != null) {
                             result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-                            textView2.setText(result.get(0));
+                            //textView2.setText(result.get(0));
                         }
                         break;
 
@@ -171,7 +171,7 @@ public class Q6Fragment extends Fragment {
                         WrongAnsAlert wrongAnsAlert = new WrongAnsAlert();
                         wrongAnsAlert.show(getFragmentManager(), "qAlert");
                     }
-                    //textView2.setText("");
+                    textView2.setText("");
                 }
             }catch (Exception e){
                 Toast.makeText(getActivity(), "من فضلك انطق الكلمه", Toast.LENGTH_LONG).show();

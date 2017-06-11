@@ -24,7 +24,7 @@ public class Fragment2 extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.frag2,container,false);
         QImaeg0 = (ImageView) view.findViewById(R.id.qimage0);
-        QImaeg1 = (ImageView) view.findViewById(R.id.qimage1);
+      //  QImaeg1 = (ImageView) view.findViewById(R.id.qimage1);
         QImaeg2 = (ImageView) view.findViewById(R.id.qimage2);
         QImaeg3 = (ImageView) view.findViewById(R.id.qimage3);
         QImaeg4 = (ImageView) view.findViewById(R.id.qimage4);
@@ -41,13 +41,7 @@ public class Fragment2 extends Fragment {
         });
 
 
-        QImaeg1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ImageonClick("qIamge5");
-                 
-            }
-        });
+
 
         QImaeg2.setOnClickListener(new View.OnClickListener() {
             @Override

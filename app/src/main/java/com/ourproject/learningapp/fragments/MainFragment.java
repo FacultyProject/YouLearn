@@ -31,6 +31,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -87,6 +89,8 @@ public class MainFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
         firebaseAuth = FirebaseAuth.getInstance();
         if (firebaseAuth.getCurrentUser() == null) {
             getActivity().finish();
@@ -96,6 +100,7 @@ public class MainFragment extends Fragment {
         storageReference = FirebaseStorage.getInstance().getReference();
         progressDialog = new ProgressDialog(getActivity());
         mCheck =new Firebase(ConstantVariables.fUserPicCheck);
+
 
     }
 
@@ -137,6 +142,7 @@ public class MainFragment extends Fragment {
         allFiles = finalArray.toArray(new String[finalArray.size()]);
         toolbar = (Toolbar) view.findViewById(R.id.app_bar);
         ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
+
 
         drawerLayout = (DrawerLayout) view.findViewById(R.id.drewer);
         navigationView = (NavigationView) view.findViewById(R.id.nav);

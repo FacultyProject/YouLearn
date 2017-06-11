@@ -62,9 +62,9 @@ public class Fragment1 extends Fragment {
                 Intent intent = new Intent(getActivity(), LettersActivity.class);
                 getActivity().startActivity(intent);
 
-                Intent serviceIntent = new Intent(getActivity(), ServiceClass.class);
-                serviceIntent.putExtra("id", R.raw.mini_nasheed);
-                getActivity().startService(serviceIntent);
+              //  Intent serviceIntent = new Intent(getActivity(), ServiceClass.class);
+               // serviceIntent.putExtra("id", R.raw.mini_nasheed);
+                //getActivity().startService(serviceIntent);
             }
         });
         myLayout.setOnClickListener(new View.OnClickListener() {

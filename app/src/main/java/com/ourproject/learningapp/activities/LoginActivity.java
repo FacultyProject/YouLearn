@@ -63,11 +63,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         if(TextUtils.isEmpty(EMAIL)){
             Toast.makeText(LoginActivity.this,"Enter email",Toast.LENGTH_LONG).show();
-
+            return;
         }
         if(TextUtils.isEmpty(PASSWORD)){
             Toast.makeText(LoginActivity.this,"Enter password",Toast.LENGTH_LONG).show();
-
+            return;
         }
         progressDialog.setMessage("Registering ...");
         progressDialog.show();
