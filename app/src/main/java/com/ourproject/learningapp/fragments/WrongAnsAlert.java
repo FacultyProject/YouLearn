@@ -27,7 +27,7 @@ public class WrongAnsAlert extends DialogFragment {
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
+        final android.support.v7.app.AlertDialog alertDialog = new android.support.v7.app.AlertDialog.Builder(getActivity()).create();
 
         LayoutInflater layoutInflater=getActivity().getLayoutInflater();
         View view=layoutInflater.inflate(R.layout.fragment_pop,null);
@@ -35,12 +35,18 @@ public class WrongAnsAlert extends DialogFragment {
         textView= (TextView) view.findViewById(R.id.textView);
         textView2= (TextView) view.findViewById(R.id.textv2);
         textView.setText("حاول مرة اخري!");
-        builder.setView(view);
+        alertDialog.setView(view);
+        view.findViewById(R.id.retry).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                alertDialog.dismiss();
+            }
+        });
         textView2.setVisibility(View.INVISIBLE);
         imageView.setVisibility(View.INVISIBLE);
 
-        Dialog dialog=builder.create();
+        alertDialog.show();
 
-        return dialog;
+        return alertDialog;
     }
 }

@@ -124,6 +124,7 @@ public class Q7Fragment extends Fragment {
         }else
         {
             WrongAnsAlert wrongAnsAlert = new WrongAnsAlert();
+            wrongAnsAlert.setCancelable(false);
             wrongAnsAlert.show(getFragmentManager(), "qAlert");
         }
     }
@@ -134,6 +135,7 @@ public class Q7Fragment extends Fragment {
     public void goTOalert(){
         if(GlobalVariables.nOfRightAns < TARGER3) {
             RightAnsAlert rightAnsAlert = new RightAnsAlert();
+            rightAnsAlert.setCancelable(false);
             rightAnsAlert.show(getFragmentManager(), "qAlert");
         }
         else{
@@ -141,6 +143,7 @@ public class Q7Fragment extends Fragment {
 
             GlobalVariables.QuizCompleted=true;
             RightAnsAlert rightAnsAlert = new RightAnsAlert();
+            rightAnsAlert.setCancelable(false);
             rightAnsAlert.show(getFragmentManager(), "qAlert");
         }
 
