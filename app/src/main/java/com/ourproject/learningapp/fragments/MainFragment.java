@@ -201,6 +201,8 @@ public class MainFragment extends Fragment {
                         break;
                     case R.id.offline: {
                         exists = true;
+                        Menu nav_Menu = navigationView.getMenu();
+                        nav_Menu.findItem(R.id.offline).setEnabled(false);
                         for (int i = 0; i < allFiles.length; i++) {
                             checkFiles(allFiles[i], i);
                             DownloadChecker(downloadManager, allFiles[i], i);
@@ -209,7 +211,6 @@ public class MainFragment extends Fragment {
                             Toast.makeText(getActivity(), "Files Already Exists",
                                     Toast.LENGTH_LONG).show();
                         } else {
-                            Menu nav_Menu = navigationView.getMenu();
                             nav_Menu.findItem(R.id.offline).setEnabled(false);
                             Toast.makeText(getActivity(), "Start Downloading", Toast.LENGTH_LONG).show();
                         }
