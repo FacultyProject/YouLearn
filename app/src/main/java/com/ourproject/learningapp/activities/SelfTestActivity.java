@@ -17,6 +17,7 @@ import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
 import com.ourproject.learningapp.R;
 import com.ourproject.learningapp.dataStorage.SharedPref;
+import com.ourproject.learningapp.fragments.ExitAlert;
 import com.ourproject.learningapp.fragments.SelfTestAlert;
 import com.ourproject.learningapp.fragments.SelfTestFragment;
 import com.ourproject.learningapp.globals.ConstantVariables;
@@ -107,7 +108,9 @@ public class SelfTestActivity extends AppCompatActivity {
         GlobalVariables.SelfTestMode = false;
         GlobalVariables.scr = 0;
         GlobalVariables.nOfQUESTONS = 0;
-        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+        //startActivity(new Intent(getApplicationContext(), MainActivity.class));
+        ExitAlert exitAlert=new ExitAlert();
+        exitAlert.show(getSupportFragmentManager(),"");
 
     }
 

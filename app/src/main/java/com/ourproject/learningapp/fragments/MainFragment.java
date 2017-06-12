@@ -8,6 +8,7 @@ import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.ApplicationInfo;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -149,7 +150,7 @@ public class MainFragment extends Fragment {
         drawerLayout = (DrawerLayout) view.findViewById(R.id.drewer);
         navigationView = (NavigationView) view.findViewById(R.id.nav);
         View view1 = navigationView.getHeaderView(0);
-        TextView tView = (TextView) view1.findViewById(R.id.user);
+        final TextView tView = (TextView) view1.findViewById(R.id.user);
         ProfImage = (ImageView) view1.findViewById(R.id.userpic);
         ProfImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -167,7 +168,6 @@ public class MainFragment extends Fragment {
                 if (Integer.parseInt(Userchekc) == -1) {
                     ProfImage.setImageResource(R.drawable.avatar);
                 } else
-                    // Picasso.with(getActivity()).load(String.valueOf(filepath2)).into(ProfImage);
                     Glide.with(getActivity()).using(new FirebaseImageLoader()).load(filepath2).into(ProfImage);
             }
 
@@ -176,7 +176,8 @@ public class MainFragment extends Fragment {
 
             }
         });
-
+        IntentFilter filter = new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE);
+        getActivity().registerReceiver(downloadReceiver, filter);
 
         tView.setText(new SharedPref(getActivity()).GetItem("UserId"));
 
@@ -208,6 +209,7 @@ public class MainFragment extends Fragment {
                             DownloadChecker(downloadManager, allFiles[i], i);
                         }
                         if (exists) {
+                            nav_Menu.findItem(R.id.offline).setEnabled(true);
                             Toast.makeText(getActivity(), "Files Already Exists",
                                     Toast.LENGTH_LONG).show();
                         } else {
@@ -362,7 +364,6 @@ public class MainFragment extends Fragment {
             long referenceId = intent.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, -1);
 
             if (referenceId == referenceID) {
-
                 Toast toast = Toast.makeText(getActivity(),
                         "Downloads Complete", Toast.LENGTH_LONG);
                 toast.setGravity(Gravity.TOP, 25, 400);
