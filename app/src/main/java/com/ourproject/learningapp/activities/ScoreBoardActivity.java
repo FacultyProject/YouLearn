@@ -14,6 +14,7 @@ import com.firebase.client.Firebase;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.ourproject.learningapp.R;
+import com.ourproject.learningapp.dataStorage.SharedPref;
 import com.ourproject.learningapp.globals.GlobalVariables;
 
 public class ScoreBoardActivity extends Activity {
@@ -64,6 +65,9 @@ public class ScoreBoardActivity extends Activity {
         if(GlobalVariables.ChallangeMode){
             GlobalVariables.ChallangeMode = false;
             mScr.child(user).setValue(String.valueOf(GlobalVariables.scr));
+
+            Firebase childRef =mScr.child(new SharedPref(getApplicationContext()).GetItem("Challanger"));
+            childRef.setValue("-1");
 
         }
         GlobalVariables.SelfTestMode=false;

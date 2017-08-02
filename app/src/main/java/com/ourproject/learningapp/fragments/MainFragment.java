@@ -161,6 +161,7 @@ public class MainFragment extends Fragment {
         });
         final StorageReference filepath2 = storageReference.child("usersProfilePic/" + GlobalVariables.getUserName() + ".jpg");
 
+
         mCheck.child(GlobalVariables.getUserName()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -230,25 +231,18 @@ public class MainFragment extends Fragment {
             }
         });
         actionBarDrawerToggle = new ActionBarDrawerToggle(getActivity(), drawerLayout, toolbar, R.string.open, R.string.colse);
+
+        if(Build.VERSION.SDK_INT >= 23)
+            drawerLayout.addDrawerListener(actionBarDrawerToggle);
+        else
         drawerLayout.setDrawerListener(actionBarDrawerToggle);
+
         actionBarDrawerToggle.syncState();
 
-        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-            @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                viewPager.setCurrentItem(tab.getPosition());
-            }
-
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-                viewPager.setCurrentItem(tab.getPosition());
-            }
-
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-                viewPager.setCurrentItem(tab.getPosition());
-            }
-        });
+        if(Build.VERSION.SDK_INT >= 24)
+            TabListnerAPI24Orhiger();
+        else
+        TabListnerAPIlessthan24();
 
         return view;
     }
@@ -375,5 +369,45 @@ public class MainFragment extends Fragment {
 
         }
     };
+
+    private void TabListnerAPI24Orhiger(){
+
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                viewPager.setCurrentItem(tab.getPosition());
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+                viewPager.setCurrentItem(tab.getPosition());
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+                viewPager.setCurrentItem(tab.getPosition());
+            }
+        });
+    }
+
+    private void TabListnerAPIlessthan24(){
+
+        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                viewPager.setCurrentItem(tab.getPosition());
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+                viewPager.setCurrentItem(tab.getPosition());
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+                viewPager.setCurrentItem(tab.getPosition());
+            }
+        });
+    }
 }
 

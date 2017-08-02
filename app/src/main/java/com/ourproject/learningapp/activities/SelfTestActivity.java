@@ -31,7 +31,7 @@ public class SelfTestActivity extends AppCompatActivity {
     public static boolean isTimeReachedZero;
     private ImageView HomeImg;
     private TextView Score, Questions, Timer;
-    private Firebase mCompititors ;
+    private Firebase mCompititors ,mScr;
 
     @Override
     public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
@@ -44,6 +44,7 @@ public class SelfTestActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_self_test);
+        mScr = new Firebase(ConstantVariables.fScore);
         if (!MainActivity.mTwoPane){
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
         }
@@ -108,11 +109,26 @@ public class SelfTestActivity extends AppCompatActivity {
         GlobalVariables.SelfTestMode = false;
         GlobalVariables.scr = 0;
         GlobalVariables.nOfQUESTONS = 0;
-        //startActivity(new Intent(getApplicationContext(), MainActivity.class));
+
         ExitAlert exitAlert=new ExitAlert();
         exitAlert.show(getSupportFragmentManager(),"");
 
     }
+
+    /*
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        String Challanger =new  SharedPref(getApplicationContext()).GetItem("Challanger");
+        if(GlobalVariables.ChallangeMode){
+            if(Challanger != null || Challanger != "none"){
+
+                Firebase firebasechild = mScr.child(Challanger);
+                firebasechild.setValue("-2");
+            }
+        }
+    }
+    */
 
     public void Save2ndUser() {
 

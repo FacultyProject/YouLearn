@@ -1,5 +1,7 @@
 package com.ourproject.learningapp.tabs_fragments;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -21,6 +23,7 @@ import com.ourproject.learningapp.R;
 import com.ourproject.learningapp.activities.ChallangeActivity;
 import com.ourproject.learningapp.activities.CompitionResultActivity;
 import com.ourproject.learningapp.activities.SelfTestActivity;
+import com.ourproject.learningapp.dataStorage.SharedPref;
 import com.ourproject.learningapp.globals.ConstantVariables;
 import com.ourproject.learningapp.globals.GlobalVariables;
 
@@ -31,6 +34,7 @@ public class Fragment3 extends Fragment {
 
     private CardView SelfTestCard ,cardView2;
     private Firebase mScr;
+    AlertDialog.Builder alert;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable final Bundle savedInstanceState) {
@@ -40,13 +44,14 @@ public class Fragment3 extends Fragment {
 
 
         mScr = new Firebase(ConstantVariables.fScore);
+        alert = new AlertDialog.Builder(getActivity());
+        alert.setTitle("تأكيد الاختبار");
+        alert.setMessage("هل تريد اكمال التحدي");
 
 
         SelfTestCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-
 
                 startActivity(new Intent(getActivity(), SelfTestActivity.class));
             }
@@ -71,10 +76,27 @@ public class Fragment3 extends Fragment {
 
                                  startActivity(new Intent(getActivity(), ChallangeActivity.class));
                              } else if ((Integer.parseInt(UserScr) *  1) == -1) {
-                                 GlobalVariables.ChallangeMode = true;
-                                 GlobalVariables.Is2ndPlayerPlay = true;
+                                 alert.setPositiveButton("نعم", new DialogInterface.OnClickListener() {
+                                     @Override
+                                     public void onClick(DialogInterface dialogInterface, int i) {
+                                         GlobalVariables.ChallangeMode = true;
+                                         GlobalVariables.Is2ndPlayerPlay = true;
+                                         startActivity(new Intent(getActivity(), SelfTestActivity.class));
+                                     }
+                                 });
 
-                                 startActivity(new Intent(getActivity(), SelfTestActivity.class));
+                                 alert.setNegativeButton("لا", new DialogInterface.OnClickListener() {
+                                     @Override
+                                     public void onClick(DialogInterface dialogInterface, int i) {
+
+                                         Firebase childRef =mScr.child(GlobalVariables.getUserName());
+                                         childRef.setValue("-2");
+                                     }
+                                 });
+                                 AlertDialog alertDialog = alert.create();
+                                 alertDialog.show();
+
+
                              } else if (Integer.parseInt(UserScr) >= 0) {
 
                                  startActivity(new Intent(getActivity(), CompitionResultActivity.class));

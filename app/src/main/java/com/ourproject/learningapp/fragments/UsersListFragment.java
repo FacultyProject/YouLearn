@@ -103,8 +103,8 @@ public class UsersListFragment extends Fragment {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 new SharedPref(getActivity()).SaveItem("Challanger",mUsres.get(i));
 
-                Firebase childRef =mScr.child(mUsres.get(i));
-                childRef.setValue("-1");
+                //Firebase childRef =mScr.child(mUsres.get(i));
+                //childRef.setValue("-1");
 
                 Firebase childRef2 = mCompitiors.child(mUsres.get(i));
                 childRef2.setValue(USER);
