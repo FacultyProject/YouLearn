@@ -20,6 +20,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthException;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.ourproject.learningapp.R;
 import com.ourproject.learningapp.dataStorage.SharedPref;
 import com.ourproject.learningapp.globals.ConstantVariables;
@@ -28,12 +30,14 @@ import com.ourproject.learningapp.globals.GlobalVariables;
 public class SignupActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button Regiter;
-    private EditText email;
+    private EditText email,UserName;
     private EditText password;
     private TextView signin;
     private ProgressDialog progressDialog;
     private FirebaseAuth firebaseAuth;
     private Firebase mUsers,mScr,mCheck;
+
+    private DatabaseReference mDatabase;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +47,7 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
         if (!MainActivity.mTwoPane){
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
         }
+        mDatabase = FirebaseDatabase.getInstance().getReference();
         mUsers = new Firebase("https://youlearn-56a66.firebaseio.com/users");
         mScr = new Firebase("https://youlearn-56a66.firebaseio.com/score");
         mCheck =new Firebase(ConstantVariables.fUserPicCheck);
@@ -58,6 +63,8 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
         email= (EditText) findViewById(R.id.email);
         password= (EditText) findViewById(R.id.password);
         signin= (TextView) findViewById(R.id.login);
+        UserName = (EditText) findViewById(R.id.user_name);
+
 
         Regiter.setOnClickListener(this);
         signin.setOnClickListener(this);
@@ -84,6 +91,18 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
+                            mDatabase.child("usersinfo").child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                            .child("email").setValue(EMAIL);
+
+                           // mDatabase.child("usersinfo").child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                  //  .child("score").setValue("-2");
+                            mDatabase.child("usersinfo").child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                    .child("check").setValue("-1");
+                            mDatabase.child("usersinfo").child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                    .child("userName").setValue(UserName.getText().toString());
+                            mDatabase.child("usersinfo").child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                    .child("userid").setValue(FirebaseAuth.getInstance().getCurrentUser().getUid());
+
                             Firebase childRef1 = mUsers.child(EMAIL.substring(0,EMAIL.indexOf('@')));
                             childRef1.setValue((EMAIL.substring(0,EMAIL.indexOf('@'))));
 

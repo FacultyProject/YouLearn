@@ -13,9 +13,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.firebase.client.DataSnapshot;
+import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.ourproject.learningapp.activities.MainActivity;
+import com.ourproject.learningapp.dataStorage.SharedPref;
 import com.squareup.picasso.Picasso;
 
 import java.io.File;
@@ -70,11 +75,41 @@ public class GlobalVariables {
 
     }
 
+    public static String getUserId(){
+        return FirebaseAuth.getInstance().getCurrentUser().getUid();
+    }
+
     public static String getUserName() {
         firebaseAuth = FirebaseAuth.getInstance();
         FirebaseUser user = firebaseAuth.getCurrentUser();
 
         return user.getEmail().substring(0, user.getEmail().indexOf('@'));
+    }
+
+    public static String GetUserName(final Context context){
+
+        final String[] nameuser = new String[1];
+        Firebase mScr;
+        mScr = new Firebase("https://youlearn-56a66.firebaseio.com/usersinfo/"+getUserId());
+        mScr.child("userName").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                    nameuser[0] = (String)dataSnapshot.getValue();
+
+                new SharedPref(context).SaveItem("UserName",nameuser[0]);
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+
+
+            }
+        });
+
+        return nameuser[0];
+
     }
 
     public static void pMusic(String url, Context context) {

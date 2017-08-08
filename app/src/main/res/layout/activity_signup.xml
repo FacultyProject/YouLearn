@@ -25,6 +25,13 @@
             android:text="عمل حساب"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
+
+        <EditText
+            android:inputType="text"
+            android:id="@+id/user_name"
+            android:hint=" اسم المستخدم"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
         <EditText
             android:layout_margin="10dp"
             android:inputType="textEmailAddress"

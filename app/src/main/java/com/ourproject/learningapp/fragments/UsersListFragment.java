@@ -5,22 +5,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.firebase.client.ChildEventListener;
-import com.firebase.client.DataSnapshot;
-import com.firebase.client.Firebase;
-import com.firebase.client.FirebaseError;
-import com.firebase.ui.database.FirebaseListAdapter;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.ourproject.learningapp.R;
@@ -28,17 +20,16 @@ import com.ourproject.learningapp.activities.SelfTestActivity;
 import com.ourproject.learningapp.dataStorage.SharedPref;
 import com.ourproject.learningapp.globals.ConstantVariables;
 import com.ourproject.learningapp.globals.GlobalVariables;
-
-import java.util.ArrayList;
+import com.ourproject.learningapp.models.usersinfo;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class UsersListFragment extends Fragment {
 
-    private ListView listView;
-    private ArrayList<String> mUsres = new ArrayList<>();
-    private Firebase mRef,mScr,mCompitiors;
+    private RecyclerView userslist;
+
+    private DatabaseReference mDatabase;
     public UsersListFragment() {
         // Required empty public constructor
     }
@@ -47,6 +38,7 @@ public class UsersListFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
     }
 
     @Override
@@ -54,71 +46,85 @@ public class UsersListFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_users_list, container, false);
-        mRef = new Firebase(ConstantVariables.fUsers);
-        mScr = new Firebase(ConstantVariables.fScore);
-        mCompitiors = new Firebase(ConstantVariables.fCompititors);
 
-        final String USER = GlobalVariables.getUserName();
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("usersinfo");
 
-        listView = (ListView) view.findViewById(R.id.users_list);
+        userslist = (RecyclerView) view.findViewById(R.id.users_list);
+        userslist.setHasFixedSize(true);
+        userslist.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1,
-                mUsres);
-            listView.setAdapter(arrayAdapter);
-
-        mRef.addChildEventListener(new ChildEventListener() {
-
+        FirebaseRecyclerAdapter<usersinfo,UserHolder> firebaseRecyclerAdapter =
+                new FirebaseRecyclerAdapter<usersinfo, UserHolder>(
+                        usersinfo.class
+                        ,R.layout.usre_row
+                        ,UserHolder.class
+                        ,mDatabase
+                ) {
             @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-            String value = dataSnapshot.getValue(String.class);
-                if(!value.equals(USER)) {
-                    mUsres.add(value);
-                    arrayAdapter.notifyDataSetChanged();
-                }
+            protected void populateViewHolder(final UserHolder viewHolder, final usersinfo model, final int position) {
+
+
+                viewHolder.uName.setText(model.getUserName());
+                viewHolder.uName.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        DatabaseReference newRef = mDatabase.child(GlobalVariables.getUserId()).child("ScoreInfo").push();
+
+                        final String key =  newRef.getKey();
+                        new SharedPref(getActivity()).SaveItem("ChallengeKey",key);
+                        DatabaseReference ComRef = getRef(position);
+                        final String ComKey = ComRef.getKey();
+                        new SharedPref(getActivity()).SaveItem("CompetitorId",ComKey);
+
+                         mDatabase.child(GlobalVariables.getUserId()).child("ScoreInfo").child(key).child("CompetitorId")
+                                 .setValue(model.getUserid());
+                        mDatabase.child(GlobalVariables.getUserId()).child("ScoreInfo").child(key).child("CompetitorName")
+                                .setValue(model.getUserName());
+                        //CompetitorScore
+
+                        mDatabase.child(GlobalVariables.getUserId()).child("ScoreInfo").child(key).child("CompetitorScore")
+                                .setValue("-1");
+                        //------------------------------------//
+                        mDatabase.child(model.getUserid()).child("ScoreInfo").child(key).child("CompetitorId") //user 2
+                                .setValue(GlobalVariables.getUserId());
+
+                        mDatabase.child(model.getUserid()).child("ScoreInfo").child(key).child("CompetitorName")
+                                        .setValue(new SharedPref(getActivity()).GetItem("UserName"));
+
+                         mDatabase.child(model.getUserid()).child("ScoreInfo").child(key).child("UserScore")
+                                 .setValue("-1");
+                         //GlobalVariables.message(getActivity(),key);
+
+                        GlobalVariables.ChallangeMode = true;
+                        startActivity(new Intent(getActivity(), SelfTestActivity.class));
+
+                    }
+                });
+
             }
+        };
 
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+        userslist.setAdapter(firebaseRecyclerAdapter);
 
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onCancelled(FirebaseError firebaseError) {
-
-            }
-        });
-
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                new SharedPref(getActivity()).SaveItem("Challanger",mUsres.get(i));
-
-                //Firebase childRef =mScr.child(mUsres.get(i));
-                //childRef.setValue("-1");
-
-                Firebase childRef2 = mCompitiors.child(mUsres.get(i));
-                childRef2.setValue(USER);
-
-                Firebase childRef3 = mCompitiors.child(USER);
-                childRef3.setValue(mUsres.get(i));
-
-                GlobalVariables.ChallangeMode = true;
-                startActivity(new Intent(getActivity(), SelfTestActivity.class));
-            }
-        });
 
 
         return view;
     }
 
-}
+    public static class UserHolder extends RecyclerView.ViewHolder{
+
+
+        TextView uName;
+        public UserHolder(View itemView) {
+            super(itemView);
+
+
+              uName = (TextView) itemView.findViewById(R.id.username);
+
+        }
+
+        }
+    }
+
+

@@ -41,7 +41,7 @@
             android:clearTaskOnLaunch="true" />
         <activity android:name=".activities.SelfTestActivity" />
         <activity android:name=".activities.ScoreBoardActivity" />
-        <activity android:name=".activities.SignupActivity"></activity>
+        <activity android:name=".activities.SignupActivity" />
         <activity android:name=".activities.LoginActivity" />
         <activity android:name=".activities.ChallangeActivity" />
         <activity android:name=".activities.CompitionResultActivity" />
@@ -52,7 +52,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.About"></activity>
+        <activity android:name=".activities.About" />
+        <activity android:name=".activities.CompetionsResultActivity"></activity>
     </application>
 
 </manifest>

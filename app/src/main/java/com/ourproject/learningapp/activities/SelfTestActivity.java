@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
@@ -31,7 +32,7 @@ public class SelfTestActivity extends AppCompatActivity {
     public static boolean isTimeReachedZero;
     private ImageView HomeImg;
     private TextView Score, Questions, Timer;
-    private Firebase mCompititors ,mScr;
+    private Firebase mCompititors, mScr;
 
     @Override
     public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
@@ -39,13 +40,12 @@ public class SelfTestActivity extends AppCompatActivity {
     }
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_self_test);
         mScr = new Firebase(ConstantVariables.fScore);
-        if (!MainActivity.mTwoPane){
+        if (!MainActivity.mTwoPane) {
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
         }
         TimerIsRunning = true;
@@ -56,16 +56,8 @@ public class SelfTestActivity extends AppCompatActivity {
 
         if (GlobalVariables.nOfQUESTONS == 8) {
             TimerIsRunning = false;
+            startActivity(new Intent(getApplicationContext(), ScoreBoardActivity.class));
 
-            if (GlobalVariables.Is2ndPlayerPlay) {
-
-                Save2ndUser();
-
-                startActivity(new Intent(getApplicationContext(), CompitionResultActivity.class));
-            } else {
-
-                startActivity(new Intent(getApplicationContext(), ScoreBoardActivity.class));
-            }
         }
 
         GlobalVariables.nOfQUESTONS++;
@@ -83,7 +75,7 @@ public class SelfTestActivity extends AppCompatActivity {
             MyThread t = new MyThread();
             t.start();
         } catch (Exception e) {
-            GlobalVariables.message(getApplicationContext(),"Error");
+            GlobalVariables.message(getApplicationContext(), "Error");
         }
 
 
@@ -110,46 +102,13 @@ public class SelfTestActivity extends AppCompatActivity {
         GlobalVariables.scr = 0;
         GlobalVariables.nOfQUESTONS = 0;
 
-        ExitAlert exitAlert=new ExitAlert();
-        exitAlert.show(getSupportFragmentManager(),"");
+        ExitAlert exitAlert = new ExitAlert();
+        exitAlert.show(getSupportFragmentManager(), "");
 
     }
 
-    /*
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        String Challanger =new  SharedPref(getApplicationContext()).GetItem("Challanger");
-        if(GlobalVariables.ChallangeMode){
-            if(Challanger != null || Challanger != "none"){
 
-                Firebase firebasechild = mScr.child(Challanger);
-                firebasechild.setValue("-2");
-            }
-        }
-    }
-    */
 
-    public void Save2ndUser() {
-
-        String USER = GlobalVariables.getUserName();
-
-        mCompititors = new Firebase(ConstantVariables.fCompititors);
-        mCompititors.child(USER).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                String usercom = dataSnapshot.getValue(String.class);
-
-                new SharedPref(getApplicationContext()).SaveItem("Challanger", usercom);
-            }
-
-            @Override
-            public void onCancelled(FirebaseError firebaseError) {
-
-            }
-        });
-
-    }
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {

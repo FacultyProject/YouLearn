@@ -35,7 +35,7 @@ public class ScoreBoardActivity extends Activity {
         firebaseAuth = FirebaseAuth.getInstance();
         FirebaseUser user = firebaseAuth.getCurrentUser();
         final String USER = user.getEmail().substring(0,user.getEmail().indexOf('@'));
-        mScr = new Firebase("https://youlearn-56a66.firebaseio.com/score");
+        mScr = new Firebase("https://youlearn-56a66.firebaseio.com/usersinfo");
 
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,10 +64,16 @@ public class ScoreBoardActivity extends Activity {
     public void GoToHome(String user){
         if(GlobalVariables.ChallangeMode){
             GlobalVariables.ChallangeMode = false;
-            mScr.child(user).setValue(String.valueOf(GlobalVariables.scr));
+            mScr.child(GlobalVariables.getUserId()).child("ScoreInfo")
+                    .child(new SharedPref(getApplicationContext()).GetItem("ChallengeKey"))
+                    .child("UserScore").setValue(String.valueOf(GlobalVariables.scr));
 
-            Firebase childRef =mScr.child(new SharedPref(getApplicationContext()).GetItem("Challanger"));
-            childRef.setValue("-1");
+            GlobalVariables.message(getApplicationContext(),new SharedPref(getApplicationContext()).GetItem("CompetitorId"));
+
+            mScr.child(new SharedPref(getApplicationContext()).GetItem("CompetitorId")).child("ScoreInfo")
+                    .child(new SharedPref(getApplicationContext()).GetItem("ChallengeKey"))
+                    .child("CompetitorScore").setValue(String.valueOf(GlobalVariables.scr));
+
 
         }
         GlobalVariables.SelfTestMode=false;
