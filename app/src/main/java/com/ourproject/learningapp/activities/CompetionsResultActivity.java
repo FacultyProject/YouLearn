@@ -52,11 +52,22 @@ public class CompetionsResultActivity extends AppCompatActivity {
             protected void populateViewHolder(ScoreHolder viewHolder, final ScoreInfo model, final int position) {
 
                 viewHolder.uName.setText(model.getCompetitorName());
-                viewHolder.Result.setText(model.getCompetitorScore()+" : "+model.getUserScore());
+
+
+                if (model.getUserScore() != null && model.getCompetitorScore() != null){
+                    if (Integer.parseInt(model.getUserScore()) == -1)
+                        viewHolder.Result.setText(model.getCompetitorScore() + " : " + "-");
+                    else if (Integer.parseInt(model.getCompetitorScore()) == -1)
+                        viewHolder.Result.setText("-" + " : " + model.getUserScore());
+                    else
+                        viewHolder.Result.setText(model.getCompetitorScore() + " : " + model.getUserScore());
+            }
+
                 viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         DatabaseReference KeyRef = getRef(position);
+
                         String Key = KeyRef.getKey();
                         new SharedPref(getApplicationContext()).SaveItem("ChallengeKey",Key);
                         new SharedPref(getApplicationContext()).SaveItem("CompetitorId",model.getCompetitorId());

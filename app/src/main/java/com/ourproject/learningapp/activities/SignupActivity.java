@@ -35,7 +35,7 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
     private TextView signin;
     private ProgressDialog progressDialog;
     private FirebaseAuth firebaseAuth;
-    private Firebase mUsers,mScr,mCheck;
+
 
     private DatabaseReference mDatabase;
     @Override
@@ -48,9 +48,8 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
         }
         mDatabase = FirebaseDatabase.getInstance().getReference();
-        mUsers = new Firebase("https://youlearn-56a66.firebaseio.com/users");
-        mScr = new Firebase("https://youlearn-56a66.firebaseio.com/score");
-        mCheck =new Firebase(ConstantVariables.fUserPicCheck);
+
+
 
         progressDialog=new ProgressDialog(this);
         if(firebaseAuth.getCurrentUser() != null){
@@ -103,14 +102,6 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
                             mDatabase.child("usersinfo").child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                     .child("userid").setValue(FirebaseAuth.getInstance().getCurrentUser().getUid());
 
-                            Firebase childRef1 = mUsers.child(EMAIL.substring(0,EMAIL.indexOf('@')));
-                            childRef1.setValue((EMAIL.substring(0,EMAIL.indexOf('@'))));
-
-                            Firebase childRef2 = mScr.child(EMAIL.substring(0,EMAIL.indexOf('@')));
-                            childRef2.setValue("-2");
-
-                            Firebase childRef3 =mCheck.child(EMAIL.substring(0,EMAIL.indexOf('@')));
-                            childRef3.setValue("-1");
 
 
                             finish();

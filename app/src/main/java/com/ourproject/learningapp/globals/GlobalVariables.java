@@ -32,11 +32,8 @@ import java.util.ArrayList;
  */
 
 public class GlobalVariables {
-    private static FirebaseAuth firebaseAuth;
+
     public static boolean BackFrom3rdTab = false;
-    public static boolean Is2ndPlayerPlay = false;
-    public static boolean Is2ndPlayerFinish = false;
-    public static boolean onDataChange = false;
     public static boolean ChallangeMode = false;
     public static boolean QuizCompleted = false;
     public static String TAG = "none";
@@ -79,12 +76,7 @@ public class GlobalVariables {
         return FirebaseAuth.getInstance().getCurrentUser().getUid();
     }
 
-    public static String getUserName() {
-        firebaseAuth = FirebaseAuth.getInstance();
-        FirebaseUser user = firebaseAuth.getCurrentUser();
 
-        return user.getEmail().substring(0, user.getEmail().indexOf('@'));
-    }
 
     public static String GetUserName(final Context context){
 

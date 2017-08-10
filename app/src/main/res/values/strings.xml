@@ -2,7 +2,6 @@
     <string name="app_name">3elmni</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="open">Ok</string>
     <string name="colse">Close</string>
     <string name="tranName1">tImage</string>
@@ -701,48 +700,6 @@
         <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelYaa%2F26.mp3?alt=media&amp;token=dfa00b3b-b70f-4d2b-a47c-6fb0c0b038fc</item>
         <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/HorofElmad%2FElmadBelYaa%2F27.mp3?alt=media&amp;token=d97b43cf-a045-4698-b47b-9e413f7b8616</item>
     </string-array>
-    <string-array name="mad1">
-        <item>ءَاوَى</item>
-        <item>مُوسَى</item>
-        <item>تِينَ</item>
-    </string-array>
-
-    <string-array name="mad2">
-        <item>قَالَ</item>
-        <item>أُولَى</item>
-        <item>حِينَ</item>
-    </string-array>
-
-    <string-array name="mad3">
-        <item>رَانَ</item>
-        <item>طُورِ</item>
-        <item>رِيحٌ</item>
-    </string-array>
-
-    <string-array name="mad4">
-        <item>نَارٌ</item>
-        <item>مَاعُونَ</item>
-        <item>فِيلِ</item>
-    </string-array>
-
-    <string-array name="mad5">
-        <item>هَدَى</item>
-        <item>سَاهُونَ</item>
-        <item>تِينَ</item>
-    </string-array>
-
-    <string-array name="mad6">
-        <item>نَادى</item>
-        <item>صُورِ</item>
-        <item>تِينَ</item>
-    </string-array>
-
-    <string-array name="madletters">
-        <item>أ</item>
-        <item>و</item>
-        <item>ي</item>
-
-    </string-array>
 
     <string-array name="HorofMadmoma">
         <item>أُ</item>
@@ -833,80 +790,6 @@
         <item>هِـ</item>
         <item>وِ</item>
         <item>يِ</item>
-    </string-array>
-
-    <string-array name="Quizwords">
-        <item>أسد</item>
-        <item>باب</item>
-        <item>ثعلب</item>
-    </string-array>
-
-
-    <string-array name="Quizpics">
-        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/images%2Fg2%2Fshoes.png?alt=media&amp;token=49dbf2de-4b41-44d5-afe3-1fa149c2fcb9</item>
-        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/quizes%2Fquiz1%2Fimages%2F01.png?alt=media&amp;token=95883f20-ca06-4bf2-ac85-adca469aa4c0</item>
-        <item>https://firebasestorage.googleapis.com/v0/b/youlearn-56a66.appspot.com/o/quizes%2Fquiz1%2Fimages%2F02.png?alt=media&amp;token=a764cdbe-d162-4613-bd7b-d443236c72a1</item>
-    </string-array>
-
-    <string-array name="q1Letters1">
-        <item>ض</item>
-        <item>س</item>
-        <item>ع</item>
-    </string-array>
-
-    <string-array name="q1Letters2">
-        <item>أ</item>
-        <item>ب</item>
-        <item>ي</item>
-    </string-array>
-
-    <string-array name="q1Letters3">
-        <item>غ</item>
-        <item>ش</item>
-        <item>ث</item>
-    </string-array>
-
-    <string-array name="q1Letters4">
-        <item>س</item>
-        <item>ض</item>
-        <item>خ</item>
-    </string-array>
-
-    <string-array name="q1Letters5">
-        <item>ر</item>
-        <item>ا</item>
-        <item>ب</item>
-    </string-array>
-
-    <string-array name="q1Letters6">
-        <item>ش</item>
-        <item>ج</item>
-        <item>س</item>
-    </string-array>
-
-
-    <string-array name="q1Letters7">
-        <item>ق</item>
-        <item>ب</item>
-        <item>ع</item>
-    </string-array>
-
-    <string-array name="q1Letters8">
-        <item>د</item>
-        <item>ل</item>
-        <item>ل</item>
-    </string-array>
-
-    <string-array name="q1Letters9">
-        <item>ن</item>
-        <item>ع</item>
-        <item>د</item>
-    </string-array>
-
-    <string-array name="q1Letters10">
-        <item>ت</item>
-        <item>ث</item>
-        <item>ذ</item>
     </string-array>
 
 

@@ -21,13 +21,10 @@ import com.ourproject.learningapp.globals.GlobalVariables;
  */
 public class ExitAlert extends DialogFragment {
 
-    private Firebase mScr ;
-
-
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mScr = new Firebase(ConstantVariables.fScore);
+
     }
 
     @NonNull
@@ -41,14 +38,6 @@ public class ExitAlert extends DialogFragment {
             @Override
             public void onClick(View v) {
 
-                String Challanger =new  SharedPref(getActivity()).GetItem("Challanger");
-                if(GlobalVariables.ChallangeMode){
-                    if(Challanger != null || Challanger != "none"){
-
-                        Firebase firebasechild = mScr.child(Challanger);
-                        firebasechild.setValue("-2");
-                    }
-                }
 
                getActivity().finish();
                 startActivity(new Intent(getActivity(), MainActivity.class));

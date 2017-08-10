@@ -32,7 +32,7 @@ public class SelfTestActivity extends AppCompatActivity {
     public static boolean isTimeReachedZero;
     private ImageView HomeImg;
     private TextView Score, Questions, Timer;
-    private Firebase mCompititors, mScr;
+
 
     @Override
     public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
@@ -44,7 +44,7 @@ public class SelfTestActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_self_test);
-        mScr = new Firebase(ConstantVariables.fScore);
+
         if (!MainActivity.mTwoPane) {
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
         }

@@ -97,7 +97,7 @@ public class MainFragment extends Fragment {
         }
         storageReference = FirebaseStorage.getInstance().getReference();
         progressDialog = new ProgressDialog(getActivity());
-        mCheck = new Firebase(ConstantVariables.fUserPicCheck);
+        mCheck = new Firebase("https://youlearn-56a66.firebaseio.com/usersinfo/"+GlobalVariables.getUserId());
 
 
     }
@@ -154,10 +154,10 @@ public class MainFragment extends Fragment {
                 startActivityForResult(intent, REQUET_CODE);
             }
         });
-        final StorageReference filepath2 = storageReference.child("usersProfilePic/" + GlobalVariables.getUserName() + ".jpg");
+        final StorageReference filepath2 = storageReference.child("usersProfilePic/" + GlobalVariables.getUserId() + ".jpg");
 
 
-        mCheck.child(GlobalVariables.getUserName()).addValueEventListener(new ValueEventListener() {
+        mCheck.child("check").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String Userchekc = (String) dataSnapshot.getValue();
@@ -175,7 +175,7 @@ public class MainFragment extends Fragment {
         IntentFilter filter = new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE);
         getActivity().registerReceiver(downloadReceiver, filter);
 
-        tView.setText(new SharedPref(getActivity()).GetItem("UserId"));
+        tView.setText( new SharedPref(getActivity()).GetItem("UserName"));
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -256,11 +256,11 @@ public class MainFragment extends Fragment {
             byte[] bData = baos.toByteArray();
             ProfImage.setImageBitmap(bitmap);
 
-            StorageReference filepath = storageReference.child("usersProfilePic/" + GlobalVariables.getUserName() + ".jpg");
+            StorageReference filepath = storageReference.child("usersProfilePic/" + GlobalVariables.getUserId() + ".jpg");
             filepath.putBytes(bData).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                    Firebase childRef3 = mCheck.child(GlobalVariables.getUserName());
+                    Firebase childRef3 = mCheck.child("check");
                     childRef3.setValue("1");
                     progressDialog.dismiss();
                     Uri downloadurl = taskSnapshot.getDownloadUrl();
