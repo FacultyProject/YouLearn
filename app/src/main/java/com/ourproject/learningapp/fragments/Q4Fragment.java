@@ -3,7 +3,6 @@ package com.ourproject.learningapp.fragments;
 
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -12,13 +11,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.ourproject.learningapp.Interface.PositionRespone;
 import com.ourproject.learningapp.R;
 import com.ourproject.learningapp.globals.GlobalVariables;
-import com.squareup.picasso.Picasso;
-
-import java.io.IOException;
 import java.util.Random;
 
 /**

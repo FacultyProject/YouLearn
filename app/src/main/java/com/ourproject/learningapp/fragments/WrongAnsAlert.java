@@ -1,18 +1,14 @@
 package com.ourproject.learningapp.fragments;
 
-import android.app.AlertDialog;
+
 import android.app.Dialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
-import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import com.ourproject.learningapp.R;
 
 /**

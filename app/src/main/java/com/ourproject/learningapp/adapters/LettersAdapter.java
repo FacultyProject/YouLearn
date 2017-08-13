@@ -9,16 +9,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import com.ourproject.learningapp.R;
 import com.ourproject.learningapp.activities.LetterInfo;
 import com.ourproject.learningapp.activities.MainActivity;
 import com.ourproject.learningapp.fragments.LetterFragment;
 import com.ourproject.learningapp.globals.GlobalVariables;
 import com.ourproject.learningapp.models.LettersModel;
-import com.ourproject.learningapp.models.MadModel;
 import com.ourproject.learningapp.services.ServiceClass;
-
 import java.util.ArrayList;
 import java.util.List;
 

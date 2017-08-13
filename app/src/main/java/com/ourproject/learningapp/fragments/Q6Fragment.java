@@ -8,7 +8,6 @@ import android.speech.RecognizerIntent;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,12 +15,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.ourproject.learningapp.R;
 import com.ourproject.learningapp.activities.SelfTestActivity;
 import com.ourproject.learningapp.globals.GlobalVariables;
-import com.squareup.picasso.Picasso;
-
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -30,7 +26,6 @@ import java.util.Random;
  */
 public class Q6Fragment extends Fragment {
     public static final int TARGER2=4;
-    //public static  boolean TAG = false;
     private int rand,Randlist;
     private String[] Words, PicWords;
     private ImageView imageView, Rec;

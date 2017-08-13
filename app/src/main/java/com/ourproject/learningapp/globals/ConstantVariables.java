@@ -6,5 +6,6 @@ package com.ourproject.learningapp.globals;
 
 public class ConstantVariables {
 
+    public static final String fUsersInfo ="https://youlearn-56a66.firebaseio.com/usersinfo";
 
 }

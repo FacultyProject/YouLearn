@@ -33,6 +33,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.bumptech.glide.Glide;
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
@@ -45,14 +46,14 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.ourproject.learningapp.R;
 import com.ourproject.learningapp.activities.About;
 import com.ourproject.learningapp.activities.LoginActivity;
 import com.ourproject.learningapp.adapters.CustomPagerAdapter;
-import com.ourproject.learningapp.R;
 import com.ourproject.learningapp.dataStorage.SharedPref;
-import com.ourproject.learningapp.globals.ConstantVariables;
 import com.ourproject.learningapp.globals.GlobalVariables;
 import com.squareup.picasso.Picasso;
+
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.util.ArrayList;

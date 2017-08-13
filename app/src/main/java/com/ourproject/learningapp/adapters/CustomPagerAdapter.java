@@ -9,7 +9,6 @@ import android.support.v4.content.ContextCompat;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.ImageSpan;
-
 import com.ourproject.learningapp.R;
 import com.ourproject.learningapp.tabs_fragments.Fragment1;
 import com.ourproject.learningapp.tabs_fragments.Fragment2;

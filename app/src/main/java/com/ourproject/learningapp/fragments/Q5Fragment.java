@@ -13,10 +13,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import com.ourproject.learningapp.R;
 import com.ourproject.learningapp.globals.GlobalVariables;
-
 import java.util.ArrayList;
 import java.util.Random;
 

@@ -1,9 +1,9 @@
 package com.ourproject.learningapp.activities;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -19,9 +19,10 @@ import com.ourproject.learningapp.models.ScoreInfo;
 
 public class CompetionsResultActivity extends AppCompatActivity {
 
-    FloatingActionButton Fab;
-    private RecyclerView userslist;
+    private FloatingActionButton Fab;
+    private RecyclerView ResultsList;
     private DatabaseReference mDatabase;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,12 +35,14 @@ public class CompetionsResultActivity extends AppCompatActivity {
             }
         });
 
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("usersinfo").
-                child(GlobalVariables.getUserId())
+        mDatabase = FirebaseDatabase.getInstance().getReference()
+                .child("usersinfo")
+                .child(GlobalVariables.getUserId())
                 .child("ScoreInfo");
-        userslist = (RecyclerView)  findViewById(R.id.results);
-        userslist.setHasFixedSize(true);
-        userslist.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+
+        ResultsList = (RecyclerView)  findViewById(R.id.results);
+        ResultsList.setHasFixedSize(true);
+        ResultsList.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
 
         FirebaseRecyclerAdapter<ScoreInfo,ScoreHolder> firebaseRecyclerAdapter =
                 new FirebaseRecyclerAdapter<ScoreInfo, ScoreHolder>(
@@ -79,7 +82,7 @@ public class CompetionsResultActivity extends AppCompatActivity {
                 });
             }
         };
-        userslist.setAdapter(firebaseRecyclerAdapter);
+        ResultsList.setAdapter(firebaseRecyclerAdapter);
 
     }
 

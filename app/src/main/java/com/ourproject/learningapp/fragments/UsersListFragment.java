@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -18,7 +19,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.ourproject.learningapp.R;
 import com.ourproject.learningapp.activities.SelfTestActivity;
 import com.ourproject.learningapp.dataStorage.SharedPref;
-import com.ourproject.learningapp.globals.ConstantVariables;
 import com.ourproject.learningapp.globals.GlobalVariables;
 import com.ourproject.learningapp.models.usersinfo;
 
@@ -27,7 +27,7 @@ import com.ourproject.learningapp.models.usersinfo;
  */
 public class UsersListFragment extends Fragment {
 
-    private RecyclerView userslist;
+    private RecyclerView UsersList;
 
     private DatabaseReference mDatabase;
     public UsersListFragment() {
@@ -49,64 +49,75 @@ public class UsersListFragment extends Fragment {
 
         mDatabase = FirebaseDatabase.getInstance().getReference().child("usersinfo");
 
-        userslist = (RecyclerView) view.findViewById(R.id.users_list);
-        userslist.setHasFixedSize(true);
-        userslist.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        FirebaseRecyclerAdapter<usersinfo,UserHolder> firebaseRecyclerAdapter =
+        UsersList = (RecyclerView) view.findViewById(R.id.users_list);
+        UsersList.setHasFixedSize(true);
+        UsersList.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+        final FirebaseRecyclerAdapter<usersinfo,UserHolder> firebaseRecyclerAdapter =
                 new FirebaseRecyclerAdapter<usersinfo, UserHolder>(
                         usersinfo.class
-                        ,R.layout.usre_row
+                        ,R.layout.user_row
                         ,UserHolder.class
                         ,mDatabase
                 ) {
             @Override
             protected void populateViewHolder(final UserHolder viewHolder, final usersinfo model, final int position) {
 
+                DatabaseReference ComRef = getRef(position);
+                final String ComKey = ComRef.getKey();
 
-                viewHolder.uName.setText(model.getUserName());
-                viewHolder.uName.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
 
-                        DatabaseReference newRef = mDatabase.child(GlobalVariables.getUserId()).child("ScoreInfo").push();
+                if(!ComKey.equals(GlobalVariables.getUserId()))
+                {
+                    viewHolder.uName.setText(model.getUserName());
+                    viewHolder.uName.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
 
-                        final String key =  newRef.getKey();
-                        new SharedPref(getActivity()).SaveItem("ChallengeKey",key);
-                        DatabaseReference ComRef = getRef(position);
-                        final String ComKey = ComRef.getKey();
-                        new SharedPref(getActivity()).SaveItem("CompetitorId",ComKey);
+                            DatabaseReference newRef = mDatabase.child(GlobalVariables.getUserId()).child("ScoreInfo").push();
 
-                         mDatabase.child(GlobalVariables.getUserId()).child("ScoreInfo").child(key).child("CompetitorId")
-                                 .setValue(model.getUserid());
-                        mDatabase.child(GlobalVariables.getUserId()).child("ScoreInfo").child(key).child("CompetitorName")
-                                .setValue(model.getUserName());
-                        //CompetitorScore
+                            final String key =  newRef.getKey();
+                            new SharedPref(getActivity()).SaveItem("ChallengeKey",key);
 
-                        mDatabase.child(GlobalVariables.getUserId()).child("ScoreInfo").child(key).child("CompetitorScore")
-                                .setValue("-1");
-                        //------------------------------------//
-                        mDatabase.child(model.getUserid()).child("ScoreInfo").child(key).child("CompetitorId") //user 2
-                                .setValue(GlobalVariables.getUserId());
+                            new SharedPref(getActivity()).SaveItem("CompetitorId",ComKey);
 
-                        mDatabase.child(model.getUserid()).child("ScoreInfo").child(key).child("CompetitorName")
-                                        .setValue(new SharedPref(getActivity()).GetItem("UserName"));
+                            mDatabase.child(GlobalVariables.getUserId()).child("ScoreInfo").child(key).child("CompetitorId")
+                                    .setValue(model.getUserid());
+                            mDatabase.child(GlobalVariables.getUserId()).child("ScoreInfo").child(key).child("CompetitorName")
+                                    .setValue(model.getUserName());
+                            //CompetitorScore
 
-                         mDatabase.child(model.getUserid()).child("ScoreInfo").child(key).child("UserScore")
-                                 .setValue("-1");
-                         //GlobalVariables.message(getActivity(),key);
+                            mDatabase.child(GlobalVariables.getUserId()).child("ScoreInfo").child(key).child("CompetitorScore")
+                                    .setValue("-1");
+                            //-------------------------------------------------------------------------//
+                            mDatabase.child(model.getUserid()).child("ScoreInfo").child(key).child("CompetitorId") //user 2
+                                    .setValue(GlobalVariables.getUserId());
 
-                        GlobalVariables.ChallangeMode = true;
-                        startActivity(new Intent(getActivity(), SelfTestActivity.class));
+                            mDatabase.child(model.getUserid()).child("ScoreInfo").child(key).child("CompetitorName")
+                                    .setValue(new SharedPref(getActivity()).GetItem("UserName"));
 
-                    }
-                });
+                            mDatabase.child(model.getUserid()).child("ScoreInfo").child(key).child("UserScore")
+                                    .setValue("-1");
+
+
+                            GlobalVariables.ChallangeMode = true;
+                            startActivity(new Intent(getActivity(), SelfTestActivity.class));
+
+                        }
+                    });
+                }
+                else {
+                    viewHolder.itemView.getLayoutParams().height = 0;
+
+                }
+
+
 
             }
         };
 
-        userslist.setAdapter(firebaseRecyclerAdapter);
-
+        UsersList.setAdapter(firebaseRecyclerAdapter);
 
 
         return view;
@@ -115,11 +126,12 @@ public class UsersListFragment extends Fragment {
     public static class UserHolder extends RecyclerView.ViewHolder{
 
 
+        CardView cardView;
         TextView uName;
         public UserHolder(View itemView) {
             super(itemView);
 
-
+              cardView = (CardView) itemView.findViewById(R.id.usercard);
               uName = (TextView) itemView.findViewById(R.id.username);
 
         }

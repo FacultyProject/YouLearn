@@ -9,12 +9,10 @@ import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.ourproject.learningapp.R;
-
 import com.ourproject.learningapp.activities.CompetionsResultActivity;
-
 import com.ourproject.learningapp.activities.SelfTestActivity;
+import com.ourproject.learningapp.globals.GlobalVariables;
 
 
 /**
@@ -37,6 +35,9 @@ public class Fragment3 extends Fragment {
             @Override
             public void onClick(View view) {
 
+                GlobalVariables.G1.clear();
+                GlobalVariables.G2.clear();
+                GlobalVariables.G3.clear();
                 startActivity(new Intent(getActivity(), SelfTestActivity.class));
             }
         });
@@ -44,7 +45,6 @@ public class Fragment3 extends Fragment {
         cardView2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
 
                 startActivity(new Intent(getActivity(),CompetionsResultActivity.class));
             }

@@ -3,9 +3,9 @@ package com.ourproject.learningapp.activities;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -24,8 +24,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.ourproject.learningapp.R;
 import com.ourproject.learningapp.dataStorage.SharedPref;
-import com.ourproject.learningapp.globals.ConstantVariables;
-import com.ourproject.learningapp.globals.GlobalVariables;
 
 public class SignupActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -119,7 +117,7 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
 
     @Override
     public void onClick(View view) {
-        if(view==Regiter){
+        if(view == Regiter){
             RegiterUser();
         }
         if(view==signin){

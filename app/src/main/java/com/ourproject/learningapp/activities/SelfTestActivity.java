@@ -2,30 +2,22 @@ package com.ourproject.learningapp.activities;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import com.firebase.client.DataSnapshot;
-import com.firebase.client.Firebase;
-import com.firebase.client.FirebaseError;
-import com.firebase.client.ValueEventListener;
 import com.ourproject.learningapp.R;
-import com.ourproject.learningapp.dataStorage.SharedPref;
 import com.ourproject.learningapp.fragments.ExitAlert;
 import com.ourproject.learningapp.fragments.SelfTestAlert;
 import com.ourproject.learningapp.fragments.SelfTestFragment;
-import com.ourproject.learningapp.globals.ConstantVariables;
 import com.ourproject.learningapp.globals.GlobalVariables;
 
 
 public class SelfTestActivity extends AppCompatActivity {
+
     private final int EndPoint = 0;
     public static boolean TimerIsRunning;
     private int StartTimer = 15;
@@ -147,7 +139,7 @@ public class SelfTestActivity extends AppCompatActivity {
 
                         selfTestAlert.show(getSupportFragmentManager(), "anotheralert");
                     } catch (IllegalStateException e) {
-                        Log.e("Error", "Erroe");
+                        GlobalVariables.message(getApplicationContext(),"Error");
                     }
 
                 }

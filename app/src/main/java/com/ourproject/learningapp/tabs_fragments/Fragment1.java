@@ -10,12 +10,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-
 import com.ourproject.learningapp.activities.LettersActivity;
 import com.ourproject.learningapp.activities.MadLettersActivity;
 import com.ourproject.learningapp.R;
 import com.ourproject.learningapp.globals.GlobalVariables;
-import com.ourproject.learningapp.services.ServiceClass;
+
 
 /**
  * Created by Moetaz on 2/24/2017.

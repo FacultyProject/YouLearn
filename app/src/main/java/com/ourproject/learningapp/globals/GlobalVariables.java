@@ -12,17 +12,14 @@ import android.text.style.ForegroundColorSpan;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.ourproject.learningapp.activities.MainActivity;
 import com.ourproject.learningapp.dataStorage.SharedPref;
 import com.squareup.picasso.Picasso;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -76,20 +73,18 @@ public class GlobalVariables {
         return FirebaseAuth.getInstance().getCurrentUser().getUid();
     }
 
-
-
     public static String GetUserName(final Context context){
 
-        final String[] nameuser = new String[1];
+        final String[] UserName = new String[1];
         Firebase mScr;
         mScr = new Firebase("https://youlearn-56a66.firebaseio.com/usersinfo/"+getUserId());
         mScr.child("userName").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
-                    nameuser[0] = (String)dataSnapshot.getValue();
+                    UserName[0] = (String)dataSnapshot.getValue();
 
-                new SharedPref(context).SaveItem("UserName",nameuser[0]);
+                new SharedPref(context).SaveItem("UserName",UserName[0]);
             }
 
             @Override
@@ -100,7 +95,7 @@ public class GlobalVariables {
             }
         });
 
-        return nameuser[0];
+        return UserName[0];
 
     }
 
