@@ -17,8 +17,8 @@ import com.ourproject.learningapp.globals.GlobalVariables;
  * Created by Mohamed Ali on 5/2/2017.
  */
 public class LettersAnim extends Fragment {
-    ImageView gif,playSound;
-    String[]lettersSounds;
+    private ImageView gif,playSound;
+    private String[]lettersSounds;
 
     @Nullable
     @Override

@@ -17,9 +17,9 @@ import com.ourproject.learningapp.R;
 
 public class WrongAnsAlert extends DialogFragment {
 
-    ImageView imageView;
-    TextView textView;
-    TextView textView2;
+    private ImageView imageView;
+    private TextView textView;
+    private TextView textView2;
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {

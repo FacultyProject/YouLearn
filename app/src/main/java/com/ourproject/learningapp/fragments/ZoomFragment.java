@@ -20,15 +20,15 @@ import com.ourproject.learningapp.globals.GlobalVariables;
  */
 
 public class  ZoomFragment extends Fragment {
-    ImageView imageView,play;
-    TextView textView;
-    Bundle bundle;
+    private ImageView imageView,play;
+    private TextView textView;
+    private Bundle bundle;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         bundle=getArguments();
-        if (Build.VERSION.SDK_INT >= 21) {
+        if (Build.VERSION.SDK_INT >  21) {
             setSharedElementEnterTransition(TransitionInflater
                     .from(getActivity()).inflateTransition(android.R.transition.move));
 

@@ -145,6 +145,7 @@ public class MainFragment extends Fragment {
 
         drawerLayout = (DrawerLayout) view.findViewById(R.id.drewer);
         navigationView = (NavigationView) view.findViewById(R.id.nav);
+
         View view1 = navigationView.getHeaderView(0);
         final TextView tView = (TextView) view1.findViewById(R.id.user);
         ProfImage = (ImageView) view1.findViewById(R.id.userpic);

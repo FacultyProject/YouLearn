@@ -1,6 +1,7 @@
 package com.ourproject.learningapp.fragments;
 
 import android.app.Fragment;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewCompat;
@@ -43,14 +44,22 @@ public class LetterFragment extends Fragment implements View.OnClickListener {
         bundle.putString("letter", letter);
         zoomFragment.setArguments(bundle);
 
-        getFragmentManager()
-                .beginTransaction()
-                .addSharedElement(view1, ViewCompat.getTransitionName(view1))
-                .addSharedElement(view2, ViewCompat.getTransitionName(view2))
-                .addSharedElement(play, ViewCompat.getTransitionName(play))
-                .addToBackStack(fTAG)
-                .replace(R.id.fmain2, zoomFragment)
-                .commit();
+        if(Build.VERSION.SDK_INT > 21) {
+            getFragmentManager()
+                    .beginTransaction()
+                    .addSharedElement(view1, ViewCompat.getTransitionName(view1))
+                    .addSharedElement(view2, ViewCompat.getTransitionName(view2))
+                    .addSharedElement(play, ViewCompat.getTransitionName(play))
+                    .addToBackStack(fTAG)
+                    .replace(R.id.fmain2, zoomFragment)
+                    .commit();
+        }else {
+            getFragmentManager()
+                    .beginTransaction()
+                    .addToBackStack(fTAG)
+                    .replace(R.id.fmain2, zoomFragment)
+                    .commit();
+        }
 
 
     }

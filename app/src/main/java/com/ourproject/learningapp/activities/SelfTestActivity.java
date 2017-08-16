@@ -9,10 +9,12 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import com.ourproject.learningapp.R;
 import com.ourproject.learningapp.fragments.ExitAlert;
+import com.ourproject.learningapp.fragments.Q6Fragment;
+import com.ourproject.learningapp.fragments.Quiz1Fragment;
 import com.ourproject.learningapp.fragments.SelfTestAlert;
-import com.ourproject.learningapp.fragments.SelfTestFragment;
 import com.ourproject.learningapp.globals.GlobalVariables;
 
 
@@ -80,9 +82,14 @@ public class SelfTestActivity extends AppCompatActivity {
             GlobalVariables.QUIZID = "qIamge3";
 
 
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fmainST, new SelfTestFragment())
-                .commit();
+        if(GlobalVariables.nOfQUESTONS <  7)
+             getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.fmainST, new Quiz1Fragment() )
+                    .commit();
+        else
+             getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.fmainST, new Q6Fragment() )
+                    .commit();
 
     }
 
