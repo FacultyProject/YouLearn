@@ -48,7 +48,7 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.ourproject.learningapp.R;
 import com.ourproject.learningapp.activities.About;
-import com.ourproject.learningapp.activities.LoginActivity;
+import com.ourproject.learningapp.activities.RegisteringActivity;
 import com.ourproject.learningapp.adapters.CustomPagerAdapter;
 import com.ourproject.learningapp.dataStorage.SharedPref;
 import com.ourproject.learningapp.globals.GlobalVariables;
@@ -88,12 +88,14 @@ public class MainFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        firebaseAuth = FirebaseAuth.getInstance();
         GlobalVariables.GetUserName(getActivity());
 
-        firebaseAuth = FirebaseAuth.getInstance();
+
         if (firebaseAuth.getCurrentUser() == null) {
+            GlobalVariables.message(getContext(),"cdcd");
             getActivity().finish();
-            startActivity(new Intent(getActivity(), LoginActivity.class));
+            startActivity(new Intent(getActivity(), RegisteringActivity.class));
 
         }
         storageReference = FirebaseStorage.getInstance().getReference();
@@ -220,7 +222,7 @@ public class MainFragment extends Fragment {
                     case R.id.mLogout: {
                         firebaseAuth.signOut();
                         getActivity().finish();
-                        startActivity(new Intent(getActivity(), LoginActivity.class));
+                        startActivity(new Intent(getActivity(), RegisteringActivity.class));
                     }
                     break;
                 }

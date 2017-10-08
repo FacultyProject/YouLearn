@@ -26,7 +26,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        setContentView(R.layout.activity_main);
+        //setContentView(R.layout.activity_main);
+
         if (Build.VERSION.SDK_INT >= 23)
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, REQUEST_CODE);
         font=Typeface.createFromAsset(getAssets(),"fonts/andlso.ttf");

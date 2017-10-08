@@ -30,7 +30,8 @@ public class StartActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
                 finally {
-                    startActivity(new Intent(getApplication(),SignupActivity.class));
+                    finish();
+                    startActivity(new Intent(getApplication(),RegisteringActivity.class));
                 }
             }
 

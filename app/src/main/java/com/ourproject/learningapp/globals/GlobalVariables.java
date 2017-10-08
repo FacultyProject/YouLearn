@@ -90,8 +90,6 @@ public class GlobalVariables {
             @Override
             public void onCancelled(FirebaseError firebaseError) {
 
-
-
             }
         });
 
