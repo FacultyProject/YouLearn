@@ -1,5 +1,6 @@
 package com.ourproject.learningapp.activities;
 
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -45,7 +46,11 @@ public class About extends AppCompatActivity {
                     //log the exception
                 }
             }
-            textView.setTextDirection(View.TEXT_DIRECTION_FIRST_STRONG_RTL);
+
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    textView.setTextDirection(View.TEXT_DIRECTION_FIRST_STRONG_RTL);
+                }
+
             textView.setText(text);
             textView.setTypeface(MainActivity.font);
 

@@ -6,7 +6,6 @@
     android:background="#fff"
     tools:context="com.ourproject.learningapp.activities.StartActivity">
 <ImageView
-
     android:layout_centerVertical="true"
     android:layout_centerHorizontal="true"
     android:src="@drawable/ss"

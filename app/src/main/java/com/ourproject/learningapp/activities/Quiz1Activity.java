@@ -8,7 +8,6 @@ import android.os.Bundle;
 import com.ourproject.learningapp.R;
 import com.ourproject.learningapp.fragments.LettersQuiz;
 import com.ourproject.learningapp.fragments.Q4Fragment;
-import com.ourproject.learningapp.fragments.Q5Fragment;
 import com.ourproject.learningapp.fragments.Q6Fragment;
 import com.ourproject.learningapp.fragments.Q7Fragment;
 import com.ourproject.learningapp.fragments.Quiz1Fragment;
@@ -31,9 +30,7 @@ public class Quiz1Activity extends AppCompatActivity {
         else if ( GlobalVariables.QUIZID=="qIamge4"){
             GoToFragment(new Q4Fragment());
         }
-        else if(GlobalVariables.QUIZID=="qIamge5"){
-            GoToFragment(new Q5Fragment());
-        }
+
         else if(GlobalVariables.QUIZID=="qIamge6"){
 
             GoToFragment(new Q6Fragment());

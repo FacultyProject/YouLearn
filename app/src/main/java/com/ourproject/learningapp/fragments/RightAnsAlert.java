@@ -36,7 +36,7 @@ public class RightAnsAlert extends DialogFragment {
         builder.setView(view);
 
         if (GlobalVariables.QuizCompleted) {
-            Q5Fragment.COUNT = 0;
+
             GlobalVariables.QuizCompleted=false;
             textView1.setText("أكتمل الاختبار");
             textView2.setText("");
