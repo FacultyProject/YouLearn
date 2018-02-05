@@ -25,6 +25,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.ourproject.learningapp.R;
 import com.ourproject.learningapp.activities.MainActivity;
 import com.ourproject.learningapp.dataStorage.SharedPref;
+import com.ourproject.learningapp.globals.GlobalVariables;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -83,14 +84,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
 
         new SharedPref(getContext()).SaveItem("UserId",EMAIL.substring(0, EMAIL.indexOf('@')));
 
-        if(TextUtils.isEmpty(EMAIL)){
-            Toast.makeText(getContext(),"Enter email",Toast.LENGTH_LONG).show();
-            return;
-        }
-        if(TextUtils.isEmpty(PASSWORD)){
-            Toast.makeText(getContext(),"Enter password",Toast.LENGTH_LONG).show();
-            return;
-        }
+
         progressDialog.setMessage("Registering ...");
         progressDialog.show();
 
@@ -121,7 +115,11 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
     public void onClick(View view) {
 
         if(view == Signin){
-            UserLogin();
+            try {
+                UserLogin();
+            } catch (Exception e) {
+                GlobalVariables.message(getContext(),"Enter valid information");
+            }
         }
         if(view == Signup){
 

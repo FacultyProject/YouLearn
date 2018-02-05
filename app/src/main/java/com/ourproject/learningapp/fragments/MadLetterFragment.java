@@ -52,10 +52,10 @@ public class MadLetterFragment extends Fragment {
         for (int i = 0; i< letterSection.length; i++) {
             MadModel madModel=new MadModel();
             madModel.setLetterSection(letterSection[i]+bundle.get("letterI"));
-            if (GlobalVariables.MAD_LETTER=="Alf") {
+            if (GlobalVariables.MAD_LETTER.equals("Alf")) {
                 madModel.setSectionSound(letter1Sounds[i]);
             }
-            else if (GlobalVariables.MAD_LETTER=="Waw") {
+            else if (GlobalVariables.MAD_LETTER.equals("Waw")) {
                 madModel.setSectionSound(letter2Sounds[i]);
             }
             else {

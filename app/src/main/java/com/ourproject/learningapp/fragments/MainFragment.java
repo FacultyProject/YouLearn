@@ -79,7 +79,7 @@ public class MainFragment extends Fragment {
     private ProgressDialog progressDialog;
     ImageView ProfImage;
     private Firebase mCheck;
-
+    List<String> finalArray;
     public MainFragment() {
         // Required empty public constructor
     }
@@ -93,7 +93,6 @@ public class MainFragment extends Fragment {
 
 
         if (firebaseAuth.getCurrentUser() == null) {
-            GlobalVariables.message(getContext(),"cdcd");
             getActivity().finish();
             startActivity(new Intent(getActivity(), RegisteringActivity.class));
 
@@ -122,23 +121,7 @@ public class MainFragment extends Fragment {
         }
         downloadManager = (DownloadManager) getActivity().getSystemService(Context.DOWNLOAD_SERVICE);
 
-        List<String> finalArray = new ArrayList<>();
-        Collections.addAll(finalArray, getResources().getStringArray(R.array.lettersImages1));
-        Collections.addAll(finalArray, getResources().getStringArray(R.array.lettersImages2));
-        Collections.addAll(finalArray, getResources().getStringArray(R.array.lettersImages3));
-        Collections.addAll(finalArray, getResources().getStringArray(R.array.lettersSounds));
-        Collections.addAll(finalArray, getResources().getStringArray(R.array.PicSounds1));
-        Collections.addAll(finalArray, getResources().getStringArray(R.array.PicSounds2));
-        Collections.addAll(finalArray, getResources().getStringArray(R.array.PicSounds3));
-        Collections.addAll(finalArray, getResources().getStringArray(R.array.DamPics));
-        Collections.addAll(finalArray, getResources().getStringArray(R.array.FathPics));
-        Collections.addAll(finalArray, getResources().getStringArray(R.array.KasrPics));
-        Collections.addAll(finalArray, getResources().getStringArray(R.array.damsound));
-        Collections.addAll(finalArray, getResources().getStringArray(R.array.fathsound));
-        Collections.addAll(finalArray, getResources().getStringArray(R.array.kasrsound));
-        Collections.addAll(finalArray, getResources().getStringArray(R.array.MadBelAlfSounds));
-        Collections.addAll(finalArray, getResources().getStringArray(R.array.MadBelWawSounds));
-        Collections.addAll(finalArray, getResources().getStringArray(R.array.MadBelYaaSounds));
+        AddUrlsToArrary();
 
         allFiles = finalArray.toArray(new String[finalArray.size()]);
         toolbar = (Toolbar) view.findViewById(R.id.app_bar);
@@ -150,6 +133,7 @@ public class MainFragment extends Fragment {
 
         View view1 = navigationView.getHeaderView(0);
         final TextView tView = (TextView) view1.findViewById(R.id.user);
+        tView.setText( new SharedPref(getActivity()).GetItem("UserName"));
         ProfImage = (ImageView) view1.findViewById(R.id.userpic);
         ProfImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -160,15 +144,18 @@ public class MainFragment extends Fragment {
         });
         final StorageReference filepath2 = storageReference.child("usersProfilePic/" + GlobalVariables.getUserId() + ".jpg");
 
-
         mCheck.child("check").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                String Userchekc = (String) dataSnapshot.getValue();
-                if (Integer.parseInt(Userchekc) == -1) {
+                String UserCheck = (String) dataSnapshot.getValue();
+                if (UserCheck != null) {
+                    if (Integer.parseInt(UserCheck) == -1) {
+                        ProfImage.setImageResource(R.drawable.avatar);
+                    } else
+                        Glide.with(getActivity()).using(new FirebaseImageLoader()).load(filepath2).into(ProfImage);
+                } else {
                     ProfImage.setImageResource(R.drawable.avatar);
-                } else
-                    Glide.with(getActivity()).using(new FirebaseImageLoader()).load(filepath2).into(ProfImage);
+                }
             }
 
             @Override
@@ -178,8 +165,6 @@ public class MainFragment extends Fragment {
         });
         IntentFilter filter = new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE);
         getActivity().registerReceiver(downloadReceiver, filter);
-
-        tView.setText( new SharedPref(getActivity()).GetItem("UserName"));
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -220,9 +205,7 @@ public class MainFragment extends Fragment {
                     }
                     break;
                     case R.id.mLogout: {
-                        firebaseAuth.signOut();
-                        getActivity().finish();
-                        startActivity(new Intent(getActivity(), RegisteringActivity.class));
+                        Logout();
                     }
                     break;
                 }
@@ -244,6 +227,32 @@ public class MainFragment extends Fragment {
         TabListnerAPIlessthan24();
 
         return view;
+    }
+
+    private void AddUrlsToArrary() {
+        finalArray = new ArrayList<>();
+        Collections.addAll(finalArray, getResources().getStringArray(R.array.lettersImages1));
+        Collections.addAll(finalArray, getResources().getStringArray(R.array.lettersImages2));
+        Collections.addAll(finalArray, getResources().getStringArray(R.array.lettersImages3));
+        Collections.addAll(finalArray, getResources().getStringArray(R.array.lettersSounds));
+        Collections.addAll(finalArray, getResources().getStringArray(R.array.PicSounds1));
+        Collections.addAll(finalArray, getResources().getStringArray(R.array.PicSounds2));
+        Collections.addAll(finalArray, getResources().getStringArray(R.array.PicSounds3));
+        Collections.addAll(finalArray, getResources().getStringArray(R.array.DamPics));
+        Collections.addAll(finalArray, getResources().getStringArray(R.array.FathPics));
+        Collections.addAll(finalArray, getResources().getStringArray(R.array.KasrPics));
+        Collections.addAll(finalArray, getResources().getStringArray(R.array.damsound));
+        Collections.addAll(finalArray, getResources().getStringArray(R.array.fathsound));
+        Collections.addAll(finalArray, getResources().getStringArray(R.array.kasrsound));
+        Collections.addAll(finalArray, getResources().getStringArray(R.array.MadBelAlfSounds));
+        Collections.addAll(finalArray, getResources().getStringArray(R.array.MadBelWawSounds));
+        Collections.addAll(finalArray, getResources().getStringArray(R.array.MadBelYaaSounds));
+    }
+
+    private void Logout() {
+        firebaseAuth.signOut();
+        getActivity().finish();
+        startActivity(new Intent(getActivity(), RegisteringActivity.class));
     }
 
     @Override

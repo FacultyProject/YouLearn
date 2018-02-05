@@ -22,7 +22,6 @@ public class Fragment3 extends Fragment {
 
     private CardView SelfTestCard ,cardView2;
 
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable final Bundle savedInstanceState) {

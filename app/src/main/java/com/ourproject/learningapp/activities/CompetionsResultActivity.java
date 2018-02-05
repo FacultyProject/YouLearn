@@ -44,45 +44,47 @@ public class CompetionsResultActivity extends AppCompatActivity {
         ResultsList.setHasFixedSize(true);
         ResultsList.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
 
-        FirebaseRecyclerAdapter<ScoreInfo,ScoreHolder> firebaseRecyclerAdapter =
-                new FirebaseRecyclerAdapter<ScoreInfo, ScoreHolder>(
-                 ScoreInfo.class,
-                        R.layout.result_row
-                        ,ScoreHolder.class
-                        ,mDatabase
-        ) {
-            @Override
-            protected void populateViewHolder(ScoreHolder viewHolder, final ScoreInfo model, final int position) {
+        if (mDatabase != null) {
+            FirebaseRecyclerAdapter<ScoreInfo,ScoreHolder> firebaseRecyclerAdapter =
+                    new FirebaseRecyclerAdapter<ScoreInfo, ScoreHolder>(
+                     ScoreInfo.class,
+                            R.layout.result_row
+                            ,ScoreHolder.class
+                            ,mDatabase
+            ) {
+                @Override
+                protected void populateViewHolder(ScoreHolder viewHolder, final ScoreInfo model, final int position) {
 
-                viewHolder.uName.setText(model.getCompetitorName());
+                    viewHolder.uName.setText(model.getCompetitorName());
 
 
-                if (model.getUserScore() != null && model.getCompetitorScore() != null){
-                    if (Integer.parseInt(model.getUserScore()) == -1)
-                        viewHolder.Result.setText(model.getCompetitorScore() + " : " + "-");
-                    else if (Integer.parseInt(model.getCompetitorScore()) == -1)
-                        viewHolder.Result.setText("-" + " : " + model.getUserScore());
-                    else
-                        viewHolder.Result.setText(model.getCompetitorScore() + " : " + model.getUserScore());
-            }
+                    if (model.getUserScore() != null && model.getCompetitorScore() != null){
+                        if (Integer.parseInt(model.getUserScore()) == -1)
+                            viewHolder.Result.setText(model.getCompetitorScore() + " : " + "-");
+                        else if (Integer.parseInt(model.getCompetitorScore()) == -1)
+                            viewHolder.Result.setText("-" + " : " + model.getUserScore());
+                        else
+                            viewHolder.Result.setText(model.getCompetitorScore() + " : " + model.getUserScore());
+                }
 
-                viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        DatabaseReference KeyRef = getRef(position);
+                    viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            DatabaseReference KeyRef = getRef(position);
 
-                        String Key = KeyRef.getKey();
-                        new SharedPref(getApplicationContext()).SaveItem("ChallengeKey",Key);
-                        new SharedPref(getApplicationContext()).SaveItem("CompetitorId",model.getCompetitorId());
-                        if(Integer.parseInt(model.getUserScore()) == -1) {
-                            GlobalVariables.ChallangeMode = true;
-                            startActivity(new Intent(getApplicationContext(), SelfTestActivity.class));
+                            String Key = KeyRef.getKey();
+                            new SharedPref(getApplicationContext()).SaveItem("ChallengeKey",Key);
+                            new SharedPref(getApplicationContext()).SaveItem("CompetitorId",model.getCompetitorId());
+                            if(Integer.parseInt(model.getUserScore()) == -1) {
+                                GlobalVariables.ChallangeMode = true;
+                                startActivity(new Intent(getApplicationContext(), SelfTestActivity.class));
+                            }
                         }
-                    }
-                });
-            }
-        };
-        ResultsList.setAdapter(firebaseRecyclerAdapter);
+                    });
+                }
+            };
+            ResultsList.setAdapter(firebaseRecyclerAdapter);
+        }
 
     }
 
@@ -93,7 +95,6 @@ public class CompetionsResultActivity extends AppCompatActivity {
 
         public ScoreHolder(View itemView) {
             super(itemView);
-
 
             uName = (TextView) itemView.findViewById(R.id.chUser);
             Result = (TextView) itemView.findViewById(R.id.usersScore);

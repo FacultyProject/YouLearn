@@ -27,6 +27,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.ourproject.learningapp.R;
 import com.ourproject.learningapp.activities.MainActivity;
 import com.ourproject.learningapp.dataStorage.SharedPref;
+import com.ourproject.learningapp.globals.GlobalVariables;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -57,8 +58,6 @@ public class SignupFragment extends Fragment implements View.OnClickListener {
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
-
-
         progressDialog=new ProgressDialog(getContext());
         if(firebaseAuth.getCurrentUser() != null){
             getActivity().finish();
@@ -83,14 +82,7 @@ public class SignupFragment extends Fragment implements View.OnClickListener {
         String PASSWORD=password.getText().toString().trim();
 
         new SharedPref(getContext()).SaveItem("UserId",EMAIL.substring(0, EMAIL.indexOf('@')));
-        if(TextUtils.isEmpty(EMAIL)){
-            Toast.makeText(getContext(),"Enter email",Toast.LENGTH_LONG).show();
-            return;
-        }
-        if(TextUtils.isEmpty(PASSWORD)){
-            Toast.makeText(getContext(),"Enter password",Toast.LENGTH_LONG).show();
-            return;
-        }
+
         progressDialog.setMessage("Registering ...");
         progressDialog.show();
 
@@ -125,7 +117,11 @@ public class SignupFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View view) {
         if(view == Regiter){
-            RegiterUser();
+            try {
+                RegiterUser();
+            } catch (Exception e) {
+                GlobalVariables.message(getContext(),"Enter valid information");
+            }
         }
         if(view==signin){
             getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.Register,new LoginFragment())
